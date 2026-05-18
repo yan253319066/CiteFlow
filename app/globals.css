@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #050816;
+  --color-foreground: #ffffff;
+  
+  --color-primary: #6E7BFF;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #8B5CF6;
+  --color-secondary-foreground: #ffffff;
+
+  --color-accent: #6E7BFF;
+  --color-accent-foreground: #ffffff;
+
+  --color-muted: #0A0F24;
+  --color-muted-foreground: #94a3b8;
+
+  --color-card: rgba(10, 15, 36, 0.6);
+  --color-card-foreground: #ffffff;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(10, 15, 36, 0.8);
+  --color-ring: #6E7BFF;
+
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  * {
+    @apply border-border;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-[#6E7BFF] to-[#8B5CF6];
+}
+
+.hero-title {
+  @apply text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 leading-[1.1];
+}
+
+.glow-subtle {
+  box-shadow: 0 0 40px -10px rgba(110, 123, 255, 0.2);
+}
+
+.glass {
+  @apply bg-[#0A0F24]/60 backdrop-blur-xl border border-white/10;
+}
+

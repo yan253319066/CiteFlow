@@ -1,0 +1,17 @@
+# CiteFlow AI Visibility Platform
+
+CiteFlow helps websites optimize their structure and content for Large Language Models (LLMs) and Generative Search Engines.
+
+## Core Features
+- AI Visibility Scoring
+- FAQ Schema Generation
+- Semantic Entity Mapping
+- LLM Training Data Optimization
+
+## Documentation
+- GEO Guide: /blog/geo-guide
+- API Docs: /api/docs (Coming Soon)
+
+## Contact
+- Support: support@citeflow.ai
+- Twitter: @citeflow
