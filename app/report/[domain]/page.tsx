@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
-import { AlertTriangle, ArrowLeft, Lightbulb } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -11,10 +11,13 @@ interface ReportData {
   suggestions: string[];
   summary: string;
   provider?: string;
+  sessionToken?: string;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ domain: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: { params: Promise<{ domain: string }>; searchParams: Promise<{ [key: string]: string | string[] | undefined }> }): Promise<Metadata> {
   const { domain } = await params;
+  const { token } = await searchParams;
+  if (!token) return { title: `Verification Required - CiteFlow` };
   const title = `CiteFlow Report for ${domain}`;
   return {
     title,
@@ -26,34 +29,31 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
   };
 }
 
-async function getReport(domain: string): Promise<ReportData | null> {
+async function getReport(domain: string, token: string): Promise<ReportData | null> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  console.log(`[getReport] fetching ${base}/api/analyze for domain=${domain}`);
-  const res = await fetch(`${base}/api/analyze`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url: domain }),
-    cache: 'no-store',
-  });
-  console.log(`[getReport] response status=${res.status}`);
-  if (!res.ok) {
-    const text = await res.text();
-    console.error(`[getReport] error body=${text}`);
+  try {
+    const res = await fetch(`${base}/api/analyze`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: domain, token }),
+      cache: 'no-store',
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
+    return {
+      score: norm(data.score, norm(data.overall_visibility_score, 0)),
+      breakdown: norm(data.breakdown, norm(data.breakdown_scores, { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 })),
+      missing: norm(data.missing, norm(data.missing_components, [])),
+      suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
+      summary: norm(data.summary, ''),
+      provider: data.provider as string | undefined,
+      sessionToken: data.sessionToken as string | undefined,
+    };
+  } catch (e) {
+    console.error('[getReport] error:', e);
     return null;
   }
-  const data = await res.json();
-  console.log(`[getReport] raw data keys=${Object.keys(data)}`);
-  const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
-  const result = {
-    score: norm(data.score, norm(data.overall_visibility_score, 0)),
-    breakdown: norm(data.breakdown, norm(data.breakdown_scores, { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 })),
-    missing: norm(data.missing, norm(data.missing_components, [])),
-    suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
-    summary: norm(data.summary, ''),
-    provider: data.provider,
-  };
-  console.log(`[getReport] result score=${result.score} missing=${result.missing.length} suggestions=${result.suggestions.length}`);
-  return result;
 }
 
 function StatMini({ label, value }: { label: string; value: number }) {
@@ -70,9 +70,25 @@ function StatMini({ label, value }: { label: string; value: number }) {
   );
 }
 
-export default async function ReportPage({ params }: { params: Promise<{ domain: string }> }) {
+export default async function ReportPage({ params, searchParams }: { params: Promise<{ domain: string }>; searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const { domain } = await params;
-  const report = await getReport(domain);
+  const { token } = await searchParams;
+
+  if (!token || typeof token !== 'string') {
+    return (
+      <main className="min-h-screen">
+        <Navbar />
+        <div className="pt-32 px-6 max-w-5xl mx-auto text-center">
+          <ShieldAlert className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
+          <h1 className="text-3xl font-bold mb-4">Verification Required</h1>
+          <p className="text-muted-foreground mb-8">Please complete the CAPTCHA on the home page before viewing a report.</p>
+          <Link href="/" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block">Go to Home</Link>
+        </div>
+      </main>
+    );
+  }
+
+  const report = await getReport(domain, token);
 
   if (!report) {
     return (
@@ -89,41 +105,50 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
   }
 
   return (
-    <main className="min-h-screen pb-20 overflow-x-hidden">
-      <Navbar />
-      <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />
-      <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
-      <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"><ArrowLeft className="w-4 h-4" />Back to Dashboard</Link>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
-          <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[360px]">
-            <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mb-8">
-              <div className="absolute inset-0 rounded-full" style={{ background: `conic-gradient(#6E7BFF ${report.score}%, #8B5CF6 ${report.score}%, rgba(255,255,255,0.07) 0)` }} />
-              <div className="w-40 h-40 rounded-full bg-[#0A0F24] border border-white/10 flex flex-col items-center justify-center z-10">
-                <span className="text-6xl font-black text-white">{report.score}</span>
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Overall</span>
+    <>
+      {report.sessionToken && (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__cf_token='${report.sessionToken}'`,
+          }}
+        />
+      )}
+      <main className="min-h-screen pb-20 overflow-x-hidden">
+        <Navbar />
+        <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />
+        <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
+        <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"><ArrowLeft className="w-4 h-4" />Back to Dashboard</Link>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+            <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[360px]">
+              <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mb-8">
+                <div className="absolute inset-0 rounded-full" style={{ background: `conic-gradient(#6E7BFF ${report.score}%, #8B5CF6 ${report.score}%, rgba(255,255,255,0.07) 0)` }} />
+                <div className="w-40 h-40 rounded-full bg-[#0A0F24] border border-white/10 flex flex-col items-center justify-center z-10">
+                  <span className="text-6xl font-black text-white">{report.score}</span>
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Overall</span>
+                </div>
               </div>
+            </Card>
+            <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8">
+                <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2"><AlertTriangle className="w-4 h-4 text-yellow-500/80" />Missing Components</h3>
+                <ul className="space-y-4">{report.missing.slice(0, 5).map((item, i) => <li key={i} className="text-sm text-white">• {item}</li>)}</ul>
+              </Card>
+              <Card className="bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8">
+                <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2"><Lightbulb className="w-4 h-4 text-[#6E7BFF]" />AI Suggestions</h3>
+                <ul className="space-y-4">{report.suggestions.slice(0, 5).map((item, i) => <li key={i} className="text-sm text-white">• {item}</li>)}</ul>
+              </Card>
             </div>
-          </Card>
-          <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8">
-              <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2"><AlertTriangle className="w-4 h-4 text-yellow-500/80" />Missing Components</h3>
-              <ul className="space-y-4">{report.missing.slice(0, 5).map((item, i) => <li key={i} className="text-sm text-white">• {item}</li>)}</ul>
-            </Card>
-            <Card className="bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8">
-              <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2"><Lightbulb className="w-4 h-4 text-[#6E7BFF]" />AI Suggestions</h3>
-              <ul className="space-y-4">{report.suggestions.slice(0, 5).map((item, i) => <li key={i} className="text-sm text-white">• {item}</li>)}</ul>
-            </Card>
+          </div>
+          <Card className="bg-gradient-to-r from-[#6E7BFF]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mb-8"><p className="text-sm text-slate-300 leading-relaxed">{report.summary}</p></Card>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <StatMini label="AI Visibility" value={report.breakdown.aiVisibility} />
+            <StatMini label="FAQ Coverage" value={report.breakdown.faqCoverage} />
+            <StatMini label="Entity Clarity" value={report.breakdown.entityClarity} />
+            <StatMini label="Authority" value={report.breakdown.authority} />
           </div>
         </div>
-        <Card className="bg-gradient-to-r from-[#6E7BFF]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mb-8"><p className="text-sm text-slate-300 leading-relaxed">{report.summary}</p></Card>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <StatMini label="AI Visibility" value={report.breakdown.aiVisibility} />
-          <StatMini label="FAQ Coverage" value={report.breakdown.faqCoverage} />
-          <StatMini label="Entity Clarity" value={report.breakdown.entityClarity} />
-          <StatMini label="Authority" value={report.breakdown.authority} />
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

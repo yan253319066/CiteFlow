@@ -1,22 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import { Sparkles, Loader2 } from 'lucide-react';
+import { TurnstileWidget } from './TurnstileWidget';
+
+declare global {
+  interface Window { __cf_token?: string }
+}
 
 export function Hero() {
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(() => {
+    if (typeof window !== 'undefined') return window.__cf_token ?? null;
+    return null;
+  });
+  const [sessionChecked, setSessionChecked] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (window.__cf_token) setTurnstileToken(window.__cf_token);
+    setSessionChecked(true);
+  }, []);
 
   const handleAnalyze = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!url || isLoading) return;
+    if (!url || isLoading || !turnstileToken) return;
     const domain = url.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
     setIsLoading(true);
-    router.push(`/report/${domain}`);
+    router.push(`/report/${domain}?token=${turnstileToken}`);
   };
+
+  const showTurnstile = sessionChecked && !turnstileToken;
 
   return (
     <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-[70vh] flex flex-col justify-center">
@@ -41,8 +58,13 @@ export function Hero() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-2xl md:rounded-full blur opacity-20" />
           <div className="relative flex flex-col md:flex-row bg-[#0A0F24] border border-white/10 rounded-2xl md:rounded-full p-2 md:pl-6 shadow-2xl gap-2 md:gap-0">
             <input type="text" placeholder="Enter website URL (e.g. acme.com)" className="bg-transparent flex-1 outline-none text-sm font-medium text-white placeholder:text-slate-500 py-3 px-4 md:py-0 md:px-0" value={url} onChange={(e) => setUrl(e.target.value)} />
-            <button type="submit" disabled={isLoading} className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl md:rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full md:w-auto inline-flex items-center justify-center gap-2">{isLoading ? <><Loader2 className="w-4 h-4 animate-spin" />Analyzing...</> : 'Analyze Site'}</button>
+            <button type="submit" disabled={isLoading || !turnstileToken} className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl md:rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full md:w-auto inline-flex items-center justify-center gap-2">{isLoading ? <><Loader2 className="w-4 h-4 animate-spin" />Analyzing...</> : 'Analyze Site'}</button>
           </div>
+          {showTurnstile && (
+            <div className="flex justify-center mt-4">
+              <TurnstileWidget onVerify={(token) => { window.__cf_token = token; setTurnstileToken(token); }} />
+            </div>
+          )}
         </motion.form>
       </div>
     </section>

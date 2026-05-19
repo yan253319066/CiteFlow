@@ -1,141 +1,58 @@
-import { ai } from "@/lib/gemini";
-import { ANALYZE_PROMPT, getProvider } from "@/lib/ai-provider";
+import { analyzeSite } from "@/lib/analyze";
 import { NextRequest, NextResponse } from "next/server";
-import { Type } from "@google/genai";
+import { createHmac } from "crypto";
 
-async function analyzeWithGemini(url: string) {
-  const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: ANALYZE_PROMPT(url),
-    config: {
-      responseMimeType: "application/json",
-      responseSchema: {
-        type: Type.OBJECT,
-        required: ["score", "breakdown", "missing", "suggestions", "summary"],
-        properties: {
-          score: { type: Type.NUMBER },
-          breakdown: {
-            type: Type.OBJECT,
-            required: ["aiVisibility", "faqCoverage", "entityClarity", "authority"],
-            properties: {
-              aiVisibility: { type: Type.NUMBER },
-              faqCoverage: { type: Type.NUMBER },
-              entityClarity: { type: Type.NUMBER },
-              authority: { type: Type.NUMBER },
-            },
-          },
-          missing: { type: Type.ARRAY, items: { type: Type.STRING } },
-          suggestions: { type: Type.ARRAY, items: { type: Type.STRING } },
-          summary: { type: Type.STRING },
-        },
-      },
-    },
-  });
+const SESSION_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
-  return JSON.parse(response.text || "{}");
+function createSessionToken(): string {
+  const secret = process.env.SESSION_SECRET || process.env.TURNSTILE_SECRET_KEY || "fallback";
+  const expiresAt = Date.now() + SESSION_TTL;
+  const sig = createHmac("sha256", secret).update(String(expiresAt)).digest("hex");
+  return `${expiresAt}.${sig}`;
 }
 
-async function analyzeWithOpenAI(url: string) {
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error("OPENAI_API_KEY missing");
-
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: "You are a GEO analysis assistant. Output valid JSON only." },
-        { role: "user", content: ANALYZE_PROMPT(url) },
-      ],
-      temperature: 0.2,
-    }),
-  });
-
-  if (!res.ok) throw new Error(`OpenAI failed: ${res.status}`);
-  const data = await res.json();
-  const content = data?.choices?.[0]?.message?.content || "{}";
-  return JSON.parse(content);
-}
-
-async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<string, unknown>> {
-  const key = process.env.DEEPSEEK_API_KEY;
-  if (!key) throw new Error("DEEPSEEK_API_KEY missing");
-
-  const body = {
-    model: "deepseek-v4-flash",
-    response_format: { type: "json_object" } as const,
-    messages: [
-      { role: "system" as const, content: "You are a GEO analysis assistant. Always output valid JSON using the json format." },
-      { role: "user" as const, content: ANALYZE_PROMPT(url) },
-    ],
-    temperature: 0.2,
-    max_tokens: 2048,
-  };
-
-  console.log(`[Deepseek] Request model=deepseek-v4-flash url=${url} retries=${retries}`);
-  const res = await fetch("https://api.deepseek.com/chat/completions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify(body),
-  });
-
-  console.log(`[Deepseek] Response status=${res.status} ${res.statusText}`);
-  if (!res.ok) {
-    const text = await res.text();
-    console.error(`[Deepseek] Error body: ${text}`);
-    throw new Error(`Deepseek failed: ${res.status} ${text}`);
-  }
-  const data = await res.json();
-  console.log(`[Deepseek] Raw response keys=${Object.keys(data)} choices=${data?.choices?.length}`);
-  console.log(`[Deepseek] Finish reason: ${data?.choices?.[0]?.finish_reason}`);
-  const content = data?.choices?.[0]?.message?.content?.trim();
-  console.log(`[Deepseek] Content length=${content?.length ?? 0} content_preview=${content?.slice(0, 200) ?? "(empty)"}`);
-
-  if (!content && retries > 0) {
-    console.log(`[Deepseek] Empty content, retrying (${retries} left)`);
-    return analyzeWithDeepseek(url, retries - 1);
-  }
-  if (!content) {
-    console.warn(`[Deepseek] Empty content, no retries left, returning {}`);
-    return {};
-  }
-
+function verifySessionToken(token: string): boolean {
   try {
-    const parsed = JSON.parse(content);
-    console.log(`[Deepseek] Parsed OK keys=${Object.keys(parsed)}`);
-    return parsed;
-  } catch (e) {
-    console.error(`[Deepseek] JSON parse error: ${e}`);
-    if (retries > 0) {
-      console.log(`[Deepseek] Retrying after parse error (${retries} left)`);
-      return analyzeWithDeepseek(url, retries - 1);
-    }
-    return {};
+    const [expiresAt, sig] = token.split(".");
+    const secret = process.env.SESSION_SECRET || process.env.TURNSTILE_SECRET_KEY || "fallback";
+    const expected = createHmac("sha256", secret).update(expiresAt).digest("hex");
+    return sig === expected && parseInt(expiresAt) > Date.now();
+  } catch {
+    return false;
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const { url } = await req.json();
+    const { url, token } = await req.json();
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
-    const activeProvider = getProvider();
-    console.log(`[POST] provider=${activeProvider} url=${url}`);
+    let verified = false;
 
-    const report =
-      activeProvider === "gemini"
-        ? await analyzeWithGemini(url)
-        : activeProvider === "deepseek"
-          ? await analyzeWithDeepseek(url)
-          : await analyzeWithOpenAI(url);
+    if (token) {
+      if (verifySessionToken(token)) {
+        verified = true;
+      } else {
+        const secret = process.env.TURNSTILE_SECRET_KEY;
+        if (!secret) return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
 
-    console.log(`[POST] report keys=${Object.keys(report)}`);
-    return NextResponse.json({ ...report, provider: activeProvider });
+        const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ secret, response: token }),
+        });
+        const verifyData = await verifyRes.json();
+        if (verifyData.success) verified = true;
+      }
+    }
+
+    if (!verified) {
+      return NextResponse.json({ error: "CAPTCHA verification required" }, { status: 403 });
+    }
+
+    const report = await analyzeSite(url);
+    const sessionToken = createSessionToken();
+    return NextResponse.json({ ...report, sessionToken });
   } catch (error: any) {
     console.error(`[POST] Error: ${error?.message}`, error?.stack);
     return NextResponse.json({ error: "Failed to analyze site", detail: error?.message }, { status: 500 });
