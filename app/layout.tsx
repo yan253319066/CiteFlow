@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import Script from "next/script";
 import { headers } from "next/headers";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <div className="flex-1">{children}</div>
         <Footer />
         <Analytics />
+        <SpeedInsights />
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           nonce={nonce}
