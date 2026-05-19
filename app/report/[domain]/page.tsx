@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { analyzeSite } from '@/lib/analyze';
 import { createSessionToken, verifyAnalysisToken } from '@/lib/verification';
+import { SessionTokenBridge } from '@/components/SessionTokenBridge';
 
 export const maxDuration = 60;
 
@@ -104,13 +105,7 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
 
   return (
     <>
-      {report.sessionToken && (
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.__cf_token='${report.sessionToken}'`,
-          }}
-        />
-      )}
+      {report.sessionToken && <SessionTokenBridge token={report.sessionToken} />}
       <main className="min-h-screen pb-20 overflow-x-hidden">
         <Navbar />
         <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />

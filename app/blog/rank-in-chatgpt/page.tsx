@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Script from 'next/script';
 import Link from 'next/link';
 import { Navbar } from '@/components/Navbar';
 
@@ -11,11 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const faq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: 'Can you optimize content for ChatGPT citations?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Structure content around entities, comparisons, and structured data to increase citation probability.' } },
-    { '@type': 'Question', name: 'What is the fastest way to get cited by an LLM?', acceptedAnswer: { '@type': 'Answer', text: 'Create comparison pages and FAQ content with Schema.org markup. These are the most reliably cited formats.' } }
-  ] };
-  return <main className="min-h-screen pb-20"><Script id="faq" type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faq)}}/><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
+  return <main className="min-h-screen pb-20"><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
     <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-12">
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
       Back to Articles
