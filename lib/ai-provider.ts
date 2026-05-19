@@ -1,7 +1,7 @@
-export type AIProvider = 'gemini' | 'openai';
+export type AIProvider = 'gemini' | 'openai' | 'deepseek';
 
 export function getProvider(input?: string | null): AIProvider {
-  if (input === 'openai' || input === 'gemini') return input;
+  if (input === 'openai' || input === 'gemini' || input === 'deepseek') return input;
   return (process.env.AI_PROVIDER_DEFAULT as AIProvider) || 'openai';
 }
 

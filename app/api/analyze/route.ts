@@ -62,13 +62,45 @@ async function analyzeWithOpenAI(url: string) {
   return JSON.parse(content);
 }
 
+async function analyzeWithDeepseek(url: string) {
+  const key = process.env.DEEPSEEK_API_KEY;
+  if (!key) throw new Error("DEEPSEEK_API_KEY missing");
+
+  const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      model: "deepseek-chat",
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: "You are a GEO analysis assistant. Output valid JSON only." },
+        { role: "user", content: ANALYZE_PROMPT(url) },
+      ],
+      temperature: 0.2,
+    }),
+  });
+
+  if (!res.ok) throw new Error(`Deepseek failed: ${res.status}`);
+  const data = await res.json();
+  const content = data?.choices?.[0]?.message?.content || "{}";
+  return JSON.parse(content);
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { url } = await req.json();
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
     const activeProvider = getProvider();
-    const report = activeProvider === "gemini" ? await analyzeWithGemini(url) : await analyzeWithOpenAI(url);
+    const report =
+      activeProvider === "gemini"
+        ? await analyzeWithGemini(url)
+        : activeProvider === "deepseek"
+          ? await analyzeWithDeepseek(url)
+          : await analyzeWithOpenAI(url);
     return NextResponse.json({ ...report, provider: activeProvider });
   } catch (error: any) {
     return NextResponse.json({ error: "Failed to analyze site", detail: error?.message }, { status: 500 });

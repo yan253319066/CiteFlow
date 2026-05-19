@@ -35,7 +35,15 @@ async function getReport(domain: string): Promise<ReportData | null> {
     cache: 'no-store',
   });
   if (!res.ok) return null;
-  return res.json();
+  const data = await res.json();
+  return {
+    score: data.score ?? 0,
+    breakdown: data.breakdown ?? { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 },
+    missing: data.missing ?? [],
+    suggestions: data.suggestions ?? [],
+    summary: data.summary ?? '',
+    provider: data.provider,
+  };
 }
 
 function StatMini({ label, value }: { label: string; value: number }) {
