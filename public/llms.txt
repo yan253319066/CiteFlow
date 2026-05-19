@@ -13,5 +13,5 @@ CiteFlow helps websites optimize their structure and content for Large Language 
 - API Docs: /api/docs (Coming Soon)
 
 ## Contact
-- Support: support@citeflow.ai
+- Support: support@getciteflow.ai
 - Twitter: @citeflow

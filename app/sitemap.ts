@@ -17,7 +17,7 @@ const pages = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return pages.map((path) => ({
-    url: `https://citeflow.ai${path}`,
+    url: `https://getciteflow.ai${path}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: path === '' ? 1 : 0.8,

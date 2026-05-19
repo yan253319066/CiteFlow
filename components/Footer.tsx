@@ -47,7 +47,7 @@ export function Footer() {
               <Link href="https://github.com" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
                 <Github className="w-5 h-5" />
               </Link>
-              <Link href="mailto:support@citeflow.ai" className="text-slate-400 hover:text-primary transition-colors">
+              <Link href="mailto:support@getciteflow.ai" className="text-slate-400 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
               </Link>
             </div>

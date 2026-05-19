@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'How to Get Cited by ChatGPT | CiteFlow',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   keywords: ['chatgpt citations', 'geo', 'ai visibility'],
-  alternates: { canonical: 'https://citeflow.ai/blog/rank-in-chatgpt' },
+  alternates: { canonical: 'https://getciteflow.ai/blog/rank-in-chatgpt' },
 };
 
 export default function Page() {

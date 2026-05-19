@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
     title,
     description: `AI visibility report and GEO suggestions for ${domain}.`,
     keywords: ['AI Visibility', 'GEO', 'ChatGPT SEO', domain],
-    alternates: { canonical: `https://citeflow.ai/report/${domain}` },
+    alternates: { canonical: `https://getciteflow.ai/report/${domain}` },
     twitter: { card: 'summary_large_image', title, description: `GEO score report for ${domain}` },
-    openGraph: { title, description: `GEO score report for ${domain}`, url: `https://citeflow.ai/report/${domain}` },
+    openGraph: { title, description: `GEO score report for ${domain}`, url: `https://getciteflow.ai/report/${domain}` },
   };
 }
 

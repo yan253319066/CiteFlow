@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://citeflow.ai'),
+  metadataBase: new URL('https://getciteflow.ai'),
   title: "CiteFlow | Get Mentioned by AI",
   description: "Identify and optimize your website's visibility in ChatGPT, Gemini, and AI Search results.",
   keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI'],

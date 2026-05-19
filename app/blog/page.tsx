@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'CiteFlow Blog | AI Search & GEO',
   description: 'Guides about AI Search, GEO, and AI visibility growth.',
   keywords: ['GEO guide', 'ChatGPT SEO', 'AI visibility'],
-  alternates: { canonical: 'https://citeflow.ai/blog' },
+  alternates: { canonical: 'https://getciteflow.ai/blog' },
 };
 
 const posts = [
