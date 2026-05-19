@@ -64,10 +64,10 @@ async function analyzeWithOpenAI(url: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { url, provider } = await req.json();
+    const { url } = await req.json();
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
-    const activeProvider = getProvider(provider);
+    const activeProvider = getProvider();
     const report = activeProvider === "gemini" ? await analyzeWithGemini(url) : await analyzeWithOpenAI(url);
     return NextResponse.json({ ...report, provider: activeProvider });
   } catch (error: any) {

@@ -7,14 +7,13 @@ import { Sparkles } from 'lucide-react';
 
 export function Hero() {
   const [url, setUrl] = useState('');
-  const [provider, setProvider] = useState<'openai' | 'gemini'>('openai');
   const router = useRouter();
 
   const handleAnalyze = (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
     const domain = url.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
-    router.push(`/report/${domain}?provider=${provider}`);
+    router.push(`/report/${domain}`);
   };
 
   return (
@@ -35,11 +34,6 @@ export function Hero() {
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-8">
           Analyze and optimize your website for ChatGPT, Gemini and AI Search.
         </motion.p>
-
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <button type="button" onClick={() => setProvider('openai')} className={`px-3 py-1 rounded-full border text-xs ${provider === 'openai' ? 'border-[#6E7BFF] text-white bg-[#6E7BFF]/10' : 'border-white/20 text-slate-400'}`}>OpenAI GPT-4o-mini</button>
-          <button type="button" onClick={() => setProvider('gemini')} className={`px-3 py-1 rounded-full border text-xs ${provider === 'gemini' ? 'border-[#8B5CF6] text-white bg-[#8B5CF6]/10' : 'border-white/20 text-slate-400'}`}>Gemini</button>
-        </div>
 
         <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} onSubmit={handleAnalyze} className="relative max-w-xl mx-auto w-full">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-2xl md:rounded-full blur opacity-20" />

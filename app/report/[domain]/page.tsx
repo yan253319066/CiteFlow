@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
   };
 }
 
-async function getReport(domain: string, provider: string): Promise<ReportData | null> {
+async function getReport(domain: string): Promise<ReportData | null> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const res = await fetch(`${base}/api/analyze`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url: domain, provider }),
+    body: JSON.stringify({ url: domain }),
     cache: 'no-store',
   });
   if (!res.ok) return null;
@@ -52,10 +52,9 @@ function StatMini({ label, value }: { label: string; value: number }) {
   );
 }
 
-export default async function ReportPage({ params, searchParams }: { params: Promise<{ domain: string }>; searchParams: Promise<{ provider?: string }> }) {
+export default async function ReportPage({ params }: { params: Promise<{ domain: string }> }) {
   const { domain } = await params;
-  const { provider = 'openai' } = await searchParams;
-  const report = await getReport(domain, provider);
+  const report = await getReport(domain);
 
   if (!report) {
     return (
@@ -78,7 +77,6 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
       <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
       <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
         <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"><ArrowLeft className="w-4 h-4" />Back to Dashboard</Link>
-        <div className="mb-4 text-xs text-slate-400 uppercase tracking-widest">Provider: {report.provider || provider}</div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
           <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[360px]">
             <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mb-8">
