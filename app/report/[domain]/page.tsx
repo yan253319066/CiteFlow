@@ -3,6 +3,10 @@ import { Card } from '@/components/ui/card';
 import { AlertTriangle, ArrowLeft, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { analyzeSite } from '@/lib/analyze';
+import { createSessionToken, verifyAnalysisToken } from '@/lib/verification';
+
+export const maxDuration = 60;
 
 interface ReportData {
   score: number;
@@ -30,16 +34,10 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 }
 
 async function getReport(domain: string, token: string): Promise<ReportData | null> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   try {
-    const res = await fetch(`${base}/api/analyze`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: domain, token }),
-      cache: 'no-store',
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
+    if (!(await verifyAnalysisToken(token))) return null;
+
+    const data = await analyzeSite(domain);
     const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
     return {
       score: norm(data.score, norm(data.overall_visibility_score, 0)),
@@ -48,7 +46,7 @@ async function getReport(domain: string, token: string): Promise<ReportData | nu
       suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
       summary: norm(data.summary, ''),
       provider: data.provider as string | undefined,
-      sessionToken: data.sessionToken as string | undefined,
+      sessionToken: createSessionToken(),
     };
   } catch (e) {
     console.error('[getReport] error:', e);
