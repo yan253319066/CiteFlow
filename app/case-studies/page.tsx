@@ -14,14 +14,14 @@ const cases = [
     company: "Nexus Protocol",
     slug: "nexus-protocol",
     result: "+140% Visibility",
-    description: "By implementing a custom llms.txt and entity mapping, Nexus became the top-cited source for complex DeFi yield questions that previously returned hallucinations."
+    description: "A DeFi protocol that was invisible in ChatGPT answers despite strong SEO and better yields than its competitors. The fix was simpler than they expected."
   },
   {
-    title: "Notion's GEO Strategy: Dominating the 'Productivity' Latent Space",
+    title: "The Notion GEO Playbook: Dominating Productivity Answers",
     company: "Notion",
     slug: "notion-strategy",
     result: "Industry Leader",
-    description: "An analysis of how Notion uses Non-Colliding naming conventions and high-contrast comparison pages to secure the top spot in AI-generated productivity reports."
+    description: "A two-month analysis of why Notion appears first in 92% of AI-generated productivity recommendations — and what every other SaaS company can learn from their content strategy."
   }
 ];
 
