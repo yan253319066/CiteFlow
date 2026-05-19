@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Twitter, Github } from "lucide-react";
 
 export function Footer() {
@@ -10,9 +11,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
         <div className="max-w-sm">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-[#6E7BFF] to-[#8B5CF6] flex items-center justify-center">
-              <span className="text-[10px] font-bold text-white">CF</span>
-            </div>
+            <Image src="/logo.png" alt="CiteFlow" width={24} height={24} className="rounded" />
             <span className="text-lg font-bold">CiteFlow</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">

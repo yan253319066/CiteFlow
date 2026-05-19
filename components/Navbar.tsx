@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
@@ -27,7 +28,7 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-6 bg-background/5 backdrop-blur-md border-b border-white/5"
       >
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6E7BFF] to-[#8B5CF6] flex items-center justify-center shadow-lg shadow-[#6E7BFF]/20 group-hover:scale-110 transition-transform" />
+          <Image src="/logo.png" alt="CiteFlow" width={32} height={32} className="rounded-lg group-hover:scale-110 transition-transform" />
           <span className="text-xl font-bold tracking-tight">CiteFlow</span>
         </Link>
         

@@ -12,8 +12,9 @@ export const metadata: Metadata = {
   description: "Identify and optimize your website's visibility in ChatGPT, Gemini, and AI Search results.",
   keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI'],
   alternates: { canonical: '/' },
-  openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: ['/og-image.png'] },
-  twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['/og-image.png'] },
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: ['/logo.png'] },
+  twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['/logo.png'] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
