@@ -57,8 +57,8 @@ export function Footer() {
       <div className="max-w-6xl mx-auto border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
         <p>© 2026 CiteFlow AI. All rights reserved.</p>
         <div className="flex gap-6">
-          <Link href="#" className="hover:text-primary">Privacy Policy</Link>
-          <Link href="#" className="hover:text-primary">Terms of Service</Link>
+          <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="hover:text-primary">Terms of Service</Link>
         </div>
       </div>
     </footer>
