@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const posts = [
-  { title: "GEO Deep Dive: How Generative Engines Decide the Citation Order", slug: "geo-guide", date: "May 15, 2026", category: "Technical Guide", excerpt: "Go beyond keyword stuffing. Understand how to become a reliable source for AI answers." },
-  { title: "Semantic Mapping: Solving AI Hallucinations and Brand Omissions", slug: "chatgpt-seo", date: "May 10, 2026", category: "Strategy", excerpt: "Why high search volume does not always mean high citation volume in LLM outputs." },
-  { title: "AI Visibility: The North Star Metric for the Post-SEO Era", slug: "ai-visibility", date: "May 5, 2026", category: "Trends", excerpt: "Measure share-of-voice in generative responses, not just clicks." },
-  { title: "How to Rank in ChatGPT", slug: "rank-in-chatgpt", date: "May 18, 2026", category: "Playbook", excerpt: "A practical GEO framework to increase mentions from AI assistants." },
+  { title: "How Generative Engines Choose What to Cite", slug: "geo-guide", date: "May 15, 2026", category: "Technical Guide", excerpt: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy." },
+  { title: "Search Rankings Don't Translate to AI Citations", slug: "chatgpt-seo", date: "May 10, 2026", category: "Strategy", excerpt: "High search volume and AI mentions are two different games. Here is what causes the gap and how to bridge it." },
+  { title: "AI Visibility Is a Better Metric Than CTR", slug: "ai-visibility", date: "May 5, 2026", category: "Trends", excerpt: "In a zero-click world, being cited by an LLM matters more than driving a click. Here is how to measure it." },
+  { title: "How to Get Cited by ChatGPT", slug: "rank-in-chatgpt", date: "May 18, 2026", category: "Playbook", excerpt: "A repeatable framework for increasing how often your product gets mentioned by AI assistants." },
 ];
 
 export default function BlogPage() {

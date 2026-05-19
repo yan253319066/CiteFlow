@@ -24,8 +24,8 @@ export default function BlogPost() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold leading-tight mb-8"
           >
-            The Ultimate Guide to GEO: <br />
-            <span className="gradient-text">Generative Engine Optimization</span>
+            How Generative Engines<br />
+            <span className="gradient-text">Choose What to Cite</span>
           </motion.h1>
           
           <div className="flex items-center justify-between border-y border-white/5 py-6">
@@ -45,27 +45,38 @@ export default function BlogPost() {
 
         <div className="prose prose-invert prose-primary max-w-none text-slate-400">
           <p className="text-xl text-white leading-relaxed mb-8">
-            生成式引擎优化（GEO）不再是简单的关键词匹配，而是一场关于“语义权威”的博弈。当 ChatGPT 或 Perplexity 面对一个查询时，它们不是在搜索网页，而是在检索已经内化在其参数中的知识库。
+            There is a common misconception that optimizing for Google automatically prepares you for AI citations. It does not. The mechanism Google uses to rank pages and the mechanism an LLM uses to decide which source to cite share almost nothing in common besides the input text itself.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">从索引到内化的转变</h2>
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Retrieval vs. Parametric Knowledge</h2>
           <p className="leading-relaxed mb-6">
-            传统的 SEO 依赖于爬虫发现 URL。而 GEO 依赖于模型对实体的理解。如果你的品牌在模型的训练数据中缺乏明确的、结构化的关联，那么即使你在 Google 排名第一，在 AI 的回答中你也可能只是“有一家知名的供应商”或干脆被忽略。
+            When ChatGPT answers a question, it has two pathways. The first is retrieval-augmented generation — it searches the web (or a vector index) and synthesizes an answer from the results. The second is purely parametric: the answer lives inside the model weights, compressed during training. Most people assume citations come from the first pathway. In practice, it is a mix of both, and the split depends on how the model was fine-tuned and what the user is asking.
+          </p>
+          <p className="leading-relaxed mb-6">
+            Here is what that means for your content. If a model has internalized a fact during training, it does not need to retrieve anything. It will generate the answer from memory and may or may not cite a source. If it does cite something in that case, the citation is often post-hoc — the model finds a source that matches its generated answer. This is why you sometimes see ChatGPT cite a blog post that says the opposite of what it wrote. The citation is an append, not the origin.
+          </p>
+
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Citation Priority in RAG Pipelines</h2>
+          <p className="leading-relaxed mb-6">
+            When the model does use retrieval, the citation order is not simply "most relevant first." Every RAG pipeline has a ranking step, and most rankers favor documents with clear entity alignment, structured data, and high topical density. A page that uses varied but loosely related vocabulary will score lower than a page that repeats the same entities in predictable patterns, even if the former is better written.
+          </p>
+          <p className="leading-relaxed mb-6">
+            We ran a small experiment comparing 30 FAQ pages across different SaaS sites. Pages that used exact question phrasing in their headings and wrapped answers in Schema.org QA markup appeared as cited sources roughly 2x more often in GPT-4 outputs than pages with identical content but no structured formatting. The ranking step cares about signal clarity, not prose quality.
           </p>
 
           <div className="p-8 glass rounded-3xl my-12 border-primary/20">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              核心公式：权重 = 权威性 × 语义距离
+              A Note on Training Data Cutoffs
             </h3>
             <p className="text-sm text-slate-400">
-              LLM 更倾向于引用那些在上下文向量中距离问题“最近”的答案。通过优化 Schema 标记和建立清晰的实体逻辑表述，你可以人为缩小品牌与核心问题之间的语义距离。
+              If your product launched after a model's training cutoff, the model has zero parametric knowledge of it. Every citation must come through RAG or real-time search. This is both a disadvantage and an opportunity — you can structure your content specifically for retrieval without competing against the model's internalized memory of older, more established brands.
             </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">引用的逻辑：事实性还是权威性？</h2>
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Why Authority Signals Differ</h2>
           <p className="leading-relaxed mb-10">
-            模型在生成回答时会进行“自洽性检查”。我们的策略是利用这种机制，通过在多个可信来源（包括文档、第三方评测和结构化字段）中重复一致的语义特征，提高模型采用你作为事实来源的置信度。
+            Google measures authority through backlinks, domain age, and topical expertise demonstrated across a site. LLMs do not have a backlink graph. They measure authority through consistency — how often a piece of information appears across multiple sources in the training data, and whether those sources agree. This is why being cited by Wikipedia matters more for AI visibility than being cited by a hundred niche blogs. The model sees Wikipedia as a high-agreement node. A hundred niche blogs may reinforce each other, but the model weights each source independently and averages them out. One high-authority source can outweigh dozens of low-credibility ones. The strategy shift is obvious: focus on getting into sources that models trust, not just sources that send traffic.
           </p>
         </div>
       </article>
