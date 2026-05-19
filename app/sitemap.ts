@@ -1,18 +1,25 @@
 import { MetadataRoute } from 'next'
 
+const pages = [
+  '',
+  '/blog',
+  '/blog/geo-guide',
+  '/blog/chatgpt-seo',
+  '/blog/ai-visibility',
+  '/blog/rank-in-chatgpt',
+  '/geo-for-saas',
+  '/geo-for-ai-tools',
+  '/geo-for-startups',
+  '/compare/ahrefs-vs-citeflow',
+  '/compare/profound-vs-citeflow',
+  '/why-chatgpt-doesnt-mention-your-site',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://citeflow.ai',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://citeflow.ai/blog',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
+  return pages.map((path) => ({
+    url: `https://citeflow.ai${path}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: path === '' ? 1 : 0.8,
+  }));
 }
