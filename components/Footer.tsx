@@ -41,10 +41,10 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-white">Connect</h4>
             <div className="flex gap-4">
-              <Link href="https://twitter.com" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
+              <Link href="https://x.com/getciteflow" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
                 <Twitter className="w-5 h-5" />
               </Link>
-              <Link href="https://github.com" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
+              <Link href="https://github.com/yan253319066" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
                 <Github className="w-5 h-5" />
               </Link>
               <Link href="mailto:support@getciteflow.ai" className="text-slate-400 hover:text-primary transition-colors">
