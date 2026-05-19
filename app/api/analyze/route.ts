@@ -62,31 +62,61 @@ async function analyzeWithOpenAI(url: string) {
   return JSON.parse(content);
 }
 
-async function analyzeWithDeepseek(url: string) {
+async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<string, unknown>> {
   const key = process.env.DEEPSEEK_API_KEY;
   if (!key) throw new Error("DEEPSEEK_API_KEY missing");
 
-  const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
+  const body = {
+    model: "deepseek-v4-flash",
+    response_format: { type: "json_object" } as const,
+    messages: [
+      { role: "system" as const, content: "You are a GEO analysis assistant. Always output valid JSON using the json format." },
+      { role: "user" as const, content: ANALYZE_PROMPT(url) },
+    ],
+    temperature: 0.2,
+    max_tokens: 2048,
+  };
+
+  console.log(`[Deepseek] Request model=deepseek-v4-flash url=${url} retries=${retries}`);
+  const res = await fetch("https://api.deepseek.com/chat/completions", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${key}`,
-    },
-    body: JSON.stringify({
-      model: "deepseek-chat",
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: "You are a GEO analysis assistant. Output valid JSON only." },
-        { role: "user", content: ANALYZE_PROMPT(url) },
-      ],
-      temperature: 0.2,
-    }),
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify(body),
   });
 
-  if (!res.ok) throw new Error(`Deepseek failed: ${res.status}`);
+  console.log(`[Deepseek] Response status=${res.status} ${res.statusText}`);
+  if (!res.ok) {
+    const text = await res.text();
+    console.error(`[Deepseek] Error body: ${text}`);
+    throw new Error(`Deepseek failed: ${res.status} ${text}`);
+  }
   const data = await res.json();
-  const content = data?.choices?.[0]?.message?.content || "{}";
-  return JSON.parse(content);
+  console.log(`[Deepseek] Raw response keys=${Object.keys(data)} choices=${data?.choices?.length}`);
+  console.log(`[Deepseek] Finish reason: ${data?.choices?.[0]?.finish_reason}`);
+  const content = data?.choices?.[0]?.message?.content?.trim();
+  console.log(`[Deepseek] Content length=${content?.length ?? 0} content_preview=${content?.slice(0, 200) ?? "(empty)"}`);
+
+  if (!content && retries > 0) {
+    console.log(`[Deepseek] Empty content, retrying (${retries} left)`);
+    return analyzeWithDeepseek(url, retries - 1);
+  }
+  if (!content) {
+    console.warn(`[Deepseek] Empty content, no retries left, returning {}`);
+    return {};
+  }
+
+  try {
+    const parsed = JSON.parse(content);
+    console.log(`[Deepseek] Parsed OK keys=${Object.keys(parsed)}`);
+    return parsed;
+  } catch (e) {
+    console.error(`[Deepseek] JSON parse error: ${e}`);
+    if (retries > 0) {
+      console.log(`[Deepseek] Retrying after parse error (${retries} left)`);
+      return analyzeWithDeepseek(url, retries - 1);
+    }
+    return {};
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -95,14 +125,19 @@ export async function POST(req: NextRequest) {
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
     const activeProvider = getProvider();
+    console.log(`[POST] provider=${activeProvider} url=${url}`);
+
     const report =
       activeProvider === "gemini"
         ? await analyzeWithGemini(url)
         : activeProvider === "deepseek"
           ? await analyzeWithDeepseek(url)
           : await analyzeWithOpenAI(url);
+
+    console.log(`[POST] report keys=${Object.keys(report)}`);
     return NextResponse.json({ ...report, provider: activeProvider });
   } catch (error: any) {
+    console.error(`[POST] Error: ${error?.message}`, error?.stack);
     return NextResponse.json({ error: "Failed to analyze site", detail: error?.message }, { status: 500 });
   }
 }

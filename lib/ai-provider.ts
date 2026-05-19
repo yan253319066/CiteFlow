@@ -5,4 +5,12 @@ export function getProvider(input?: string | null): AIProvider {
   return (process.env.AI_PROVIDER_DEFAULT as AIProvider) || 'openai';
 }
 
-export const ANALYZE_PROMPT = (url: string) => `Analyze the AI visibility (GEO - Generative Engine Optimization) of the website: ${url}.\nProvide a detailed report in JSON format including:\n- Overall visibility score (0-100)\n- Breakdown scores for: Entity Clarity, FAQ Coverage, Authority Signals, and Semantic Structure.\n- 3-5 specific \"Missing Components\"\n- 3-5 actionable \"AI Suggestions\"\n- A brief summary of why it ranks this way.\nRespond only with the JSON object.`;
+export const ANALYZE_PROMPT = (url: string) => `Analyze the AI visibility (GEO - Generative Engine Optimization) of the website: ${url}.
+Return ONLY a JSON object with these exact keys:
+{
+  "score": <number 0-100>,
+  "breakdown": { "aiVisibility": <number 0-100>, "faqCoverage": <number 0-100>, "entityClarity": <number 0-100>, "authority": <number 0-100> },
+  "missing": [<3-5 strings of missing components>],
+  "suggestions": [<3-5 strings of actionable AI suggestions>],
+  "summary": "<brief summary of why it ranks this way>"
+}`;

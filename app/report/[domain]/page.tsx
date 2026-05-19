@@ -28,22 +28,32 @@ export async function generateMetadata({ params }: { params: Promise<{ domain: s
 
 async function getReport(domain: string): Promise<ReportData | null> {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  console.log(`[getReport] fetching ${base}/api/analyze for domain=${domain}`);
   const res = await fetch(`${base}/api/analyze`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ url: domain }),
     cache: 'no-store',
   });
-  if (!res.ok) return null;
+  console.log(`[getReport] response status=${res.status}`);
+  if (!res.ok) {
+    const text = await res.text();
+    console.error(`[getReport] error body=${text}`);
+    return null;
+  }
   const data = await res.json();
-  return {
-    score: data.score ?? 0,
-    breakdown: data.breakdown ?? { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 },
-    missing: data.missing ?? [],
-    suggestions: data.suggestions ?? [],
-    summary: data.summary ?? '',
+  console.log(`[getReport] raw data keys=${Object.keys(data)}`);
+  const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
+  const result = {
+    score: norm(data.score, norm(data.overall_visibility_score, 0)),
+    breakdown: norm(data.breakdown, norm(data.breakdown_scores, { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 })),
+    missing: norm(data.missing, norm(data.missing_components, [])),
+    suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
+    summary: norm(data.summary, ''),
     provider: data.provider,
   };
+  console.log(`[getReport] result score=${result.score} missing=${result.missing.length} suggestions=${result.suggestions.length}`);
+  return result;
 }
 
 function StatMini({ label, value }: { label: string; value: number }) {
