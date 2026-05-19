@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer } from "@/components/Footer";
 import Script from "next/script";
 import { headers } from "next/headers";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
         <div className="flex-1">{children}</div>
         <Footer />
+        <Analytics />
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           nonce={nonce}
