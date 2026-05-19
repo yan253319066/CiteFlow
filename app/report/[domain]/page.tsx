@@ -4,8 +4,7 @@ import { AlertTriangle, ArrowLeft, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { analyzeSite } from '@/lib/analyze';
-import { createSessionToken, verifyAnalysisToken } from '@/lib/verification';
-import { SessionTokenBridge } from '@/components/SessionTokenBridge';
+import { verifyAnalysisToken } from '@/lib/verification';
 
 export const maxDuration = 60;
 
@@ -16,7 +15,6 @@ interface ReportData {
   suggestions: string[];
   summary: string;
   provider?: string;
-  sessionToken?: string;
 }
 
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ domain: string }>; searchParams: Promise<{ [key: string]: string | string[] | undefined }> }): Promise<Metadata> {
@@ -47,7 +45,6 @@ async function getReport(domain: string, token: string): Promise<ReportData | nu
       suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
       summary: norm(data.summary, ''),
       provider: data.provider as string | undefined,
-      sessionToken: createSessionToken(),
     };
   } catch (e) {
     console.error('[getReport] error:', e);
@@ -104,9 +101,7 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
   }
 
   return (
-    <>
-      {report.sessionToken && <SessionTokenBridge token={report.sessionToken} />}
-      <main className="min-h-screen pb-20 overflow-x-hidden">
+    <main className="min-h-screen pb-20 overflow-x-hidden">
         <Navbar />
         <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />
         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
@@ -141,7 +136,6 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
             <StatMini label="Authority" value={report.breakdown.authority} />
           </div>
         </div>
-      </main>
-    </>
+    </main>
   );
 }

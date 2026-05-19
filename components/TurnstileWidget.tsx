@@ -7,27 +7,54 @@ declare global {
     turnstile?: {
       render: (container: HTMLElement, options: Record<string, unknown>) => string;
       remove: (widgetId: string) => void;
-      reset: (widgetId: string) => void;
     };
   }
 }
 
-export function TurnstileWidget({ onVerify }: { onVerify: (token: string) => void }) {
+interface TurnstileWidgetProps {
+  onVerify: (token: string) => void;
+  onExpire?: () => void;
+  onError?: () => void;
+}
+
+export function TurnstileWidget({ onVerify, onExpire, onError }: TurnstileWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | undefined>(undefined);
   const [error, setError] = useState(false);
+  const [verified, setVerified] = useState(false);
 
   useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | undefined;
+    let cancelled = false;
+
     const renderWidget = () => {
-      if (!containerRef.current || !window.turnstile) return;
+      if (!containerRef.current || !window.turnstile || widgetIdRef.current || cancelled) return;
+      if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+        setError(true);
+        onError?.();
+        return;
+      }
+
       try {
         widgetIdRef.current = window.turnstile.render(containerRef.current, {
           sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-          callback: (token: string) => onVerify(token),
-          'error-callback': () => setError(true),
+          callback: (token: string) => {
+            setVerified(true);
+            onVerify(token);
+          },
+          'expired-callback': () => {
+            setVerified(false);
+            onExpire?.();
+          },
+          'error-callback': () => {
+            setVerified(false);
+            setError(true);
+            onError?.();
+          },
         });
       } catch {
         setError(true);
+        onError?.();
       }
     };
 
@@ -40,18 +67,20 @@ export function TurnstileWidget({ onVerify }: { onVerify: (token: string) => voi
     };
 
     if (!tryRender()) {
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (tryRender()) clearInterval(interval);
       }, 100);
-      return () => clearInterval(interval);
     }
 
     return () => {
+      cancelled = true;
+      if (interval) clearInterval(interval);
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = undefined;
       }
     };
-  }, [onVerify]);
+  }, [onError, onExpire, onVerify]);
 
   if (error) {
     return (
@@ -61,5 +90,5 @@ export function TurnstileWidget({ onVerify }: { onVerify: (token: string) => voi
     );
   }
 
-  return <div ref={containerRef} />;
+  return <div ref={containerRef} className={verified ? 'hidden' : undefined} />;
 }

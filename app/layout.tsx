@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import Script from "next/script";
+import { headers } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['/logo.png'] },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)}>
       <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
@@ -26,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          nonce={nonce}
           strategy="afterInteractive"
           async
           defer

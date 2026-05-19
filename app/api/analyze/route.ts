@@ -1,5 +1,5 @@
 import { analyzeSite } from "@/lib/analyze";
-import { createSessionToken, verifyAnalysisToken } from "@/lib/verification";
+import { verifyAnalysisToken } from "@/lib/verification";
 import { NextRequest, NextResponse } from "next/server";
 
 export const maxDuration = 60;
@@ -14,8 +14,7 @@ export async function POST(req: NextRequest) {
     }
 
     const report = await analyzeSite(url);
-    const sessionToken = createSessionToken();
-    return NextResponse.json({ ...report, sessionToken });
+    return NextResponse.json(report);
   } catch (error: any) {
     console.error(`[POST] Error: ${error?.message}`, error?.stack);
     return NextResponse.json({ error: "Failed to analyze site", detail: error?.message }, { status: 500 });
