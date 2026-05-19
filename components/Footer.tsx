@@ -27,15 +27,15 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/" className="hover:text-primary transition-colors">Analyzer</Link></li>
               <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">GEO Score</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">API (Alpha)</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors">API Docs</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-sm font-semibold mb-4 text-white">Resources</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">GEO Guide</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors">Developer Center</Link></li>
             </ul>
           </div>
           <div>

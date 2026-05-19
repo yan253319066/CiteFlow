@@ -43,29 +43,29 @@ export default function BlogPost() {
           </div>
         </header>
 
-        <div className="prose prose-invert prose-primary max-w-none">
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Generative Engine Optimization (GEO) is the new SEO. As Large Language Models like ChatGPT, Gemini, and Perplexity become the primary gateway to information, the way we think about "ranking" must fundamentally change.
+        <div className="prose prose-invert prose-primary max-w-none text-slate-400">
+          <p className="text-xl text-white leading-relaxed mb-8">
+            生成式引擎优化（GEO）不再是简单的关键词匹配，而是一场关于“语义权威”的博弈。当 ChatGPT 或 Perplexity 面对一个查询时，它们不是在搜索网页，而是在检索已经内化在其参数中的知识库。
           </p>
 
-          <h2 className="text-2xl font-bold mt-12 mb-4">What is AI Visibility?</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            Unlike traditional search engines that return a list of links, AI engines synthesize information into a single response. AI Visibility measures the frequency and prominence with which your brand, product, or content is mentioned within these synthesis patterns.
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">从索引到内化的转变</h2>
+          <p className="leading-relaxed mb-6">
+            传统的 SEO 依赖于爬虫发现 URL。而 GEO 依赖于模型对实体的理解。如果你的品牌在模型的训练数据中缺乏明确的、结构化的关联，那么即使你在 Google 排名第一，在 AI 的回答中你也可能只是“有一家知名的供应商”或干脆被忽略。
           </p>
 
-          <div className="p-8 glass rounded-3xl my-12">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="p-8 glass rounded-3xl my-12 border-primary/20">
+            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              Key Strategy: Semantic Clarity
+              核心公式：权重 = 权威性 × 语义距离
             </h3>
-            <p className="text-sm text-muted-foreground">
-              Ensure your website uses clear schema.org markers. LLMs use these structured data points as absolute signals of truth. Without them, your content is just unstructured text that's harder for the model to attribute.
+            <p className="text-sm text-slate-400">
+              LLM 更倾向于引用那些在上下文向量中距离问题“最近”的答案。通过优化 Schema 标记和建立清晰的实体逻辑表述，你可以人为缩小品牌与核心问题之间的语义距离。
             </p>
           </div>
 
-          <h2 className="text-2xl font-bold mt-12 mb-4">How LLMs "Cite" Sources</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            LLMs don't just pick the most popular site; they pick the most relevant entity within the search context. This means creating content that fits into the "Knowledge Graph" of the topic you're targeting.
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">引用的逻辑：事实性还是权威性？</h2>
+          <p className="leading-relaxed mb-10">
+            模型在生成回答时会进行“自洽性检查”。我们的策略是利用这种机制，通过在多个可信来源（包括文档、第三方评测和结构化字段）中重复一致的语义特征，提高模型采用你作为事实来源的置信度。
           </p>
         </div>
       </article>

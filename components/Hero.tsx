@@ -59,22 +59,22 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           onSubmit={handleAnalyze}
-          className="relative max-w-xl mx-auto"
+          className="relative max-w-xl mx-auto w-full"
         >
           {/* Subtle Outer Glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-full blur opacity-20" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-2xl md:rounded-full blur opacity-20" />
           
-          <div className="relative flex bg-[#0A0F24] border border-white/10 rounded-full p-2 pl-6 shadow-2xl">
+          <div className="relative flex flex-col md:flex-row bg-[#0A0F24] border border-white/10 rounded-2xl md:rounded-full p-2 md:pl-6 shadow-2xl gap-2 md:gap-0">
             <input
               type="text"
-              placeholder="Enter your website URL (e.g. acme.com)"
-              className="bg-transparent flex-1 outline-none text-sm font-medium text-white placeholder:text-slate-500"
+              placeholder="Enter website URL (e.g. acme.com)"
+              className="bg-transparent flex-1 outline-none text-sm font-medium text-white placeholder:text-slate-500 py-3 px-4 md:py-0 md:px-0"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
+              className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl md:rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity cursor-pointer w-full md:w-auto"
             >
               Analyze Site
             </button>

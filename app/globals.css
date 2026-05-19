@@ -43,7 +43,7 @@
 }
 
 .hero-title {
-  @apply text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 leading-[1.1];
+  @apply text-4xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 leading-[1.1];
 }
 
 .glow-subtle {

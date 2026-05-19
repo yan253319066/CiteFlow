@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import { Navbar } from '@/components/Navbar';
+import { WaitlistModal } from '@/components/WaitlistModal';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -30,6 +31,7 @@ export default function ReportPage() {
   const [report, setReport] = useState<ReportData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   useEffect(() => {
     async function fetchReport() {
@@ -63,7 +65,7 @@ export default function ReportPage() {
       <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
 
-      <div className="pt-28 px-12 max-w-7xl mx-auto">
+      <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
         <Link 
           href="/" 
           className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"
@@ -74,12 +76,12 @@ export default function ReportPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
           {/* Main Score Card */}
-          <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-10 flex flex-col items-center justify-center relative shadow-2xl overflow-hidden min-h-[400px]">
+          <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-6 md:p-10 flex flex-col items-center justify-center relative shadow-2xl overflow-hidden min-h-[350px] md:min-h-[400px]">
              <div className="absolute top-0 right-0 p-6">
               <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">GEO Report</span>
             </div>
             
-            <div className="relative flex items-center justify-center mb-10">
+            <div className="relative flex items-center justify-center mb-10 scale-75 md:scale-100">
               <svg className="w-56 h-56 transform -rotate-90">
                 <circle cx="112" cy="112" r="100" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
                 <motion.circle 
@@ -180,7 +182,10 @@ export default function ReportPage() {
                   {report.summary}
                 </p>
               </div>
-              <button className="px-8 py-3 bg-white/5 border border-white/10 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors shrink-0 cursor-pointer">
+              <button 
+                onClick={() => setIsWaitlistOpen(true)}
+                className="px-8 py-3 bg-white/5 border border-white/10 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-white/10 transition-colors shrink-0 cursor-pointer"
+              >
                 Unlock Pro Insights
               </button>
             </Card>
@@ -195,6 +200,7 @@ export default function ReportPage() {
           <StatMini label="Authority" value={report.breakdown.authority} />
         </div>
       </div>
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
     </main>
   );
 }
