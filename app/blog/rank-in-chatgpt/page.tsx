@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'How to Get Cited by ChatGPT | CiteFlow',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   keywords: ['chatgpt citations', 'geo', 'ai visibility'],
-  alternates: { canonical: 'https://getciteflow.ai/blog/rank-in-chatgpt' },
+  alternates: { canonical: 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
   openGraph: {
     title: 'How to Get Cited by ChatGPT',
     description: 'A repeatable framework for increasing how often your brand gets mentioned by AI assistants.',
@@ -29,16 +29,16 @@ const articleSchema = {
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   datePublished: '2026-05-18',
   author: { '@type': 'Organization', name: 'CiteFlow Intelligence' },
-  publisher: { '@type': 'Organization', name: 'CiteFlow', url: 'https://getciteflow.ai' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://getciteflow.ai/blog/rank-in-chatgpt' },
+  publisher: { '@type': 'Organization', name: 'CiteFlow', url: 'https://www.getciteflow.ai' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://getciteflow.ai' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://getciteflow.ai/blog' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.getciteflow.ai' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.getciteflow.ai/blog' },
     { '@type': 'ListItem', position: 3, name: 'How to Get Cited by ChatGPT' },
   ],
 };

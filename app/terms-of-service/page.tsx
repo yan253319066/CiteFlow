@@ -5,7 +5,7 @@ import { Scale } from "lucide-react";
 export const metadata: Metadata = {
   title: "Terms of Service | CiteFlow",
   description: "Review the terms and conditions governing your use of the CiteFlow AI visibility platform. Understand your rights and obligations.",
-  alternates: { canonical: "https://getciteflow.ai/terms-of-service" },
+  alternates: { canonical: "https://www.getciteflow.ai/terms-of-service" },
   openGraph: {
     title: "Terms of Service | CiteFlow",
     description: "Review the terms and conditions governing your use of the CiteFlow platform.",
@@ -178,7 +178,7 @@ export default function TermsOfService() {
             </p>
             <div className="mt-4 p-6 glass rounded-2xl text-sm space-y-2">
               <p>Email: <span className="text-primary">support@getciteflow.ai</span></p>
-              <p>Website: <span className="text-primary">https://getciteflow.ai</span></p>
+              <p>Website: <span className="text-primary">https://www.getciteflow.ai</span></p>
             </div>
           </Section>
         </div>

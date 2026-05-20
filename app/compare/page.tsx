@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'GEO Comparison Tool: Compare AI Visibility Scores | CiteFlow',
   description: 'Compare your website\'s Generative Engine Optimization (GEO) score against competitors. See exactly who AI recommends and where you\'re winning or losing.',
   keywords: ['GEO comparison', 'AI visibility compare', 'compare AI scores', 'GEO tool', 'competitor GEO analysis', 'AI citation comparison'],
-  alternates: { canonical: 'https://getciteflow.ai/compare' },
+  alternates: { canonical: 'https://www.getciteflow.ai/compare' },
   openGraph: {
     title: 'Compare AI Visibility Scores — Free GEO Comparison Tool',
     description: 'See how your site stacks up against competitors in AI search. Free side-by-side GEO analysis.',
@@ -38,7 +38,7 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://getciteflow.ai' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.getciteflow.ai' },
     { '@type': 'ListItem', position: 2, name: 'GEO Comparison Tool' },
   ],
 };

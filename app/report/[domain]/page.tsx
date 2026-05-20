@@ -37,8 +37,8 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const { domain } = await params;
   const { with: withDomain } = await searchParams;
 
-  const canonicalUrl = `https://getciteflow.ai/report/${domain}`;
-  const ogImageBase = `https://getciteflow.ai/api/og?domain=${encodeURIComponent(domain)}`;
+  const canonicalUrl = `https://www.getciteflow.ai/report/${domain}`;
+  const ogImageBase = `https://www.getciteflow.ai/api/og?domain=${encodeURIComponent(domain)}`;
   const keywords = [
     domain, 'AI Visibility', 'GEO', 'Generative Engine Optimization',
     'ChatGPT SEO', 'AI search ranking', 'GEO score', 'AI readiness',
@@ -162,7 +162,7 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
     '@type': 'WebPage',
     name: `${domain} AI Visibility Score: ${report.score}/100`,
     description: report.summary,
-    url: `https://getciteflow.ai/report/${domain}`,
+    url: `https://www.getciteflow.ai/report/${domain}`,
     about: {
       '@type': 'Thing',
       name: 'AI Visibility (GEO)',

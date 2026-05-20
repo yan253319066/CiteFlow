@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Check, Copy, Share2 } from 'lucide-react';
 
-const SITE_URL = 'https://getciteflow.ai';
+const SITE_URL = 'https://www.getciteflow.ai';
 
 interface ShareButtonsProps {
   domain: string;

@@ -14,16 +14,16 @@ const articleSchema = {
   description: "A DeFi protocol that was invisible in ChatGPT despite strong SEO. How GEO fixed it in 3 weeks.",
   datePublished: "2026-05-20",
   author: { "@type": "Organization", name: "CiteFlow" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/case-studies/nexus-protocol" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/nexus-protocol" },
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
-    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://getciteflow.ai/case-studies" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://www.getciteflow.ai/case-studies" },
     { "@type": "ListItem", position: 3, name: "Nexus Protocol" },
   ],
 };

@@ -9,7 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
-  metadataBase: new URL('https://getciteflow.ai'),
+  metadataBase: new URL('https://www.getciteflow.ai'),
   title: "CiteFlow | Get Mentioned by AI",
   description: "Identify and optimize your website's visibility in ChatGPT, Gemini, and AI Search results.",
   keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI', 'GEO tool', 'AI visibility checker', 'Generative Engine Optimization'],
@@ -24,8 +24,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'CiteFlow',
-  url: 'https://getciteflow.ai',
-  logo: 'https://getciteflow.ai/logo.png',
+  url: 'https://www.getciteflow.ai',
+  logo: 'https://www.getciteflow.ai/logo.png',
   description: 'AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.',
   sameAs: [
     'https://x.com/getciteflow',

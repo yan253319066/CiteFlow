@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Pricing | CiteFlow — Free GEO Reports',
   description: 'Start with free AI Visibility reports. No credit card required. Pro plan coming soon with AI citation monitoring and competitive analysis.',
   keywords: ['CiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free'],
-  alternates: { canonical: 'https://getciteflow.ai/pricing' },
+  alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
   openGraph: { title: 'CiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro monitoring coming soon.' },
 };
 

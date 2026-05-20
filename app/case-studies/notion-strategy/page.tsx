@@ -14,16 +14,16 @@ const articleSchema = {
   description: "Why Notion appears first in 92% of AI-generated productivity recommendations — and what every SaaS company can learn.",
   datePublished: "2026-05-20",
   author: { "@type": "Organization", name: "CiteFlow" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/case-studies/notion-strategy" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/notion-strategy" },
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
-    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://getciteflow.ai/case-studies" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://www.getciteflow.ai/case-studies" },
     { "@type": "ListItem", position: 3, name: "Notion GEO Playbook" },
   ],
 };

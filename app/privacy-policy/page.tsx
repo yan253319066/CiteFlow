@@ -5,7 +5,7 @@ import { Shield } from "lucide-react";
 export const metadata: Metadata = {
   title: "Privacy Policy | CiteFlow",
   description: "Learn how CiteFlow collects, uses, and protects your personal data. Our commitment to your privacy and data security.",
-  alternates: { canonical: "https://getciteflow.ai/privacy-policy" },
+  alternates: { canonical: "https://www.getciteflow.ai/privacy-policy" },
   openGraph: {
     title: "Privacy Policy | CiteFlow",
     description: "Learn how CiteFlow collects, uses, and protects your personal data.",
@@ -151,7 +151,7 @@ export default function PrivacyPolicy() {
             </p>
             <div className="mt-4 p-6 glass rounded-2xl text-sm space-y-2">
               <p>Email: <span className="text-primary">support@getciteflow.ai</span></p>
-              <p>Website: <span className="text-primary">https://getciteflow.ai</span></p>
+              <p>Website: <span className="text-primary">https://www.getciteflow.ai</span></p>
             </div>
           </Section>
         </div>

@@ -14,16 +14,16 @@ const articleSchema = {
   description: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy.",
   datePublished: "2026-05-15",
   author: { "@type": "Organization", name: "CiteFlow Editorial" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/blog/geo-guide" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/geo-guide" },
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
-    { "@type": "ListItem", position: 2, name: "Blog", item: "https://getciteflow.ai/blog" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
     { "@type": "ListItem", position: 3, name: "GEO Guide" },
   ],
 };

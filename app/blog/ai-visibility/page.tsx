@@ -14,16 +14,16 @@ const articleSchema = {
   description: "CTR is fading as the primary metric. AI visibility — how often your brand is cited in LLM outputs — is the replacement.",
   datePublished: "2026-05-05",
   author: { "@type": "Organization", name: "CiteFlow Editorial" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/blog/ai-visibility" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/ai-visibility" },
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
-    { "@type": "ListItem", position: 2, name: "Blog", item: "https://getciteflow.ai/blog" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
     { "@type": "ListItem", position: 3, name: "AI Visibility Metric" },
   ],
 };

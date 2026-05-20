@@ -14,16 +14,16 @@ const articleSchema = {
   description: "High Google rankings don't guarantee AI citations. We compared 50 B2B SaaS companies and found a weak correlation.",
   datePublished: "2026-05-10",
   author: { "@type": "Organization", name: "CiteFlow Intelligence" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
-  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/blog/chatgpt-seo" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/chatgpt-seo" },
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
-    { "@type": "ListItem", position: 2, name: "Blog", item: "https://getciteflow.ai/blog" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
     { "@type": "ListItem", position: 3, name: "AI Citations" },
   ],
 };

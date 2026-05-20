@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   title: 'CiteFlow | Get Mentioned by AI',
   description: 'Analyze and optimize your website for ChatGPT, Gemini and AI Search.',
   keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization', 'GEO tool', 'AI visibility checker', 'ChatGPT SEO checker', 'free GEO report'],
-  alternates: { canonical: 'https://getciteflow.ai/' },
+  alternates: { canonical: 'https://www.getciteflow.ai/' },
   twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
-  openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://getciteflow.ai/' }
+  openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/' }
 };
 
 const softwareSchema = {
@@ -20,7 +20,7 @@ const softwareSchema = {
   applicationCategory: "AI SEO Platform",
   operatingSystem: "Web",
   description: "AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.",
-  url: "https://getciteflow.ai",
+  url: "https://www.getciteflow.ai",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 };
 
