@@ -15,17 +15,35 @@ export interface ScrapeResult {
   hasLlmstxt: boolean;
 }
 
+export enum ScrapeErrorCode {
+  TIMEOUT = 1001,
+  NETWORK_ERROR = 1002,
+  HTTP_ERROR = 1003,
+  INVALID_URL = 1004,
+}
+
+export class ScrapeError extends Error {
+  constructor(public code: ScrapeErrorCode, message: string) {
+    super(message);
+    this.name = "ScrapeError";
+  }
+}
+
 const TIMEOUT_MS = 8_000;
 
-async function fetchWithTimeout(url: string): Promise<Response | null> {
+async function fetchWithTimeout(url: string): Promise<Response> {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
     const res = await fetch(url, { signal: controller.signal, redirect: "follow" });
     clearTimeout(id);
     return res;
-  } catch {
-    return null;
+  } catch (err) {
+    clearTimeout(id);
+    if (err instanceof DOMException && err.name === "AbortError") {
+      throw new ScrapeError(ScrapeErrorCode.TIMEOUT, `请求超时: ${url}`);
+    }
+    throw new ScrapeError(ScrapeErrorCode.NETWORK_ERROR, `网络错误: ${(err as Error).message}`);
   }
 }
 
@@ -96,27 +114,23 @@ function countWords(html: string): number {
 }
 
 export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
-  const baseUrl = url.startsWith("http") ? url : `https://${url}`;
+  let baseUrl: string;
+  try {
+    baseUrl = url.startsWith("http") ? url : `https://${url}`;
+    const urlObj = new URL(baseUrl);
+    if (!urlObj.hostname || urlObj.hostname === "") {
+      throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `无效的 URL: ${url}`);
+    }
+  } catch (err) {
+    if (err instanceof ScrapeError) throw err;
+    throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `无效的 URL: ${url}`);
+  }
+
   const origin = new URL(baseUrl).origin;
 
   const res = await fetchWithTimeout(baseUrl);
-  if (!res || !res.ok) {
-    return {
-      title: "",
-      description: "",
-      hasJsonLd: false,
-      jsonLdTypes: [],
-      hasFaqSchema: false,
-      hasHowToSchema: false,
-      hasOpenGraph: false,
-      hasTwitterCards: false,
-      h1Count: 0,
-      h2Count: 0,
-      wordCount: 0,
-      hasRobotsTxt: false,
-      hasSitemap: false,
-      hasLlmstxt: false,
-    };
+  if (!res.ok) {
+    throw new ScrapeError(ScrapeErrorCode.HTTP_ERROR, `HTTP 错误 ${res.status}: ${baseUrl}`);
   }
 
   const html = await res.text();
@@ -131,9 +145,30 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
   const { h1, h2 } = extractHeadings(html);
   const wordCount = countWords(html);
 
-  const robotsRes = await fetchWithTimeout(`${origin}/robots.txt`);
-  const sitemapRes = await fetchWithTimeout(`${origin}/sitemap.xml`);
-  const llmstxtRes = await fetchWithTimeout(`${origin}/llms.txt`);
+  let hasRobotsTxt = false;
+  let hasSitemap = false;
+  let hasLlmstxt = false;
+
+  try {
+    const robotsRes = await fetchWithTimeout(`${origin}/robots.txt`);
+    hasRobotsTxt = robotsRes.ok;
+  } catch {
+    hasRobotsTxt = false;
+  }
+
+  try {
+    const sitemapRes = await fetchWithTimeout(`${origin}/sitemap.xml`);
+    hasSitemap = sitemapRes.ok;
+  } catch {
+    hasSitemap = false;
+  }
+
+  try {
+    const llmstxtRes = await fetchWithTimeout(`${origin}/llms.txt`);
+    hasLlmstxt = llmstxtRes.ok;
+  } catch {
+    hasLlmstxt = false;
+  }
 
   return {
     title,
@@ -147,8 +182,8 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     h1Count: h1,
     h2Count: h2,
     wordCount,
-    hasRobotsTxt: robotsRes?.ok ?? false,
-    hasSitemap: sitemapRes?.ok ?? false,
-    hasLlmstxt: llmstxtRes?.ok ?? false,
+    hasRobotsTxt,
+    hasSitemap,
+    hasLlmstxt,
   };
 }

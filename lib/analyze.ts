@@ -2,7 +2,7 @@ import { ai } from "@/lib/gemini";
 import { ANALYZE_PROMPT, getProvider } from "@/lib/ai-provider";
 import { Type } from "@google/genai";
 import { cacheGet, cacheSet } from "@/lib/cache";
-import { scrapeWebsite } from "@/lib/scrape";
+import { scrapeWebsite, ScrapeError, ScrapeErrorCode } from "@/lib/scrape";
 
 const CACHE_TTL_MS = 60 * 60 * 1000;
 
@@ -23,7 +23,7 @@ function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsi
   return lines.join("\n");
 }
 
-async function getSiteData(url: string) {
+async function getSiteData(url: string): Promise<Awaited<ReturnType<typeof scrapeWebsite>>> {
   const cacheKey = `scrape:${url}`;
   const cached = cacheGet<Awaited<ReturnType<typeof scrapeWebsite>>>(cacheKey);
   if (cached) return cached;
@@ -165,11 +165,25 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
   const cached = cacheGet<Record<string, unknown>>(cacheKey);
   if (cached) return { ...cached, cached: true };
 
-  const activeProvider = getProvider();
-  const fn = providerFns[activeProvider];
-  if (!fn) throw new Error(`Unknown provider: ${activeProvider}`);
-  const report = await fn(url);
-  const result = { ...report, provider: activeProvider };
-  cacheSet(cacheKey, result, CACHE_TTL_MS);
-  return result;
+  try {
+    const activeProvider = getProvider();
+    const fn = providerFns[activeProvider];
+    if (!fn) throw new Error(`Unknown provider: ${activeProvider}`);
+    const report = await fn(url);
+    const result = { ...report, provider: activeProvider, error: null };
+    cacheSet(cacheKey, result, CACHE_TTL_MS);
+    return result;
+  } catch (err) {
+    if (err instanceof ScrapeError) {
+      const errorInfo = {
+        error: true,
+        errorCode: err.code,
+        errorType: ScrapeErrorCode[err.code],
+        errorMessage: err.message,
+        provider: null,
+      };
+      return errorInfo;
+    }
+    throw err;
+  }
 }
