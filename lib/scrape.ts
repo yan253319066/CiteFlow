@@ -32,13 +32,37 @@ export class ScrapeError extends Error {
 
 const MAX_TIMEOUT_MS = 15_000;
 
-async function checkStaticFile(origin: string, path: string): Promise<boolean> {
+async function resolveOrigin(baseUrl: string): Promise<string> {
   try {
-    const res = await fetch(`${origin}${path}`, { signal: AbortSignal.timeout(5000) });
-    return res.ok;
+    const res = await fetch(baseUrl, {
+      signal: AbortSignal.timeout(5000),
+      redirect: "follow",
+      headers: { "User-Agent": "Mozilla/5.0" },
+    });
+    return res.url ? new URL(res.url).origin : new URL(baseUrl).origin;
   } catch {
-    return false;
+    return new URL(baseUrl).origin;
   }
+}
+
+async function checkStaticFile(origin: string, path: string): Promise<boolean> {
+  const origins = [origin];
+  const url = new URL(origin);
+  if (url.hostname.startsWith("www.")) {
+    origins.push(origin.replace("www.", ""));
+  } else {
+    origins.push(`https://www.${url.hostname}`);
+  }
+
+  for (const o of origins) {
+    try {
+      const res = await fetch(`${o}${path}`, { signal: AbortSignal.timeout(5000) });
+      if (res.ok) return true;
+    } catch {
+      // continue to next
+    }
+  }
+  return false;
 }
 
 function extractFromHtml(html: string) {
@@ -121,7 +145,7 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `Invalid URL: ${url}`);
   }
 
-  const origin = new URL(baseUrl).origin;
+  const resolvedOrigin = await resolveOrigin(baseUrl);
 
   let response: Response;
   try {
@@ -153,9 +177,9 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
   const extracted = extractFromHtml(html);
 
   const [hasRobotsTxt, hasSitemap, hasLlmstxt] = await Promise.all([
-    checkStaticFile(origin, "/robots.txt"),
-    checkStaticFile(origin, "/sitemap.xml"),
-    checkStaticFile(origin, "/llms.txt"),
+    checkStaticFile(resolvedOrigin, "/robots.txt"),
+    checkStaticFile(resolvedOrigin, "/sitemap.xml"),
+    checkStaticFile(resolvedOrigin, "/llms.txt"),
   ]);
 
   return {
