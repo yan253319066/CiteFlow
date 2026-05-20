@@ -29,8 +29,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
         <div className="flex-1">{children}</div>
         <Footer />
-        <Analytics nonce={nonce} />
-        <SpeedInsights nonce={nonce} />
+        <Analytics />
+        <SpeedInsights />
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           nonce={nonce}
