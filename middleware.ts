@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-function buildCsp(nonce: string): string {
+function buildCsp(): string {
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval'`,
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
@@ -17,21 +17,9 @@ function buildCsp(nonce: string): string {
   return directives.join("; ");
 }
 
-export function middleware(request: NextRequest) {
-  const nonce = crypto.randomUUID().replaceAll("-", "");
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("Content-Security-Policy", buildCsp(nonce));
-
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
-
-  response.headers.set("Content-Security-Policy", buildCsp(nonce));
-  response.headers.set("x-nonce", nonce);
-
+export function middleware() {
+  const response = NextResponse.next();
+  response.headers.set("Content-Security-Policy", buildCsp());
   return response;
 }
 
