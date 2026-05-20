@@ -19,6 +19,8 @@ interface ReportData {
   suggestions: string[];
   summary: string;
   provider?: string;
+  error?: string;
+  errorCode?: string;
 }
 
 function parseReport(data: Record<string, unknown>): ReportData {
@@ -30,6 +32,8 @@ function parseReport(data: Record<string, unknown>): ReportData {
     suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
     summary: norm(data.summary, ''),
     provider: data.provider as string | undefined,
+    error: data.error as string | undefined,
+    errorCode: data.errorCode as string | undefined,
   };
 }
 
@@ -117,6 +121,56 @@ function StatMini({ label, value }: { label: string; value: number }) {
   );
 }
 
+function ErrorDisplay({ report }: { report: ReportData }) {
+  return (
+    <Card className="bg-[#0A0F24]/60 border-orange-500/30 rounded-3xl p-8 text-center">
+      <AlertTriangle className="w-16 h-16 text-orange-500 mx-auto mb-6" />
+      <h2 className="text-2xl font-bold text-white mb-4">Analysis Failed</h2>
+      <p className="text-slate-400 mb-6">{report.summary}</p>
+      
+      {report.error && (
+        <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 mb-6">
+          <p className="text-sm text-orange-400 font-mono">{report.error}</p>
+          {report.errorCode && (
+            <p className="text-xs text-orange-500/70 mt-2">Error Code: {report.errorCode}</p>
+          )}
+        </div>
+      )}
+      
+      <div className="grid md:grid-cols-2 gap-6 text-left mt-8">
+        <Card className="bg-[#0A0F24]/40 border-white/10 rounded-2xl p-6">
+          <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">What&apos;s Missing</h3>
+          <ul className="space-y-3">
+            {report.missing.slice(0, 3).map((item, i) => (
+              <li key={i} className="text-sm text-white">• {item}</li>
+            ))}
+          </ul>
+        </Card>
+        <Card className="bg-[#0A0F24]/40 border-white/10 rounded-2xl p-6">
+          <h3 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">Suggested Actions</h3>
+          <ul className="space-y-3">
+            {report.suggestions.slice(0, 3).map((item, i) => (
+              <li key={i} className="text-sm text-white">• {item}</li>
+            ))}
+          </ul>
+        </Card>
+      </div>
+      
+      <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <Link href="/" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-flex items-center justify-center gap-2">
+          Try Another Site
+        </Link>
+        <button 
+          onClick={() => window.location.reload()} 
+          className="px-6 py-3 border border-white/20 text-white rounded-xl font-semibold inline-flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    </Card>
+  );
+}
+
 export default async function ReportPage({ params }: { params: Promise<{ domain: string }> }) {
   const { domain } = await params;
   const ip = (await headers()).get("x-forwarded-for") ?? "anonymous";
@@ -156,6 +210,25 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
   }
 
   const report = result.data;
+
+  if (report.error) {
+    return (
+      <main className="min-h-screen pb-20 overflow-x-hidden">
+        <Navbar />
+        <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-orange-500 opacity-[0.05] blur-[120px] rounded-full -z-10" />
+        <div className="pt-28 px-6 md:px-12 max-w-5xl mx-auto">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12">
+            <ArrowLeft className="w-4 h-4" />Back to Dashboard
+          </Link>
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-white mb-2">{domain}</h1>
+            <p className="text-slate-500">GEO Analysis Report</p>
+          </div>
+          <ErrorDisplay report={report} />
+        </div>
+      </main>
+    );
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',

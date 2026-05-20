@@ -32,7 +32,7 @@ FAQ Coverage:
 Entity Clarity:
 - 20 points: Title >= 5 characters
 - 20 points: Meta description >= 30 characters
-- 20 points: 1-3 H1 headings
+- 20 points: 1+ H1 headings (single H1 is best practice)
 - 10 points: >= 3 H2 headings
 - 15 points: Word count >= 500
 - 15 points: Word count >= 1500

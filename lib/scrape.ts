@@ -13,20 +13,106 @@ export interface ScrapeResult {
   hasRobotsTxt: boolean;
   hasSitemap: boolean;
   hasLlmstxt: boolean;
+  error?: string;
+  fetchTime?: number;
 }
 
-const TIMEOUT_MS = 8_000;
+export interface ScrapeError {
+  code: string;
+  message: string;
+  recoverable: boolean;
+}
 
-async function fetchWithTimeout(url: string): Promise<Response | null> {
-  try {
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
-    const res = await fetch(url, { signal: controller.signal, redirect: "follow" });
-    clearTimeout(id);
-    return res;
-  } catch {
-    return null;
+const TIMEOUT_MS = 10_000;
+const MAX_RETRIES = 2;
+
+export const SCRAPE_ERRORS = {
+  TIMEOUT: { code: 'TIMEOUT', message: 'Request timed out', recoverable: true },
+  DNS_ERROR: { code: 'DNS_ERROR', message: 'Could not resolve domain', recoverable: false },
+  CONNECTION_REFUSED: { code: 'CONNECTION_REFUSED', message: 'Connection refused', recoverable: false },
+  SSL_ERROR: { code: 'SSL_ERROR', message: 'SSL certificate error', recoverable: true },
+  SERVER_ERROR: { code: 'SERVER_ERROR', message: 'Server returned error', recoverable: true },
+  NETWORK_ERROR: { code: 'NETWORK_ERROR', message: 'Network error', recoverable: true },
+  UNKNOWN_ERROR: { code: 'UNKNOWN_ERROR', message: 'Unknown error occurred', recoverable: false },
+} as const;
+
+function detectError(error: unknown, status?: number): ScrapeError {
+  if (error instanceof Error) {
+    if (error.message.includes('timeout') || error.message.includes('Timeout')) {
+      return { ...SCRAPE_ERRORS.TIMEOUT };
+    }
+    if (error.message.includes('ENOTFOUND') || error.message.includes('getaddrinfo')) {
+      return { ...SCRAPE_ERRORS.DNS_ERROR };
+    }
+    if (error.message.includes('ECONNREFUSED')) {
+      return { ...SCRAPE_ERRORS.CONNECTION_REFUSED };
+    }
+    if (error.message.includes('SSL') || error.message.includes('certificate')) {
+      return { ...SCRAPE_ERRORS.SSL_ERROR };
+    }
   }
+  
+  if (status) {
+    if (status >= 500) {
+      return { ...SCRAPE_ERRORS.SERVER_ERROR };
+    }
+    if (status === 403 || status === 401) {
+      return { code: 'AUTH_ERROR', message: 'Access forbidden', recoverable: false };
+    }
+    if (status === 404) {
+      return { code: 'NOT_FOUND', message: 'Page not found', recoverable: false };
+    }
+  }
+  
+  return { ...SCRAPE_ERRORS.UNKNOWN_ERROR };
+}
+
+async function fetchWithTimeout(
+  url: string, 
+  retries = MAX_RETRIES
+): Promise<{ response: Response | null; error?: ScrapeError }> {
+  let lastError: ScrapeError | undefined;
+  
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
+      
+      const res = await fetch(url, { 
+        signal: controller.signal, 
+        redirect: "follow",
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.5',
+        }
+      });
+      
+      clearTimeout(id);
+      
+      if (res.ok) {
+        return { response: res };
+      }
+      
+      const error = detectError(null, res.status);
+      if (!error.recoverable || attempt === retries) {
+        return { response: res, error };
+      }
+      
+      lastError = error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      
+    } catch (err) {
+      const error = detectError(err);
+      if (!error.recoverable || attempt === retries) {
+        return { response: null, error };
+      }
+      lastError = error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+    }
+  }
+  
+  return { response: null, error: lastError };
 }
 
 function extractTitle(html: string): string {
@@ -98,10 +184,35 @@ function countWords(html: string): number {
 }
 
 export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
+  const startTime = Date.now();
   const baseUrl = url.startsWith("http") ? url : `https://${url}`;
-  const origin = new URL(baseUrl).origin;
+  
+  let origin: string;
+  try {
+    origin = new URL(baseUrl).origin;
+  } catch {
+    return {
+      title: "",
+      description: "",
+      hasJsonLd: false,
+      jsonLdTypes: [],
+      hasFaqSchema: false,
+      hasHowToSchema: false,
+      hasOpenGraph: false,
+      hasTwitterCards: false,
+      h1Count: 0,
+      h2Count: 0,
+      wordCount: 0,
+      hasRobotsTxt: false,
+      hasSitemap: false,
+      hasLlmstxt: false,
+      error: 'Invalid URL format',
+      fetchTime: 0,
+    };
+  }
 
-  const res = await fetchWithTimeout(baseUrl);
+  const { response: res, error: fetchError } = await fetchWithTimeout(baseUrl);
+  
   if (!res || !res.ok) {
     return {
       title: "",
@@ -118,6 +229,8 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
       hasRobotsTxt: false,
       hasSitemap: false,
       hasLlmstxt: false,
+      error: fetchError?.message || 'Failed to fetch website',
+      fetchTime: Date.now() - startTime,
     };
   }
 
@@ -133,9 +246,11 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
   const { h1, h2 } = extractHeadings(html);
   const wordCount = countWords(html);
 
-  const robotsRes = await fetchWithTimeout(`${origin}/robots.txt`);
-  const sitemapRes = await fetchWithTimeout(`${origin}/sitemap.xml`);
-  const llmstxtRes = await fetchWithTimeout(`${origin}/llms.txt`);
+  const [robotsRes, sitemapRes, llmstxtRes] = await Promise.all([
+    fetchWithTimeout(`${origin}/robots.txt`),
+    fetchWithTimeout(`${origin}/sitemap.xml`),
+    fetchWithTimeout(`${origin}/llms.txt`),
+  ]);
 
   return {
     title,
@@ -149,8 +264,9 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     h1Count: h1,
     h2Count: h2,
     wordCount,
-    hasRobotsTxt: robotsRes?.ok ?? false,
-    hasSitemap: sitemapRes?.ok ?? false,
-    hasLlmstxt: llmstxtRes?.ok ?? false,
+    hasRobotsTxt: robotsRes.response?.ok ?? false,
+    hasSitemap: sitemapRes.response?.ok ?? false,
+    hasLlmstxt: llmstxtRes.response?.ok ?? false,
+    fetchTime: Date.now() - startTime,
   };
 }

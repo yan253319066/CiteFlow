@@ -5,6 +5,7 @@ import { cacheGet, cacheSet } from "@/lib/cache";
 import { scrapeWebsite, ScrapeResult } from "@/lib/scrape";
 
 const CACHE_TTL_MS = 60 * 60 * 1000;
+const ERROR_CACHE_TTL_MS = 5 * 60 * 1000;
 
 interface AnalysisScore {
   aiVisibility: number;
@@ -34,7 +35,7 @@ function calculateBaseScore(data: ScrapeResult): AnalysisScore {
   if (data.hasTwitterCards) aiVisibility += 10;
   if (data.title && data.title.length >= 5) entityClarity += 20;
   if (data.description && data.description.length >= 30) entityClarity += 20;
-  if (data.h1Count >= 1 && data.h1Count <= 3) entityClarity += 20;
+  if (data.h1Count >= 1) entityClarity += 20;
   if (data.h2Count >= 3) entityClarity += 10;
   if (data.wordCount >= 500) { 
     entityClarity += 15; 
@@ -272,14 +273,18 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
   const siteDataRaw = await getSiteData(url);
   
   if (!siteDataRaw.title && siteDataRaw.wordCount === 0) {
-    return {
+    const errorInfo = getErrorInfo(siteDataRaw.error);
+    const errorResult = {
       score: 0,
       breakdown: { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 },
-      missing: ["Failed to fetch website content"],
-      suggestions: ["Verify the URL is accessible", "Check website availability"],
-      summary: "Analysis failed: unable to retrieve website data",
-      error: "Website inaccessible",
+      missing: errorInfo.missing,
+      suggestions: errorInfo.suggestions,
+      summary: errorInfo.summary,
+      error: siteDataRaw.error || "Website inaccessible",
+      errorCode: errorInfo.code,
     };
+    cacheSet(cacheKey, errorResult, ERROR_CACHE_TTL_MS);
+    return errorResult;
   }
 
   const baseScore = calculateBaseScore(siteDataRaw);
@@ -293,4 +298,123 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
   const result = { ...report, provider: activeProvider };
   cacheSet(cacheKey, result, CACHE_TTL_MS);
   return result;
+}
+
+interface ErrorInfo {
+  code: string;
+  missing: string[];
+  suggestions: string[];
+  summary: string;
+}
+
+function getErrorInfo(errorMessage?: string): ErrorInfo {
+  if (!errorMessage) {
+    return {
+      code: 'UNKNOWN',
+      missing: ["Failed to fetch website content"],
+      suggestions: ["Verify the URL is correct", "Check website availability"],
+      summary: "Analysis failed: unable to retrieve website data",
+    };
+  }
+
+  const errorLower = errorMessage.toLowerCase();
+
+  if (errorLower.includes('timeout')) {
+    return {
+      code: 'TIMEOUT',
+      missing: ["Website took too long to respond"],
+      suggestions: [
+        "The website may be slow or overloaded",
+        "Try again when traffic is lower",
+        "Check if the website is working normally"
+      ],
+      summary: "Analysis failed: website request timed out",
+    };
+  }
+
+  if (errorLower.includes('dns') || errorLower.includes('resolve') || errorLower.includes('not found')) {
+    return {
+      code: 'DNS_ERROR',
+      missing: ["Website domain could not be resolved"],
+      suggestions: [
+        "Verify the URL spelling is correct",
+        "Check if the domain is registered and active",
+        "Try with or without 'www' prefix"
+      ],
+      summary: "Analysis failed: domain not found or invalid URL",
+    };
+  }
+
+  if (errorLower.includes('connection refused') || errorLower.includes('connection')) {
+    return {
+      code: 'CONNECTION_ERROR',
+      missing: ["Server is not accepting connections"],
+      suggestions: [
+        "The server may be down for maintenance",
+        "Check if the website is accessible in your browser",
+        "Try again later"
+      ],
+      summary: "Analysis failed: connection refused by server",
+    };
+  }
+
+  if (errorLower.includes('ssl') || errorLower.includes('certificate')) {
+    return {
+      code: 'SSL_ERROR',
+      missing: ["SSL certificate verification failed"],
+      suggestions: [
+        "The website may have an expired or invalid SSL certificate",
+        "This is a server configuration issue"
+      ],
+      summary: "Analysis failed: SSL certificate error",
+    };
+  }
+
+  if (errorLower.includes('forbidden') || errorLower.includes('access')) {
+    return {
+      code: 'AUTH_ERROR',
+      missing: ["Access to the website is forbidden"],
+      suggestions: [
+        "The website may be blocking automated requests",
+        "Check if the website requires authentication",
+        "Some hosting providers (Vercel, Netlify) may block scrapers"
+      ],
+      summary: "Analysis failed: access forbidden by server",
+    };
+  }
+
+  if (errorLower.includes('not found') || errorLower.includes('404')) {
+    return {
+      code: 'NOT_FOUND',
+      missing: ["The requested page does not exist"],
+      suggestions: [
+        "Verify the URL is complete and correct",
+        "Check if the page has been moved or deleted"
+      ],
+      summary: "Analysis failed: page not found (404)",
+    };
+  }
+
+  if (errorLower.includes('invalid url')) {
+    return {
+      code: 'INVALID_URL',
+      missing: ["Invalid URL format provided"],
+      suggestions: [
+        "Use a valid URL format like: https://example.com",
+        "Make sure to include the protocol (http:// or https://)"
+      ],
+      summary: "Analysis failed: invalid URL format",
+    };
+  }
+
+  return {
+    code: 'UNKNOWN',
+    missing: ["Failed to fetch website content"],
+    suggestions: [
+      "Verify the URL is accessible",
+      "Check if the website allows automated access",
+      "Try again in a few minutes"
+    ],
+    summary: `Analysis failed: ${errorMessage}`,
+  };
 }
