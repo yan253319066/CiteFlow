@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ArrowRight, Crosshair, Loader2, TrendingUp, TrendingDown, Minus, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Crosshair, Loader2, TrendingUp, TrendingDown, Minus, Share2, Copy, Check } from 'lucide-react';
 import { Input } from './ui/input';
 import { Card } from './ui/card';
 
@@ -82,6 +82,7 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
   const [compData, setCompData] = useState<CompData | null>(null);
   const [error, setError] = useState('');
   const [expanded, setExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
   const autoCompared = useRef(false);
 
   useEffect(() => {
@@ -134,6 +135,32 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
     ? `${window.location.origin}/report/${currentDomain}?with=${encodeURIComponent(competitor.trim())}`
     : null;
 
+  const shareText = compData
+    ? `${currentDomain} (${currentScore}/100) vs ${competitor.trim()} (${compData.score}/100) - AI Visibility Comparison on CiteFlow`
+    : null;
+
+  const handleNativeShare = async () => {
+    if (!shareUrl || !shareText || typeof navigator === 'undefined' || !navigator.share) return;
+    try {
+      await navigator.share({
+        title: `${currentDomain} vs ${competitor.trim()} | CiteFlow`,
+        text: shareText,
+        url: shareUrl,
+      });
+    } catch {
+    }
+  };
+
+  const handleCopy = async () => {
+    if (!shareUrl) return;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+    }
+  };
+
   return (
     <div>
       <Card className="bg-gradient-to-r from-primary/5 via-primary/[0.02] to-transparent border border-primary/20 rounded-2xl p-4">
@@ -158,14 +185,32 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ArrowRight className="w-4 h-4" /> Compare</>}
           </button>
           {shareUrl && (
-            <button
-              onClick={() => { navigator.clipboard.writeText(shareUrl!); }}
-              className="h-9 px-3 bg-white/5 border border-white/10 rounded-lg text-xs text-slate-400 hover:text-white hover:border-primary/30 transition-all cursor-pointer shrink-0 flex items-center gap-1.5"
-              title="Copy comparison link"
-            >
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              Copy Link
-            </button>
+            <div className="flex items-center gap-1 shrink-0">
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText!)}&url=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#6E7BFF]/50 hover:bg-[#6E7BFF]/10 transition-all cursor-pointer"
+                title="Share on X"
+              >
+                <span className="text-[13px] font-black leading-none">𝕏</span>
+              </a>
+              <button
+                onClick={handleNativeShare}
+                className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#6E7BFF]/50 hover:bg-[#6E7BFF]/10 transition-all cursor-pointer"
+                title="Share via system"
+              >
+                <Share2 className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleCopy}
+                className="h-9 px-3 rounded-lg bg-white/5 border border-white/10 flex items-center gap-1.5 text-xs text-slate-400 hover:text-white hover:border-[#6E7BFF]/50 hover:bg-[#6E7BFF]/10 transition-all cursor-pointer"
+                title="Copy comparison link"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? 'Copied!' : 'Copy'}
+              </button>
+            </div>
           )}
         </div>
       </Card>

@@ -10,8 +10,11 @@ export async function POST(req: NextRequest) {
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
     const ip = req.headers.get("x-forwarded-for") ?? "anonymous";
-    const { success } = await checkRateLimit(ip);
-    if (!success) {
+    const result = await checkRateLimit(ip);
+    if (!result.success) {
+      if (result.reason === 'redis_unavailable') {
+        return NextResponse.json({ error: "Service unavailable" }, { status: 503 });
+      }
       return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
     }
 

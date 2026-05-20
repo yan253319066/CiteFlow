@@ -83,12 +83,16 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 type ReportResult =
   | { ok: true; data: ReportData }
   | { ok: false; reason: 'rate_limited' }
+  | { ok: false; reason: 'service_unavailable' }
   | { ok: false; reason: 'failed' };
 
 async function getReport(domain: string, ip: string): Promise<ReportResult> {
   try {
-    const { success } = await checkRateLimit(ip);
-    if (!success) {
+    const result = await checkRateLimit(ip);
+    if (!result.success) {
+      if (result.reason === 'redis_unavailable') {
+        return { ok: false, reason: 'service_unavailable' };
+      }
       return { ok: false, reason: 'rate_limited' };
     }
     const data = await analyzeSite(domain);
@@ -120,17 +124,23 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
   const result = await getReport(domain, ip);
 
   if (!result.ok) {
-    const isRateLimited = result.reason === 'rate_limited';
     return (
       <main className="min-h-screen">
         <Navbar />
         <div className="pt-32 px-6 max-w-5xl mx-auto text-center">
-          {isRateLimited ? (
+          {result.reason === 'rate_limited' ? (
             <>
               <ShieldAlert className="w-16 h-16 text-orange-500 mx-auto mb-6" />
               <h1 className="text-3xl font-bold mb-4">Rate Limit Reached</h1>
               <p className="text-muted-foreground mb-2">You have used all available analysis requests for this hour.</p>
               <p className="text-muted-foreground mb-8">Please wait and try again later.</p>
+            </>
+          ) : result.reason === 'service_unavailable' ? (
+            <>
+              <AlertTriangle className="w-16 h-16 text-blue-500 mx-auto mb-6" />
+              <h1 className="text-3xl font-bold mb-4">Service Unavailable</h1>
+              <p className="text-muted-foreground mb-2">Our rate limiting service is temporarily unavailable.</p>
+              <p className="text-muted-foreground mb-8">Please try again later or contact support.</p>
             </>
           ) : (
             <>

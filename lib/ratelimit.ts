@@ -16,18 +16,27 @@ try {
   });
 } catch (error) {
   redisError = error as Error;
-  console.error("Upstash Redis initialization failed - rate limiting will block requests:", redisError.message);
+  console.error("Upstash Redis initialization failed:", redisError.message);
 }
 
-export async function checkRateLimit(ip: string): Promise<{ success: boolean }> {
+export type RateLimitResult =
+  | { success: true }
+  | { success: false; reason: 'rate_limited' }
+  | { success: false; reason: 'redis_unavailable' };
+
+export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
   if (!ratelimit) {
-    return { success: false };
+    return { success: false, reason: 'redis_unavailable' };
   }
   
   try {
-    return await ratelimit.limit(ip);
+    const { success } = await ratelimit.limit(ip);
+    if (!success) {
+      return { success: false, reason: 'rate_limited' };
+    }
+    return { success: true };
   } catch (error) {
-    console.error("Rate limit check failed, blocking request to protect AI tokens:", error);
-    return { success: false };
+    console.error("Rate limit check failed:", error);
+    return { success: false, reason: 'redis_unavailable' };
   }
 }
