@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
+// https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/react/
 export const metadata: Metadata = {
   metadataBase: new URL('https://getciteflow.ai'),
   title: "CiteFlow | Get Mentioned by AI",
