@@ -119,7 +119,8 @@ function StatMini({ label, value }: { label: string; value: number }) {
 
 export default async function ReportPage({ params }: { params: Promise<{ domain: string }> }) {
   const { domain } = await params;
-  const ip = (await headers()).get("x-forwarded-for") ?? "anonymous";
+  const forwardedFor = (await headers()).get("x-forwarded-for");
+  const ip = forwardedFor ? forwardedFor.split(',')[0].trim() : "anonymous";
 
   const result = await getReport(domain, ip);
 

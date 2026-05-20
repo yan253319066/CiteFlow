@@ -9,7 +9,8 @@ export async function POST(req: NextRequest) {
     const { url } = await req.json();
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
-    const ip = req.headers.get("x-forwarded-for") ?? "anonymous";
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const ip = forwardedFor ? forwardedFor.split(',')[0].trim() : "anonymous";
     const result = await checkRateLimit(ip);
     if (!result.success) {
       if (result.reason === 'redis_unavailable') {

@@ -24,16 +24,21 @@ export type RateLimitResult =
 
 export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
   if (!ratelimit) {
+    console.log(`[RateLimit] Redis unavailable, allowing request for IP: ${ip}`);
     return { success: false, reason: 'redis_unavailable' };
   }
   
+  console.log(`[RateLimit] Checking for IP: ${ip}, limit: ${max}/hour`);
+  
   try {
-    const { success } = await ratelimit.limit(ip);
+    const { success, remaining, reset } = await ratelimit.limit(ip);
+    console.log(`[RateLimit] Result: success=${success}, remaining=${remaining}, reset=${reset}`);
     if (!success) {
       return { success: false, reason: 'rate_limited' };
     }
     return { success: true };
-  } catch {
+  } catch (err) {
+    console.error(`[RateLimit] Error:`, err);
     return { success: false, reason: 'redis_unavailable' };
   }
 }

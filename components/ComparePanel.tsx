@@ -105,15 +105,24 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: domain }),
       });
-      if (!res.ok) throw new Error('Analysis failed');
+      if (!res.ok) {
+        if (res.status === 429) {
+          throw new Error('RATE_LIMIT');
+        }
+        throw new Error('Analysis failed');
+      }
       const data = await res.json();
       setCompData({
         score: data.score ?? data.overall_visibility_score ?? 0,
         breakdown: data.breakdown ?? data.breakdown_scores ?? { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 },
       });
       updateUrl(domain);
-    } catch {
-      setError('Could not analyze competitor. Please check the domain and try again.');
+    } catch (err: any) {
+      if (err.message === 'RATE_LIMIT') {
+        setError('Rate limit reached. Please wait and try again in a few minutes.');
+      } else {
+        setError('Could not analyze competitor. Please check the domain and try again.');
+      }
     } finally {
       setLoading(false);
     }
