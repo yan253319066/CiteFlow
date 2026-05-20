@@ -7,7 +7,7 @@ function buildCsp(): string {
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    "connect-src 'self' https://api.openai.com https://api.deepseek.com https://generativelanguage.googleapis.com https://epic-bird-131377.upstash.io",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
