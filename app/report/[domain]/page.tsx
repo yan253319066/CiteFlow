@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { analyzeSite } from '@/lib/analyze';
 import { verifyAnalysisToken } from '@/lib/verification';
+import { ShareButtons } from '@/components/ShareButtons';
+import { JsonLd } from '@/components/JsonLd';
 
 export const maxDuration = 60;
 
@@ -17,18 +19,64 @@ interface ReportData {
   provider?: string;
 }
 
+function parseReport(data: Record<string, unknown>): ReportData {
+  const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
+  return {
+    score: norm(data.score, norm(data.overall_visibility_score, 0)),
+    breakdown: norm(data.breakdown, norm(data.breakdown_scores, { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 })),
+    missing: norm(data.missing, norm(data.missing_components, [])),
+    suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
+    summary: norm(data.summary, ''),
+    provider: data.provider as string | undefined,
+  };
+}
+
 export async function generateMetadata({ params, searchParams }: { params: Promise<{ domain: string }>; searchParams: Promise<{ [key: string]: string | string[] | undefined }> }): Promise<Metadata> {
   const { domain } = await params;
   const { token } = await searchParams;
-  if (!token) return { title: `Verification Required - CiteFlow` };
-  const title = `CiteFlow Report for ${domain}`;
+
+  const canonicalUrl = `https://getciteflow.ai/report/${domain}`;
+  const keywords = [
+    domain, 'AI Visibility', 'GEO', 'Generative Engine Optimization',
+    'ChatGPT SEO', 'AI search ranking', 'GEO score', 'AI readiness',
+    'LLM visibility', 'AI search optimization',
+  ];
+
+  if (!token || typeof token !== 'string') {
+    return {
+      title: `${domain} AI Visibility Score & GEO Report | CiteFlow`,
+      description: `Check the Generative Engine Optimization (GEO) score for ${domain}. See how well your site is optimized for AI search engines like ChatGPT, Gemini, and Claude. Get actionable suggestions to improve your AI visibility.`,
+      keywords,
+      alternates: { canonical: canonicalUrl },
+      openGraph: {
+        title: `${domain} AI Visibility Score — Free GEO Report`,
+        description: `See how ${domain} ranks in AI search and get personalized suggestions to improve.`,
+        url: canonicalUrl,
+      },
+    };
+  }
+
+  let fullTitle = `${domain} AI Visibility Score & GEO Report | CiteFlow`;
+  let ogDesc = `GEO score report for ${domain}`;
+
+  try {
+    if (await verifyAnalysisToken(token)) {
+      const data = await analyzeSite(domain);
+      const report = parseReport(data);
+      fullTitle = `${domain} AI Visibility Score: ${report.score}/100 | CiteFlow GEO Report`;
+      ogDesc = `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
+    }
+  } catch {
+    // fallback
+  }
+
   return {
-    title,
-    description: `AI visibility report and GEO suggestions for ${domain}.`,
-    keywords: ['AI Visibility', 'GEO', 'ChatGPT SEO', domain],
-    alternates: { canonical: `https://getciteflow.ai/report/${domain}` },
-    twitter: { card: 'summary_large_image', title, description: `GEO score report for ${domain}` },
-    openGraph: { title, description: `GEO score report for ${domain}`, url: `https://getciteflow.ai/report/${domain}` },
+    title: fullTitle,
+    description: ogDesc,
+    keywords,
+    alternates: { canonical: canonicalUrl },
+    twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc },
+    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl },
   };
 }
 
@@ -37,15 +85,7 @@ async function getReport(domain: string, token: string): Promise<ReportData | nu
     if (!(await verifyAnalysisToken(token))) return null;
 
     const data = await analyzeSite(domain);
-    const norm = (v: any, fallback: any) => (v !== undefined && v !== null ? v : fallback);
-    return {
-      score: norm(data.score, norm(data.overall_visibility_score, 0)),
-      breakdown: norm(data.breakdown, norm(data.breakdown_scores, { aiVisibility: 0, faqCoverage: 0, entityClarity: 0, authority: 0 })),
-      missing: norm(data.missing, norm(data.missing_components, [])),
-      suggestions: norm(data.suggestions, norm(data.ai_suggestions, [])),
-      summary: norm(data.summary, ''),
-      provider: data.provider as string | undefined,
-    };
+    return parseReport(data);
   } catch (e) {
     console.error('[getReport] error:', e);
     return null;
@@ -100,22 +140,50 @@ export default async function ReportPage({ params, searchParams }: { params: Pro
     );
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${domain} AI Visibility Score: ${report.score}/100`,
+    description: report.summary,
+    url: `https://getciteflow.ai/report/${domain}`,
+    about: {
+      '@type': 'Thing',
+      name: 'AI Visibility (GEO)',
+      description: 'Generative Engine Optimization score measuring how well a website performs in AI-powered search engines.',
+    },
+    mainEntity: {
+      '@type': 'StatisticalScore',
+      name: 'GEO Score',
+      value: report.score,
+      minValue: 0,
+      maxValue: 100,
+      additionalProperty: [
+        { '@type': 'PropertyValue', name: 'AI Visibility', value: report.breakdown.aiVisibility },
+        { '@type': 'PropertyValue', name: 'FAQ Coverage', value: report.breakdown.faqCoverage },
+        { '@type': 'PropertyValue', name: 'Entity Clarity', value: report.breakdown.entityClarity },
+        { '@type': 'PropertyValue', name: 'Authority', value: report.breakdown.authority },
+      ],
+    },
+  };
+
   return (
     <main className="min-h-screen pb-20 overflow-x-hidden">
+        <JsonLd data={jsonLd} />
         <Navbar />
         <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-[#6E7BFF] opacity-[0.05] blur-[120px] rounded-full -z-10" />
         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
         <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"><ArrowLeft className="w-4 h-4" />Back to Dashboard</Link>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
-            <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center min-h-[360px]">
-              <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mb-8">
+            <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-between min-h-[360px]">
+              <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mt-4">
                 <div className="absolute inset-0 rounded-full" style={{ background: `conic-gradient(#6E7BFF ${report.score}%, #8B5CF6 ${report.score}%, rgba(255,255,255,0.07) 0)` }} />
                 <div className="w-40 h-40 rounded-full bg-[#0A0F24] border border-white/10 flex flex-col items-center justify-center z-10">
                   <span className="text-6xl font-black text-white">{report.score}</span>
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Overall</span>
                 </div>
               </div>
+              <ShareButtons domain={domain} score={report.score} />
             </Card>
             <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8">

@@ -112,27 +112,27 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
     max_tokens: 2048,
   };
 
-  console.log(`[Deepseek] Request model=deepseek-v4-flash url=${url} retries=${retries}`);
+  // console.log(`[Deepseek] Request model=deepseek-v4-flash url=${url} retries=${retries}`);
   const res = await fetch("https://api.deepseek.com/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify(body),
   });
 
-  console.log(`[Deepseek] Response status=${res.status} ${res.statusText}`);
+  // console.log(`[Deepseek] Response status=${res.status} ${res.statusText}`);
   if (!res.ok) {
     const text = await res.text();
     console.error(`[Deepseek] Error body: ${text}`);
     throw new Error(`Deepseek failed: ${res.status} ${text}`);
   }
   const data = await res.json();
-  console.log(`[Deepseek] Raw response keys=${Object.keys(data)} choices=${data?.choices?.length}`);
-  console.log(`[Deepseek] Finish reason: ${data?.choices?.[0]?.finish_reason}`);
+  // console.log(`[Deepseek] Raw response keys=${Object.keys(data)} choices=${data?.choices?.length}`);
+  // console.log(`[Deepseek] Finish reason: ${data?.choices?.[0]?.finish_reason}`);
   const content = data?.choices?.[0]?.message?.content?.trim();
-  console.log(`[Deepseek] Content length=${content?.length ?? 0} content_preview=${content?.slice(0, 200) ?? "(empty)"}`);
+  // console.log(`[Deepseek] Content length=${content?.length ?? 0} content_preview=${content?.slice(0, 200) ?? "(empty)"}`);
 
   if (!content && retries > 0) {
-    console.log(`[Deepseek] Empty content, retrying (${retries} left)`);
+    // console.log(`[Deepseek] Empty content, retrying (${retries} left)`);
     return analyzeWithDeepseek(url, retries - 1);
   }
   if (!content) {
@@ -142,12 +142,12 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
 
   try {
     const parsed = JSON.parse(content);
-    console.log(`[Deepseek] Parsed OK keys=${Object.keys(parsed)}`);
+    // console.log(`[Deepseek] Parsed OK keys=${Object.keys(parsed)}`);
     return parsed;
   } catch (e) {
     console.error(`[Deepseek] JSON parse error: ${e}`);
     if (retries > 0) {
-      console.log(`[Deepseek] Retrying after parse error (${retries} left)`);
+      // console.log(`[Deepseek] Retrying after parse error (${retries} left)`);
       return analyzeWithDeepseek(url, retries - 1);
     }
     return {};
