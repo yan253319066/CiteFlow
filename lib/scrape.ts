@@ -50,6 +50,8 @@ function extractMetaProperty(html: string, property: string): boolean {
   const patterns = [
     new RegExp(`<meta[^>]+property=["']${property}["'][^>]+content=`, "i"),
     new RegExp(`<meta[^>]+content=["'][^"']*["'][^>]+property=["']${property}["']`, "i"),
+    new RegExp(`<meta[^>]+name=["']${property}["'][^>]+content=`, "i"),
+    new RegExp(`<meta[^>]+content=["'][^"']*["'][^>]+name=["']${property}["']`, "i"),
   ];
   return patterns.some((p) => p.test(html));
 }
