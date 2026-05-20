@@ -76,7 +76,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     keywords,
     alternates: { canonical: canonicalUrl },
     twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc, images: [ogImage] },
-    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, siteName: 'CiteFlow', images: [{ url: ogImage, width: 1200, height: 630 }] },
   };
 }
 
