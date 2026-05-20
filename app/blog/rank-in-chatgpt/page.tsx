@@ -14,11 +14,13 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2026-05-18',
     authors: ['CiteFlow Intelligence'],
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75', width: 1200, height: 630, alt: 'How to Get Cited by ChatGPT' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How to Get Cited by ChatGPT',
     description: 'A framework for increasing your brand citation rate in AI.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75'],
   },
 };
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization', 'GEO tool', 'AI visibility checker', 'ChatGPT SEO checker', 'free GEO report'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
   twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
-  openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/' }
+  openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'CiteFlow OG Image' }] }
 };
 
 const softwareSchema = {

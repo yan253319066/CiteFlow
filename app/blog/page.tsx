@@ -13,11 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CiteFlow Blog — AI Search & GEO Insights',
     description: 'Strategies for getting cited by AI. GEO guides, ChatGPT SEO, and AI visibility research.',
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75', width: 1200, height: 630, alt: 'CiteFlow Blog OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CiteFlow Blog — AI Search & GEO Insights',
     description: 'Strategies for getting cited by AI.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75'],
   },
 };
 

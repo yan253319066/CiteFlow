@@ -11,11 +11,13 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2026-05-15',
     authors: ['CiteFlow Editorial'],
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75', width: 1200, height: 630, alt: 'How Generative Engines Choose What to Cite' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How Generative Engines Choose What to Cite',
     description: 'A deep dive into how LLMs select sources.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75'],
   },
 };
 

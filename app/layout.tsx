@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI', 'GEO tool', 'AI visibility checker', 'Generative Engine Optimization'],
   alternates: { canonical: '/' },
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
-  openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: ['/logo.png'] },
-  twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['/logo.png'] },
+  openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'CiteFlow OG Image' }] },
+  twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75'] },
   other: { 'google-site-verification': 'placeholder' },
 };
 

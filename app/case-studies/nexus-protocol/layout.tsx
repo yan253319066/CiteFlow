@@ -10,11 +10,13 @@ export const metadata: Metadata = {
     description: 'A DeFi protocol that was invisible in ChatGPT despite strong SEO. The fix was simpler than expected.',
     type: 'article',
     publishedTime: '2026-05-20',
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/nexus-protocol&score=75', width: 1200, height: 630, alt: 'Nexus Protocol GEO Case Study' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nexus Protocol: +140% AI Citations in 3 Weeks',
     description: 'GEO case study: from zero ChatGPT mentions to 43% response rate.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/nexus-protocol&score=75'],
   },
 };
 

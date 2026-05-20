@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy | CiteFlow",
     description: "Learn how CiteFlow collects, uses, and protects your personal data.",
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/privacy-policy&score=75', width: 1200, height: 630, alt: 'CiteFlow Privacy Policy OG Image' }],
   },
 };
 

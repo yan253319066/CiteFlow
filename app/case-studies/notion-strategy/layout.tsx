@@ -10,11 +10,13 @@ export const metadata: Metadata = {
     description: 'Why Notion appears first in 92% of AI-generated productivity recommendations.',
     type: 'article',
     publishedTime: '2026-05-20',
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/notion-strategy&score=75', width: 1200, height: 630, alt: 'Notion GEO Playbook Case Study' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Notion GEO Playbook: Dominating AI Productivity Answers',
     description: 'Why Notion appears first in 92% of AI productivity recommendations.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/notion-strategy&score=75'],
   },
 };
 

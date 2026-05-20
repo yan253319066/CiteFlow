@@ -14,11 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Compare AI Visibility Scores — Free GEO Comparison Tool',
     description: 'See how your site stacks up against competitors in AI search. Free side-by-side GEO analysis.',
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75', width: 1200, height: 630, alt: 'CiteFlow Compare OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Compare AI Visibility Scores — Free GEO Tool',
     description: 'Side-by-side GEO analysis for your site vs competitors.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75'],
   },
 };
 

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | CiteFlow",
     description: "Review the terms and conditions governing your use of the CiteFlow platform.",
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75', width: 1200, height: 630, alt: 'CiteFlow Terms of Service OG Image' }],
   },
 };
 

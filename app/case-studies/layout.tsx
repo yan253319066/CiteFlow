@@ -8,11 +8,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'GEO Case Studies — Real AI Visibility Results',
     description: 'See how companies increased AI citations using GEO.',
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies&score=75', width: 1200, height: 630, alt: 'CiteFlow Case Studies OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'GEO Case Studies — Real AI Visibility Results',
     description: 'See how companies increased AI citations using GEO.',
+    images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies&score=75'],
   },
 };
 
