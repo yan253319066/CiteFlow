@@ -1,16 +1,30 @@
-# CiteFlow AI Visibility Platform
+# CiteFlow — AI Visibility Platform
 
-CiteFlow helps websites optimize their structure and content for Large Language Models (LLMs) and Generative Search Engines.
+CiteFlow is a Generative Engine Optimization (GEO) platform that helps websites get cited by AI search engines including ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews.
 
 ## Core Features
-- AI Visibility Scoring
-- FAQ Schema Generation
-- Semantic Entity Mapping
-- LLM Training Data Optimization
+- **AI Visibility Score** — Get a 0-100 GEO score with breakdown of AI Visibility, FAQ Coverage, Entity Clarity, and Authority
+- **GEO Report** — Identify missing components and get AI-generated suggestions to improve citation frequency
+- **AI Monitoring** — Track your brand's presence across ChatGPT, Perplexity, Gemini, and Claude outputs
+- **Content Optimization** — Actionable recommendations for FAQ schema, entity clarity, and authority signals
 
-## Documentation
-- GEO Guide: /blog/geo-guide
-- API Docs: /api/docs (Coming Soon)
+## Pages
+- Home: https://getciteflow.ai
+- Blog: https://getciteflow.ai/blog
+- GEO Guide: https://getciteflow.ai/blog/geo-guide
+- ChatGPT SEO: https://getciteflow.ai/blog/chatgpt-seo
+- AI Visibility Metric: https://getciteflow.ai/blog/ai-visibility
+- How to Get Cited by ChatGPT: https://getciteflow.ai/blog/rank-in-chatgpt
+- Case Studies: https://getciteflow.ai/case-studies
+- Nexus Protocol Case Study: https://getciteflow.ai/case-studies/nexus-protocol
+- Notion GEO Playbook: https://getciteflow.ai/case-studies/notion-strategy
+- Pricing: https://getciteflow.ai/pricing
+- Privacy Policy: https://getciteflow.ai/privacy-policy
+- Terms of Service: https://getciteflow.ai/terms-of-service
+
+## Pricing
+Free: AI Visibility Score & GEO report for any URL
+Pro: Coming soon — comprehensive AI monitoring dashboard
 
 ## Contact
 - Support: support@getciteflow.ai

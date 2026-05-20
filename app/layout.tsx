@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import Script from "next/script";
 import { headers } from "next/headers";
 import { Analytics } from '@vercel/analytics/next';
@@ -19,6 +20,19 @@ export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
   openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: ['/logo.png'] },
   twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['/logo.png'] },
+  other: { 'google-site-verification': 'placeholder' },
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CiteFlow',
+  url: 'https://getciteflow.ai',
+  logo: 'https://getciteflow.ai/logo.png',
+  description: 'AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.',
+  sameAs: [
+    'https://x.com/getciteflow',
+  ],
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
@@ -29,6 +43,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
         <div className="flex-1">{children}</div>
         <Footer />
+        <JsonLd data={organizationSchema} />
         <Analytics />
         <SpeedInsights />
         <Script

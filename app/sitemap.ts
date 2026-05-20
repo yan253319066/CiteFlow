@@ -1,25 +1,19 @@
 import { MetadataRoute } from 'next'
 
-const pages = [
-  '',
-  '/blog',
-  '/blog/geo-guide',
-  '/blog/chatgpt-seo',
-  '/blog/ai-visibility',
-  '/blog/rank-in-chatgpt',
-  '/geo-for-saas',
-  '/geo-for-ai-tools',
-  '/geo-for-startups',
-  '/compare/ahrefs-vs-citeflow',
-  '/compare/profound-vs-citeflow',
-  '/why-chatgpt-doesnt-mention-your-site',
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pages.map((path) => ({
-    url: `https://getciteflow.ai${path}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: path === '' ? 1 : 0.8,
-  }));
+  const baseUrl = 'https://getciteflow.ai';
+  return [
+    { url: baseUrl, lastModified: new Date('2026-05-20'), changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/blog`, lastModified: new Date('2026-05-18'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/blog/geo-guide`, lastModified: new Date('2026-05-15'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/chatgpt-seo`, lastModified: new Date('2026-05-10'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/ai-visibility`, lastModified: new Date('2026-05-05'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/rank-in-chatgpt`, lastModified: new Date('2026-05-18'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/case-studies`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/case-studies/nexus-protocol`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/case-studies/notion-strategy`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/pricing`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/privacy-policy`, lastModified: new Date('2026-05-01'), changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${baseUrl}/terms-of-service`, lastModified: new Date('2026-05-01'), changeFrequency: 'yearly', priority: 0.3 },
+  ];
 }

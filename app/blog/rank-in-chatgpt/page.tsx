@@ -1,16 +1,50 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/Navbar';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'How to Get Cited by ChatGPT | CiteFlow',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   keywords: ['chatgpt citations', 'geo', 'ai visibility'],
   alternates: { canonical: 'https://getciteflow.ai/blog/rank-in-chatgpt' },
+  openGraph: {
+    title: 'How to Get Cited by ChatGPT',
+    description: 'A repeatable framework for increasing how often your brand gets mentioned by AI assistants.',
+    type: 'article',
+    publishedTime: '2026-05-18',
+    authors: ['CiteFlow Intelligence'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Get Cited by ChatGPT',
+    description: 'A framework for increasing your brand citation rate in AI.',
+  },
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How to Get Cited by ChatGPT',
+  description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
+  datePublished: '2026-05-18',
+  author: { '@type': 'Organization', name: 'CiteFlow Intelligence' },
+  publisher: { '@type': 'Organization', name: 'CiteFlow', url: 'https://getciteflow.ai' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://getciteflow.ai/blog/rank-in-chatgpt' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://getciteflow.ai' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://getciteflow.ai/blog' },
+    { '@type': 'ListItem', position: 3, name: 'How to Get Cited by ChatGPT' },
+  ],
 };
 
 export default function Page() {
-  return <main className="min-h-screen pb-20"><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
+  return <main className="min-h-screen pb-20"><JsonLd data={articleSchema} /><JsonLd data={breadcrumbSchema} /><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
     <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-12">
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
       Back to Articles

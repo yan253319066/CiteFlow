@@ -1,0 +1,24 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Search Rankings Don\'t Translate to AI Citations | CiteFlow',
+  description: 'High Google rankings don\'t guarantee AI citations. We compared 50 B2B SaaS companies and found a weak correlation. Here\'s what causes the gap and how to bridge it.',
+  keywords: ['ChatGPT SEO', 'AI citations vs rankings', 'entity association', 'GEO vs SEO'],
+  alternates: { canonical: 'https://getciteflow.ai/blog/chatgpt-seo' },
+  openGraph: {
+    title: 'Search Rankings Don\'t Translate to AI Citations',
+    description: 'The correlation between Google rankings and ChatGPT citations is only 0.3. Here\'s why.',
+    type: 'article',
+    publishedTime: '2026-05-10',
+    authors: ['CiteFlow Intelligence'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Search Rankings Don\'t Translate to AI Citations',
+    description: 'The correlation between Google rankings and ChatGPT citations is only 0.3.',
+  },
+};
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return children;
+}

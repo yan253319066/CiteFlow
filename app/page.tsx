@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ScoreCards } from "@/components/ScoreCards";
+import { JsonLd } from "@/components/JsonLd";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,9 +13,21 @@ export const metadata: Metadata = {
   openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://getciteflow.ai/' }
 };
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CiteFlow",
+  applicationCategory: "AI SEO Platform",
+  operatingSystem: "Web",
+  description: "AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.",
+  url: "https://getciteflow.ai",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+
 export default function HomePage() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={softwareSchema} />
       <Navbar />
       <Hero />
       <ScoreCards />

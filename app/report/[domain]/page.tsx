@@ -36,6 +36,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const { token } = await searchParams;
 
   const canonicalUrl = `https://getciteflow.ai/report/${domain}`;
+  const ogImageBase = `https://getciteflow.ai/api/og?domain=${encodeURIComponent(domain)}`;
   const keywords = [
     domain, 'AI Visibility', 'GEO', 'Generative Engine Optimization',
     'ChatGPT SEO', 'AI search ranking', 'GEO score', 'AI readiness',
@@ -52,12 +53,15 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
         title: `${domain} AI Visibility Score — Free GEO Report`,
         description: `See how ${domain} ranks in AI search and get personalized suggestions to improve.`,
         url: canonicalUrl,
+        images: [{ url: ogImageBase, width: 1200, height: 630 }],
       },
+      twitter: { card: 'summary_large_image', title: `${domain} — Free GEO Report`, description: `Check the GEO score for ${domain}.`, images: [ogImageBase] },
     };
   }
 
   let fullTitle = `${domain} AI Visibility Score & GEO Report | CiteFlow`;
   let ogDesc = `GEO score report for ${domain}`;
+  let ogImage = ogImageBase;
 
   try {
     if (await verifyAnalysisToken(token)) {
@@ -65,6 +69,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
       const report = parseReport(data);
       fullTitle = `${domain} AI Visibility Score: ${report.score}/100 | CiteFlow GEO Report`;
       ogDesc = `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
+      ogImage = `${ogImageBase}&score=${report.score}`;
     }
   } catch {
     // fallback
@@ -75,8 +80,8 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     description: ogDesc,
     keywords,
     alternates: { canonical: canonicalUrl },
-    twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc },
-    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl },
+    twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc, images: [ogImage] },
+    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, images: [{ url: ogImage, width: 1200, height: 630 }] },
   };
 }
 

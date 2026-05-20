@@ -5,10 +5,34 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Bookmark } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { JsonLd } from "@/components/JsonLd";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How Generative Engines Choose What to Cite",
+  description: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy.",
+  datePublished: "2026-05-15",
+  author: { "@type": "Organization", name: "CiteFlow Editorial" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/blog/geo-guide" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://getciteflow.ai/blog" },
+    { "@type": "ListItem", position: 3, name: "GEO Guide" },
+  ],
+};
 
 export default function BlogPost() {
   return (
     <main className="min-h-screen pb-20">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       
       <article className="pt-32 px-6 max-w-3xl mx-auto">

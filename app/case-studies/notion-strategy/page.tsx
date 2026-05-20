@@ -5,10 +5,34 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { JsonLd } from "@/components/JsonLd";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "The Notion GEO Playbook: Dominating Productivity Answers",
+  description: "Why Notion appears first in 92% of AI-generated productivity recommendations — and what every SaaS company can learn.",
+  datePublished: "2026-05-20",
+  author: { "@type": "Organization", name: "CiteFlow" },
+  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://getciteflow.ai" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://getciteflow.ai/case-studies/notion-strategy" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://getciteflow.ai/case-studies" },
+    { "@type": "ListItem", position: 3, name: "Notion GEO Playbook" },
+  ],
+};
 
 export default function NotionCaseStudy() {
   return (
     <main className="min-h-screen pb-20">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <article className="pt-32 px-6 max-w-4xl mx-auto">
         <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12">
