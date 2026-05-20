@@ -26,14 +26,14 @@ function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsi
 async function getSiteData(url: string): Promise<Awaited<ReturnType<typeof scrapeWebsite>>> {
   const cacheKey = `scrape:${url}`;
   const cached = cacheGet<Awaited<ReturnType<typeof scrapeWebsite>>>(cacheKey);
-  if (cached) {
-    console.log(`[ANALYZE] Cache hit for scrape: ${url}`);
-    return cached;
-  }
-  console.log(`[ANALYZE] Cache miss for scrape: ${url}, fetching...`);
+  // if (cached) {
+  //   console.log(`[ANALYZE] Cache hit for scrape: ${url}`);
+  //   return cached;
+  // }
+  // console.log(`[ANALYZE] Cache miss for scrape: ${url}, fetching...`);
   const data = await scrapeWebsite(url);
   cacheSet(cacheKey, data, CACHE_TTL_MS);
-  console.log(`[ANALYZE] Site data fetched: title="${data.title}", wordCount=${data.wordCount}`);
+  // console.log(`[ANALYZE] Site data fetched: title="${data.title}", wordCount=${data.wordCount}`);
   return data;
 }
 
@@ -127,7 +127,7 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
   // console.log(`[Deepseek] Response status=${res.status} ${res.statusText}`);
   if (!res.ok) {
     const text = await res.text();
-    console.error(`[Deepseek] Error body: ${text}`);
+    // console.error(`[Deepseek] Error body: ${text}`);
     throw new Error(`Deepseek failed: ${res.status} ${text}`);
   }
   const data = await res.json();
@@ -141,7 +141,7 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
     return analyzeWithDeepseek(url, retries - 1);
   }
   if (!content) {
-    console.warn(`[Deepseek] Empty content, no retries left, returning {}`);
+    // console.warn(`[Deepseek] Empty content, no retries left, returning {}`);
     return {};
   }
 
@@ -150,7 +150,7 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
     // console.log(`[Deepseek] Parsed OK keys=${Object.keys(parsed)}`);
     return parsed;
   } catch (e) {
-    console.error(`[Deepseek] JSON parse error: ${e}`);
+    // console.error(`[Deepseek] JSON parse error: ${e}`);
     if (retries > 0) {
       // console.log(`[Deepseek] Retrying after parse error (${retries} left)`);
       return analyzeWithDeepseek(url, retries - 1);
@@ -169,32 +169,32 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
   const cacheKey = `report:${url}`;
   const cached = cacheGet<Record<string, unknown>>(cacheKey);
   if (cached) {
-    console.log(`[ANALYZE] Report cache hit for: ${url}`);
+    // console.log(`[ANALYZE] Report cache hit for: ${url}`);
     return { ...cached, cached: true };
   }
-  console.log(`[ANALYZE] Report cache miss for: ${url}`);
+  // console.log(`[ANALYZE] Report cache miss for: ${url}`);
 
   try {
     const activeProvider = getProvider();
-    console.log(`[ANALYZE] Active provider: ${activeProvider}`);
+    // console.log(`[ANALYZE] Active provider: ${activeProvider}`);
     
     const fn = providerFns[activeProvider];
     if (!fn) {
-      console.error(`[ANALYZE] Unknown provider: ${activeProvider}`);
+      // console.error(`[ANALYZE] Unknown provider: ${activeProvider}`);
       throw new Error(`Unknown provider: ${activeProvider}`);
     }
     
-    console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
+    // console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
     const report = await fn(url);
-    console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
+    // console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
     
     const result = { ...report, provider: activeProvider, error: null };
     cacheSet(cacheKey, result, CACHE_TTL_MS);
-    console.log(`[ANALYZE] Report cached for: ${url}`);
+    // console.log(`[ANALYZE] Report cached for: ${url}`);
     return result;
   } catch (err) {
     if (err instanceof ScrapeError) {
-      console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
+      // console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
       const errorInfo = {
         error: true,
         errorCode: err.code,
@@ -204,7 +204,7 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
       };
       return errorInfo;
     }
-    console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
+    // console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
     throw err;
   }
 }

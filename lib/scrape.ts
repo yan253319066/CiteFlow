@@ -52,7 +52,7 @@ async function checkStaticFile(origin: string, path: string): Promise<boolean> {
   }
 }
 
-function extractFromPage(page: Page): {
+async function extractFromPage(page: Page): Promise<{
   title: string;
   description: string;
   hasOpenGraph: boolean;
@@ -63,8 +63,8 @@ function extractFromPage(page: Page): {
   hasFaqSchema: boolean;
   hasHowToSchema: boolean;
   wordCount: number;
-} {
-  const content = page.content();
+}> {
+  const content = await page.content();
   const titleMatch = /<title[^>]*>([^<]*)<\/title>/i.exec(content);
   const extractedTitle = titleMatch ? titleMatch[1].trim() : "";
 
@@ -152,7 +152,7 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     browser = await getBrowser();
     page = await browser.newPage();
 
-    console.log(`[SCRAPE] Navigating to ${baseUrl} with headless browser...`);
+    // console.log(`[SCRAPE] Navigating to ${baseUrl} with headless browser...`);
 
     const response = await page.goto(baseUrl, {
       timeout: MAX_TIMEOUT_MS,
@@ -167,11 +167,11 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     }
 
     const pageTitle = await page.title();
-    console.log(`[SCRAPE] Page loaded, title: "${pageTitle}"`);
+    // console.log(`[SCRAPE] Page loaded, title: "${pageTitle}"`);
 
     await page.waitForTimeout(2000);
 
-    const extracted = extractFromPage(page);
+    const extracted = await extractFromPage(page);
 
     const [hasRobotsTxt, hasSitemap, hasLlmstxt] = await Promise.all([
       checkStaticFile(origin, "/robots.txt"),
