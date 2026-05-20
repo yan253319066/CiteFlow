@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 function buildCsp(nonce: string): string {
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' https: http:`,
+    `script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com 'strict-dynamic' 'unsafe-eval'`,
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",

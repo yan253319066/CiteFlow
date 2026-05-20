@@ -25,10 +25,11 @@ export function TurnstileWidget({ onVerify, onExpire, onError }: TurnstileWidget
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | undefined;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     let cancelled = false;
 
     const renderWidget = () => {
-      if (!containerRef.current || !window.turnstile || widgetIdRef.current || cancelled) return;
+      if (!containerRef.current || !window.turnstile || cancelled) return;
       if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
         setError(true);
         onError?.();
@@ -36,7 +37,7 @@ export function TurnstileWidget({ onVerify, onExpire, onError }: TurnstileWidget
       }
 
       try {
-        widgetIdRef.current = window.turnstile.render(containerRef.current, {
+        const id = window.turnstile.render(containerRef.current, {
           sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
           callback: (token: string) => {
             setVerified(true);
@@ -52,9 +53,12 @@ export function TurnstileWidget({ onVerify, onExpire, onError }: TurnstileWidget
             onError?.();
           },
         });
+        widgetIdRef.current = id;
       } catch {
-        setError(true);
-        onError?.();
+        if (!cancelled) {
+          setError(true);
+          onError?.();
+        }
       }
     };
 
@@ -68,13 +72,20 @@ export function TurnstileWidget({ onVerify, onExpire, onError }: TurnstileWidget
 
     if (!tryRender()) {
       interval = setInterval(() => {
-        if (tryRender()) clearInterval(interval);
-      }, 100);
+        if (tryRender() && interval) clearInterval(interval);
+      }, 200);
+      timeout = setTimeout(() => {
+        if (!widgetIdRef.current && !cancelled) {
+          setError(true);
+          onError?.();
+        }
+      }, 10000);
     }
 
     return () => {
       cancelled = true;
       if (interval) clearInterval(interval);
+      if (timeout) clearTimeout(timeout);
       if (widgetIdRef.current && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current);
         widgetIdRef.current = undefined;
