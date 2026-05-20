@@ -108,6 +108,7 @@ function ReportContent() {
             setLoading(false);
             return;
           }
+          console.log('[Report] Server returned AUTH error, continuing to client-side scrape');
         }
 
         // 第二步：服务器端失败，尝试浏览器端抓取
