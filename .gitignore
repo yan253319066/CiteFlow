@@ -7,3 +7,5 @@ coverage/
 !.env.example
 
 .trae/
+.vercel
+.env*.local
