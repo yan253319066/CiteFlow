@@ -26,9 +26,14 @@ function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsi
 async function getSiteData(url: string): Promise<Awaited<ReturnType<typeof scrapeWebsite>>> {
   const cacheKey = `scrape:${url}`;
   const cached = cacheGet<Awaited<ReturnType<typeof scrapeWebsite>>>(cacheKey);
-  if (cached) return cached;
+  if (cached) {
+    console.log(`[ANALYZE] Cache hit for scrape: ${url}`);
+    return cached;
+  }
+  console.log(`[ANALYZE] Cache miss for scrape: ${url}, fetching...`);
   const data = await scrapeWebsite(url);
   cacheSet(cacheKey, data, CACHE_TTL_MS);
+  console.log(`[ANALYZE] Site data fetched: title="${data.title}", wordCount=${data.wordCount}`);
   return data;
 }
 
@@ -163,18 +168,33 @@ const providerFns: Record<string, (url: string) => Promise<Record<string, unknow
 export async function analyzeSite(url: string): Promise<Record<string, unknown>> {
   const cacheKey = `report:${url}`;
   const cached = cacheGet<Record<string, unknown>>(cacheKey);
-  if (cached) return { ...cached, cached: true };
+  if (cached) {
+    console.log(`[ANALYZE] Report cache hit for: ${url}`);
+    return { ...cached, cached: true };
+  }
+  console.log(`[ANALYZE] Report cache miss for: ${url}`);
 
   try {
     const activeProvider = getProvider();
+    console.log(`[ANALYZE] Active provider: ${activeProvider}`);
+    
     const fn = providerFns[activeProvider];
-    if (!fn) throw new Error(`Unknown provider: ${activeProvider}`);
+    if (!fn) {
+      console.error(`[ANALYZE] Unknown provider: ${activeProvider}`);
+      throw new Error(`Unknown provider: ${activeProvider}`);
+    }
+    
+    console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
     const report = await fn(url);
+    console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
+    
     const result = { ...report, provider: activeProvider, error: null };
     cacheSet(cacheKey, result, CACHE_TTL_MS);
+    console.log(`[ANALYZE] Report cached for: ${url}`);
     return result;
   } catch (err) {
     if (err instanceof ScrapeError) {
+      console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
       const errorInfo = {
         error: true,
         errorCode: err.code,
@@ -184,6 +204,7 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
       };
       return errorInfo;
     }
+    console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
     throw err;
   }
 }
