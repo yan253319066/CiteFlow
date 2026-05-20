@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'CiteFlow | Get Mentioned by AI',
   description: 'Analyze and optimize your website for ChatGPT, Gemini and AI Search.',
-  keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization'],
+  keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization', 'GEO tool', 'AI visibility checker', 'ChatGPT SEO checker', 'free GEO report'],
   alternates: { canonical: 'https://getciteflow.ai/' },
   twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
   openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://getciteflow.ai/' }

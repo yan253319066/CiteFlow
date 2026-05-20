@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'CiteFlow Blog | AI Search & GEO Insights',
   description: 'Guides about Generative Engine Optimization, AI Search, ChatGPT citations, and AI visibility growth strategies.',
-  keywords: ['GEO guide', 'ChatGPT SEO', 'AI visibility', 'generative engine optimization'],
+  keywords: ['GEO guide', 'ChatGPT SEO', 'AI visibility', 'generative engine optimization', 'GEO tool', 'AI visibility checker'],
   alternates: { canonical: 'https://getciteflow.ai/blog' },
   openGraph: {
     title: 'CiteFlow Blog — AI Search & GEO Insights',

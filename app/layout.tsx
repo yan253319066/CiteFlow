@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://getciteflow.ai'),
   title: "CiteFlow | Get Mentioned by AI",
   description: "Identify and optimize your website's visibility in ChatGPT, Gemini, and AI Search results.",
-  keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI'],
+  keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI', 'GEO tool', 'AI visibility checker', 'Generative Engine Optimization'],
   alternates: { canonical: '/' },
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
   openGraph: { title: "CiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", images: ['/logo.png'] },
@@ -46,11 +46,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <JsonLd data={organizationSchema} />
         <Analytics />
         <SpeedInsights />
-        <Script
+        {/* <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           nonce={nonce}
           strategy="afterInteractive"
-        />
+        /> */}
       </body>
     </html>
   );

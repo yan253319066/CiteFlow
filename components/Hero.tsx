@@ -1,31 +1,22 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import { Sparkles, Loader2 } from 'lucide-react';
-import { TurnstileWidget } from './TurnstileWidget';
+// import { TurnstileWidget } from './TurnstileWidget';
 
 export function Hero() {
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const router = useRouter();
-
-  const handleTurnstileVerify = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
-
-  const clearTurnstileToken = useCallback(() => {
-    setTurnstileToken(null);
-  }, []);
 
   const handleAnalyze = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!url || isLoading || !turnstileToken) return;
+    if (!url || isLoading) return;
     const domain = url.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
     setIsLoading(true);
-    router.push(`/report/${domain}?token=${turnstileToken}`);
+    router.push(`/report/${domain}`);
   };
 
   return (
@@ -51,15 +42,15 @@ export function Hero() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-2xl md:rounded-full blur opacity-20" />
           <div className="relative flex flex-col md:flex-row bg-[#0A0F24] border border-white/10 rounded-2xl md:rounded-full p-2 md:pl-6 shadow-2xl gap-2 md:gap-0">
             <input type="text" placeholder="Enter website URL (e.g. acme.com)" className="bg-transparent flex-1 outline-none text-sm font-medium text-white placeholder:text-slate-500 py-3 px-4 md:py-0 md:px-0" value={url} onChange={(e) => setUrl(e.target.value)} />
-            <button type="submit" disabled={isLoading || !turnstileToken} className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl md:rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full md:w-auto inline-flex items-center justify-center gap-2">{isLoading ? <><Loader2 className="w-4 h-4 animate-spin" />Analyzing...</> : 'Analyze Site'}</button>
+            <button type="submit" disabled={isLoading} className="bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl md:rounded-full text-sm font-bold shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full md:w-auto inline-flex items-center justify-center gap-2">{isLoading ? <><Loader2 className="w-4 h-4 animate-spin" />Analyzing...</> : 'Analyze Site'}</button>
           </div>
-          <div className="flex justify-center mt-4">
+          {/* <div className="flex justify-center mt-4">
             <TurnstileWidget
               onVerify={handleTurnstileVerify}
               onExpire={clearTurnstileToken}
               onError={clearTurnstileToken}
             />
-          </div>
+          </div> */}
         </motion.form>
       </div>
     </section>

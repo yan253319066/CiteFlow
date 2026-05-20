@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/case-studies`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/nexus-protocol`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/notion-strategy`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/compare`, lastModified: new Date('2026-05-20'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/pricing`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date('2026-05-01'), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${baseUrl}/terms-of-service`, lastModified: new Date('2026-05-01'), changeFrequency: 'yearly', priority: 0.3 },
