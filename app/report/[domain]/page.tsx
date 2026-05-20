@@ -1,9 +1,11 @@
 import { Navbar } from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
-import { AlertTriangle, ArrowLeft, Lightbulb } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { analyzeSite } from '@/lib/analyze';
+import { checkRateLimit } from '@/lib/ratelimit';
 import { ShareButtons } from '@/components/ShareButtons';
 import { ComparePanel } from '@/components/ComparePanel';
 import { JsonLd } from '@/components/JsonLd';
@@ -78,13 +80,22 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   };
 }
 
-async function getReport(domain: string): Promise<ReportData | null> {
+type ReportResult =
+  | { ok: true; data: ReportData }
+  | { ok: false; reason: 'rate_limited' }
+  | { ok: false; reason: 'failed' };
+
+async function getReport(domain: string, ip: string): Promise<ReportResult> {
   try {
+    const { success } = await checkRateLimit(ip);
+    if (!success) {
+      return { ok: false, reason: 'rate_limited' };
+    }
     const data = await analyzeSite(domain);
-    return parseReport(data);
+    return { ok: true, data: parseReport(data) };
   } catch (e) {
     console.error('[getReport] error:', e);
-    return null;
+    return { ok: false, reason: 'failed' };
   }
 }
 
@@ -104,22 +115,37 @@ function StatMini({ label, value }: { label: string; value: number }) {
 
 export default async function ReportPage({ params }: { params: Promise<{ domain: string }> }) {
   const { domain } = await params;
+  const ip = (await headers()).get("x-forwarded-for") ?? "anonymous";
 
-  const report = await getReport(domain);
+  const result = await getReport(domain, ip);
 
-  if (!report) {
+  if (!result.ok) {
+    const isRateLimited = result.reason === 'rate_limited';
     return (
       <main className="min-h-screen">
         <Navbar />
         <div className="pt-32 px-6 max-w-5xl mx-auto text-center">
-          <AlertTriangle className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
-          <h1 className="text-3xl font-bold mb-4">Analysis Failed</h1>
-          <p className="text-muted-foreground mb-8">We could not analyze {domain} now. Please try again.</p>
-          <Link href="/" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block">Try Another Site</Link>
+          {isRateLimited ? (
+            <>
+              <ShieldAlert className="w-16 h-16 text-orange-500 mx-auto mb-6" />
+              <h1 className="text-3xl font-bold mb-4">Rate Limit Reached</h1>
+              <p className="text-muted-foreground mb-2">You have used all available analysis requests for this hour.</p>
+              <p className="text-muted-foreground mb-8">Please wait and try again later.</p>
+            </>
+          ) : (
+            <>
+              <AlertTriangle className="w-16 h-16 text-yellow-500 mx-auto mb-6" />
+              <h1 className="text-3xl font-bold mb-4">Analysis Failed</h1>
+              <p className="text-muted-foreground mb-8">We could not analyze {domain} now. Please try again.</p>
+            </>
+          )}
+          <Link href="/" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block">Back to Home</Link>
         </div>
       </main>
     );
   }
+
+  const report = result.data;
 
   const jsonLd = {
     '@context': 'https://schema.org',

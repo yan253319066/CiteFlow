@@ -4,13 +4,10 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
-import Script from "next/script";
-import { headers } from "next/headers";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-// https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/react/
 export const metadata: Metadata = {
   metadataBase: new URL('https://getciteflow.ai'),
   title: "CiteFlow | Get Mentioned by AI",
@@ -35,9 +32,7 @@ const organizationSchema = {
   ],
 };
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)}>
       <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
@@ -46,11 +41,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <JsonLd data={organizationSchema} />
         <Analytics />
         <SpeedInsights />
-        {/* <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          nonce={nonce}
-          strategy="afterInteractive"
-        /> */}
       </body>
     </html>
   );

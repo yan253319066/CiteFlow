@@ -1,16 +1,18 @@
 import { analyzeSite } from "@/lib/analyze";
-import { verifyAnalysisToken } from "@/lib/verification";
+import { checkRateLimit } from "@/lib/ratelimit";
 import { NextRequest, NextResponse } from "next/server";
 
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {
-    const { url, token } = await req.json();
+    const { url } = await req.json();
     if (!url) return NextResponse.json({ error: "URL is required" }, { status: 400 });
 
-    if (!(await verifyAnalysisToken(token))) {
-      return NextResponse.json({ error: "CAPTCHA verification required" }, { status: 403 });
+    const ip = req.headers.get("x-forwarded-for") ?? "anonymous";
+    const { success } = await checkRateLimit(ip);
+    if (!success) {
+      return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
     }
 
     const report = await analyzeSite(url);
