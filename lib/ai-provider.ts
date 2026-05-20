@@ -5,7 +5,9 @@ export function getProvider(input?: string | null): AIProvider {
   return (process.env.AI_PROVIDER_DEFAULT as AIProvider) || 'openai';
 }
 
-export const ANALYZE_PROMPT = (url: string) => `Analyze the AI visibility (GEO - Generative Engine Optimization) of the website: ${url}.
+export const ANALYZE_PROMPT = (url: string, siteData?: string) => `Analyze the AI visibility (GEO - Generative Engine Optimization) of the website: ${url}.
+
+${siteData ? `Here are the actual signals detected from the website:\n${siteData}\n\nBase your analysis on these real signals rather than guessing.` : ''}
 Return ONLY a JSON object with these exact keys:
 {
   "score": <number 0-100>,
