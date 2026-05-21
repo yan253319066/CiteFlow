@@ -184,18 +184,40 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
       // console.log(`[ANALYZE] Report cached for: ${url}`);
       return result;
     } catch (err) {
+      const msg = (err as Error).message || '';
       if (err instanceof ScrapeError) {
-        // console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
-        const errorInfo = {
+        if (err.code === ScrapeErrorCode.TIMEOUT) {
+          return {
+            error: true,
+            errorCode: err.code,
+            errorType: 'TIMEOUT',
+            errorMessage: err.message,
+            provider: null,
+          };
+        }
+        return {
           error: true,
           errorCode: err.code,
           errorType: ScrapeErrorCode[err.code],
           errorMessage: err.message,
           provider: null,
         };
-        return errorInfo;
       }
-      // console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
+      if (
+        msg.toLowerCase().includes('timeout') ||
+        msg.toLowerCase().includes('timed out') ||
+        msg.includes('ETIMEDOUT') ||
+        msg.includes('ECONNRESET') ||
+        msg.includes('Connection closed')
+      ) {
+        return {
+          error: true,
+          errorCode: ScrapeErrorCode.TIMEOUT,
+          errorType: 'TIMEOUT',
+          errorMessage: msg || 'Request timed out',
+          provider: null,
+        };
+      }
       throw err;
     } finally {
       pendingCache.delete(cacheKey);

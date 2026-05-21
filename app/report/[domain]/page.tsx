@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
-import { AlertTriangle, ArrowLeft, Lightbulb, ShieldAlert } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Clock, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
@@ -19,6 +19,10 @@ interface ReportData {
   suggestions: string[];
   summary: string;
   provider?: string;
+  error?: boolean;
+  errorType?: string;
+  errorMessage?: string;
+  errorCode?: number;
 }
 
 function parseReport(data: Record<string, unknown>): ReportData {
@@ -58,14 +62,19 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
 
   try {
     const data = await analyzeSite(domain);
-    const report = parseReport(data);
-    fullTitle = withDomain
-      ? `${domain} (${report.score}/100) vs ${withDomain}: GEO Comparison | CiteFlow`
-      : `${domain} AI Visibility Score: ${report.score}/100 | CiteFlow GEO Report`;
-    ogDesc = withDomain
-      ? `${domain} scores ${report.score}/100 on AI Visibility. Compare against ${withDomain} and see who AI recommends.`
-      : `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
-    ogImage = `${ogImageBase}&score=${report.score}`;
+    if (data.error && (data.errorType === 'TIMEOUT' || data.errorCode === 1001)) {
+      fullTitle = `${domain} - Analysis Timed Out | CiteFlow`;
+      ogDesc = `Analysis for ${domain} timed out. Upgrade to Pro for longer timeouts and priority processing.`;
+    } else {
+      const report = parseReport(data);
+      fullTitle = withDomain
+        ? `${domain} (${report.score}/100) vs ${withDomain}: GEO Comparison | CiteFlow`
+        : `${domain} AI Visibility Score: ${report.score}/100 | CiteFlow GEO Report`;
+      ogDesc = withDomain
+        ? `${domain} scores ${report.score}/100 on AI Visibility. Compare against ${withDomain} and see who AI recommends.`
+        : `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
+      ogImage = `${ogImageBase}&score=${report.score}`;
+    }
   } catch {
     // fallback
   }
@@ -84,6 +93,7 @@ type ReportResult =
   | { ok: true; data: ReportData }
   | { ok: false; reason: 'rate_limited' }
   | { ok: false; reason: 'service_unavailable' }
+  | { ok: false; reason: 'timeout' }
   | { ok: false; reason: 'failed' };
 
 async function getReport(domain: string, ip: string): Promise<ReportResult> {
@@ -96,8 +106,21 @@ async function getReport(domain: string, ip: string): Promise<ReportResult> {
       return { ok: false, reason: 'rate_limited' };
     }
     const data = await analyzeSite(domain);
+    if (data.error && (data.errorType === 'TIMEOUT' || data.errorCode === 1001)) {
+      return { ok: false, reason: 'timeout' };
+    }
     return { ok: true, data: parseReport(data) };
   } catch (e) {
+    const msg = (e as Error).message || '';
+    if (
+      msg.toLowerCase().includes('timeout') ||
+      msg.toLowerCase().includes('timed out') ||
+      msg.includes('ETIMEDOUT') ||
+      msg.includes('ECONNRESET') ||
+      msg.includes('Connection closed')
+    ) {
+      return { ok: false, reason: 'timeout' };
+    }
     console.error('[getReport] error:', e);
     return { ok: false, reason: 'failed' };
   }
@@ -142,6 +165,15 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
               <h1 className="text-3xl font-bold mb-4">Service Unavailable</h1>
               <p className="text-muted-foreground mb-2">Our rate limiting service is temporarily unavailable.</p>
               <p className="text-muted-foreground mb-8">Please try again later or contact support.</p>
+            </>
+          ) : result.reason === 'timeout' ? (
+            <>
+              <Clock className="w-16 h-16 text-orange-500 mx-auto mb-6" />
+              <h1 className="text-3xl font-bold mb-4">Analysis Timed Out</h1>
+              <p className="text-muted-foreground mb-2">The target website took too long to respond. This usually happens when the site is slow or has anti-bot protections.</p>
+              <p className="text-muted-foreground mb-4">Upgrading to <strong>Pro</strong> extends the timeout limit and gives priority processing for faster results.</p>
+              <Link href="/pricing" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block mb-4">View Pro Plans</Link>
+              <p className="text-muted-foreground text-sm">You can also try a different website in the meantime.</p>
             </>
           ) : (
             <>
