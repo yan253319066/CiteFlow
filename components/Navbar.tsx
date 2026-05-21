@@ -1,18 +1,36 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { WaitlistModal } from './WaitlistModal';
+
+const guidesLinks = [
+  { name: 'GEO for SaaS', href: '/geo-for-saas', description: 'Software companies' },
+  { name: 'GEO for AI Tools', href: '/geo-for-ai-tools', description: 'AI product makers' },
+  { name: 'GEO for Startups', href: '/geo-for-startups', description: 'Early-stage companies' },
+];
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenWaitlist, setIsOpenWaitlist] = useState(false);
+  const [isGuidesOpen, setIsGuidesOpen] = useState(false);
+  const guidesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (guidesRef.current && !guidesRef.current.contains(event.target as Node)) {
+        setIsGuidesOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const navLinks = [
     { name: 'Platform', href: '/' },
@@ -58,6 +76,43 @@ export function Navbar() {
               </Link>
             );
           })}
+          
+          {/* Guides Dropdown */}
+          <div ref={guidesRef} className="relative">
+            <button
+              onClick={() => setIsGuidesOpen(!isGuidesOpen)}
+              className={cn(
+                "flex items-center gap-1 transition-colors hover:text-white",
+                pathname.startsWith('/geo-for') ? "text-white" : "text-slate-400"
+              )}
+            >
+              Guides
+              <ChevronDown className={cn("w-4 h-4 transition-transform", isGuidesOpen && "rotate-180")} />
+            </button>
+            <AnimatePresence>
+              {isGuidesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full right-0 mt-2 w-56 bg-[#0A0F24] border border-white/10 rounded-xl p-2 shadow-xl"
+                >
+                  {guidesLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsGuidesOpen(false)}
+                      className="flex flex-col px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"
+                    >
+                      <span className="font-medium text-white">{link.name}</span>
+                      <span className="text-xs text-slate-500">{link.description}</span>
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
         
         <div className="flex items-center gap-4">
@@ -101,6 +156,23 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              
+              <div>
+                <p className="text-lg font-bold text-slate-400 mb-3">Guides</p>
+                <div className="pl-4 flex flex-col gap-4">
+                  {guidesLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg text-slate-300 transition-colors hover:text-white"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              
               <hr className="border-white/5 my-4" />
               <button 
                 onClick={() => {

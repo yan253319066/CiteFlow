@@ -12,6 +12,9 @@ CiteFlow is a Generative Engine Optimization (GEO) platform that helps websites 
 - Home: https://www.getciteflow.ai
 - Blog: https://www.getciteflow.ai/blog
 - GEO Guide: https://www.getciteflow.ai/blog/geo-guide
+- GEO for SaaS: https://www.getciteflow.ai/geo-for-saas
+- GEO for AI Tools: https://www.getciteflow.ai/geo-for-ai-tools
+- GEO for Startups: https://www.getciteflow.ai/geo-for-startups
 - ChatGPT SEO: https://www.getciteflow.ai/blog/chatgpt-seo
 - AI Visibility Metric: https://www.getciteflow.ai/blog/ai-visibility
 - How to Get Cited by ChatGPT: https://www.getciteflow.ai/blog/rank-in-chatgpt
@@ -27,5 +30,5 @@ Free: AI Visibility Score & GEO report for any URL
 Pro: Coming soon — comprehensive AI monitoring dashboard
 
 ## Contact
-- Support: support@www.getciteflow.ai
+- Support: support@getciteflow.ai
 - X: @getciteflow
