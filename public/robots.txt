@@ -19,11 +19,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-User-agent: Twitterbot
-Allow: /api/og
-
 User-agent: *
 Allow: /
-Disallow: /api/
 
 Sitemap: https://www.getciteflow.ai/sitemap.xml
