@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {
@@ -8,8 +9,10 @@ export async function GET(request: Request) {
     const domain = searchParams.get('domain') || 'yourwebsite.com';
     const score = searchParams.get('score');
     const hasScore = score !== null && !isNaN(Number(score));
+    const scoreNum = Number(score) || 0;
+    const scoreColor = scoreNum >= 70 ? '#22C55E' : scoreNum >= 40 ? '#EAB308' : '#EF4444';
 
-    return new ImageResponse(
+    const imageResponse = new ImageResponse(
       (
         <div
           style={{
@@ -24,13 +27,38 @@ export async function GET(request: Request) {
             padding: '60px 80px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-            <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#8B5CF6' }} />
-            <span style={{ fontSize: 18, color: '#8B5CF6', fontWeight: 600, letterSpacing: '1.8px' }}>
+          {/* Logo */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              marginBottom: 20,
+            }}
+          >
+            <div
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: '50%',
+                background: '#8B5CF6',
+                display: 'flex',
+              }}
+            />
+            <span
+              style={{
+                fontSize: 18,
+                color: '#8B5CF6',
+                fontWeight: 600,
+                letterSpacing: '1.8px',
+                display: 'flex',
+              }}
+            >
               CITEFLOW
             </span>
           </div>
 
+          {/* Domain */}
           <h1
             style={{
               fontSize: 48,
@@ -40,11 +68,13 @@ export async function GET(request: Request) {
               marginBottom: 8,
               lineHeight: 1.2,
               margin: 0,
+              display: 'flex',
             }}
           >
             {domain}
           </h1>
 
+          {/* Score Section */}
           {hasScore ? (
             <div
               style={{
@@ -58,13 +88,21 @@ export async function GET(request: Request) {
                 style={{
                   fontSize: 96,
                   fontWeight: 800,
-                  color: Number(score) >= 70 ? '#22C55E' : Number(score) >= 40 ? '#EAB308' : '#EF4444',
+                  color: scoreColor,
                   lineHeight: 1,
+                  display: 'flex',
                 }}
               >
                 {score}/100
               </div>
-              <span style={{ fontSize: 24, color: '#9CA3AF', marginTop: 8 }}>
+              <span
+                style={{
+                  fontSize: 24,
+                  color: '#9CA3AF',
+                  marginTop: 8,
+                  display: 'flex',
+                }}
+              >
                 AI Visibility Score
               </span>
             </div>
@@ -77,15 +115,30 @@ export async function GET(request: Request) {
                 marginTop: 24,
               }}
             >
-              <div style={{ fontSize: 28, color: '#9CA3AF', textAlign: 'center' }}>
+              <span
+                style={{
+                  fontSize: 28,
+                  color: '#9CA3AF',
+                  textAlign: 'center',
+                  display: 'flex',
+                }}
+              >
                 Check your AI Visibility Score
-              </div>
-              <span style={{ fontSize: 20, color: '#6B7280', marginTop: 8 }}>
+              </span>
+              <span
+                style={{
+                  fontSize: 20,
+                  color: '#6B7280',
+                  marginTop: 8,
+                  display: 'flex',
+                }}
+              >
                 Free GEO Report
               </span>
             </div>
           )}
 
+          {/* Bottom Labels */}
           <div
             style={{
               display: 'flex',
@@ -95,16 +148,21 @@ export async function GET(request: Request) {
               color: '#6B7280',
             }}
           >
-            <span>AI Visibility</span>
-            <span>FAQ Coverage</span>
-            <span>Entity Clarity</span>
-            <span>Authority</span>
+            <span style={{ display: 'flex' }}>AI Visibility</span>
+            <span style={{ display: 'flex' }}>FAQ Coverage</span>
+            <span style={{ display: 'flex' }}>Entity Clarity</span>
+            <span style={{ display: 'flex' }}>Authority</span>
           </div>
         </div>
       ),
       { width: 1200, height: 630 }
     );
-  } catch {
+
+    const clone = new Response(imageResponse.body, imageResponse);
+    clone.headers.set('Cache-Control', 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400');
+    return clone;
+  } catch (error) {
+    console.error('OG Image error:', error);
     return new Response('Failed to generate OG image', { status: 500 });
   }
 }

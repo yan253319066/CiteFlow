@@ -6,6 +6,9 @@ import { scrapeWebsite, ScrapeError, ScrapeErrorCode } from "@/lib/scrape";
 
 const CACHE_TTL_MS = 60 * 60 * 1000;
 
+// Module-level cache to ensure consistent scores between generateMetadata and page render
+const pendingCache = new Map<string, Promise<Record<string, unknown>>>();
+
 function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsite>>): string {
   const lines: string[] = [`URL: ${url}`];
   if (data.title) lines.push(`Page title: ${data.title}`);
@@ -156,37 +159,50 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
   }
   // console.log(`[ANALYZE] Report cache miss for: ${url}`);
 
-  try {
-    const activeProvider = getProvider();
-    // console.log(`[ANALYZE] Active provider: ${activeProvider}`);
-    
-    const fn = providerFns[activeProvider];
-    if (!fn) {
-      // console.error(`[ANALYZE] Unknown provider: ${activeProvider}`);
-      throw new Error(`Unknown provider: ${activeProvider}`);
-    }
-    
-    // console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
-    const report = await fn(url);
-    // console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
-    
-    const result = { ...report, provider: activeProvider, error: null };
-    cacheSet(cacheKey, result, CACHE_TTL_MS);
-    // console.log(`[ANALYZE] Report cached for: ${url}`);
-    return result;
-  } catch (err) {
-    if (err instanceof ScrapeError) {
-      // console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
-      const errorInfo = {
-        error: true,
-        errorCode: err.code,
-        errorType: ScrapeErrorCode[err.code],
-        errorMessage: err.message,
-        provider: null,
-      };
-      return errorInfo;
-    }
-    // console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
-    throw err;
+  // Deduplicate concurrent calls
+  if (pendingCache.has(cacheKey)) {
+    return pendingCache.get(cacheKey)!;
   }
+
+  const analyze = async (): Promise<Record<string, unknown>> => {
+    try {
+      const activeProvider = getProvider();
+      // console.log(`[ANALYZE] Active provider: ${activeProvider}`);
+      
+      const fn = providerFns[activeProvider];
+      if (!fn) {
+        // console.error(`[ANALYZE] Unknown provider: ${activeProvider}`);
+        throw new Error(`Unknown provider: ${activeProvider}`);
+      }
+      
+      // console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
+      const report = await fn(url);
+      // console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
+      
+      const result = { ...report, provider: activeProvider, error: null };
+      cacheSet(cacheKey, result, CACHE_TTL_MS);
+      // console.log(`[ANALYZE] Report cached for: ${url}`);
+      return result;
+    } catch (err) {
+      if (err instanceof ScrapeError) {
+        // console.error(`[ANALYZE] Scrape failed: ${ScrapeErrorCode[err.code]} - ${err.message}`);
+        const errorInfo = {
+          error: true,
+          errorCode: err.code,
+          errorType: ScrapeErrorCode[err.code],
+          errorMessage: err.message,
+          provider: null,
+        };
+        return errorInfo;
+      }
+      // console.error(`[ANALYZE] Unexpected error: ${(err as Error).message}`, (err as Error).stack);
+      throw err;
+    } finally {
+      pendingCache.delete(cacheKey);
+    }
+  };
+
+  const promise = analyze();
+  pendingCache.set(cacheKey, promise);
+  return promise;
 }
