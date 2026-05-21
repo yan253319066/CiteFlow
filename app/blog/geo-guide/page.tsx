@@ -28,11 +28,59 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do generative engines like ChatGPT choose which sources to cite?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "LLMs use two pathways: retrieval-augmented generation (searching the web or vector index) and parametric knowledge (information from training data). Citations come primarily from RAG pipelines, where ranking systems favor documents with clear entity alignment, structured data, and high topical density."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between SEO and GEO?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Traditional SEO uses backlinks, keywords, and page speed for Google rankings. GEO (Generative Engine Optimization) focuses on making content structure and entity clarity optimized for AI retrieval systems, where LLMs prefer pages with FAQ markup, comparison tables, and clear entity definitions."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Do backlinks matter for AI citations?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not directly. LLMs do not have a backlink graph. They measure authority through consistency—how often information appears across multiple sources in training data and whether those sources agree. Being cited by Wikipedia or other high-authority sources matters more than traditional backlinks."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What content structure helps with LLM citations?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pages with FAQ Schema markup, comparison tables, and clear entity definitions are cited more often. Structured data gives AI systems an easy extraction path. In experiments, FAQ pages with Schema.org markup appeared as cited sources roughly 2x more often than pages with identical content but no structured formatting."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Does writing quality affect AI citations?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Surprisingly, not as much as structure. The ranking step in RAG pipelines cares about signal clarity, not prose quality. A page with varied vocabulary but no structured formatting will score lower than a page with clear entity repetition and Schema markup, even if the former is better written."
+      }
+    }
+  ]
+};
+
 export default function BlogPost() {
   return (
     <main className="min-h-screen pb-20">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
       <Navbar />
       
       <article className="pt-32 px-6 max-w-3xl mx-auto">

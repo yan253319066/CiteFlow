@@ -45,8 +45,55 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I get my website mentioned by ChatGPT?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'To increase your chances of being cited by ChatGPT: (1) Define your brand entity with clear, category-specific language on your website, (2) Create comparison pages that position you alongside competitors, (3) Add FAQ sections with Schema.org markup for easy extraction, and (4) Build presence on high-authority sources that AI systems trust.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do FAQ pages help with AI citations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. FAQ pages with Schema.org markup are cited approximately 2x more often than pages with identical content but no structured data. AI systems can extract question-answer pairs directly from FAQ markup, making them easy to cite in responses.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is entity clarity and why does it matter for AI?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Entity clarity means your website clearly defines what your brand, product, or service is using specific, unambiguous language. AI systems need to resolve what you are before they can cite you. Vague language like "our platform" or "the solution" creates ambiguity that reduces citation probability.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do comparison pages help with LLM citations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Comparison content (e.g., "Product X vs Product Y") is the most reliably cited format in LLM outputs. LLMs use comparison pages to understand relationships between entities and to answer "best tool for X" queries. Even smaller brands benefit from being compared to established competitors.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to see results from GEO efforts?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most teams see measurable movement in AI citation rates within 60-90 days of consistently publishing structured comparison and FAQ content. However, if your product launched after an LLM training cutoff, results may depend more on real-time search behavior than training data.'
+      }
+    }
+  ]
+};
+
 export default function Page() {
-  return <main className="min-h-screen pb-20"><JsonLd data={articleSchema} /><JsonLd data={breadcrumbSchema} /><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
+  return <main className="min-h-screen pb-20"><JsonLd data={articleSchema} /><JsonLd data={breadcrumbSchema} /><JsonLd data={faqSchema} /><Navbar /><article className="pt-32 px-6 max-w-3xl mx-auto">
     <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-12">
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
       Back to Articles
