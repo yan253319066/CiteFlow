@@ -13,8 +13,8 @@ const articleSchema = {
   headline: "Search Rankings Don't Translate to AI Citations",
   description: "High Google rankings don't guarantee AI citations. We compared 50 B2B SaaS companies and found a weak correlation.",
   datePublished: "2026-05-10",
-  author: { "@type": "Organization", name: "CiteFlow Intelligence" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  author: { "@type": "Organization", name: "GetCiteFlow Intelligence" },
+  publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/chatgpt-seo" },
 };
 
@@ -55,7 +55,7 @@ export default function ChatGPTSEO() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#6E7BFF] to-[#8B5CF6]" />
               <div>
-                <p className="text-sm font-bold">CiteFlow Intelligence</p>
+                <p className="text-sm font-bold">GetCiteFlow Intelligence</p>
                 <p className="text-xs text-muted-foreground">May 10, 2026 • 6 min read</p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Notion GEO Playbook: Dominating AI Productivity Answers | CiteFlow',
+  title: 'Notion GEO Playbook: Dominating AI Productivity Answers | GetCiteFlow',
   description: 'A two-month analysis of why Notion appears first in 92% of AI-generated productivity recommendations — and what every SaaS company can learn.',
   keywords: ['Notion GEO', 'AI productivity recommendations', 'category anchor effect', 'SaaS GEO strategy'],
   alternates: { canonical: 'https://www.getciteflow.ai/case-studies/notion-strategy' },

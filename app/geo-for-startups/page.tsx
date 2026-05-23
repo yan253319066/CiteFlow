@@ -14,8 +14,8 @@ const articleSchema = {
   headline: "GEO for Startups: Build AI Visibility from Day One",
   description: "Learn how startups can establish AI citations early and build lasting visibility in ChatGPT, Perplexity, Gemini, and other AI search engines.",
   datePublished: "2026-05-20",
-  author: { "@type": "Organization", name: "CiteFlow Editorial" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
+  publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/geo-for-startups" },
 };
 

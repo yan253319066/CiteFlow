@@ -6,18 +6,18 @@ import { ArrowRight } from "lucide-react";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'CiteFlow Blog | AI Search & GEO Insights',
+  title: 'GetCiteFlow Blog | AI Search & GEO Insights',
   description: 'Guides about Generative Engine Optimization, AI Search, ChatGPT citations, and AI visibility growth strategies.',
   keywords: ['GEO guide', 'ChatGPT SEO', 'AI visibility', 'generative engine optimization', 'GEO tool', 'AI visibility checker'],
   alternates: { canonical: 'https://www.getciteflow.ai/blog' },
   openGraph: {
-    title: 'CiteFlow Blog — AI Search & GEO Insights',
+    title: 'GetCiteFlow Blog — AI Search & GEO Insights',
     description: 'Strategies for getting cited by AI. GEO guides, ChatGPT SEO, and AI visibility research.',
-    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75', width: 1200, height: 630, alt: 'CiteFlow Blog OG Image' }],
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Blog OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CiteFlow Blog — AI Search & GEO Insights',
+    title: 'GetCiteFlow Blog — AI Search & GEO Insights',
     description: 'Strategies for getting cited by AI.',
     images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75'],
   },

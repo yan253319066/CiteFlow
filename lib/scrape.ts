@@ -152,7 +152,7 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     response = await fetch(baseUrl, {
       signal: AbortSignal.timeout(MAX_TIMEOUT_MS),
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; CiteFlow/1.0; +https://getciteflow.ai)",
+        "User-Agent": "Mozilla/5.0 (compatible; GetCiteFlow/1.0; +https://getciteflow.ai)",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.5",
       },

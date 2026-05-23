@@ -5,11 +5,11 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing | CiteFlow — Free GEO Reports',
+  title: 'Pricing | GetCiteFlow — Free GEO Reports',
   description: 'Start with free AI Visibility reports. No credit card required. Pro plan coming soon with AI citation monitoring and competitive analysis.',
-  keywords: ['CiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free'],
+  keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free'],
   alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
-  openGraph: { title: 'CiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro monitoring coming soon.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'CiteFlow Pricing OG Image' }] },
+  openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro monitoring coming soon.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
 };
 
 export default function PricingPage() {

@@ -57,7 +57,7 @@ export function WaitlistModal({ isOpen, onClose }: { isOpen: boolean; onClose: (
                   <h2 className="text-2xl font-bold">Join the Waitlist</h2>
                 </div>
                 <p className="text-slate-400 mb-8 leading-relaxed">
-                  CiteFlow Pro is currently in invitation-only beta. Join the waitlist to get early access to automated SEO fixes and GEO monitoring.
+                  GetCiteFlow Pro is currently in invitation-only beta. Join the waitlist to get early access to automated SEO fixes and GEO monitoring.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">

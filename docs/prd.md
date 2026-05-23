@@ -1,4 +1,4 @@
-# CiteFlow
+# GetCiteFlow
 
 **Slogan:** Get Mentioned by AI
 
@@ -137,7 +137,7 @@
 这个是你后面流量来源。你会生成大量页面，例如：
 
 - **GEO Landing Pages:** `/geo-for-saas`、`/geo-for-ai-tools`、`/geo-for-startups`
-- **Comparison Pages:** `/compare/ahrefs-vs-citeflow`、`/compare/profound-vs-citeflow`
+- **Comparison Pages:** `/compare/ahrefs-vs-getciteflow`、`/compare/profound-vs-getciteflow`
 - **Problem Pages:** `/why-chatgpt-doesnt-mention-your-site`
 
 这些页面：对 SEO/GEO 非常强。
@@ -190,7 +190,7 @@
 - og:image
 - twitter card
 
-你后面一定要做：**动态 Metadata** — 例如：CiteFlow Report for Notion
+你后面一定要做：**动态 Metadata** — 例如：GetCiteFlow Report for Notion
 
 ---
 

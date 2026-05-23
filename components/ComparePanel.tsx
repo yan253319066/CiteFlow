@@ -145,14 +145,14 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
     : null;
 
   const shareText = compData
-    ? `${currentDomain} (${currentScore}/100) vs ${competitor.trim()} (${compData.score}/100) - AI Visibility Comparison on CiteFlow`
+    ? `${currentDomain} (${currentScore}/100) vs ${competitor.trim()} (${compData.score}/100) - AI Visibility Comparison on GetCiteFlow`
     : null;
 
   const handleNativeShare = async () => {
     if (!shareUrl || !shareText || typeof navigator === 'undefined' || !navigator.share) return;
     try {
       await navigator.share({
-        title: `${currentDomain} vs ${competitor.trim()} | CiteFlow`,
+        title: `${currentDomain} vs ${competitor.trim()} | GetCiteFlow`,
         text: shareText,
         url: shareUrl,
       });

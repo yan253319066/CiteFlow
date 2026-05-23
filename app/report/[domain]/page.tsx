@@ -51,25 +51,25 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     ...(withDomain ? [withDomain as string, `${domain} vs ${withDomain}`, 'GEO comparison'] : []),
   ];
 
-  let fullTitle = `${domain} AI Visibility Score & GEO Report | CiteFlow`;
+  let fullTitle = `${domain} AI Visibility Score & GEO Report | GetCiteFlow`;
   let ogDesc = `GEO score report for ${domain}`;
   let ogImage = ogImageBase;
 
   if (withDomain) {
-    fullTitle = `${domain} vs ${withDomain}: AI Visibility Comparison | CiteFlow`;
+    fullTitle = `${domain} vs ${withDomain}: AI Visibility Comparison | GetCiteFlow`;
     ogDesc = `Compare the GEO scores of ${domain} and ${withDomain}. See who AI recommends and why.`;
   }
 
   try {
     const data = await analyzeSite(domain);
     if (data.error && (data.errorType === 'TIMEOUT' || data.errorCode === 1001)) {
-      fullTitle = `${domain} - Analysis Timed Out | CiteFlow`;
+      fullTitle = `${domain} - Analysis Timed Out | GetCiteFlow`;
       ogDesc = `Analysis for ${domain} timed out. Upgrade to Pro for longer timeouts and priority processing.`;
     } else {
       const report = parseReport(data);
       fullTitle = withDomain
-        ? `${domain} (${report.score}/100) vs ${withDomain}: GEO Comparison | CiteFlow`
-        : `${domain} AI Visibility Score: ${report.score}/100 | CiteFlow GEO Report`;
+        ? `${domain} (${report.score}/100) vs ${withDomain}: GEO Comparison | GetCiteFlow`
+        : `${domain} AI Visibility Score: ${report.score}/100 | GetCiteFlow GEO Report`;
       ogDesc = withDomain
         ? `${domain} scores ${report.score}/100 on AI Visibility. Compare against ${withDomain} and see who AI recommends.`
         : `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
@@ -85,7 +85,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     keywords,
     alternates: { canonical: canonicalUrl },
     twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc, images: [ogImage] },
-    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, siteName: 'CiteFlow', images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, siteName: 'GetCiteFlow', images: [{ url: ogImage, width: 1200, height: 630 }] },
   };
 }
 

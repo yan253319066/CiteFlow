@@ -14,8 +14,8 @@ const articleSchema = {
   headline: "GEO for AI Tools: How AI Products Get Cited by Other AI Systems",
   description: "Learn how to optimize your AI tool or AI product for citations in ChatGPT, Perplexity, Gemini, and other AI assistants. Special considerations for AI products.",
   datePublished: "2026-05-20",
-  author: { "@type": "Organization", name: "CiteFlow Editorial" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
+  publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/geo-for-ai-tools" },
 };
 

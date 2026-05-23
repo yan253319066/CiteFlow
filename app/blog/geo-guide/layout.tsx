@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'How Generative Engines Choose What to Cite | CiteFlow GEO Guide',
+  title: 'How Generative Engines Choose What to Cite | GetCiteFlow GEO Guide',
   description: 'LLMs don\'t crawl the web like Google does. Understanding how AI selects sources changes everything about your content strategy. A deep dive into RAG pipelines and citation priority.',
   keywords: ['GEO guide', 'generative engine optimization', 'AI citations', 'LLM source selection', 'RAG pipeline'],
   alternates: { canonical: 'https://www.getciteflow.ai/blog/geo-guide' },
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'A deep dive into how LLMs select sources and why traditional SEO doesn\'t prepare you for AI citations.',
     type: 'article',
     publishedTime: '2026-05-15',
-    authors: ['CiteFlow Editorial'],
+    authors: ['GetCiteFlow Editorial'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75', width: 1200, height: 630, alt: 'How Generative Engines Choose What to Cite' }],
   },
   twitter: {

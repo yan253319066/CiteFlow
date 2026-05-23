@@ -35,7 +35,7 @@ export function Features() {
           Analyze Your Website for AI Search
         </h2>
         <p className="text-slate-400 text-center max-w-2xl mx-auto mb-16">
-          CiteFlow evaluates your website across key factors that AI systems use to determine which sources to cite. 
+          GetCiteFlow evaluates your website across key factors that AI systems use to determine which sources to cite. 
           Enter your URL above to get started with a free AI visibility analysis.
         </p>
 

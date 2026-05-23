@@ -1,5 +1,5 @@
 {
-  "name": "CiteFlow",
+  "name": "GetCiteFlow",
   "description": "Get Mentioned by AI. Analyze and optimize your website for ChatGPT, Gemini and AI Search (GEO).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

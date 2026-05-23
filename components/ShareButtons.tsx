@@ -13,12 +13,12 @@ interface ShareButtonsProps {
 export function ShareButtons({ domain, score }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const reportUrl = `${SITE_URL}/report/${domain}`;
-  const shareText = `I just checked ${domain}'s AI visibility score on CiteFlow — it scored ${score}/100!`;
+  const shareText = `I just checked ${domain}'s AI visibility score on GetCiteFlow — it scored ${score}/100!`;
 
   async function handleNativeShare() {
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
-        await navigator.share({ title: `CiteFlow Report: ${domain}`, text: shareText, url: reportUrl });
+        await navigator.share({ title: `GetCiteFlow Report: ${domain}`, text: shareText, url: reportUrl });
       } catch {
         // user cancelled or error
       }

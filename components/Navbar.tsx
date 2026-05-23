@@ -48,8 +48,8 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-6 bg-background/5 backdrop-blur-md border-b border-white/5"
       >
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/logo.png" alt="CiteFlow" width={32} height={32} className="rounded-lg group-hover:scale-110 transition-transform" />
-          <span className="text-xl font-bold tracking-tight">CiteFlow</span>
+          <Image src="/logo.png" alt="GetCiteFlow" width={32} height={32} className="rounded-lg group-hover:scale-110 transition-transform" />
+          <span className="text-xl font-bold tracking-tight">GetCiteFlow</span>
         </Link>
         
         {/* Desktop Nav */}

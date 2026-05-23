@@ -1,10 +1,10 @@
-# CiteFlow - AI Visibility Platform
+# GetCiteFlow - AI Visibility Platform
 
 <div align="center">
-<img width="1200" height="475" alt="CiteFlow Banner" src="https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75" />
+<img width="1200" height="475" alt="GetCiteFlow Banner" src="https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75" />
 </div>
 
-CiteFlow helps you analyze and optimize your website for AI search engines like ChatGPT, Gemini, Perplexity, and Google AI Overviews. Get actionable insights to increase your chances of being cited by large language models.
+GetCiteFlow helps you analyze and optimize your website for AI search engines like ChatGPT, Gemini, Perplexity, and Google AI Overviews. Get actionable insights to increase your chances of being cited by large language models.
 
 ## What is GEO?
 
@@ -37,8 +37,8 @@ GEO (Generative Engine Optimization) is the practice of optimizing your website 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/CiteFlow.git
-cd CiteFlow
+git clone https://github.com/your-username/GetCiteFlow.git
+cd GetCiteFlow
 ```
 
 2. Install dependencies:
@@ -100,6 +100,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 
-## License
-
-MIT

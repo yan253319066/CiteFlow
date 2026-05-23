@@ -7,18 +7,18 @@ import { JsonLd } from "@/components/JsonLd";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'CiteFlow | Get Mentioned by AI',
+  title: 'GetCiteFlow | Get Mentioned by AI',
   description: 'Analyze and optimize your website for ChatGPT, Gemini and AI Search.',
   keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization', 'GEO tool', 'AI visibility checker', 'ChatGPT SEO checker', 'free GEO report'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
-  openGraph: { title: 'CiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'CiteFlow OG Image' }] }
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
+  openGraph: { title: 'GetCiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] }
 };
 
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "CiteFlow",
+  name: "GetCiteFlow",
   applicationCategory: "AI SEO Platform",
   operatingSystem: "Web",
   description: "AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.",
@@ -40,10 +40,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How does CiteFlow analyze my website for AI visibility?",
+      name: "How does GetCiteFlow analyze my website for AI visibility?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "CiteFlow analyzes your website by examining your content structure, entity clarity, FAQ coverage, and other factors that AI systems use to determine citation priority. The tool provides an AI Visibility Score and specific recommendations to improve your chances of being cited by LLMs."
+        text: "GetCiteFlow analyzes your website by examining your content structure, entity clarity, FAQ coverage, and other factors that AI systems use to determine citation priority. The tool provides an AI Visibility Score and specific recommendations to improve your chances of being cited by LLMs."
       }
     },
     {
@@ -64,10 +64,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is CiteFlow free to use?",
+      name: "Is GetCiteFlow free to use?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, CiteFlow offers a free tier that allows you to analyze your website and receive an AI Visibility Score with basic recommendations. You can get started by entering your website URL on the homepage."
+        text: "Yes, GetCiteFlow offers a free tier that allows you to analyze your website and receive an AI Visibility Score with basic recommendations. You can get started by entering your website URL on the homepage."
       }
     }
   ]

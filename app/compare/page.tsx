@@ -7,14 +7,14 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'GEO Comparison Tool: Compare AI Visibility Scores | CiteFlow',
+  title: 'GEO Comparison Tool: Compare AI Visibility Scores | GetCiteFlow',
   description: 'Compare your website\'s Generative Engine Optimization (GEO) score against competitors. See exactly who AI recommends and where you\'re winning or losing.',
   keywords: ['GEO comparison', 'AI visibility compare', 'compare AI scores', 'GEO tool', 'competitor GEO analysis', 'AI citation comparison'],
   alternates: { canonical: 'https://www.getciteflow.ai/compare' },
   openGraph: {
     title: 'Compare AI Visibility Scores — Free GEO Comparison Tool',
     description: 'See how your site stacks up against competitors in AI search. Free side-by-side GEO analysis.',
-    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75', width: 1200, height: 630, alt: 'CiteFlow Compare OG Image' }],
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Compare OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -32,7 +32,7 @@ const steps = [
 
 const useCases = [
   { stat: '~33%', label: 'of AI citations come from comparison content', source: 'Princeton GEO Study' },
-  { stat: '140%', label: 'average increase in citations with structured comparisons', source: 'CiteFlow Data' },
+  { stat: '140%', label: 'average increase in citations with structured comparisons', source: 'GetCiteFlow Data' },
   { stat: '5-25x', label: 'higher purchase intent when AI recommends you', source: 'Gartner' },
 ];
 
@@ -57,7 +57,7 @@ export default function ComparePage() {
             Compare Your <span className="gradient-text">AI Visibility</span> Against Competitors
           </h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
-            Most GEO tools show you a score. CiteFlow lets you see exactly where you win and lose — side by side with any competitor. Find out who AI recommends, and why.
+            Most GEO tools show you a score. GetCiteFlow lets you see exactly where you win and lose — side by side with any competitor. Find out who AI recommends, and why.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
             Get Your Free Report <ArrowRight className="w-5 h-5" />

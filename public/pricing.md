@@ -1,4 +1,4 @@
-# Pricing — CiteFlow
+# Pricing — GetCiteFlow
 
 ## Free
 - Price: $0/month

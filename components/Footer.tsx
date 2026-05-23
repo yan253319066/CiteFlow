@@ -11,8 +11,8 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
         <div className="max-w-sm">
           <div className="flex items-center gap-2 mb-4">
-            <Image src="/logo.png" alt="CiteFlow" width={24} height={24} className="rounded" />
-            <span className="text-lg font-bold">CiteFlow</span>
+            <Image src="/logo.png" alt="GetCiteFlow" width={24} height={24} className="rounded" />
+            <span className="text-lg font-bold">GetCiteFlow</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
             The AI visibility infrastructure for the next generation of the web. 
@@ -20,13 +20,15 @@ export function Footer() {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           <div>
             <h4 className="text-sm font-semibold mb-4 text-white">Product</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/" className="hover:text-primary transition-colors">AI Analyzer</Link></li>
               <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">GEO Score</Link></li>
               <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/compare/ahrefs-vs-getciteflow" className="hover:text-primary transition-colors">Ahrefs vs GetCiteFlow</Link></li>
+              <li><Link href="/compare/profound-vs-getciteflow" className="hover:text-primary transition-colors">Profound vs GetCiteFlow</Link></li>
             </ul>
           </div>
           <div>
@@ -35,6 +37,14 @@ export function Footer() {
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
               <li><Link href="/blog/ai-visibility" className="hover:text-primary transition-colors">AI Visibility Guide</Link></li>
               <li><Link href="/blog/chatgpt-seo" className="hover:text-primary transition-colors">ChatGPT SEO</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold mb-4 text-white">Ecosystem</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><Link href="https://platform.openai.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">OpenAI Platform</Link></li>
+              <li><Link href="https://ai.google" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Google AI</Link></li>
+              <li><Link href="https://anthropic.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Anthropic</Link></li>
             </ul>
           </div>
           <div>
@@ -55,7 +65,7 @@ export function Footer() {
       </div>
       
       <div className="max-w-6xl mx-auto border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-        <p>© 2026 CiteFlow AI. All rights reserved.</p>
+        <p>© 2026 GetCiteFlow AI. All rights reserved.</p>
         <div className="flex gap-6">
           <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
           <Link href="/terms-of-service" className="hover:text-primary">Terms of Service</Link>

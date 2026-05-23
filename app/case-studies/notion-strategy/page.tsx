@@ -13,8 +13,8 @@ const articleSchema = {
   headline: "The Notion GEO Playbook: Dominating Productivity Answers",
   description: "Why Notion appears first in 92% of AI-generated productivity recommendations — and what every SaaS company can learn.",
   datePublished: "2026-05-20",
-  author: { "@type": "Organization", name: "CiteFlow" },
-  publisher: { "@type": "Organization", name: "CiteFlow", url: "https://www.getciteflow.ai" },
+  author: { "@type": "Organization", name: "GetCiteFlow" },
+  publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/notion-strategy" },
 };
 

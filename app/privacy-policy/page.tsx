@@ -3,13 +3,13 @@ import { Navbar } from "@/components/Navbar";
 import { Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | CiteFlow",
-  description: "Learn how CiteFlow collects, uses, and protects your personal data. Our commitment to your privacy and data security.",
+  title: "Privacy Policy | GetCiteFlow",
+  description: "Learn how GetCiteFlow collects, uses, and protects your personal data. Our commitment to your privacy and data security.",
   alternates: { canonical: "https://www.getciteflow.ai/privacy-policy" },
   openGraph: {
-    title: "Privacy Policy | CiteFlow",
-    description: "Learn how CiteFlow collects, uses, and protects your personal data.",
-    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/privacy-policy&score=75', width: 1200, height: 630, alt: 'CiteFlow Privacy Policy OG Image' }],
+    title: "Privacy Policy | GetCiteFlow",
+    description: "Learn how GetCiteFlow collects, uses, and protects your personal data.",
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/privacy-policy&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Privacy Policy OG Image' }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
         <div className="space-y-10 text-slate-300 leading-relaxed">
           <Section title="1. Introduction">
             <p>
-              CiteFlow AI (&ldquo;CiteFlow,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI visibility analysis platform.
+              GetCiteFlow AI (&ldquo;GetCiteFlow,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI visibility analysis platform.
             </p>
             <p>
               By accessing or using our Service, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the Service.

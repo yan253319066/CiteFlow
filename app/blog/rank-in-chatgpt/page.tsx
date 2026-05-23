@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'How to Get Cited by ChatGPT | CiteFlow',
+  title: 'How to Get Cited by ChatGPT | GetCiteFlow',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   keywords: ['chatgpt citations', 'geo', 'ai visibility'],
   alternates: { canonical: 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'A repeatable framework for increasing how often your brand gets mentioned by AI assistants.',
     type: 'article',
     publishedTime: '2026-05-18',
-    authors: ['CiteFlow Intelligence'],
+    authors: ['GetCiteFlow Intelligence'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75', width: 1200, height: 630, alt: 'How to Get Cited by ChatGPT' }],
   },
   twitter: {
@@ -30,8 +30,8 @@ const articleSchema = {
   headline: 'How to Get Cited by ChatGPT',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   datePublished: '2026-05-18',
-  author: { '@type': 'Organization', name: 'CiteFlow Intelligence' },
-  publisher: { '@type': 'Organization', name: 'CiteFlow', url: 'https://www.getciteflow.ai' },
+  author: { '@type': 'Organization', name: 'GetCiteFlow Intelligence' },
+  publisher: { '@type': 'Organization', name: 'GetCiteFlow', url: 'https://www.getciteflow.ai' },
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
 };
 
@@ -99,7 +99,7 @@ export default function Page() {
       Back to Articles
     </Link>
     <h1 className="text-4xl font-bold mb-4">How to Get Cited by ChatGPT</h1>
-    <p className="text-sm text-muted-foreground mb-8">CiteFlow Intelligence • May 18, 2026 • 7 min read</p>
+    <p className="text-sm text-muted-foreground mb-8">GetCiteFlow Intelligence • May 18, 2026 • 7 min read</p>
     
     <p className="text-lg text-white leading-relaxed mb-8">
       We spent three months running experiments on what makes a source citable by LLMs. The results were not always intuitive. Some of the most authoritative, well-written content we tested was ignored entirely, while pages with thinner content but better structural alignment were cited consistently. Here is what actually works.

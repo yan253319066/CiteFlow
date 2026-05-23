@@ -1,6 +1,6 @@
-# CiteFlow — AI Visibility Platform
+# GetCiteFlow — AI Visibility Platform
 
-CiteFlow is a Generative Engine Optimization (GEO) platform that helps websites get cited by AI search engines including ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews.
+GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websites get cited by AI search engines including ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews.
 
 ## Core Features
 - **AI Visibility Score** — Get a 0-100 GEO score with breakdown of AI Visibility, FAQ Coverage, Entity Clarity, and Authority

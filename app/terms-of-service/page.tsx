@@ -3,13 +3,13 @@ import { Navbar } from "@/components/Navbar";
 import { Scale } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | CiteFlow",
-  description: "Review the terms and conditions governing your use of the CiteFlow AI visibility platform. Understand your rights and obligations.",
+  title: "Terms of Service | GetCiteFlow",
+  description: "Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform. Understand your rights and obligations.",
   alternates: { canonical: "https://www.getciteflow.ai/terms-of-service" },
   openGraph: {
-    title: "Terms of Service | CiteFlow",
-    description: "Review the terms and conditions governing your use of the CiteFlow platform.",
-    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75', width: 1200, height: 630, alt: 'CiteFlow Terms of Service OG Image' }],
+    title: "Terms of Service | GetCiteFlow",
+    description: "Review the terms and conditions governing your use of the GetCiteFlow platform.",
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Terms of Service OG Image' }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function TermsOfService() {
         <div className="space-y-10 text-slate-300 leading-relaxed">
           <Section title="1. Acceptance of Terms">
             <p>
-              By accessing or using the CiteFlow AI platform (&ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to all the terms, you may not access or use the Service.
+              By accessing or using the GetCiteFlow AI platform (&ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to all the terms, you may not access or use the Service.
             </p>
             <p>
               These Terms apply to all visitors, users, and others who access or use the Service. We reserve the right to update or modify these Terms at any time. Continued use of the Service after any changes constitutes acceptance of the new Terms.
@@ -45,7 +45,7 @@ export default function TermsOfService() {
 
           <Section title="2. Description of Service">
             <p>
-              CiteFlow provides an AI visibility analysis platform that helps businesses understand and optimize their presence in AI-generated search results, including ChatGPT, Gemini, and other large language models. Our Service includes domain analysis, visibility scoring, and actionable optimization recommendations.
+              GetCiteFlow provides an AI visibility analysis platform that helps businesses understand and optimize their presence in AI-generated search results, including ChatGPT, Gemini, and other large language models. Our Service includes domain analysis, visibility scoring, and actionable optimization recommendations.
             </p>
           </Section>
 
@@ -82,10 +82,10 @@ export default function TermsOfService() {
 
           <Section title="6. Intellectual Property">
             <p className="mb-4">
-              The Service, including its code, design, layout, graphics, and content (excluding user-submitted domains), is owned by CiteFlow and protected by intellectual property laws.
+              The Service, including its code, design, layout, graphics, and content (excluding user-submitted domains), is owned by GetCiteFlow and protected by intellectual property laws.
             </p>
             <p className="mb-4">
-              The CiteFlow name, logo, and related trademarks are our exclusive property. You may not use them without our prior written consent.
+              The GetCiteFlow name, logo, and related trademarks are our exclusive property. You may not use them without our prior written consent.
             </p>
             <p>
               You retain all rights to any content or data you submit to the Service. By submitting a domain for analysis, you grant us a limited license to process that data solely for the purpose of providing the Service.
@@ -115,7 +115,7 @@ export default function TermsOfService() {
 
           <Section title="9. Limitation of Liability">
             <p className="mb-4">
-              To the maximum extent permitted by law, CiteFlow and its affiliates, officers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the Service.
+              To the maximum extent permitted by law, GetCiteFlow and its affiliates, officers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the Service.
             </p>
             <p className="mb-4">
               This includes, but is not limited to, damages for loss of profits, data, goodwill, or business interruption, even if we have been advised of the possibility of such damages.
@@ -139,7 +139,7 @@ export default function TermsOfService() {
 
           <Section title="11. Indemnification">
             <p>
-              You agree to indemnify, defend, and hold harmless CiteFlow and its affiliates, officers, agents, and employees from any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from your violation of these Terms, your misuse of the Service, or your infringement of any third-party rights.
+              You agree to indemnify, defend, and hold harmless GetCiteFlow and its affiliates, officers, agents, and employees from any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from your violation of these Terms, your misuse of the Service, or your infringement of any third-party rights.
             </p>
           </Section>
 
@@ -169,7 +169,7 @@ export default function TermsOfService() {
 
           <Section title="15. Entire Agreement">
             <p>
-              These Terms, together with our Privacy Policy, constitute the entire agreement between you and CiteFlow regarding your use of the Service, superseding any prior agreements or understandings.
+              These Terms, together with our Privacy Policy, constitute the entire agreement between you and GetCiteFlow regarding your use of the Service, superseding any prior agreements or understandings.
             </p>
           </Section>
 
