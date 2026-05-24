@@ -28,6 +28,8 @@ const posts = [
   { title: "Search Rankings Don't Translate to AI Citations", slug: "chatgpt-seo", date: "May 10, 2026", category: "Strategy", excerpt: "High search volume and AI mentions are two different games. Here is what causes the gap and how to bridge it." },
   { title: "AI Visibility Is a Better Metric Than CTR", slug: "ai-visibility", date: "May 5, 2026", category: "Trends", excerpt: "In a zero-click world, being cited by an LLM matters more than driving a click. Here is how to measure it." },
   { title: "How to Get Cited by ChatGPT", slug: "rank-in-chatgpt", date: "May 18, 2026", category: "Playbook", excerpt: "A repeatable framework for increasing how often your product gets mentioned by AI assistants." },
+  { title: "What Is GEO? A Complete Guide to Generative Engine Optimization", slug: "what-is-geo", date: "Oct 8, 2025", category: "Guides", excerpt: "GEO means optimizing content so AI search engines cite your brand. Here is how it works, how it differs from SEO, and how to implement it." },
+  { title: "AI Search vs. SEO: Why Traditional Rankings No Longer Drive Traffic", slug: "ai-search-vs-seo", date: "Oct 22, 2025", category: "Analysis", excerpt: "The signals Google uses and the signals LLMs use are fundamentally different. Here is what the divergence means for content strategy." },
 ];
 
 export default function BlogPage() {

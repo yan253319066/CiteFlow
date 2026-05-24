@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog/chatgpt-seo`, lastModified: new Date('2026-05-10'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/blog/ai-visibility`, lastModified: new Date('2026-05-05'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/blog/rank-in-chatgpt`, lastModified: new Date('2026-05-18'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/what-is-geo`, lastModified: new Date('2025-10-08'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/blog/ai-search-vs-seo`, lastModified: new Date('2025-10-22'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/case-studies`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/nexus-protocol`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/notion-strategy`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
