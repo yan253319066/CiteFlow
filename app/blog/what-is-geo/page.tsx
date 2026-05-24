@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Share2, Bookmark } from "lucide-react";
+import { ArrowLeft, Share2, Bookmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";
@@ -248,6 +248,16 @@ export default function WhatIsGEO() {
           <p className="leading-relaxed mb-10">
             The window for establishing yourself in a model's citation set is finite. Models are updated infrequently — the popular ones are retrained every 6 to 18 months, and most rely on real-time retrieval for post-cutoff information. But the entity associations formed during training persist. A brand that establishes clear entity mappings early will be harder to displace later, because the model's training data contains a consistent signal. Brands that wait will compete against older, more established entity clusters with no easy way to catch up.
           </p>
+
+          <div className="mt-16 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+            <h3 className="text-xl font-bold text-white mb-3">Check Your Site's AI Visibility</h3>
+            <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+              See how well your website is optimized for AI citations. GetCiteFlow scans your site, diagnoses GEO issues, and generates fix packages you can deploy immediately.
+            </p>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+              Get Your Free GEO Report <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </article>
     </main>

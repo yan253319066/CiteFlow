@@ -2,28 +2,28 @@
 
 import { motion } from "motion/react";
 import { Card } from "@/components/ui/card";
-import { Zap, BarChart3, Search, Shield } from "lucide-react";
+import { Search, FileText, Wrench, Download } from "lucide-react";
 
 const features = [
   {
     icon: Search,
-    title: "AI Visibility Score",
-    description: "Get a comprehensive score measuring how well your website is positioned for AI citation in ChatGPT, Perplexity, and Gemini.",
+    title: "Full Site Scan",
+    description: "GetCiteFlow crawls your homepage and landing pages, checking title tags, H1s, FAQ Schema, meta descriptions, robots.txt, llms.txt, and content structure — everything AI systems evaluate.",
   },
   {
-    icon: BarChart3,
-    title: "Entity Clarity Analysis",
-    description: "Evaluate how clearly your brand and value proposition are defined for AI systems that need to resolve what you are before citing you.",
+    icon: FileText,
+    title: "GEO Diagnosis",
+    description: "Receive a prioritized issue list ranked by impact on AI citation probability. See exactly what your site is missing vs. what AI search engines look for.",
   },
   {
-    icon: Zap,
-    title: "FAQ Coverage Check",
-    description: "Identify missing FAQ content and Schema markup that could increase your chances of appearing in AI-powered search results.",
+    icon: Wrench,
+    title: "Fix Package Generator",
+    description: "Get ready-to-deploy code: FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, robots.txt rules, and structured data patches — no developer required.",
   },
   {
-    icon: Shield,
-    title: "Actionable Recommendations",
-    description: "Receive specific, prioritized suggestions to improve your content structure for better AI visibility and citation rates.",
+    icon: Download,
+    title: "Multi-Format Export",
+    description: "Copy with one click, download patches, or export in JSON-LD, Markdown, Next.js, or Vue format. Deploy what AI systems need to cite your brand.",
   },
 ];
 
@@ -32,11 +32,11 @@ export function Features() {
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Analyze Your Website for AI Search
+          Scan. Diagnose. Fix. Export.
         </h2>
         <p className="text-slate-400 text-center max-w-2xl mx-auto mb-16">
-          GetCiteFlow evaluates your website across key factors that AI systems use to determine which sources to cite. 
-          Enter your URL above to get started with a free AI visibility analysis.
+          GetCiteFlow doesn't just show you a score — it tells you exactly what to fix and generates the code to deploy. 
+          Everything AI systems need to cite your brand, packaged for your framework.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">

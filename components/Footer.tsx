@@ -37,6 +37,7 @@ export function Footer() {
               <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
               <li><Link href="/blog/ai-visibility" className="hover:text-primary transition-colors">AI Visibility Guide</Link></li>
               <li><Link href="/blog/chatgpt-seo" className="hover:text-primary transition-colors">ChatGPT SEO</Link></li>
+              <li><Link href="/why-chatgpt-doesnt-mention-your-site" className="hover:text-primary transition-colors">Why ChatGPT Ignores You</Link></li>
             </ul>
           </div>
           <div>

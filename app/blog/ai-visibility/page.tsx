@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";
@@ -182,9 +182,19 @@ export default function AIVisibility() {
           <p className="mb-6 leading-relaxed">
             If you accept AI visibility as a primary metric, the tactical implications follow. You stop writing content purely for click-through and start writing content that models find citable. That means structured data, clear entity definitions, comparison pages, and authoritative external references. It also means accepting that some of your best-performing content by AI visibility may generate near-zero clicks. That is fine. The user who receives an AI answer citing your brand and then searches for you directly is worth more than the user who clicked a random blog post and bounced. You just need a different dashboard to see it.
           </p>
-          <p className="mb-10 leading-relaxed">
+          <p className="mb-6 leading-relaxed">
             The brands that adopt AI visibility as a core metric now will have a significant advantage in 12-18 months. As generative search becomes the default interface for more queries, the teams that have been tracking and optimizing for citations — rather than clicks — will already know what works. Everyone else will be measuring the old metric and wondering why their traffic is disappearing without understanding why.
           </p>
+
+          <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+            <h3 className="text-xl font-bold text-white mb-3">Measure Your AI Visibility</h3>
+            <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+              GetCiteFlow gives you an AI Visibility Score with breakdown analysis across the signals that matter most for AI citations. Free, no credit card required.
+            </p>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+              Check Your Score <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </article>
     </main>

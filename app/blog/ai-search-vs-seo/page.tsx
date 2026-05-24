@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Share2, Bookmark } from "lucide-react";
+import { ArrowLeft, Share2, Bookmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";
@@ -202,7 +202,7 @@ export default function AISearchVsSEO() {
           <div className="p-8 glass rounded-3xl my-12 border-primary/20">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              Where We See the Gap Widening Fastest
+              Where We See the Gap Widening Fastest <span className="text-xs font-normal text-slate-500">— <Link href="/why-chatgpt-doesnt-mention-your-site" className="text-primary underline">why your site might be invisible to AI</Link></span>
             </h3>
             <p className="text-sm text-slate-400">
               In our tracking across 12 B2B categories, the verticals with the widest divergence between Google rankings and AI citation rates are SaaS tools with generic product names, professional services firms, and e-commerce brands selling commodity products. In each case, the pattern is the same: the brands that invest heavily in SEO infrastructure (backlinks, technical optimization, keyword targeting) maintain their Google positions while losing ground in AI citations to smaller brands that write clearer, more structured content. The gap is worst for brands with polysemous names or vague category positioning, where the model struggles to disambiguate the entity regardless of SEO strength.
@@ -229,6 +229,16 @@ export default function AISearchVsSEO() {
           </p>
           <p className="leading-relaxed mb-10">
             The teams that will navigate this transition best are the ones that build parallel workflows: an SEO track for capturing existing search demand, and a GEO track for establishing presence in AI-generated answers. The GEO track requires different research methods (entity gap analysis instead of keyword gap analysis), different content formats (structured extraction-friendly layouts instead of narrative blog posts), and different success metrics (citation frequency and sentiment instead of CTR and conversions). Running both tracks is more work, but the alternative is waiting until your organic traffic declines far enough that the board notices, at which point you are years behind on the GEO track.</p>
+
+          <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+            <h3 className="text-xl font-bold text-white mb-3">See Where Your Site Stands</h3>
+            <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+              Get a free AI Visibility Score with breakdown analysis and prioritized fix recommendations. Scan your site in seconds.
+            </p>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+              Get Your Free Report <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">Six Steps to Build Your GEO Track</h3>
           <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">

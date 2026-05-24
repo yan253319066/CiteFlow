@@ -197,6 +197,16 @@ export default function Page() {
       <li><strong className="text-white">Pivot based on data.</strong> If citations are not moving after 90 days, focus on third-party mentions and external consensus signals before investing more in on-site content.</li>
     </ol>
 
-    <p className="mt-8">Related: <Link className="text-primary" href="/blog/geo-guide">How Generative Engines Choose What to Cite</Link> · <Link className="text-primary" href="/blog/chatgpt-seo">Search Rankings Don't Translate to AI Citations</Link></p>
+    <div className="mt-12 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+      <h3 className="text-xl font-bold text-white mb-3">See If ChatGPT Cites Your Site</h3>
+      <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+        Get a free GEO report that analyzes your site for the signals AI systems use to determine citations. Enter any URL and get your score in seconds.
+      </p>
+      <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+        Get Your Free GEO Report <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+      </Link>
+    </div>
+
+    <p className="mt-8">Related: <Link className="text-primary" href="/blog/geo-guide">How Generative Engines Choose What to Cite</Link> · <Link className="text-primary" href="/blog/chatgpt-seo">Search Rankings Don't Translate to AI Citations</Link> · <Link className="text-primary" href="/why-chatgpt-doesnt-mention-your-site">Why ChatGPT Ignores Your Site</Link></p>
   </article></main>
 }

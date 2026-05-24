@@ -195,7 +195,7 @@ export default function Page() {
           </p>
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-4 rounded-xl text-sm font-bold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-4 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity"
           >
             Analyze Your Site <ArrowRight className="w-4 h-4" />
           </Link>

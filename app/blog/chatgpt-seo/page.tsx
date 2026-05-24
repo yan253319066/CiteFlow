@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Share2, Bookmark } from "lucide-react";
+import { ArrowLeft, Share2, Bookmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";
@@ -114,7 +114,7 @@ export default function ChatGPTSEO() {
           <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              Key Takeaways
+              Key Takeaways <span className="text-xs font-normal text-slate-500">— also see <Link href="/why-chatgpt-doesnt-mention-your-site" className="text-primary underline">Why ChatGPT ignores your site</Link></span>
             </h3>
             <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
               <li><strong className="text-white">Google rankings and AI citations correlate weakly (~0.3)</strong> — page-one rankings do not guarantee AI visibility.</li>
@@ -201,9 +201,19 @@ export default function ChatGPTSEO() {
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-6">Polysemy Is a Hidden Tax</h2>
-          <p className="mb-10 leading-relaxed">
+          <p className="mb-6 leading-relaxed">
             Brands with generic or multi-context names pay an invisible penalty. If your brand shares a name with a common noun (think "Apple," "Buffer," "Slack"), the model has to disambiguate every time. It often fails, especially when the context is thin. This is not a problem you can solve with content alone — it is baked into the name — but you can mitigate it by heavily over-indexing on category-specific language. Every piece of content should repeatedly anchor your brand to its category until the model has no choice but to make the right association.
           </p>
+
+          <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+            <h3 className="text-xl font-bold text-white mb-3">Find Out If AI Cites Your Brand</h3>
+            <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+              Get a free GEO report that shows exactly what AI systems find on your site — and what they miss. Start with a free scan of any URL.
+            </p>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+              Get Your Free GEO Report <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </article>
     </main>

@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Share2, Bookmark } from "lucide-react";
+import { ArrowLeft, Share2, Bookmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";
@@ -216,9 +216,19 @@ export default function BlogPost() {
           <p className="leading-relaxed mb-6">
             The test is trivial. Ask ChatGPT "What is [your company]?" If the answer is accurate and matches how you describe yourself, your entity clarity is good. If it hedges, gets the category wrong, or uses different language than you do, you have an entity resolution problem that no amount of SEO investment will fix.
           </p>
-          <p className="leading-relaxed mb-10">
+          <p className="leading-relaxed mb-6">
             The fix rarely requires a full rewrite. In most cases, adding one or two explicit category statements to your homepage and product pages is enough. The model needs to see the connection between your brand name and your category in plain, unambiguous text. Once it does, the association forms in its retrieval index and compounds with every subsequent mention.
           </p>
+
+          <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
+            <h3 className="text-xl font-bold text-white mb-3">Scan Your Site for Free</h3>
+            <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+              GetCiteFlow analyzes your homepage and landing pages for the exact signals AI systems use to determine citations. See your score and fix issues in minutes.
+            </p>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+              Analyze Your Site <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </article>
     </main>

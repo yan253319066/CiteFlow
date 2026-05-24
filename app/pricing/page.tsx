@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { JsonLd } from "@/components/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { WaitlistButton } from "./WaitlistButton";
 import Link from "next/link";
@@ -12,9 +13,57 @@ export const metadata: Metadata = {
   openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro monitoring coming soon.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is GetCiteFlow really free?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. The Free plan gives you unlimited GEO reports, AI Visibility Scores, breakdown analysis across 6 dimensions, missing component identification, and shareable report pages — no credit card required."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What do you get in a free GEO report?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Every free report includes an AI Visibility Score (0-100), breakdown across dimensions like entity clarity and FAQ coverage, a list of missing components AI systems look for, prioritized suggestions, and a shareable report page."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What will the Pro plan include?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Pro plan will include scheduled multi-platform citation tracking across ChatGPT, Perplexity, and Gemini, brand mention alerts, competitive analysis, API access, PDF exports, and support for unlimited URLs."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Who is GetCiteFlow for?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "GetCiteFlow is for marketing teams, SEO professionals, content strategists, and founders who want their websites to be cited by AI search engines like ChatGPT, Claude, Perplexity, and Gemini."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How is GEO different from SEO?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SEO optimizes for Google rankings using backlinks and keywords. GEO optimizes for AI citations by improving entity clarity, structured data, FAQ markup, and machine-readable files like llms.txt. Most SEO tools don't check these signals — GetCiteFlow does."
+      }
+    }
+  ]
+};
+
 export default function PricingPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={faqSchema} />
       <Navbar />
       <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">

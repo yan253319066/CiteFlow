@@ -1,26 +1,32 @@
 'use client';
 
 import { motion } from "motion/react";
-import { Globe, FileText, TrendingUp } from "lucide-react";
+import { Globe, FileText, Wrench, Download } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: Globe,
-    title: "Enter Your Website URL",
-    description: "Simply type in any website URL you want to analyze. Our system will crawl and examine the publicly accessible content on your domain.",
+    title: "Scan",
+    description: "Enter any URL and GetCiteFlow crawls your homepage and core landing pages — checking title tags, H1s, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt.",
   },
   {
     number: "02",
     icon: FileText,
-    title: "AI Analyzes Your Content",
-    description: "Our algorithms evaluate your content structure, entity clarity, FAQ coverage, Schema markup, and other factors that AI systems use to determine citation priority.",
+    title: "Diagnose",
+    description: "Get a prioritized list of GEO issues affecting your AI visibility. See exactly what AI systems find — and what they miss — on your site, ranked by impact on citation probability.",
   },
   {
     number: "03",
-    icon: TrendingUp,
-    title: "Get Your AI Visibility Score",
-    description: "Receive a detailed report with your AI Visibility Score, specific strengths to leverage, and actionable recommendations to improve your chances of being cited by LLMs.",
+    icon: Wrench,
+    title: "Fix",
+    description: "Receive ready-to-deploy fix packages: FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, robots.txt recommendations, and structured data patches — no development skills required.",
+  },
+  {
+    number: "04",
+    icon: Download,
+    title: "Export",
+    description: "One-click copy, download patches, or export in your framework's format — JSON-LD, Markdown, Next.js, or Vue. Deploy what AI needs to cite you.",
   },
 ];
 
@@ -29,14 +35,13 @@ export function HowItWorks() {
     <section className="py-24 px-6 bg-gradient-to-b from-transparent via-[#0A0F24]/50 to-transparent">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          How to Check Your AI Visibility
+          How GetCiteFlow Works
         </h2>
         <p className="text-slate-400 text-center max-w-2xl mx-auto mb-16">
-          Analyzing your website for AI search performance takes less than a minute. 
-          Get actionable insights to improve how AI systems perceive and cite your content.
+          From scan to deploy in minutes. GetCiteFlow shows you exactly what AI systems see on your site and generates the fixes you need to get cited.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}

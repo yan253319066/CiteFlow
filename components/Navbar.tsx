@@ -13,6 +13,7 @@ const guidesLinks = [
   { name: 'GEO for SaaS', href: '/geo-for-saas', description: 'Software companies' },
   { name: 'GEO for AI Tools', href: '/geo-for-ai-tools', description: 'AI product makers' },
   { name: 'GEO for Startups', href: '/geo-for-startups', description: 'Early-stage companies' },
+  { name: 'Why ChatGPT Ignores You', href: '/why-chatgpt-doesnt-mention-your-site', description: 'Common visibility pitfalls' },
 ];
 
 export function Navbar() {
@@ -83,7 +84,7 @@ export function Navbar() {
               onClick={() => setIsGuidesOpen(!isGuidesOpen)}
               className={cn(
                 "flex items-center gap-1 transition-colors hover:text-white",
-                pathname.startsWith('/geo-for') ? "text-white" : "text-slate-400"
+                (pathname.startsWith('/geo-for') || pathname.startsWith('/why-chatgpt')) ? "text-white" : "text-slate-400"
               )}
             >
               Guides

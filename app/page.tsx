@@ -7,12 +7,12 @@ import { JsonLd } from "@/components/JsonLd";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'GetCiteFlow | Get Mentioned by AI',
-  description: 'Analyze and optimize your website for ChatGPT, Gemini and AI Search.',
-  keywords: ['AI Visibility Platform', 'GEO', 'Generative Engine Optimization', 'GEO tool', 'AI visibility checker', 'ChatGPT SEO checker', 'free GEO report'],
+  title: 'GetCiteFlow | GEO Platform — Get Your Site Cited by AI',
+  description: 'Scan your website, diagnose GEO issues, and deploy fix packages to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report.',
+  keywords: ['GEO platform', 'Generative Engine Optimization', 'AI visibility checker', 'GEO tool', 'ChatGPT citations', 'get cited by AI', 'free GEO report', 'AI SEO tool'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform' },
-  openGraph: { title: 'GetCiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] }
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan. Diagnose. Fix. Export. Get your site cited by ChatGPT, Claude, and Perplexity.' },
+  openGraph: { title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — GEO Platform for AI Citations' }] }
 };
 
 const softwareSchema = {
@@ -68,6 +68,22 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes, GetCiteFlow offers a free tier that allows you to analyze your website and receive an AI Visibility Score with basic recommendations. You can get started by entering your website URL on the homepage."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What do you get in a GetCiteFlow report?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "GetCiteFlow scans your homepage and core landing pages, checking title tags, H1 structure, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt. You get a GEO score (0-100) with prioritized issues and a fix package you can deploy — including FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, and robots.txt recommendations."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What does Scan, Diagnose, Fix, Export mean?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Scan — GetCiteFlow crawls your homepage and landing pages to check GEO signals. Diagnose — It outputs a prioritized list of issues affecting your AI visibility. Fix — It generates ready-to-deploy content like FAQ Schema, meta descriptions, and llms.txt files. Export — You can copy, download patches, or export in JSON-LD, Markdown, Next.js, or Vue format."
       }
     }
   ]
