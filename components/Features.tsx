@@ -23,7 +23,7 @@ const features = [
   {
     icon: Download,
     title: "Multi-Format Export",
-    description: "Copy with one click, download patches, or export in JSON-LD, Markdown, Next.js, or Vue format. Deploy what AI systems need to cite your brand.",
+    description: "Copy with one click, download patches, or export in JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP format. Deploy what AI systems need to cite your brand.",
   },
 ];
 

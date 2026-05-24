@@ -1,215 +1,213 @@
 # GetCiteFlow
 
-**Slogan:** Get Mentioned by AI
+**Slogan:** Get Your Site Cited by AI
 
-**定位:** AI Visibility Platform
+**定位:** Generative Engine Optimization (GEO) Platform
 
-> 不是 SEO 工具。
+> 不是 SEO 工具。帮助网站被 ChatGPT / Claude / Perplexity / Gemini 引用。
 
 ---
 
-## 技术栈（最终确定）
+## 技术栈（最终）
 
 ### 前端 + 服务端
 
-**Next.js 15（App Router）**
-
-原因：SSR、SEO、GEO、Metadata、Blog、Programmatic SEO、AI SaaS 生态 — 全最强。
+**Next.js 15（App Router）** — SSR、SEO、GEO、Metadata、Blog、Programmatic SEO
 
 ### UI
 
-**TailwindCSS + shadcn/ui**
-
-原因：AI SaaS 默认组合，做高级感很快。
+**Tailwind CSS 4 + shadcn/ui (base-nova)**
 
 ### AI
 
-**OpenAI API** — 先：GPT-4o-mini
+**Google Gemini（默认）** — `@google/genai`
+备用：OpenAI、Deepseek
 
-### 数据库（第二阶段）
+通过 `AI_PROVIDER_DEFAULT` 环境变量切换。
 
-**Supabase**
+### 缓存
+
+**In-memory Map** — 1 小时 TTL，缓存抓取结果和报告
+
+### 限流
+
+**Upstash Redis** — 滑动窗口，`RATE_LIMIT_MAX`/小时，Redis 不可用时降级返回 503
 
 ### 部署
 
-**Vercel** — 第一阶段直接用。别折腾 CF。
+**Vercel** — standalone output
 
 ---
 
-## 网站风格（非常重要）
+## 网站风格
 
 **参考：** Vercel、Linear、Perplexity
 
 **风格：** 极简 AI SaaS
 
-- **背景颜色：** `#050816`（黑色）
+- **背景颜色：** `#050816`
 - **主色（蓝紫渐变）：** `#6E7BFF` → `#8B5CF6`
 
 **一定要：** 大标题、卡片、渐变、Glow、大留白
 
 ---
 
-## 整体开发阶段
+## 产品能力
 
-### 第一阶段（7天内）
+### 免费版（无需登录、无需支付）
 
-**目标：** "上线 MVP" — 不要登录、不要支付、不要数据库。
+扫描首页和核心落地页，检测以下 GEO 信号：
 
-#### 第一阶段页面
+| 检测项 | 说明 |
+|--------|------|
+| GEO 评分 | AI 可见性综合评分（0-100） |
+| FAQ 缺失 | 是否缺少 FAQ Schema |
+| llms.txt | 是否存在、内容是否完整 |
+| robots.txt | 是否允许 AI crawler 抓取 |
+| Schema | 结构化数据是否齐全 |
+| Entity clarity | 品牌/产品实体定义是否清晰 |
+| AI-readable markdown | 内容是否对 AI 爬虫友好 |
+| AI summary optimization | 页面摘要是否包含关键信号 |
 
-##### 1. 首页（最重要）
+输出：评分 + 各维度细分 + 缺失组件列表 + 改进建议
 
-**路径：** `/`
+### 付费版（$19/月）
 
-- **Hero 标题：** Get Mentioned by AI
-- **副标题：** Analyze and optimize your website for ChatGPT, Gemini and AI Search.
-- **输入框：** Enter your website URL
-- **按钮：** Analyze Site
+解锁修复包：
 
-**首页下面 — 展示：** GEO Score Card
+- **FAQ Schema** — 直接生成可复制 JSON-LD
+- **meta description** — AI 优化的描述文本
+- **llms.txt** — 生成完整文件
+- **robots.txt** — 优化 AI crawler 规则
+- **head 代码** — 注入结构化数据
 
-| 项目 | 分数 |
+**导出方式：**
+
+- 一键复制
+- 下载 patch
+- 下载 JSON-LD / Markdown / HTML Snippet / React JSX / Next.js / Vue / Nuxt.js / WordPress PHP 版本
+
+### 人工服务（一次性收费）
+
+| 服务 | 价格 |
 |------|------|
-| AI Visibility | 72 |
-| FAQ Coverage | 41 |
-| Entity Clarity | 88 |
-
-##### 2. 分析结果页
-
-**路径：** `/analyze` 或 `/report/[domain]`
-
-**页面布局：**
-- **左边：** 评分
-- **右边：** 问题列表
-
-**核心模块：**
-
-- **GEO Score** — 大圆环（AI Visibility）
-- **Missing Components** — 例如：No FAQ Schema、Weak semantic entities、No comparison content
-- **AI Suggestions** — 例如：Add FAQ section、Create comparison pages、Add llms.txt
-
-#### 第一阶段 SEO（非常重要）
-
-1. **SSR** — Next.js 默认
-2. **Metadata** — 每页：title、description、open graph、twitter card
-3. **Sitemap**
-4. **robots.txt**
-5. **schema.org** — 首页：SoftwareApplication
-
-#### 第一阶段 GEO（必须）
-
-1. **llms.txt** — 这个很关键
-2. **AI-readable HTML** — 不要全 div
-3. **清晰 heading**
-4. **FAQ schema**
+| Full GEO Optimization | $999 |
 
 ---
 
-### 第二阶段（第 2~3 周）
+## 产品定位
 
-**目标：** "开始 SEO/GEO 流量" — 这是最关键阶段。
+"帮助网站变得更容易被 ChatGPT / Claude / Perplexity 引用。"
 
-#### Blog + Programmatic SEO
+### 流程
 
-##### 3. Blog 系统
+1. **Scan** — 抓首页和核心落地页，识别标题、H1、FAQ、schema、meta、robots、llms.txt 缺失
+2. **Diagnose** — 输出 GEO 问题列表，按影响程度排序
+3. **Fix** — 生成可复制内容（FAQ Schema、meta description、llms.txt、robots.txt、head 代码）
+4. **Export** — 一键复制 / 下载 patch / JSON-LD / Markdown / HTML Snippet / React JSX / Next.js / Vue / Nuxt.js / WordPress PHP
 
-**路径：** `/blog`
+---
 
-**内容方向（非常重要）：** 你只写 AI Search/GEO
+## 页面清单
 
-**第一批文章：**
+### 首页 `/`
+
+- Hero: "Get Your Site Cited by AI" + "GEO Platform" + "Scan. Diagnose. Fix. Export."
+- 输入框：Enter website URL
+- CTA：Analyze Site
+- Features：AI Visibility Score / Missing Components Scan / Fix Package Generator / Multi-Format Export
+- HowItWorks：Scan → Diagnose → Fix → Export
+- FAQ Schema（7 Q&A）
+
+### 分析结果页 `/report/[domain]`
+
+- SSR（`maxDuration = 60`）
+- AI Visibility Score（圆环）
+- 各维度评分 + 缺失组件
+- AI 改进建议
+
+### 对比页 `/compare`
+
+- 对比任意两个域名的 GEO 评分
+
+### 对比落地页 `/compare/ahrefs-vs-getciteflow`、`/compare/profound-vs-getciteflow`
+
+- Programmatic SEO 页面
+
+### 定价页 `/pricing`
+
+- Free：$0（每小时 5 次报告）
+- Pro：$19/月（Coming Soon + Waitlist）
+- FAQ Schema（5 Q&A）
+
+### Blog `/blog`
+
+内容方向：AI Search / GEO
 
 | 文章 | 路径 |
 |------|------|
+| What Is GEO | `/blog/what-is-geo` |
 | GEO Guide | `/blog/geo-guide` |
 | ChatGPT SEO | `/blog/chatgpt-seo` |
 | AI Visibility | `/blog/ai-visibility` |
 | How to Rank in ChatGPT | `/blog/rank-in-chatgpt` |
+| AI Search vs SEO | `/blog/ai-search-vs-seo` |
 
-**技术方案：** MDX — Next.js 最适合。
+每篇包含：Metadata、FAQ Schema（部分）、对比表格、Key Takeaways、CTA 卡片
 
-**Blog 页面设计：** 参考 Vercel Blog、Linear Blog
+### 案例研究 `/case-studies`
 
-**Blog SEO（非常关键）：** 每篇：Metadata、FAQ schema、TOC、Open Graph、Internal Linking
+| 案例 | 路径 |
+|------|------|
+| Nexus Protocol | `/case-studies/nexus-protocol` |
+| Notion Strategy | `/case-studies/notion-strategy` |
 
-#### Programmatic SEO（核心增长）
+### Programmatic SEO 页面
 
-这个是你后面流量来源。你会生成大量页面，例如：
+| 页面 | 路径 |
+|------|------|
+| GEO for SaaS | `/geo-for-saas` |
+| GEO for AI Tools | `/geo-for-ai-tools` |
+| GEO for Startups | `/geo-for-startups` |
+| Why ChatGPT Ignores You | `/why-chatgpt-doesnt-mention-your-site` |
 
-- **GEO Landing Pages:** `/geo-for-saas`、`/geo-for-ai-tools`、`/geo-for-startups`
-- **Comparison Pages:** `/compare/ahrefs-vs-getciteflow`、`/compare/profound-vs-getciteflow`
-- **Problem Pages:** `/why-chatgpt-doesnt-mention-your-site`
+### 其他页面
 
-这些页面：对 SEO/GEO 非常强。
-
----
-
-### 第三阶段（第 2 个月）
-
-**目标：** "真正 SaaS 化"
-
-- **登录：** Clerk/Auth.js
-- **数据库：** Supabase
-- **功能：** 历史报告、收藏、限额
-- **支付：** Stripe
-
----
-
-### 第四阶段（后期）
-
-**目标：** GEO Copilot — AI 自动修复
-
-例如：自动生成 FAQ、Comparison page、AI snippets、GEO blocks
+| 页面 | 路径 |
+|------|------|
+| 隐私政策 | `/privacy-policy` |
+| 服务条款 | `/terms-of-service` |
 
 ---
 
-## 动态内容页（你必须做）
+## SEO / GEO（必须）
 
-这是 Next.js 最大优势。例如：
-
-- **Report 页面：** `/report/notion-so`
-- **Tool Pages：** `/tools/geo-checker`
-- **Blog Pages：** `/blog/chatgpt-seo`
-
-### SSR（必须）
-
-因为 GEO 产品自己必须 SEO/GEO 强。
-
-**为什么 SSR 很重要：** AI crawler 更喜欢首屏就有内容。Next.js App Router 非常适合。
+1. **SSR** — Next.js 默认
+2. **Metadata** — 每页：title、description、keywords、canonical、og:image、twitter card
+3. **Sitemap** — 包含所有页面
+4. **robots.txt**
+5. **schema.org** — 首页：SoftwareApplication，pricing：FAQPage
+6. **llms.txt** — 位于 `/llms.txt`
+7. **AI-readable HTML** — 清晰的 heading 结构
+8. **Internal Linking** — Blog → Product、Related posts
 
 ---
 
-## Metadata（非常关键）
+## 核心增长逻辑
 
-你未来 80% 流量来自 SEO/GEO。每页必须：
-
-- title
-- description
-- keywords
-- canonical
-- og:image
-- twitter card
-
-你后面一定要做：**动态 Metadata** — 例如：GetCiteFlow Report for Notion
-
----
-
-## 国际化（重点）
-
-- **第一阶段：** 不做。只做英文。目标用户是海外 AI SaaS，英文内容对 GEO 更重要。
-- **第二阶段：** 再做 i18n，支持 English + 中文。但 URL 必须英文（例如 `/blog/chatgpt-seo`），不要中文 URL。
-
----
-
-## 你的核心增长逻辑（非常重要）
-
-- **工具页** — 带转化
+- **工具页（/report）** — 带转化
 - **Blog** — 带 SEO
 - **Programmatic SEO** — 带规模流量
 - **分享截图** — 带传播
+- **免费报告** — 降低使用门槛
 
 ---
 
-## 最后给你一个真正重要的建议
+## 项目阶段
 
-> 你现在不要想着 "做完整 GEO 平台"。你现在真正应该做的是：**"AI 时代的 Website Grader"**。这才是最适合独立开发者冷启动的。
+| 阶段 | 状态 | 内容 |
+|------|------|------|
+| Phase 1 — MVP | ✅ 完成 | 首页 + 分析功能 + Report 页面 + Compare |
+| Phase 2 — 内容增长 | ✅ 完成 | 6 篇 Blog、2 个 Case Studies、4 个 Programmatic SEO 页、定价页 |
+| Phase 3 — 付费功能 | 🔄 计划中 | Fix Package 生成、导出功能、Login、支付（Stripe） |
+| Phase 4 — 人工服务 | 📋 计划中 | Full GEO Optimization 服务 |

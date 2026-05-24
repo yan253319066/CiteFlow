@@ -2,7 +2,7 @@
 
 ## Free
 - Price: $0/month
-- Limits: Unlimited GEO reports, 1 URL per analysis
+- Limits: 5 reports per hour per IP, 1 URL per analysis
 - Features: AI Visibility Score, breakdown analysis, missing components identification, AI suggestions, shareable report page
 
 ## Pro (Coming Soon)

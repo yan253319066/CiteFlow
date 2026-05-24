@@ -53,7 +53,7 @@ export default function ProfoundVsGetCiteFlow() {
             Profound vs <span className="gradient-text">GetCiteFlow</span>
           </h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
-            Both platforms analyze AI visibility. But GetCiteFlow gives you more for free — including side-by-side competitor comparisons and unlimited reports with no signup.
+            Both platforms analyze AI visibility. But GetCiteFlow gives you more for free — including side-by-side competitor comparisons and reports with no signup.
           </p>
         </div>
 

@@ -83,7 +83,7 @@ const faqSchema = {
       name: "What does Scan, Diagnose, Fix, Export mean?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Scan — GetCiteFlow crawls your homepage and landing pages to check GEO signals. Diagnose — It outputs a prioritized list of issues affecting your AI visibility. Fix — It generates ready-to-deploy content like FAQ Schema, meta descriptions, and llms.txt files. Export — You can copy, download patches, or export in JSON-LD, Markdown, Next.js, or Vue format."
+        text: "Scan — GetCiteFlow crawls your homepage and landing pages to check GEO signals. Diagnose — It outputs a prioritized list of issues affecting your AI visibility. Fix — It generates ready-to-deploy content like FAQ Schema, meta descriptions, and llms.txt files. Export — You can copy, download patches, or export in JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP format."
       }
     }
   ]

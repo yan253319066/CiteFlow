@@ -26,7 +26,7 @@ const steps = [
     number: "04",
     icon: Download,
     title: "Export",
-    description: "One-click copy, download patches, or export in your framework's format — JSON-LD, Markdown, Next.js, or Vue. Deploy what AI needs to cite you.",
+    description: "One-click copy, download patches, or export in your framework's format — JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP. Deploy what AI needs to cite you.",
   },
 ];
 

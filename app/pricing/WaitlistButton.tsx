@@ -9,13 +9,13 @@ export function WaitlistButton() {
 
   const features = [
     "Everything in Free",
-    "Multi-platform citation tracking",
-    "Brand mention alerts",
-    "Competitive analysis",
-    "Scheduled weekly monitoring",
-    "API access",
-    "PDF report exports",
-    "Team collaboration",
+    "Fix package generation",
+    "FAQ Schema JSON-LD generator",
+    "AI-optimized meta descriptions",
+    "llms.txt & robots.txt generator",
+    "Head code injection snippets",
+    "Export: JSON-LD / Markdown / HTML / React / Next.js / Vue / Nuxt / WordPress",
+    "One-click copy & download patch",
   ];
 
   return (
@@ -27,10 +27,10 @@ export function WaitlistButton() {
         <div className="mb-6">
           <h2 className="text-2xl font-bold mb-1">Pro</h2>
           <div className="flex items-baseline gap-1 mb-2">
-            <span className="text-4xl font-black">TBD</span>
-            <span className="text-sm text-muted-foreground">/coming soon</span>
+            <span className="text-4xl font-black">$19</span>
+            <span className="text-sm text-muted-foreground">/month</span>
           </div>
-          <p className="text-sm text-muted-foreground">Full AI citation monitoring and competitive intelligence dashboard.</p>
+          <p className="text-sm text-muted-foreground">Generate deployable GEO fix packages and export in your framework format.</p>
         </div>
         <ul className="space-y-3 mb-8">
           {features.map((f) => (

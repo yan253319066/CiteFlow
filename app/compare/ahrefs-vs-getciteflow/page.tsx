@@ -127,7 +127,7 @@ export default function AhrefsVsGetCiteFlow() {
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
-                Free unlimited reports — no credit card
+                Free reports — no credit card
               </li>
               <li className="flex items-start gap-2">
                 <X className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
