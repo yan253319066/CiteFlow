@@ -57,6 +57,9 @@ export function Footer() {
               <Link href="https://github.com/yan253319066" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
                 <Github className="w-5 h-5" />
               </Link>
+              <Link href="https://t.me/OS_Blockchain" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 4L4 10l7 4 3 6 7-16z"/><path d="M11 14l7-8"/></svg>
+              </Link>
               <Link href="mailto:support@getciteflow.ai" className="text-slate-400 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
               </Link>

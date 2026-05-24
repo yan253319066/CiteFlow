@@ -76,8 +76,8 @@ export default function PricingPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div className="p-8 border border-white/10 bg-card rounded-2xl">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="p-8 border border-white/10 bg-card rounded-2xl flex flex-col">
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-1">Free</h2>
               <div className="flex items-baseline gap-1 mb-2">
@@ -86,7 +86,7 @@ export default function PricingPage() {
               </div>
               <p className="text-sm text-muted-foreground">Scan your site across 8 GEO dimensions and see exactly what AI systems find — and what they miss.</p>
             </div>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-1">
               {["5 reports per hour", "AI Visibility Score (0-100)", "8-dimension breakdown (FAQ, llms.txt, schema, entity clarity, etc.)", "Missing components ranked by impact", "Shareable report page"].map((f) => (
                 <li key={f} className="flex items-start gap-3 text-sm">
                   <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -94,46 +94,35 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-            <Link href="/" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-white/10 text-white hover:bg-white/20 transition-all">
+            <Link href="/" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
               Analyze Your Site <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
 
           <WaitlistButton />
-        </div>
 
-        <section className="mt-20">
-          <div className="text-center mb-10">
-            <Badge className="mb-3 bg-primary/10 text-primary border-none">Done-For-You</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Human Services</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Let the GetCiteFlow team optimize your site for AI citations. We handle the full GEO audit, fix generation, and deployment guidance.
-            </p>
-          </div>
-          <div className="max-w-sm mx-auto">
-            <div className="p-8 border border-white/10 bg-card rounded-2xl">
-              <div className="mb-6">
-                <h3 className="text-lg font-bold mb-1">Full GEO Optimization</h3>
-                <div className="flex items-baseline gap-1 mb-3">
-                  <span className="text-3xl font-black">$999</span>
-                  <span className="text-sm text-muted-foreground">/one-time</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Complete site-wide GEO audit, fix package generation, and deployment guidance — done by the GetCiteFlow team.</p>
+          <div className="p-8 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold mb-1">Enterprise</h2>
+              <div className="flex items-baseline gap-1 mb-2">
+                <span className="text-4xl font-black">$999</span>
+                <span className="text-sm text-muted-foreground">/one-time</span>
               </div>
-              <ul className="space-y-3 mb-8">
-                {["Full site GEO scan & report", "FAQ Schema + llms.txt generation", "Meta & entity optimization", "Competitor citation analysis", "Deployment support"].map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm">
-                    <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="mailto:support@getciteflow.ai" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-white/10 text-white hover:bg-white/20 transition-all">
-                Contact Us <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </a>
+              <p className="text-sm text-muted-foreground">Full-site GEO optimization done by the GetCiteFlow team. Audit, fix packages, and deployment guidance included.</p>
             </div>
+            <ul className="space-y-3 mb-8 flex-1">
+              {["Full site GEO scan & report", "FAQ Schema + llms.txt generation", "Meta & entity optimization", "Competitor citation analysis", "Deployment support"].map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm">
+                  <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="https://t.me/OS_Blockchain" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
+              Contact via Telegram <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </a>
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

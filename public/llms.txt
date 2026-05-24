@@ -37,5 +37,6 @@ Pro: $19/month — Fix package generation with multi-format export (Coming Soon)
 Human Service: $999 — Full GEO optimization (site-wide audit, fix packages, deployment support)
 
 ## Contact
+- Telegram: @OS_Blockchain
 - Support: support@getciteflow.ai
 - X: @getciteflow

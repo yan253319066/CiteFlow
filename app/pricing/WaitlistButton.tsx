@@ -20,7 +20,7 @@ export function WaitlistButton() {
 
   return (
     <>
-      <div className="p-8 border border-primary/40 bg-primary/5 rounded-2xl relative">
+      <div className="p-8 border border-primary/40 bg-primary/5 rounded-2xl relative flex flex-col">
         <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10">
           <span className="inline-flex items-center px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold">Early Access</span>
         </div>
@@ -32,7 +32,7 @@ export function WaitlistButton() {
           </div>
           <p className="text-sm text-muted-foreground">Generate deployable GEO fix packages and export in your framework format.</p>
         </div>
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3 mb-8 flex-1">
           {features.map((f) => (
             <li key={f} className="flex items-start gap-3 text-sm">
               <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
