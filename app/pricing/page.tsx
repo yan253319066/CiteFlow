@@ -75,36 +75,36 @@ export default function PricingPage() {
     <main className="min-h-screen">
       <JsonLd data={faqSchema} />
       <Navbar />
-      <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-none">Simple Pricing</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+      <div className="pt-32 pb-16 px-6 max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <Badge className="mb-3 bg-primary/10 text-primary border-none">Simple Pricing</Badge>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             Start with a <span className="gradient-text">Free Report</span>
           </h1>
-          <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             No credit card required. Get your AI Visibility Score in seconds.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="p-8 border border-white/10 bg-card rounded-2xl flex flex-col">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-1">Free</h2>
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="p-6 border border-white/10 bg-card rounded-2xl flex flex-col">
+            <div className="mb-4">
+              <h2 className="text-xl font-bold mb-1">Free</h2>
               <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-4xl font-black">$0</span>
+                <span className="text-3xl font-black">$0</span>
                 <span className="text-sm text-muted-foreground">/forever</span>
               </div>
               <p className="text-sm text-muted-foreground">Scan your site across 8 GEO dimensions and see exactly what AI systems find — and what they miss.</p>
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="space-y-2 mb-6 flex-1 text-sm">
               {["5 reports per hour", "AI Visibility Score (0-100)", "8-dimension breakdown (FAQ, llms.txt, schema, entity clarity, etc.)", "Missing components ranked by impact", "Shareable report page"].map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
+                <li key={f} className="flex items-start gap-3">
                   <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   <span>{f}</span>
                 </li>
               ))}
             </ul>
-            <Link href="/" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
+            <Link href="/" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
               Analyze Your Site <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
