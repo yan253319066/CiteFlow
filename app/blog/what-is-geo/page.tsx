@@ -13,8 +13,10 @@ const articleSchema = {
   headline: "What Is GEO? A Complete Guide to Generative Engine Optimization",
   description: "GEO is the practice of optimizing content so AI search engines cite your brand. A definitive guide to how it works, how it differs from SEO, and how to implement it.",
   datePublished: "2025-10-08",
+  dateModified: "2025-10-08",
   author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/what-is-geo&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/what-is-geo" },
 };
 
@@ -24,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
     { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
-    { "@type": "ListItem", position: 3, name: "What Is GEO" },
+    { "@type": "ListItem", position: 3, name: "What Is GEO", item: "https://www.getciteflow.ai/blog/what-is-geo" },
   ],
 };
 

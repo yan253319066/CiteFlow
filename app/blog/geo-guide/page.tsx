@@ -13,8 +13,10 @@ const articleSchema = {
   headline: "How Generative Engines Choose What to Cite",
   description: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy.",
   datePublished: "2026-05-15",
+  dateModified: "2026-05-15",
   author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/geo-guide" },
 };
 
@@ -24,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
     { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
-    { "@type": "ListItem", position: 3, name: "GEO Guide" },
+    { "@type": "ListItem", position: 3, name: "GEO Guide", item: "https://www.getciteflow.ai/blog/geo-guide" },
   ],
 };
 

@@ -10,12 +10,14 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Profound vs GetCiteFlow | GetCiteFlow',
   description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which platform gives you better insights for free.',
+  keywords: ['GetCiteFlow vs Profound', 'GEO tool comparison', 'AI visibility checker'],
   alternates: { canonical: 'https://www.getciteflow.ai/compare/profound-vs-getciteflow' },
   openGraph: {
     title: 'Profound vs GetCiteFlow — GEO Platform Comparison',
     description: 'Two GEO platforms, one clear winner for free AI visibility analysis. Compare features side-by-side.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75', width: 1200, height: 630, alt: 'Profound vs GetCiteFlow' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Profound vs GetCiteFlow | GetCiteFlow', description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which platform gives you better insights for free.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75'] },
 };
 
 const comparisonRows = [

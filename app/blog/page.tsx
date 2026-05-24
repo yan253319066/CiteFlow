@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { JsonLd } from "@/components/JsonLd";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -32,9 +33,18 @@ const posts = [
   { title: "AI Search vs. SEO: Why Traditional Rankings No Longer Drive Traffic", slug: "ai-search-vs-seo", date: "Oct 22, 2025", category: "Analysis", excerpt: "The signals Google uses and the signals LLMs use are fundamentally different. Here is what the divergence means for content strategy." },
 ];
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "GetCiteFlow Blog — AI Search & GEO Insights",
+  description: "Guides about Generative Engine Optimization, AI Search, ChatGPT citations, and AI visibility growth strategies.",
+  url: "https://www.getciteflow.ai/blog",
+};
+
 export default function BlogPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={blogSchema} />
       <Navbar />
       <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
         <div className="mb-16">

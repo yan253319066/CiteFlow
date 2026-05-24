@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Navbar } from "@/components/Navbar";
+import { JsonLd } from "@/components/JsonLd";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, ExternalLink } from "lucide-react";
@@ -28,8 +29,18 @@ const cases = [
 export default function CaseStudiesPage() {
   const [isOpen, setIsOpen] = useState(false);
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
+    { "@type": "ListItem", position: 2, name: "Case Studies" },
+  ],
+};
+
   return (
     <main className="min-h-screen">
+      <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
         <div className="mb-16">

@@ -13,8 +13,10 @@ const articleSchema = {
   headline: "AI Visibility Is a Better Metric Than CTR",
   description: "CTR is fading as the primary metric. AI visibility — how often your brand is cited in LLM outputs — is the replacement.",
   datePublished: "2026-05-05",
+  dateModified: "2026-05-05",
   author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/ai-visibility&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/ai-visibility" },
 };
 
@@ -24,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
     { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
-    { "@type": "ListItem", position: 3, name: "AI Visibility Metric" },
+    { "@type": "ListItem", position: 3, name: "AI Visibility Metric", item: "https://www.getciteflow.ai/blog/ai-visibility" },
   ],
 };
 

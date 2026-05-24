@@ -26,9 +26,12 @@ const organizationSchema = {
   name: 'GetCiteFlow',
   url: 'https://www.getciteflow.ai',
   logo: 'https://www.getciteflow.ai/logo.png',
-  description: 'AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.',
+  description: 'GEO Platform that helps websites get cited by AI search engines including ChatGPT, Claude, Perplexity, and Gemini.',
+  email: 'support@getciteflow.ai',
   sameAs: [
     'https://x.com/getciteflow',
+    'https://github.com/yan253319066',
+    'https://t.me/OS_Blockchain',
   ],
 };
 

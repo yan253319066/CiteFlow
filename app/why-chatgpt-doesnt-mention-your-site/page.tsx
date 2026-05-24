@@ -13,8 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Why ChatGPT Doesn\'t Mention Your Site',
     description: '5 reasons AI systems skip your content — and how to fix each one.',
-    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/why-chatgpt-doesnt-mention-your-site&score=75' }],
+    images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/why-chatgpt-doesnt-mention-your-site&score=75', width: 1200, height: 630, alt: 'Why ChatGPT Doesn\'t Mention Your Site - GetCiteFlow' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Why ChatGPT Doesn\'t Mention Your Site (And How to Fix It) | GetCiteFlow', description: 'Your site ranks on Google but ChatGPT ignores it. Here are the 5 reasons AI systems skip your content — and exactly what to do about each one.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/why-chatgpt-doesnt-mention-your-site&score=75'] },
 };
 
 const articleSchema = {
@@ -23,7 +24,11 @@ const articleSchema = {
   headline: 'Why ChatGPT Doesn\'t Mention Your Site (And How to Fix It)',
   description: 'Five reasons AI systems ignore your content even if you rank well on Google, with actionable fixes for each.',
   datePublished: '2026-05-24',
+  dateModified: '2026-05-24',
   author: { '@type': 'Organization', name: 'GetCiteFlow Editorial' },
+  publisher: { '@type': 'Organization', name: 'GetCiteFlow', url: 'https://www.getciteflow.ai' },
+  image: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/why-chatgpt-doesnt-mention-your-site&score=75',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/why-chatgpt-doesnt-mention-your-site' },
 };
 
 const faqSchema = {

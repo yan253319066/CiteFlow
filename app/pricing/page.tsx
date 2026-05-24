@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free'],
   alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
   openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro at $19/mo with fix package generation and export.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
+  twitter: { card: 'summary_large_image', title: 'Pricing | GetCiteFlow — Free GEO Reports', description: 'Start with free AI Visibility reports. No credit card required. Pro plan at $19/month unlocks fix package generation and multi-format export.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75'] },
 };
 
 const faqSchema = {

@@ -19,7 +19,7 @@ const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "GetCiteFlow",
-  applicationCategory: "AI SEO Platform",
+  applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description: "AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.",
   url: "https://www.getciteflow.ai",

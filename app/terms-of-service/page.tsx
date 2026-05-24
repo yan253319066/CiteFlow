@@ -1,21 +1,33 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
+import { JsonLd } from "@/components/JsonLd";
 import { Scale } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | GetCiteFlow",
   description: "Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform. Understand your rights and obligations.",
+  keywords: ['terms of service', 'GetCiteFlow legal', 'GEO platform terms'],
   alternates: { canonical: "https://www.getciteflow.ai/terms-of-service" },
   openGraph: {
     title: "Terms of Service | GetCiteFlow",
     description: "Review the terms and conditions governing your use of the GetCiteFlow platform.",
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Terms of Service OG Image' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Terms of Service | GetCiteFlow', description: 'Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform. Understand your rights and obligations.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75'] },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Terms of Service | GetCiteFlow",
+  description: "Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform.",
+  url: "https://www.getciteflow.ai/terms-of-service",
 };
 
 export default function TermsOfService() {
   return (
     <main className="min-h-screen pb-20">
+      <JsonLd data={webPageSchema} />
       <Navbar />
 
       <section className="pt-32 px-6 max-w-3xl mx-auto">

@@ -41,7 +41,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.getciteflow.ai' },
-    { '@type': 'ListItem', position: 2, name: 'GEO Comparison Tool' },
+    { '@type': 'ListItem', position: 2, name: 'GEO Comparison Tool', item: 'https://www.getciteflow.ai/compare' },
   ],
 };
 

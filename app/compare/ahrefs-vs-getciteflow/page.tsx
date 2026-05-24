@@ -10,12 +10,14 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ahrefs vs GetCiteFlow | GetCiteFlow',
   description: 'Ahrefs is for Google SEO. GetCiteFlow is for AI visibility. Compare the two and see why you need both for a complete search strategy.',
+  keywords: ['GetCiteFlow vs Ahrefs', 'GEO vs SEO', 'AI visibility comparison'],
   alternates: { canonical: 'https://www.getciteflow.ai/compare/ahrefs-vs-getciteflow' },
   openGraph: {
     title: 'Ahrefs vs GetCiteFlow — Traditional SEO vs GEO',
     description: 'See how Ahrefs and GetCiteFlow compare for search visibility. Hint: you need both.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/ahrefs-vs-getciteflow&score=75', width: 1200, height: 630, alt: 'Ahrefs vs GetCiteFlow' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Ahrefs vs GetCiteFlow | GetCiteFlow', description: 'Ahrefs is for Google SEO. GetCiteFlow is for AI visibility. Compare the two and see why you need both for a complete search strategy.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/ahrefs-vs-getciteflow&score=75'] },
 };
 
 const comparisonRows = [

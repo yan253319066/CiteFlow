@@ -1,21 +1,33 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
+import { JsonLd } from "@/components/JsonLd";
 import { Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | GetCiteFlow",
   description: "Learn how GetCiteFlow collects, uses, and protects your personal data. Our commitment to your privacy and data security.",
+  keywords: ['privacy policy', 'GetCiteFlow privacy', 'data protection'],
   alternates: { canonical: "https://www.getciteflow.ai/privacy-policy" },
   openGraph: {
     title: "Privacy Policy | GetCiteFlow",
     description: "Learn how GetCiteFlow collects, uses, and protects your personal data.",
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/privacy-policy&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Privacy Policy OG Image' }],
   },
+  twitter: { card: 'summary_large_image', title: 'Privacy Policy | GetCiteFlow', description: 'Learn how GetCiteFlow collects, uses, and protects your personal data. Our commitment to your privacy and data security.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/privacy-policy&score=75'] },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Privacy Policy | GetCiteFlow",
+  description: "Learn how GetCiteFlow collects, uses, and protects your personal data.",
+  url: "https://www.getciteflow.ai/privacy-policy",
 };
 
 export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen pb-20">
+      <JsonLd data={webPageSchema} />
       <Navbar />
 
       <section className="pt-32 px-6 max-w-3xl mx-auto">

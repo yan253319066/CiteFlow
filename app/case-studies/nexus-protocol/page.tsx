@@ -13,8 +13,10 @@ const articleSchema = {
   headline: "How Nexus Protocol Increased AI Citations by 140%",
   description: "A DeFi protocol that was invisible in ChatGPT despite strong SEO. How GEO fixed it in 3 weeks.",
   datePublished: "2026-05-20",
+  dateModified: "2026-05-20",
   author: { "@type": "Organization", name: "GetCiteFlow" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/nexus-protocol&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/nexus-protocol" },
 };
 
@@ -24,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
     { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://www.getciteflow.ai/case-studies" },
-    { "@type": "ListItem", position: 3, name: "Nexus Protocol" },
+    { "@type": "ListItem", position: 3, name: "Nexus Protocol", item: "https://www.getciteflow.ai/case-studies/nexus-protocol" },
   ],
 };
 

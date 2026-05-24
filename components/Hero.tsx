@@ -29,7 +29,7 @@ export function Hero() {
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="hero-title mb-6">
-          Get Your Site <span className="gradient-text">Cited by AI</span>
+          GetCiteFlow: Get Your Site <span className="gradient-text">Cited by AI</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-8">

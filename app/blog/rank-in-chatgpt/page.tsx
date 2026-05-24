@@ -30,8 +30,10 @@ const articleSchema = {
   headline: 'How to Get Cited by ChatGPT',
   description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
   datePublished: '2026-05-18',
+  dateModified: '2026-05-18',
   author: { '@type': 'Organization', name: 'GetCiteFlow Intelligence' },
   publisher: { '@type': 'Organization', name: 'GetCiteFlow', url: 'https://www.getciteflow.ai' },
+  image: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75',
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
 };
 
@@ -41,7 +43,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.getciteflow.ai' },
     { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.getciteflow.ai/blog' },
-    { '@type': 'ListItem', position: 3, name: 'How to Get Cited by ChatGPT' },
+    { '@type': 'ListItem', position: 3, name: 'How to Get Cited by ChatGPT', item: 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
   ],
 };
 

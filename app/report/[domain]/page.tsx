@@ -85,7 +85,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     keywords,
     alternates: { canonical: canonicalUrl },
     twitter: { card: 'summary_large_image', title: fullTitle, description: ogDesc, images: [ogImage] },
-    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, siteName: 'GetCiteFlow', images: [{ url: ogImage, width: 1200, height: 630 }] },
+    openGraph: { title: fullTitle, description: ogDesc, url: canonicalUrl, siteName: 'GetCiteFlow', images: [{ url: ogImage, width: 1200, height: 630, alt: `${fullTitle}` }] },
   };
 }
 
@@ -202,8 +202,8 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
       description: 'Generative Engine Optimization score measuring how well a website performs in AI-powered search engines.',
     },
     mainEntity: {
-      '@type': 'StatisticalScore',
-      name: 'GEO Score',
+      '@type': 'PropertyValue',
+      name: 'AI Visibility Score',
       value: report.score,
       minValue: 0,
       maxValue: 100,
@@ -226,6 +226,7 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#8B5CF6] opacity-[0.05] blur-[100px] rounded-full -z-10" />
         <div className="pt-28 px-6 md:px-12 max-w-7xl mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors mb-12"><ArrowLeft className="w-4 h-4" />Back to Dashboard</Link>
+          <h1 className="text-2xl font-bold text-white mb-8">{domain} — AI Visibility Score</h1>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <Card className="md:col-span-4 bg-[#0A0F24]/60 border-white/10 rounded-3xl p-8 flex flex-col items-center justify-between min-h-[360px]">
               <div className="relative w-52 h-52 rounded-full border-8 border-white/10 flex items-center justify-center mt-4">

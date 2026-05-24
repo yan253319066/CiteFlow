@@ -13,8 +13,10 @@ const articleSchema = {
   headline: "AI Search vs. SEO: Why Traditional Rankings No Longer Drive Traffic",
   description: "The signals Google uses to rank pages and the signals LLMs use to cite sources are fundamentally different. Here is what the divergence means for content strategy.",
   datePublished: "2025-10-22",
+  dateModified: "2025-10-22",
   author: { "@type": "Organization", name: "GetCiteFlow Intelligence" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/ai-search-vs-seo&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/ai-search-vs-seo" },
 };
 
@@ -24,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.getciteflow.ai" },
     { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.getciteflow.ai/blog" },
-    { "@type": "ListItem", position: 3, name: "AI Search vs SEO" },
+    { "@type": "ListItem", position: 3, name: "AI Search vs SEO", item: "https://www.getciteflow.ai/blog/ai-search-vs-seo" },
   ],
 };
 
