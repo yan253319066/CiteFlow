@@ -13,7 +13,7 @@ Next.js 15 (App Router) / React 19 / Tailwind CSS 4 / shadcn/ui. AI Visibility (
 
 ## Architecture
 
-- **Entrypoints**: `app/page.tsx` (home), `app/report/[domain]/page.tsx` (SSR report with `maxDuration = 60`)
+- **Entrypoints**: `app/page.tsx` (home), `app/report/[domain]/page.tsx` (SSR report with `maxDuration = 60`), `app/services/ai-visibility-growth/page.tsx` (service page)
 - **API**: `POST /api/compare` — analyzes a URL and returns GEO score (rate-limited via Upstash)
 - **OG images**: `app/api/og/route.tsx` (Edge runtime, `force-dynamic`)
 - **AI providers**: Gemini (default via `@google/genai`), OpenAI, Deepseek — switch via `AI_PROVIDER_DEFAULT` env var
@@ -26,7 +26,7 @@ Next.js 15 (App Router) / React 19 / Tailwind CSS 4 / shadcn/ui. AI Visibility (
 ## Structure
 
 ```
-app/           — App Router (home, report/[domain], blog, compare/*, pricing, case-studies, etc.)
+app/           — App Router (home, report/[domain], blog, compare/*, pricing, case-studies, services/, etc.)
 components/    — React components (Hero, ComparePanel, etc.) + ui/ (shadcn)
 lib/           — analyze.ts, scrape.ts, ai-provider.ts, ratelimit.ts, cache.ts, gemini.ts, utils.ts (cn)
 public/        — Static assets + llms.txt (critical for GEO)

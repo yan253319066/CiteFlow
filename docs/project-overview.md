@@ -48,7 +48,8 @@
 |------|------|------|
 | Free | $0 | 每小时 5 次报告、GEO 评分、分析、建议、可分享报告页面 |
 | Pro | $19/月 | 修复包生成 + 导出（Coming Soon + Waitlist） |
-| Full GEO Optimization | $999 | 人工服务 — 一次性 |
+| Enterprise — Technical GEO | $999 | 人工全站 GEO 优化 — 一次性 |
+| Enterprise — AI Visibility Growth | $1,999/月 | 品牌 AI 可见性托管服务（Reddit、X、GitHub 等） |
 
 ---
 
@@ -109,8 +110,9 @@
 - **副标题:** No credit card required. Get your AI Visibility Score in seconds.
 - **Free:** $0/forever — 每小时 5 次报告
 - **Pro:** $19/月（Coming Soon，Waitlist）— 修复包 + 8 格式导出
-- **Enterprise:** $999/次 — 人工全站 GEO 优化
-- **FAQ Schema:** 5 个 Q&A
+- **Enterprise — Technical GEO:** $999/次 — 人工全站 GEO 优化
+- **Enterprise — AI Visibility Growth:** $1,999/月 — 品牌 AI 可见性托管服务
+- **FAQ Schema:** 6 个 Q&A（含 AI Visibility Growth 说明）
 
 ### 对比页面
 
@@ -162,6 +164,7 @@
 | `/compare/*` | Static | 2 个对比落地页 |
 | `/geo-for-*` | Static | 3 个垂直页面 |
 | `/why-chatgpt-doesnt-mention-your-site` | Static | 问题页面 |
+| `/services/ai-visibility-growth` | Static | AI Visibility Growth 服务页 |
 | `/pricing` | Static | 定价页 |
 | `/privacy-policy` | Static | 隐私政策 |
 | `/terms-of-service` | Static | 服务条款 |
@@ -175,7 +178,7 @@
 | Phase 1 — MVP | ✅ 完成 | 首页 + 分析功能 + Report 页面 + Compare |
 | Phase 2 — 内容增长 | ✅ 完成 | 6 篇 Blog、2 个 Case Studies、Programmatic SEO 页、定价页 |
 | Phase 3 — 付费功能 | 🔄 计划中 | Fix Package 生成、导出、Login、Stripe |
-| Phase 4 — 人工服务 | 📋 计划中 | Full GEO Optimization |
+| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（$999）+ AI Visibility Growth（$1,999/月） |
 
 ---
 

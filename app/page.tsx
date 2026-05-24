@@ -8,11 +8,11 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'GetCiteFlow | GEO Platform — Get Your Site Cited by AI',
-  description: 'Scan your website, diagnose GEO issues, and deploy fix packages to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report.',
-  keywords: ['GEO platform', 'Generative Engine Optimization', 'AI visibility checker', 'GEO tool', 'ChatGPT citations', 'get cited by AI', 'free GEO report', 'AI SEO tool'],
+  description: 'Scan your website, diagnose GEO issues, and deploy fix packages to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report. Enterprise AI Visibility Growth service available.',
+  keywords: ['GEO platform', 'Generative Engine Optimization', 'AI visibility checker', 'GEO tool', 'ChatGPT citations', 'get cited by AI', 'free GEO report', 'AI SEO tool', 'AI visibility service', 'AI citation service'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan. Diagnose. Fix. Export. Get your site cited by ChatGPT, Claude, and Perplexity.' },
-  openGraph: { title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — GEO Platform for AI Citations' }] }
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan. Diagnose. Fix. Export. Get your site cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.' },
+  openGraph: { title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — GEO Platform for AI Citations' }] }
 };
 
 const softwareSchema = {
@@ -24,6 +24,18 @@ const softwareSchema = {
   description: "AI Visibility Platform for GEO. Analyze and optimize your website for ChatGPT, Gemini, and AI search.",
   url: "https://www.getciteflow.ai",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "AI Visibility Growth",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. Includes Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy.",
+  provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  areaServed: "Worldwide",
+  audience: { "@type": "Audience", audienceType: "Business" },
+  offers: { "@type": "Offer", price: "1999", priceCurrency: "USD", priceType: "https://schema.org/MonthlyRate" },
+  url: "https://www.getciteflow.ai/services/ai-visibility-growth",
 };
 
 const faqSchema = {
@@ -93,6 +105,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={softwareSchema} />
+      <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <Navbar />
       <Hero />

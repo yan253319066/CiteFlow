@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/geo-for-ai-tools`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/geo-for-saas`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/geo-for-startups`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/services/ai-visibility-growth`, lastModified: new Date('2026-05-25'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/nexus-protocol`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/case-studies/notion-strategy`, lastModified: new Date('2026-05-20'), changeFrequency: 'monthly', priority: 0.7 },

@@ -87,11 +87,12 @@
 - 下载 patch
 - 下载 JSON-LD / Markdown / HTML Snippet / React JSX / Next.js / Vue / Nuxt.js / WordPress PHP 版本
 
-### 人工服务（一次性收费）
+### 人工服务
 
-| 服务 | 价格 |
-|------|------|
-| Full GEO Optimization | $999 |
+| 服务 | 价格 | 模式 |
+|------|------|------|
+| Full GEO Optimization | $999 | 一次性 |
+| AI Visibility Growth | $1,999/月 | 持续订阅 |
 
 ---
 
@@ -138,8 +139,9 @@
 
 - Free：$0（每小时 5 次报告）
 - Pro：$19/月（Fix Package + 8 格式导出，Coming Soon + Waitlist）
-- Enterprise：$999/次（人工全站优化）
-- FAQ Schema（5 Q&A）
+- Enterprise Technical GEO：$999/次（人工全站优化）
+- Enterprise AI Visibility Growth：$1,999/月（品牌 AI 可见性托管服务）
+- FAQ Schema（6 Q&A）
 
 ### Blog `/blog`
 
@@ -172,6 +174,12 @@
 | GEO for Startups | `/geo-for-startups` |
 | Why ChatGPT Ignores You | `/why-chatgpt-doesnt-mention-your-site` |
 
+### 服务页面
+
+| 页面 | 路径 |
+|------|------|
+| AI Visibility Growth | `/services/ai-visibility-growth` |
+
 ### 其他页面
 
 | 页面 | 路径 |
@@ -187,7 +195,7 @@
 2. **Metadata** — 每页：title、description、keywords、canonical、og:image、twitter card
 3. **Sitemap** — 包含所有页面
 4. **robots.txt**
-5. **schema.org** — 首页：SoftwareApplication，pricing：FAQPage
+5. **schema.org** — 首页：SoftwareApplication + Service，pricing：FAQPage，services：FAQPage
 6. **llms.txt** — 位于 `/llms.txt`
 7. **AI-readable HTML** — 清晰的 heading 结构
 8. **Internal Linking** — Blog → Product、Related posts
@@ -211,4 +219,4 @@
 | Phase 1 — MVP | ✅ 完成 | 首页 + 分析功能 + Report 页面 + Compare |
 | Phase 2 — 内容增长 | ✅ 完成 | 6 篇 Blog、2 个 Case Studies、4 个 Programmatic SEO 页、定价页 |
 | Phase 3 — 付费功能 | 🔄 计划中 | Fix Package 生成、导出功能、Login、支付（Stripe） |
-| Phase 4 — 人工服务 | 📋 计划中 | Full GEO Optimization 服务 |
+| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（$999）+ AI Visibility Growth（$1,999/月） |

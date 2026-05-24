@@ -2,13 +2,14 @@ import { Navbar } from "@/components/Navbar";
 import { JsonLd } from "@/components/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import { WaitlistButton } from "./WaitlistButton";
+import { EnterpriseCard } from "./EnterpriseCard";
 import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing | GetCiteFlow — Free GEO Reports',
-  description: 'Start with free AI Visibility reports. No credit card required. Pro plan at $19/month unlocks fix package generation and multi-format export.',
-  keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free'],
+  title: 'Pricing | GetCiteFlow — Free GEO Reports & Enterprise Services',
+  description: 'Start with free AI Visibility reports. Pro plan at $19/month. Enterprise Technical GEO ($999) and AI Visibility Growth service ($1,999/month) for comprehensive brand presence.',
+  keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free', 'AI visibility service pricing', 'enterprise GEO'],
   alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
   openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro at $19/mo with fix package generation and export.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
   twitter: { card: 'summary_large_image', title: 'Pricing | GetCiteFlow — Free GEO Reports', description: 'Start with free AI Visibility reports. No credit card required. Pro plan at $19/month unlocks fix package generation and multi-format export.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75'] },
@@ -48,6 +49,14 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "GetCiteFlow is for marketing teams, SEO professionals, content strategists, and founders who want their websites to be cited by AI search engines like ChatGPT, Claude, Perplexity, and Gemini."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "What is the AI Visibility Growth service?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI Visibility Growth is a managed Enterprise service ($1,999/month) that builds your brand's presence across AI systems through Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy."
       }
     },
     {
@@ -102,27 +111,7 @@ export default function PricingPage() {
 
           <WaitlistButton />
 
-          <div className="p-8 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-1">Enterprise</h2>
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-4xl font-black">$999</span>
-                <span className="text-sm text-muted-foreground">/one-time</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Full-site GEO optimization done by the GetCiteFlow team. Audit, fix packages, and deployment guidance included.</p>
-            </div>
-            <ul className="space-y-3 mb-8 flex-1">
-              {["Full site GEO scan & report", "FAQ Schema + llms.txt generation", "Meta & entity optimization", "Competitor citation analysis", "Deployment support"].map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
-                  <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a href="https://t.me/OS_Blockchain" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
-              Contact via Telegram <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </a>
-          </div>
+          <EnterpriseCard />
         </div>
       </div>
     </main>

@@ -26,6 +26,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/" className="hover:text-primary transition-colors">AI Analyzer</Link></li>
               <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">GEO Score</Link></li>
+              <li><Link href="/services/ai-visibility-growth" className="hover:text-primary transition-colors">AI Visibility Growth</Link></li>
               <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
               <li><Link href="/compare/ahrefs-vs-getciteflow" className="hover:text-primary transition-colors">Ahrefs vs GetCiteFlow</Link></li>
               <li><Link href="/compare/profound-vs-getciteflow" className="hover:text-primary transition-colors">Profound vs GetCiteFlow</Link></li>
