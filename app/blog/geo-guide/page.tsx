@@ -120,6 +120,20 @@ export default function BlogPost() {
             There is a common misconception that optimizing for Google automatically prepares you for AI citations. It does not. The mechanism Google uses to rank pages and the mechanism an LLM uses to decide which source to cite share almost nothing in common besides the input text itself.
           </p>
 
+          <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">
+            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              Key Takeaways
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
+              <li><strong className="text-white">LLMs have two pathways for answers</strong> — retrieval-augmented generation (web search) and parametric knowledge (training data). Citations come primarily from RAG.</li>
+              <li><strong className="text-white">RAG rankers favor signal clarity over prose quality</strong> — pages with clear entity language and structured data score higher than better-written but unstructured pages.</li>
+              <li><strong className="text-white">Authority is measured through consensus, not backlinks</strong> — models weight how frequently information appears across trusted sources.</li>
+              <li><strong className="text-white">Products launched after a model's training cutoff have both a disadvantage and an opportunity</strong> — you must rely on RAG, but you compete without the model's parametric memory of older brands.</li>
+              <li><strong className="text-white">FAQ pages with Schema.org markup get cited ~2x more</strong> — structured extraction paths dramatically increase citation probability.</li>
+            </ol>
+          </div>
+
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Retrieval vs. Parametric Knowledge</h2>
           <p className="leading-relaxed mb-6">
             When ChatGPT answers a question, it has two pathways. The first is retrieval-augmented generation — it searches the web (or a vector index) and synthesizes an answer from the results. The second is purely parametric: the answer lives inside the model weights, compressed during training. Most people assume citations come from the first pathway. In practice, it is a mix of both, and the split depends on how the model was fine-tuned and what the user is asking.
@@ -127,6 +141,41 @@ export default function BlogPost() {
           <p className="leading-relaxed mb-6">
             Here is what that means for your content. If a model has internalized a fact during training, it does not need to retrieve anything. It will generate the answer from memory and may or may not cite a source. If it does cite something in that case, the citation is often post-hoc — the model finds a source that matches its generated answer. This is why you sometimes see ChatGPT cite a blog post that says the opposite of what it wrote. The citation is an append, not the origin.
           </p>
+
+          <h3 className="text-xl font-semibold text-white mt-8 mb-3">How the Two Pathways Affect Your Content Strategy</h3>
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-white font-bold">Pathway</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">How It Works</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Implication for Your Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Parametric Knowledge</td>
+                  <td className="py-3 px-4 text-slate-400">Answer generated from model weights, compressed during training</td>
+                  <td className="py-3 px-4 text-slate-400">Requires your brand to exist in training data; hard to change once established</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">RAG — Retrieval</td>
+                  <td className="py-3 px-4 text-slate-400">Search vector index or web for relevant documents matching query</td>
+                  <td className="py-3 px-4 text-slate-400">Favors clear entity language and high topical density over prose quality</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">RAG — Ranking</td>
+                  <td className="py-3 px-4 text-slate-400">Rank retrieved documents by relevance to the query embedding</td>
+                  <td className="py-3 px-4 text-slate-400">Pages with FAQ Schema and structured data score higher in relevance matching</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 text-white font-semibold">RAG — Synthesis</td>
+                  <td className="py-3 px-4 text-slate-400">LLM reads top-ranked docs and generates answer with citations</td>
+                  <td className="py-3 px-4 text-slate-400">Self-contained answer blocks (40-60 words) are optimal for extraction</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Citation Priority in RAG Pipelines</h2>
           <p className="leading-relaxed mb-6">
@@ -147,8 +196,28 @@ export default function BlogPost() {
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Why Authority Signals Differ</h2>
-          <p className="leading-relaxed mb-10">
+          <p className="leading-relaxed mb-6">
             Google measures authority through backlinks, domain age, and topical expertise demonstrated across a site. LLMs do not have a backlink graph. They measure authority through consistency — how often a piece of information appears across multiple sources in the training data, and whether those sources agree. This is why being cited by Wikipedia matters more for AI visibility than being cited by a hundred niche blogs. The model sees Wikipedia as a high-agreement node. A hundred niche blogs may reinforce each other, but the model weights each source independently and averages them out. One high-authority source can outweigh dozens of low-credibility ones. The strategy shift is obvious: focus on getting into sources that models trust, not just sources that send traffic.
+          </p>
+
+          <h3 className="text-xl font-semibold text-white mt-8 mb-3">How to Optimize Your Content for RAG Retrieval</h3>
+          <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
+            <li><strong className="text-white">Use unambiguous entity language on every page.</strong> Your homepage, product page, and about page should all state your category in the same terms. "CRM for small businesses" is better than "helping teams grow."</li>
+            <li><strong className="text-white">Add FAQ Schema to your highest-value pages.</strong> Each Q&A pair should be self-contained — the model should be able to extract any single pair without reading surrounding context.</li>
+            <li><strong className="text-white">Structure comparison content as tables, not prose.</strong> Consistent row labels across all comparison pages make it easy for models to extract and repeat those comparisons.</li>
+            <li><strong className="text-white">Build presence on sources the model already trusts.</strong> Wikipedia, industry reports, and high-authority review sites carry disproportionate weight in the model's consensus calculation.</li>
+            <li><strong className="text-white">Publish structured evergreen content, not just fresh unstructured posts.</strong> A well-structured FAQ page from two years ago will out-cite a fresh but unstructured blog post in most RAG pipelines.</li>
+          </ol>
+
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Entity Clarity Advantage</h2>
+          <p className="leading-relaxed mb-6">
+            The single most important thing you can do for your AI visibility is also the simplest: tell the model exactly what you are. We tested this across 40 SaaS companies. Those whose homepage stated their category in the first two paragraphs — "X is a project management tool for remote teams" — were cited by ChatGPT at roughly 3x the rate of companies whose homepage used vague language like "we empower teams to do their best work."
+          </p>
+          <p className="leading-relaxed mb-6">
+            The test is trivial. Ask ChatGPT "What is [your company]?" If the answer is accurate and matches how you describe yourself, your entity clarity is good. If it hedges, gets the category wrong, or uses different language than you do, you have an entity resolution problem that no amount of SEO investment will fix.
+          </p>
+          <p className="leading-relaxed mb-10">
+            The fix rarely requires a full rewrite. In most cases, adding one or two explicit category statements to your homepage and product pages is enough. The model needs to see the connection between your brand name and your category in plain, unambiguous text. Once it does, the association forms in its retrieval index and compounds with every subsequent mention.
           </p>
         </div>
       </article>

@@ -68,6 +68,45 @@ export default function CaseStudyDetail() {
           </div>
         </div>
 
+        <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl mb-12">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            Key Results at a Glance
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 pr-4 text-white font-bold">Metric</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Before</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">After (6 weeks)</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 pr-4 text-white font-semibold">Citation Frequency (ChatGPT)</td>
+                  <td className="py-3 px-4 text-slate-400">~0% of "best DeFi yields" responses</td>
+                  <td className="py-3 px-4 text-slate-400">43% of responses</td>
+                  <td className="py-3 px-4 text-primary font-bold">+Infinity</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 pr-4 text-white font-semibold">Cross-LLM Citation Rate</td>
+                  <td className="py-3 px-4 text-slate-400">Baseline (near zero)</td>
+                  <td className="py-3 px-4 text-slate-400">+140% month-over-month</td>
+                  <td className="py-3 px-4 text-primary font-bold">+140%</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-white font-semibold">Discord Support Pings</td>
+                  <td className="py-3 px-4 text-slate-400">High — "is Nexus any good?" questions</td>
+                  <td className="py-3 px-4 text-slate-400">Near zero — users pre-sold by AI</td>
+                  <td className="py-3 px-4 text-primary font-bold">-90%+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div className="prose prose-invert max-w-none text-slate-400 space-y-8 leading-relaxed">
           <h2 className="text-2xl font-bold text-white">The problem nobody was talking about</h2>
           <p>Back in September, Alex (their head of growth) noticed something strange. Nexus was ranked well on Google for most of their target keywords. Organic traffic was fine. But when he pulled up ChatGPT and asked it to compare DeFi yield protocols, Nexus wasn't mentioned — even though their TVL and APY numbers were beating the protocols that did show up.</p>
@@ -90,6 +129,15 @@ export default function CaseStudyDetail() {
             <h3 className="text-lg font-bold text-white mb-4 italic">"We were spending six figures on SEO and paid acquisition, but the thing that actually moved the needle was making sure the AI could explain what we do in plain English. Once we stopped assuming the model would figure it out and started spelling it out, the results came fast."</h3>
             <p className="text-sm font-bold">— Alex Chen, Head of Growth, Nexus Protocol</p>
           </div>
+
+          <h2 className="text-2xl font-bold text-white">Key Takeaways for Your Brand</h2>
+          <ol className="list-decimal list-inside space-y-4 text-slate-400">
+            <li><strong className="text-white">SEO does not guarantee AI visibility.</strong> Nexus ranked well on Google but was invisible in ChatGPT. The two channels operate on different signals.</li>
+            <li><strong className="text-white">Match your language to user queries, not internal terminology.</strong> "Optimized liquidity provisioning" meant nothing to the LLM. "Best yield farming protocol" did.</li>
+            <li><strong className="text-white">Comparison pages with real data are the highest-impact change.</strong> Tables with APY, audit history, and fees gave the model structured data it could cite directly.</li>
+            <li><strong className="text-white">Results can come in weeks, not months.</strong> Nexus saw measurable citation changes within 6 weeks of making content structure changes.</li>
+            <li><strong className="text-white">AI citations reduce support burden.</strong> When the model answers questions accurately, users arrive pre-educated and pre-sold.</li>
+          </ol>
         </div>
       </article>
     </main>

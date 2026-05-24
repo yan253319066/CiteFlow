@@ -109,6 +109,20 @@ export default function Page() {
           <p className="text-xl text-slate-400 max-w-2xl">
             Build AI visibility from day one. How startups can get mentioned by ChatGPT, Gemini, Perplexity, and other AI assistants before competitors establish category leadership.
           </p>
+
+          <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl mt-8">
+            <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              What You'll Learn
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-2 list-decimal list-inside">
+              <li>Why startups should prioritize GEO before SEO</li>
+              <li>How category creation drives AI citations for new products</li>
+              <li>Why comparison pages are your fastest path to citations</li>
+              <li>How GEO compounds over time unlike paid acquisition</li>
+              <li>How to measure AI visibility with limited resources</li>
+            </ol>
+          </div>
         </header>
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
@@ -139,9 +153,18 @@ export default function Page() {
               <p className="leading-relaxed mb-4">
                 This is a missed opportunity. Unlike SEO which takes months to build authority, GEO improvements can show results in weeks. And unlike paid ads, AI citations compound over time — a well-optimized page continues generating citations indefinitely.
               </p>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed mb-6">
                 More importantly, early movers in AI citations have lasting advantages. Once a category leader is established in AI training data, it becomes harder to displace.
               </p>
+
+              <h3 className="text-lg font-semibold text-white mb-3">Priority Actions for Startups</h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-400">
+                <li><strong className="text-white">Define a new category or own a specific use case.</strong> "The first AI tool for X" gets more citations than "another Y tool." Category creation signals novelty that AI models reward.</li>
+                <li><strong className="text-white">Create comparison pages before you have traffic.</strong> "How We Compare to [Competitor A]" is the fastest way to establish a shared entity cluster with established brands.</li>
+                <li><strong className="text-white">Build FAQ pages with Schema markup for your top 10 use cases.</strong> Each Q&A pair is a potential citation. Use the exact phrasing your target customers use.</li>
+                <li><strong className="text-white">Write about your category as if you are defining it.</strong> Category-defining content gets cited more often than product-feature content. Teach the model what the category means.</li>
+                <li><strong className="text-white">Create an llms.txt and pricing.md on day one.</strong> Machine-readable files help AI agents evaluate your product alongside competitors without requiring a rendered page visit.</li>
+              </ol>
             </div>
           </section>
 

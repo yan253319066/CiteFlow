@@ -109,6 +109,20 @@ export default function Page() {
           <p className="text-xl text-slate-400 max-w-2xl">
             How to get your software product mentioned by ChatGPT, Gemini, Perplexity, and other AI assistants. Specific strategies for SaaS companies.
           </p>
+
+          <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl mt-8">
+            <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              What You'll Learn
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-2 list-decimal list-inside">
+              <li>Why SaaS companies need GEO in addition to SEO</li>
+              <li>How to position your product as the category leader AI recommends</li>
+              <li>How to structure comparison pages that drive citations</li>
+              <li>Why FAQ Schema markup is the highest-ROI change</li>
+              <li>How to measure AI visibility for your SaaS product</li>
+            </ol>
+          </div>
         </header>
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
@@ -139,9 +153,18 @@ export default function Page() {
               <p className="leading-relaxed mb-4">
                 The difference matters. When someone searches "best project management software" on Google, they see ads and organic results. When they ask ChatGPT the same question, they get a curated list with explanations.
               </p>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed mb-6">
                 If your SaaS product isn't in that curated list, you're invisible to a growing segment of potential customers who now start their research with AI.
               </p>
+
+              <h3 className="text-lg font-semibold text-white mb-3">Priority Actions for SaaS Companies</h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-400">
+                <li><strong className="text-white">Audit your AI visibility baseline.</strong> Run your top 10 category queries across ChatGPT and Perplexity. If you don't appear, you have an entity clarity problem.</li>
+                <li><strong className="text-white">Add FAQ Schema to your pricing page.</strong> This is the highest-ROI change for most SaaS companies. Write 5-10 Q&A pairs using conversational query language.</li>
+                <li><strong className="text-white">Create comparison pages against 2-3 main competitors.</strong> Use consistent row labels across all comparisons so the model can extract and repeat the data.</li>
+                <li><strong className="text-white">Standardize your category language.</strong> Choose one label ("project management software" not sometimes "platform" and sometimes "suite") and use it everywhere.</li>
+                <li><strong className="text-white">Build third-party consensus.</strong> Get listed on G2, Capterra, and industry-specific review sites. Model trust is built through cross-source agreement.</li>
+              </ol>
             </div>
           </section>
 

@@ -109,6 +109,20 @@ export default function Page() {
           <p className="text-xl text-slate-400 max-w-2xl">
             How to get your AI product mentioned by ChatGPT, Gemini, Perplexity, and other AI assistants. Unique strategies for the AI tools market.
           </p>
+
+          <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl mt-8">
+            <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              What You'll Learn
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-2 list-decimal list-inside">
+              <li>How to define your AI category so models can place your product</li>
+              <li>Why AI tools face unique trust signal challenges</li>
+              <li>How to build AI-specific comparison pages that get cited</li>
+              <li>Why use-case specificity outperforms broad category claims</li>
+              <li>How to leverage the training data gap as an advantage</li>
+            </ol>
+          </div>
         </header>
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
@@ -139,9 +153,18 @@ export default function Page() {
               <p className="leading-relaxed mb-4">
                 But this challenge creates opportunity. Products that establish clear category leadership and demonstrate clear use-case value become the default recommendation when users ask AI assistants for help.
               </p>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed mb-6">
                 The key is building trust signals that AI models recognize and value — not just traditional SaaS metrics like G2 ratings or review counts.
               </p>
+
+              <h3 className="text-lg font-semibold text-white mb-3">Priority Actions for AI Tools</h3>
+              <ol className="list-decimal list-inside space-y-2 text-slate-400">
+                <li><strong className="text-white">Define your AI use case with precision.</strong> "AI writing tool for Instagram captions" is more citable than "AI content platform."</li>
+                <li><strong className="text-white">Create comparison pages against non-AI alternatives.</strong> Show why AI is better for specific use cases.</li>
+                <li><strong className="text-white">Get listed on AI-specific directories.</strong> Futurepedia, There's An AI For That, and AI directories carry weight with models.</li>
+                <li><strong className="text-white">Publish use-case documentation.</strong> Detailed guides with prompts and outputs give models structured content to cite.</li>
+                <li><strong className="text-white">Create an llms.txt and pricing.md.</strong> Machine-readable files help AI agents parse your product without rendering your page.</li>
+              </ol>
             </div>
           </section>
 

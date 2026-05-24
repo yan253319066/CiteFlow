@@ -120,6 +120,20 @@ export default function WhatIsGEO() {
             A new category of search is growing faster than traditional search ever did. Instead of returning blue links, these engines return answers — synthesized, cited, and conversational. Optimizing for them requires a different playbook, and calling it "SEO for AI" misses the point entirely. The mechanism is different. The signals are different. The metric that matters is different. This guide explains what GEO actually is and how to approach it.
           </p>
 
+          <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">
+            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              Key Takeaways
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
+              <li><strong className="text-white">GEO targets AI citation, not Google rankings</strong> — the signals that matter for LLMs are different from SEO signals.</li>
+              <li><strong className="text-white">Entity clarity is the #1 factor</strong> — models need to unambiguously resolve what your brand is before they can cite it.</li>
+              <li><strong className="text-white">Structured content gets cited 2x more</strong> — FAQ Schema, comparison tables, and definition lists provide extraction points that narrative text lacks.</li>
+              <li><strong className="text-white">Consistency across sources compounds</strong> — the same entity-language used on your site, docs, and third-party reviews reinforces the model's association map.</li>
+              <li><strong className="text-white">The window for early movers is finite</strong> — entity associations formed during training persist; late entrants compete against established clusters.</li>
+            </ol>
+          </div>
+
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">What Is a Generative Engine?</h2>
           <p className="leading-relaxed mb-6">
             A generative engine is any AI system that answers questions by combining a large language model with live retrieval from the web or a curated index. ChatGPT with web browsing, Perplexity, Google AI Overviews, and Claude with search all qualify. What distinguishes them from a traditional search engine is the output format. Google returns a list of links ranked by relevance signals. A generative engine returns a paragraph or a bulleted answer, with inline citations.
@@ -153,7 +167,45 @@ export default function WhatIsGEO() {
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Four Pillars of GEO</h2>
-          
+
+          <p className="leading-relaxed mb-6">
+            Each pillar reinforces the others. A brand strong in all four will consistently outperform a brand that excels at only one or two.
+          </p>
+
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-white font-bold">Pillar</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">What It Means</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Why It Matters for AI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Entity Clarity</td>
+                  <td className="py-3 px-4 text-slate-400">State exactly what category your product belongs to on every page</td>
+                  <td className="py-3 px-4 text-slate-400">Models resolve entities through associations; ambiguous language means the model cannot place you</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Structured Content</td>
+                  <td className="py-3 px-4 text-slate-400">FAQ Schema, comparison tables, definition lists that AI can parse directly</td>
+                  <td className="py-3 px-4 text-slate-400">FAQ pages with markup get cited ~2x more than identical content without it</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Topical Consistency</td>
+                  <td className="py-3 px-4 text-slate-400">Same category language used across your site, docs, and third-party reviews</td>
+                  <td className="py-3 px-4 text-slate-400">Inconsistent labels create fuzzy entities that don't map cleanly to any query</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 text-white font-semibold">Authority Through Consensus</td>
+                  <td className="py-3 px-4 text-slate-400">Being mentioned consistently across trusted external sources</td>
+                  <td className="py-3 px-4 text-slate-400">Models weight co-occurrence; Wikipedia matters more than a hundred niche backlinks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">1. Entity Clarity</h3>
           <p className="leading-relaxed mb-6">
             LLMs understand the world through entities — people, companies, products, categories. If your website never explicitly says "X is a project management tool for remote teams," the model has difficulty placing X in the "project management" semantic neighborhood. Every page on your site should reinforce the entity-to-category mapping. This is not about keyword stuffing. It is about making sure the model resolves what you are with confidence. If you ask ChatGPT "What is [your company]?" and it hedges or gets the category wrong, that is an entity clarity problem.
@@ -173,6 +225,18 @@ export default function WhatIsGEO() {
           <p className="leading-relaxed mb-6">
             LLMs do not have a backlink graph, but they do have a trust baseline formed during training. Sources that appear frequently in the training data and that agree with each other carry more weight. This is why getting mentioned on Wikipedia, in industry reports, or on high-traffic review sites matters more for AI visibility than getting a backlink from a niche blog. The model does not count links. It counts co-occurrence and consensus. The strategic implication is that PR and analyst relations may be more valuable for GEO than traditional link-building.
           </p>
+
+          <h2 className="text-2xl font-bold text-white mt-12 mb-4">How to Start Your GEO Strategy</h2>
+          <p className="leading-relaxed mb-6">
+            Implementing GEO does not require a full content overhaul. The most effective approach is incremental — start with the highest-impact changes and build from there.
+          </p>
+          <ol className="list-decimal list-inside space-y-4 mb-6 text-slate-400">
+            <li><strong className="text-white">Audit your entity clarity.</strong> Ask ChatGPT "What is [your brand]?" If the answer is wrong or vague, you have an entity resolution problem. Identify every page where your brand description could be more specific.</li>
+            <li><strong className="text-white">Add FAQ Schema to your highest-traffic pages.</strong> Start with your pricing page, product page, and documentation. Write 5-10 question-answer pairs using the exact phrasing your customers use.</li>
+            <li><strong className="text-white">Create comparison pages.</strong> "Your product vs. Competitor A" is the single most citable format in AI outputs. Build 2-3 comparison pages with structured data and real feature comparisons.</li>
+            <li><strong className="text-white">Standardize your category language.</strong> Choose one category label ("project management tool," not sometimes "platform" and sometimes "suite") and use it consistently across every page, your docs, and your third-party profiles.</li>
+            <li><strong className="text-white">Build third-party consensus.</strong> Get mentioned on Wikipedia, industry reports, and high-authority review sites. A single mention on a source the model trusts is worth dozens of niche backlinks.</li>
+          </ol>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Why GEO Matters Now</h2>
           <p className="leading-relaxed mb-6">

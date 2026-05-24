@@ -120,6 +120,20 @@ export default function AISearchVsSEO() {
             SEO as an industry assumes that ranking well on Google correlates with business outcomes. This assumption is breaking down. The rise of generative search means users are getting answers without clicking any links. Even when they do click, the decision to visit a site is mediated by an AI summary that may have already satisfied the query. The question is not whether SEO still works — it does, for now — but whether it works well enough to justify the investment when a parallel channel with different mechanics is growing fast.
           </p>
 
+          <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">
+            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              Key Takeaways
+            </h3>
+            <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
+              <li><strong className="text-white">Google rankings and AI citations are weakly correlated</strong> — a page ranking #1 on Google can be invisible in ChatGPT, and vice versa.</li>
+              <li><strong className="text-white">AI Overviews reduce organic CTR by 40-60%</strong> — your SEO dashboard shows rank but not the traffic you've lost to AI answers.</li>
+              <li><strong className="text-white">Entity resolution, not backlinks, drives AI citations</strong> — LLMs prioritize pages that unambiguously define their category.</li>
+              <li><strong className="text-white">Cross-source agreement amplifies authority</strong> — appearing on Wikipedia and industry reports matters more than niche blog links.</li>
+              <li><strong className="text-white">Teams need parallel SEO and GEO tracks</strong> — separate research methods, content formats, and success metrics for each channel.</li>
+            </ol>
+          </div>
+
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Measurement Gap</h2>
           <p className="leading-relaxed mb-6">
             Rank tracking measures where your link appears in a list of ten blue links. That list is no longer the primary interface for a growing share of queries. According to data from multiple tracking tools published through early 2025, Google AI Overviews now appear for roughly 15 to 20 percent of search queries, depending on the vertical. When an Overview appears, the click-through rate for the first organic result drops by an estimated 40 to 60 percent. The user gets the answer without leaving the search page.
@@ -129,6 +143,46 @@ export default function AISearchVsSEO() {
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">What AI Search Actually Prioritizes</h2>
+          
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-white font-bold">Dimension</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">SEO (Google)</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">GEO (AI Search)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Ranking Signal</td>
+                  <td className="py-3 px-4 text-slate-400">Backlinks, domain authority, page speed, user engagement</td>
+                  <td className="py-3 px-4 text-slate-400">Entity clarity, structured data, topical density, cross-source consensus</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Content Format</td>
+                  <td className="py-3 px-4 text-slate-400">Narrative blog posts, long-form guides, keyword-optimized pages</td>
+                  <td className="py-3 px-4 text-slate-400">FAQ pages with Schema, comparison tables, definition lists, structured layouts</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Authority Source</td>
+                  <td className="py-3 px-4 text-slate-400">Backlink graph, PageRank, referring domain quality</td>
+                  <td className="py-3 px-4 text-slate-400">Training data prevalence, cross-source agreement, Wikipedia mentions</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Freshness Impact</td>
+                  <td className="py-3 px-4 text-slate-400">Strong — newer content gets a ranking boost</td>
+                  <td className="py-3 px-4 text-slate-400">Moderate — evergreen structured content outranks fresh unstructured content</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 text-white font-semibold">Success Metric</td>
+                  <td className="py-3 px-4 text-slate-400">CTR, organic traffic, keyword position</td>
+                  <td className="py-3 px-4 text-slate-400">Citation frequency, citation sentiment, share of AI voice</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <p className="leading-relaxed mb-6">
             The retrieval systems behind generative AI do not share Google's signal set. Here is what we know from observing citation patterns across ChatGPT, Perplexity, and Claude over the past year:
           </p>
@@ -174,8 +228,17 @@ export default function AISearchVsSEO() {
             A comparison page for "Tool X vs. Tool Y" may have negligible search volume but high AI citation probability, because LLMs use comparison content extensively for recommendation queries. A structured FAQ page for a niche technical question may never rank for a competitive keyword but may be the only source the model cites when answering that specific question. The returns on these pages come from AI visibility, not from Google rankings.
           </p>
           <p className="leading-relaxed mb-10">
-            The teams that will navigate this transition best are the ones that build parallel workflows: an SEO track for capturing existing search demand, and a GEO track for establishing presence in AI-generated answers. The GEO track requires different research methods (entity gap analysis instead of keyword gap analysis), different content formats (structured extraction-friendly layouts instead of narrative blog posts), and different success metrics (citation frequency and sentiment instead of CTR and conversions). Running both tracks is more work, but the alternative is waiting until your organic traffic declines far enough that the board notices, at which point you are years behind on the GEO track.
-          </p>
+            The teams that will navigate this transition best are the ones that build parallel workflows: an SEO track for capturing existing search demand, and a GEO track for establishing presence in AI-generated answers. The GEO track requires different research methods (entity gap analysis instead of keyword gap analysis), different content formats (structured extraction-friendly layouts instead of narrative blog posts), and different success metrics (citation frequency and sentiment instead of CTR and conversions). Running both tracks is more work, but the alternative is waiting until your organic traffic declines far enough that the board notices, at which point you are years behind on the GEO track.</p>
+
+          <h3 className="text-xl font-semibold text-white mt-8 mb-3">Six Steps to Build Your GEO Track</h3>
+          <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
+            <li><strong className="text-white">Audit your current AI visibility.</strong> Run your top 20 category queries across ChatGPT, Perplexity, and Gemini. Record whether you appear and in what context.</li>
+            <li><strong className="text-white">Identify entity gaps.</strong> For queries where competitors appear but you do not, analyze what entity language they use that you are missing.</li>
+            <li><strong className="text-white">Create structured comparison pages.</strong> Build "Your Brand vs. Competitor" pages with real data and Schema.org markup.</li>
+            <li><strong className="text-white">Add FAQ Schema to existing pages.</strong> Start with your highest-traffic pages. Write 5-10 Q&A pairs using conversational query language.</li>
+            <li><strong className="text-white">Standardize category language across your entire web presence.</strong> Every page, every subdomain, every third-party profile should use the same label.</li>
+            <li><strong className="text-white">Track citation frequency weekly.</strong> Log whether you appear in responses to your target queries. Adjust your strategy based on what moves the number.</li>
+          </ol>
         </div>
       </article>
     </main>

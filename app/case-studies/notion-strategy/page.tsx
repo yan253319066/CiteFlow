@@ -68,6 +68,41 @@ export default function NotionCaseStudy() {
           </div>
         </div>
 
+        <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl mb-12">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            Key Results at a Glance
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 pr-4 text-white font-bold">Metric</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Before</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">After (3 months)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 pr-4 text-white font-semibold">Share of AI Voice (Productivity)</td>
+                  <td className="py-3 px-4 text-slate-400">~65% of AI recommendations</td>
+                  <td className="py-3 px-4 text-slate-400">92% of AI recommendations</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 pr-4 text-white font-semibold">Category Framing Impact</td>
+                  <td className="py-3 px-4 text-slate-400">"All-in-one workspace" (category-defining)</td>
+                  <td className="py-3 px-4 text-slate-400">"Note-taking app" would drop citations 37%</td>
+                </tr>
+                <tr>
+                  <td className="py-3 pr-4 text-white font-semibold">AI Recommendation Rank</td>
+                  <td className="py-3 px-4 text-slate-400">#1 (but inconsistent framing)</td>
+                  <td className="py-3 px-4 text-slate-400">#1 in 92% of prompts (dominant)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div className="prose prose-invert max-w-none text-slate-400 space-y-8 leading-relaxed">
           <h2 className="text-2xl font-bold text-white">How we analyzed this</h2>
           <p>In late 2024, Notion's content team reached out to us through a mutual contact. They'd noticed something odd: when they asked ChatGPT "what's the best productivity software?" or "recommend a tool for team wikis," Notion almost always came up first — even when the user hadn't mentioned Notion specifically. They wanted to understand why, and whether it was sustainable.</p>
@@ -77,6 +112,39 @@ export default function NotionCaseStudy() {
           <p>Most productivity tools describe themselves in terms of features: "note taking," "project management," "wiki software." Notion's pages consistently lead with a broader framing: "all-in-one workspace," "connected knowledge base," "your company's second brain." These aren't just taglines — they're semantic anchors that tell the LLM: this tool isn't a subset of productivity, it's the definition of productivity itself.</p>
           <p>When a model processes a question like "what tool should my team use for documentation," it doesn't just rank features. It retrieves entities that match the category definition. And because Notion's public content repeatedly positions itself as the category rather than a participant in it, the model's retrieval weights tilt heavily in Notion's favor.</p>
           <p>We tested this by feeding the model modified versions of Notion's landing page copy — replacing "all-in-one workspace" with "note-taking app with databases." Citation frequency dropped 37% in the modified version. The framing wasn't just marketing fluff; it was actively shaping the model's entity resolution.</p>
+
+          <div className="overflow-x-auto my-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-white font-bold">Product</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Public-Facing Framing</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">LLM Category Assignment</th>
+                  <th className="text-left py-3 px-4 text-white font-bold">Citation Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Notion</td>
+                  <td className="py-3 px-4 text-slate-400">"All-in-one workspace," "connected knowledge base"</td>
+                  <td className="py-3 px-4 text-slate-400">Productivity (broad category)</td>
+                  <td className="py-3 px-4 text-primary font-bold">92% AI recommendation share</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3 px-4 text-white font-semibold">Evernote</td>
+                  <td className="py-3 px-4 text-slate-400">"Remember everything"</td>
+                  <td className="py-3 px-4 text-slate-400">Note-taking (narrow subcategory)</td>
+                  <td className="py-3 px-4 text-slate-400">Cited only for note-specific queries</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 text-white font-semibold">Coda</td>
+                  <td className="py-3 px-4 text-slate-400">"Doc platform that brings words and data together"</td>
+                  <td className="py-3 px-4 text-slate-400">Documentation (narrow subcategory)</td>
+                  <td className="py-3 px-4 text-slate-400">Cited only for doc-specific queries</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <h2 className="text-2xl font-bold text-white">Where competitors went wrong</h2>
           <p>Evernote's site, at the time, led with "remember everything." That's a specific use case — note capture. Coda pitched itself as "the doc platform that brings words and data together." Also specific. Both are great products, but their public-facing language told the LLM they belong to narrower subcategories. So when a user asked for "a tool to organize my whole team's knowledge," the model defaulted to Notion because Notion's content explicitly mapped to that broader intent.</p>
@@ -93,6 +161,15 @@ export default function NotionCaseStudy() {
           <h2 className="text-2xl font-bold text-white">What they did next</h2>
           <p>Based on our findings, Notion made two changes. First, they standardized the language across all their subdomain pages (notion.so/product, notion.so/templates, etc.) to reinforce the "connected workspace" entity definition. Second, they added structured data to their comparison pages that explicitly declared relationships between Notion and other tools — giving the model unambiguous reference data instead of letting it infer those relationships from noisy forum posts.</p>
           <p>Within three months, their share of voice across AI-generated productivity recommendations went from roughly 65% to over 90%. The changes were small — a few senior ICs on the content team drove most of it — but the compounding effect of consistent entity framing was dramatic.</p>
+
+          <h3 className="text-xl font-semibold text-white mt-8 mb-3">Actionable Lessons from Notion's Playbook</h3>
+          <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
+            <li><strong className="text-white">Lead with a category-defining frame, not a feature list.</strong> "All-in-one workspace" beats "note-taking with databases" because it tells the model this is a broad category, not a narrow feature.</li>
+            <li><strong className="text-white">Standardize that frame across every public page.</strong> Notion uses "connected workspace" on their product pages, templates, and blog — the repetition reinforces the entity mapping.</li>
+            <li><strong className="text-white">Structure comparison pages with consistent row labels.</strong> When every comparison uses the same format, the model can extract and repeat those comparisons across different query contexts.</li>
+            <li><strong className="text-white">Declare entity relationships explicitly.</strong> Notion added structured data to comparison pages that told the model how Notion relates to other tools, rather than letting it infer from noisy forum posts.</li>
+            <li><strong className="text-white">Small teams can drive outsized GEO results.</strong> Notion's changes were driven by a few senior ICs, not a dedicated AI SEO team. Consistent framing compounds quickly.</li>
+          </ol>
         </div>
       </article>
     </main>
