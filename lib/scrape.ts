@@ -13,6 +13,12 @@ export interface ScrapeResult {
   hasRobotsTxt: boolean;
   hasSitemap: boolean;
   hasLlmstxt: boolean;
+  hasOrderedLists: boolean;
+  hasUnorderedLists: boolean;
+  hasTables: boolean;
+  avgParagraphLength: number;
+  metaDescriptionLength: number;
+  hasSummarySection: boolean;
 }
 
 export enum ScrapeErrorCode {
@@ -118,6 +124,24 @@ function extractFromHtml(html: string) {
     .trim();
   const wordCount = text.split(/\s+/).filter(Boolean).length;
 
+  const hasOrderedLists = /<ol[\s>]/i.test(html);
+  const hasUnorderedLists = /<ul[\s>]/i.test(html);
+  const hasTables = /<table[\s>]/i.test(html);
+
+  const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let pMatch;
+  let totalWords = 0;
+  let paraCount = 0;
+  while ((pMatch = pRegex.exec(html)) !== null) {
+    const clean = pMatch[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const wc = clean.split(/\s+/).filter(Boolean).length;
+    if (wc > 0) { totalWords += wc; paraCount++; }
+  }
+  const avgParagraphLength = paraCount > 0 ? Math.round(totalWords / paraCount) : 0;
+
+  const bodyLower = text.toLowerCase();
+  const hasSummarySection = /\b(key takeaways?|executive summary|tldr|tl;dr|what we cover|quick summary|overview|in this (article|post|guide))\b/i.test(bodyLower);
+
   return {
     title: extractedTitle,
     description,
@@ -129,6 +153,12 @@ function extractFromHtml(html: string) {
     hasFaqSchema,
     hasHowToSchema,
     wordCount,
+    hasOrderedLists,
+    hasUnorderedLists,
+    hasTables,
+    avgParagraphLength,
+    metaDescriptionLength: description.length,
+    hasSummarySection,
   };
 }
 
@@ -197,5 +227,11 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     hasRobotsTxt,
     hasSitemap,
     hasLlmstxt,
+    hasOrderedLists: extracted.hasOrderedLists,
+    hasUnorderedLists: extracted.hasUnorderedLists,
+    hasTables: extracted.hasTables,
+    avgParagraphLength: extracted.avgParagraphLength,
+    metaDescriptionLength: extracted.metaDescriptionLength,
+    hasSummarySection: extracted.hasSummarySection,
   };
 }

@@ -23,6 +23,12 @@ function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsi
   lines.push(`/robots.txt: ${data.hasRobotsTxt ? "Found" : "Not found"}`);
   lines.push(`/sitemap.xml: ${data.hasSitemap ? "Found" : "Not found"}`);
   lines.push(`/llms.txt: ${data.hasLlmstxt ? "Found" : "Not found"}`);
+  lines.push(`Ordered lists: ${data.hasOrderedLists ? "Yes" : "No"}`);
+  lines.push(`Unordered lists: ${data.hasUnorderedLists ? "Yes" : "No"}`);
+  lines.push(`Tables: ${data.hasTables ? "Yes" : "No"}`);
+  lines.push(`Average paragraph length: ~${data.avgParagraphLength} words`);
+  lines.push(`Meta description length: ${data.metaDescriptionLength} chars`);
+  lines.push(`Key takeaways / summary section: ${data.hasSummarySection ? "Found" : "Not found"}`);
   return lines.join("\n");
 }
 
@@ -61,6 +67,8 @@ async function analyzeWithGemini(url: string) {
               faqCoverage: { type: Type.NUMBER },
               entityClarity: { type: Type.NUMBER },
               authority: { type: Type.NUMBER },
+              contentStructure: { type: Type.NUMBER },
+              summaryOptimization: { type: Type.NUMBER },
             },
           },
           missing: { type: Type.ARRAY, items: { type: Type.STRING } },
@@ -144,6 +152,26 @@ async function analyzeWithDeepseek(url: string, retries = 2): Promise<Record<str
   return parsed;
 }
 
+function getDeterministicMissing(data: Awaited<ReturnType<typeof scrapeWebsite>>): string[] {
+  const items: string[] = [];
+  if (!data.hasOrderedLists && !data.hasUnorderedLists) {
+    items.push("AI-readable list formatting (ordered/unordered lists)");
+  }
+  if (!data.hasTables) {
+    items.push("Tables for structured content");
+  }
+  if (data.avgParagraphLength > 100) {
+    items.push("Long paragraph blocks — shorten for AI scannability");
+  }
+  if (data.metaDescriptionLength < 50 || data.metaDescriptionLength > 200) {
+    items.push("Meta description length optimization for AI summary extraction");
+  }
+  if (!data.hasSummarySection) {
+    items.push("Key takeaways or executive summary section");
+  }
+  return items;
+}
+
 const providerFns: Record<string, (url: string) => Promise<Record<string, unknown>>> = {
   gemini: analyzeWithGemini,
   openai: analyzeWithOpenAI,
@@ -178,8 +206,13 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
       // console.log(`[ANALYZE] Calling ${activeProvider} analyzer for: ${url}`);
       const report = await fn(url);
       // console.log(`[ANALYZE] ${activeProvider} analyzer returned: ${Object.keys(report).join(', ')}`);
-      
-      const result = { ...report, provider: activeProvider, error: null };
+
+      const siteData = await getSiteData(url);
+      const deterministicMissing = getDeterministicMissing(siteData);
+      const aiMissing = (report.missing as string[]) || [];
+      const mergedMissing = [...new Set([...aiMissing, ...deterministicMissing])];
+
+      const result = { ...report, missing: mergedMissing, provider: activeProvider, error: null };
       cacheSet(cacheKey, result, CACHE_TTL_MS);
       // console.log(`[ANALYZE] Report cached for: ${url}`);
       return result;

@@ -14,7 +14,7 @@ export const maxDuration = 60;
 
 interface ReportData {
   score: number;
-  breakdown: { aiVisibility: number; faqCoverage: number; entityClarity: number; authority: number };
+  breakdown: { aiVisibility: number; faqCoverage: number; entityClarity: number; authority: number; contentStructure?: number; summaryOptimization?: number };
   missing: string[];
   suggestions: string[];
   summary: string;
@@ -212,6 +212,8 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
         { '@type': 'PropertyValue', name: 'FAQ Coverage', value: report.breakdown.faqCoverage },
         { '@type': 'PropertyValue', name: 'Entity Clarity', value: report.breakdown.entityClarity },
         { '@type': 'PropertyValue', name: 'Authority', value: report.breakdown.authority },
+        ...(report.breakdown.contentStructure != null ? [{ '@type': 'PropertyValue', name: 'Content Structure', value: report.breakdown.contentStructure }] : []),
+        ...(report.breakdown.summaryOptimization != null ? [{ '@type': 'PropertyValue', name: 'Summary Optimization', value: report.breakdown.summaryOptimization }] : []),
       ],
     },
   };
@@ -250,11 +252,13 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
             </div>
           </div>
           <Card className="bg-gradient-to-r from-[#6E7BFF]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mt-8 mb-8"><p className="text-sm text-slate-300 leading-relaxed">{report.summary}</p></Card>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StatMini label="AI Visibility" value={report.breakdown.aiVisibility} />
             <StatMini label="FAQ Coverage" value={report.breakdown.faqCoverage} />
             <StatMini label="Entity Clarity" value={report.breakdown.entityClarity} />
             <StatMini label="Authority" value={report.breakdown.authority} />
+            <StatMini label="Content Structure" value={report.breakdown.contentStructure ?? 0} />
+            <StatMini label="Summary Optimization" value={report.breakdown.summaryOptimization ?? 0} />
           </div>
         </div>
     </main>
