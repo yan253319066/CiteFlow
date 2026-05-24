@@ -38,7 +38,7 @@ export default function PricingPage() {
               <p className="text-sm text-muted-foreground">Get your AI Visibility Score and actionable GEO recommendations.</p>
             </div>
             <ul className="space-y-3 mb-8">
-              {["Unlimited GEO reports", "AI Visibility Score (0-100)", "Breakdown analysis (4 dimensions)", "Missing components & suggestions", "Shareable report page"].map((f) => (
+              {["Unlimited GEO reports", "AI Visibility Score (0-100)", "Breakdown analysis (6 dimensions)", "Missing components & suggestions", "Shareable report page"].map((f) => (
                 <li key={f} className="flex items-start gap-3 text-sm">
                   <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   <span>{f}</span>
