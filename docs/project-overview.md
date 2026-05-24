@@ -108,7 +108,8 @@
 - **标题:** Start with a Free Report
 - **副标题:** No credit card required. Get your AI Visibility Score in seconds.
 - **Free:** $0/forever — 每小时 5 次报告
-- **Pro:** $19/月（Coming Soon，Waitlist）— 修复包 + 导出
+- **Pro:** $19/月（Coming Soon，Waitlist）— 修复包 + 8 格式导出
+- **Enterprise:** $999/次 — 人工全站 GEO 优化
 - **FAQ Schema:** 5 个 Q&A
 
 ### 对比页面

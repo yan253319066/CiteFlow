@@ -137,7 +137,8 @@
 ### 定价页 `/pricing`
 
 - Free：$0（每小时 5 次报告）
-- Pro：$19/月（Coming Soon + Waitlist）
+- Pro：$19/月（Fix Package + 8 格式导出，Coming Soon + Waitlist）
+- Enterprise：$999/次（人工全站优化）
 - FAQ Schema（5 Q&A）
 
 ### Blog `/blog`
