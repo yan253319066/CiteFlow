@@ -30,7 +30,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "AI Visibility Growth",
-  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. Includes Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy.",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. We analyze the platforms AI trusts in your specific industry and build discoverable brand signals across them — through custom content, entity optimization, and cross-platform distribution.",
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },

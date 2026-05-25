@@ -56,7 +56,7 @@ const faqSchema = {
       name: "What is the AI Visibility Growth service?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI Visibility Growth is a managed Enterprise service (from $2,999/month) that builds your brand's presence across AI systems through Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy."
+        text: "AI Visibility Growth is a managed Enterprise service (from $2,999/month) that builds your brand's presence across AI systems through industry-specific platform strategy, brand entity building, citation-optimized content, competitor citation gap analysis, cross-platform distribution, and monthly monitoring & iteration."
       }
     },
     {

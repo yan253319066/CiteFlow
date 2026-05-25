@@ -9,7 +9,6 @@ import { motion } from 'motion/react';
 import {
   MessageCircle,
   AtSign,
-  Code2,
   FileText,
   Radar,
   Share2,
@@ -25,7 +24,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "AI Visibility Growth",
-  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. Includes Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy.",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. We analyze the platforms and sources AI trusts in your specific industry — then build discoverable brand signals across them through custom content, entity optimization, and cross-platform distribution.",
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },
@@ -42,7 +41,7 @@ const faqSchema = {
       name: "What is AI Visibility Growth?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI Visibility Growth is a managed service that builds your brand's presence across the platforms and sources that AI systems like ChatGPT, Claude, Gemini, and Perplexity use to generate answers. We handle Reddit strategy, X/Twitter entity building, GitHub authority, content planning, and launch strategies."
+        text: "AI Visibility Growth is a managed service that builds your brand's presence across the platforms and sources that AI systems like ChatGPT, Claude, Gemini, and Perplexity use to generate answers. We analyze your industry's AI data sources, build brand signals across the right platforms, and continuously optimize for citation growth."
       }
     },
     {
@@ -50,7 +49,7 @@ const faqSchema = {
       name: "How is this different from GEO tool reports?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GEO tool reports analyze your existing website and tell you what to fix. AI Visibility Growth is an ongoing service where we actively build your brand's presence across AI-influencing platforms — Reddit, X, GitHub, Product Hunt, and more — so AI systems have more and better signals to cite."
+        text: "GEO tool reports analyze your existing website and tell you what to fix. AI Visibility Growth is an ongoing service where we actively build your brand's presence across the platforms and sources AI trusts in your industry — so AI systems have more and better signals to cite."
       }
     },
     {
@@ -58,7 +57,7 @@ const faqSchema = {
       name: "How long until I see results?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most clients see measurable improvements in AI citation frequency within 4-8 weeks of engagement. Brand presence on platforms like Reddit, X, and GitHub compounds over time, with visibility growing as content and signals accumulate."
+        text: "Most clients see measurable improvements in AI citation frequency within 4-8 weeks of engagement. Brand presence across industry-relevant platforms compounds over time, with visibility growing as signals accumulate."
       }
     },
     {
@@ -66,7 +65,7 @@ const faqSchema = {
       name: "Do you work with any industry?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, our strategies are adapted to your specific industry and target audience. However, we are most effective for B2B SaaS, AI tools, developer tools, digital products, and professional services where AI-assisted research is common."
+        text: "Yes, every engagement starts with an industry-specific analysis to identify the platforms and sources that drive AI citations in your space. Whether you're in e-commerce, professional services, consumer products, or enterprise technology — the strategy adapts to where AI looks for signals in your industry."
       }
     },
     {
@@ -82,39 +81,39 @@ const faqSchema = {
 
 const offerings = [
   {
-    icon: MessageCircle,
-    title: "Reddit Visibility Strategy",
-    description: "Strategic positioning across relevant subreddits to ensure your brand appears in AI-summarized discussions. We identify high-value communities and build organic authority through value-first participation.",
+    icon: Radar,
+    title: "AI Impact Audit",
+    description: "We analyze which platforms, publications, and sources AI models trust in your specific industry — then build a custom visibility roadmap targeting the highest-impact opportunities.",
   },
   {
     icon: AtSign,
-    title: "X/Twitter Entity Presence",
-    description: "Optimize your brand's X/Twitter profile, content cadence, and interaction strategy to build entity recognition that AI systems reliably cite in real-time responses.",
+    title: "Brand Entity Building",
+    description: "Ensure your brand name, products, and key facts are structured correctly across the authoritative sources AI systems rely on for entity recognition and citation.",
   },
   {
-    icon: Code2,
-    title: "GitHub Authority Optimization",
-    description: "Build technical authority through strategic open-source contributions, README optimization, repository structure, and ecosystem presence that AI developers and coding assistants reference.",
+    icon: MessageCircle,
+    title: "Industry Platform Strategy",
+    description: "Strategic presence building across the online communities, review sites, and platforms that matter in your industry — wherever your audience engages and AI looks for signals.",
   },
   {
     icon: FileText,
-    title: "AI Citation Content Planning",
-    description: "Content calendars and briefs designed to maximize citation probability across ChatGPT, Claude, Gemini, and Perplexity. We target the query patterns and formats AI models prioritize.",
+    title: "Citation-Optimized Content",
+    description: "Content briefs and calendars designed for AI citation probability. We format content in structures AI models prioritize — clear entity definitions, authoritative claims, and retrievable formats.",
   },
   {
-    icon: Radar,
-    title: "Competitor Mention Analysis",
-    description: "Continuous monitoring of how your brand and competitors are mentioned across AI systems. Identify gaps where competitors appear and you don't, then close them with targeted strategy.",
+    icon: Target,
+    title: "Competitive Citation Gap",
+    description: "Continuous monitoring of where your brand and competitors appear across AI systems. Identify gaps competitors fill and you don't, then close them with targeted strategy.",
   },
   {
     icon: Share2,
-    title: "AI-Friendly Content Distribution",
-    description: "Distribute your content across the platforms and formats AI models index most aggressively. We optimize placement timing, formatting, and cross-platform syndication for maximum citation yield.",
+    title: "Cross-Platform Distribution",
+    description: "Distribute your brand content across the platforms AI indexes most aggressively in your industry — optimized for timing, format, and syndication to maximize citation yield.",
   },
   {
-    icon: Rocket,
-    title: "Product Hunt / Hacker News Launch",
-    description: "End-to-end launch planning and execution for Product Hunt and Hacker News — from pre-launch community seeding to post-launch momentum that generates lasting AI citation signals.",
+    icon: BarChart3,
+    title: "Monitoring & Iteration",
+    description: "Monthly tracking of AI citation growth, share of voice, and emerging opportunities. Strategy evolves based on real data from your industry's citation landscape.",
   },
 ];
 
@@ -135,7 +134,7 @@ const steps = [
     icon: Repeat,
     step: "03",
     title: "Execute",
-    description: "Our team executes the strategy across Reddit, X, GitHub, content platforms, and launch calendars — building signals that AI systems trust.",
+    description: "Our team executes the strategy across the platforms and channels that drive AI citations in your industry — building signals that compound over time.",
   },
   {
     icon: BarChart3,
@@ -186,7 +185,7 @@ export default function Page() {
             transition={{ delay: 0.2 }}
             className="text-xl text-slate-400 max-w-3xl mx-auto mb-8"
           >
-            Help your brand appear more often across AI systems like ChatGPT, Claude, Gemini, and Perplexity. A managed service that builds your presence on the platforms AI trusts most.
+            Help your brand appear more often across AI systems like ChatGPT, Claude, Gemini, and Perplexity. A managed service that builds your presence on the platforms AI trusts in your industry.
           </motion.p>
 
           <motion.div
@@ -197,7 +196,7 @@ export default function Page() {
           >
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Monthly engagement</span>
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> From $2,999/month</span>
-            <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> 7 service areas</span>
+            <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Industry-specific strategy</span>
           </motion.div>
 
           <motion.div
@@ -221,9 +220,9 @@ export default function Page() {
       <section className="py-16 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-primary/10 text-primary border-none">What We Offer</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Seven Pillars of AI Visibility</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">How We Build AI Visibility</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Each service area is designed to build citation-worthy signals that AI systems recognize and prioritize.
+            Every strategy is customized to your industry. These are the capabilities we bring to each engagement.
           </p>
         </div>
 
@@ -287,13 +286,13 @@ export default function Page() {
             <div className="space-y-4">
               {[
                 "AI citation audit across 5+ major AI platforms",
-                "Reddit presence strategy & execution report",
-                "X/Twitter entity optimization & activity log",
-                "GitHub profile and repository optimization",
-                "Content calendar with AI-optimized topics",
-                "Competitor mention tracking dashboard",
+                "Industry-specific platform presence report",
+                "Brand entity optimization & activity log",
+                "Citation-optimized content calendar & briefs",
+                "Competitor citation gap dashboard",
+                "Cross-platform distribution execution",
                 "Monthly strategy call with your team",
-                "Quarterly PH/HN launch readiness assessment",
+                "Quarterly strategy review & roadmap update",
               ].map((item, idx) => (
                 <motion.div
                   key={idx}

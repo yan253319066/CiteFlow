@@ -16,4 +16,4 @@
 
 ## Enterprise — AI Visibility Growth
 - Price: From $2,999/month (custom quote based on scope)
-- Includes: Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, Competitor mention analysis, AI-friendly content distribution, Product Hunt / Hacker News launch strategy
+- Includes: AI visibility audit across your industry, Brand entity building on authoritative sources, Industry-specific platform presence strategy, Citation-optimized content planning, Competitor citation gap analysis, Cross-platform content distribution, Monthly citation tracking & strategy iteration
