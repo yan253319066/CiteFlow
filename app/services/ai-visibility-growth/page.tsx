@@ -21,6 +21,18 @@ import {
   Repeat,
 } from 'lucide-react';
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "AI Visibility Growth",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. Includes Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, competitor mention analysis, AI-friendly content distribution, and Product Hunt / Hacker News launch strategy.",
+  provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  areaServed: "Worldwide",
+  audience: { "@type": "Audience", audienceType: "Business" },
+  offers: { "@type": "Offer", price: "1999", priceCurrency: "USD", priceType: "https://schema.org/MonthlyRate" },
+  url: "https://www.getciteflow.ai/services/ai-visibility-growth",
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -136,6 +148,7 @@ const steps = [
 export default function Page() {
   return (
     <main className="min-h-screen pb-20">
+      <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <Navbar />
 
@@ -302,6 +315,12 @@ export default function Page() {
             <p className="text-sm text-slate-400 mb-6">
               Contact our team to discuss your brand's current AI presence and how we can help.
             </p>
+            <Link
+              href="/pricing"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold border border-primary/40 bg-primary/10 text-white hover:bg-primary/20 transition-all cursor-pointer mb-3"
+            >
+              View Pricing <ArrowRight className="w-4 h-4" />
+            </Link>
             <a
               href="https://t.me/OS_Blockchain"
               target="_blank"
