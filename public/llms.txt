@@ -38,7 +38,7 @@ GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websit
 Free: AI Visibility Score & GEO report for any URL — 8-dimension analysis, missing component detection
 Pro: $19/month — Fix package generation with multi-format export (Coming Soon)
 Enterprise Technical GEO: $999 one-time — Full GEO optimization (site-wide audit, fix packages, deployment support)
-Enterprise AI Visibility Growth: $1,999/month — Managed service for brand presence across AI systems (Reddit, X/Twitter, GitHub, AI citation content, competitor analysis, content distribution, PH/HN launch strategy)
+Enterprise AI Visibility Growth: From $2,999/month — Managed service for brand presence across AI systems (Reddit, X/Twitter, GitHub, AI citation content, competitor analysis, content distribution, PH/HN launch strategy). Custom-priced based on scope.
 
 ## Contact
 - Telegram: @OS_Blockchain

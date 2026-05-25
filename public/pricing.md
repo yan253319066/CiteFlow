@@ -15,5 +15,5 @@
 - Includes: Full site GEO scan & report, FAQ Schema + llms.txt generation, Meta & entity optimization, Competitor citation analysis, Deployment support
 
 ## Enterprise — AI Visibility Growth
-- Price: $1,999/month
+- Price: From $2,999/month (custom quote based on scope)
 - Includes: Reddit visibility strategy, X/Twitter entity presence, GitHub authority optimization, AI citation content planning, Competitor mention analysis, AI-friendly content distribution, Product Hunt / Hacker News launch strategy

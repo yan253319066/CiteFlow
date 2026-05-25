@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'AI Visibility Growth Service | GetCiteFlow',
-  description: 'A managed service that builds your brand\'s presence across AI systems — ChatGPT, Claude, Gemini, Perplexity. Reddit strategy, X/Twitter entity, GitHub authority, and more. $1,999/month.',
+  description: 'A managed service that builds your brand\'s presence across AI systems — ChatGPT, Claude, Gemini, Perplexity. Reddit strategy, X/Twitter entity, GitHub authority, and more. From $2,999/month.',
   alternates: { canonical: 'https://www.getciteflow.ai/services/ai-visibility-growth' },
   keywords: ['AI visibility service', 'GEO service', 'AI citation service', 'brand visibility AI', 'Reddit visibility strategy', 'ChatGPT brand presence', 'AI content strategy service', 'GetCiteFlow enterprise'],
   openGraph: {

@@ -35,7 +35,7 @@ GEO (Generative Engine Optimization) is the practice of optimizing your website 
 | Free | $0 | 5 reports per hour, AI Visibility Score, 8-dimension analysis, missing component detection |
 | Pro | $19/mo | Fix package generation + multi-format export (Coming Soon) |
 | Enterprise — Technical GEO | $999 | Full-site GEO optimization by the GetCiteFlow team |
-| Enterprise — AI Visibility Growth | $1,999/mo | Managed brand presence across AI ecosystems (Reddit, X, GitHub, etc.) |
+| Enterprise — AI Visibility Growth | From $2,999/mo | Managed brand presence across AI ecosystems (Reddit, X, GitHub, etc.) |
 
 ## Getting Started
 

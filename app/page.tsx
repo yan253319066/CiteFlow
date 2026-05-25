@@ -34,7 +34,7 @@ const serviceSchema = {
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },
-  offers: { "@type": "Offer", price: "1999", priceCurrency: "USD", priceType: "https://schema.org/MonthlyRate" },
+  offers: { "@type": "AggregateOffer", lowPrice: "2999", priceCurrency: "USD", offerCount: "1" },
   url: "https://www.getciteflow.ai/services/ai-visibility-growth",
 };
 

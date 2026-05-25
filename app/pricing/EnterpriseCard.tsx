@@ -76,10 +76,11 @@ export function EnterpriseCard() {
         <div className="flex flex-col flex-1">
           <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-semibold mb-2">New</span>
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-2xl font-black">$1,999</span>
+            <span className="text-sm text-muted-foreground font-medium">From</span>
+            <span className="text-2xl font-black">$2,999</span>
             <span className="text-sm text-muted-foreground">/month</span>
           </div>
-          <p className="text-sm text-muted-foreground mb-4">Build your brand's presence across AI ecosystems.</p>
+          <p className="text-sm text-muted-foreground mb-4">Custom-priced based on your product positioning and scope. <span className="text-primary">Contact us for a quote.</span></p>
           <ul className="space-y-1.5 mb-6 flex-1 text-sm">
             {growthFeatures.map((f) => (
               <li key={f} className="flex items-start gap-3">

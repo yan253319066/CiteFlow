@@ -29,7 +29,7 @@ const serviceSchema = {
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },
-  offers: { "@type": "Offer", price: "1999", priceCurrency: "USD", priceType: "https://schema.org/MonthlyRate" },
+  offers: { "@type": "AggregateOffer", lowPrice: "2999", priceCurrency: "USD", offerCount: "1" },
   url: "https://www.getciteflow.ai/services/ai-visibility-growth",
 };
 
@@ -196,7 +196,7 @@ export default function Page() {
             className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 mb-14"
           >
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Monthly engagement</span>
-            <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> $1,999/month</span>
+            <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> From $2,999/month</span>
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> 7 service areas</span>
           </motion.div>
 
