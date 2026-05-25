@@ -49,7 +49,7 @@
 | Free | $0 | 每小时 5 次报告、GEO 评分、分析、建议、可分享报告页面 |
 | Pro | $19/月 | 修复包生成 + 导出（Coming Soon + Waitlist） |
 | Enterprise — Technical GEO | $999 | 人工全站 GEO 优化 — 一次性 |
-| Enterprise — AI Visibility Growth | From $2,999/月 | 品牌 AI 可见性托管服务（Reddit、X、GitHub 等，按需报价） |
+| Enterprise — AI Visibility Growth | From $2,999/月 | 品牌 AI 可见性托管服务（行业平台策略、品牌实体建设、引用优化内容等，按需报价） |
 
 ---
 
