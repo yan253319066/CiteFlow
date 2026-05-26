@@ -1,13 +1,9 @@
-'use client';
-
-import { useState } from 'react';
 import { Navbar } from "@/components/Navbar";
 import { JsonLd } from "@/components/JsonLd";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { WaitlistModal } from "@/components/WaitlistModal";
 
 const cases = [
   {
@@ -27,8 +23,6 @@ const cases = [
 ];
 
 export default function CaseStudiesPage() {
-  const [isOpen, setIsOpen] = useState(false);
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -82,7 +76,6 @@ const breadcrumbSchema = {
           ))}
         </div>
       </div>
-      <WaitlistModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </main>
   );
 }

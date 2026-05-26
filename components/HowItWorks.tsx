@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from "motion/react";
-import { Globe, FileText, Wrench, Download } from "lucide-react";
+import { Globe, FileText, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
@@ -14,19 +15,13 @@ const steps = [
     number: "02",
     icon: FileText,
     title: "Diagnose",
-    description: "Get a prioritized list of GEO issues affecting your AI visibility. See exactly what AI systems find — and what they miss — on your site, ranked by impact on citation probability.",
+    description: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find — and what they miss — ranked by impact.",
   },
   {
     number: "03",
-    icon: Wrench,
-    title: "Fix",
-    description: "Receive ready-to-deploy fix packages: FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, robots.txt recommendations, and structured data patches — no development skills required.",
-  },
-  {
-    number: "04",
-    icon: Download,
-    title: "Export",
-    description: "One-click copy, download patches, or export in your framework's format — JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP. Deploy what AI needs to cite you.",
+    icon: TrendingUp,
+    title: "Improve",
+    description: "Follow the prioritized recommendations to fix what's holding your site back. Re-scan anytime to track your progress and watch your score grow.",
   },
 ];
 
@@ -38,10 +33,10 @@ export function HowItWorks() {
           How GetCiteFlow Works
         </h2>
         <p className="text-slate-400 text-center max-w-2xl mx-auto mb-16">
-          From scan to deploy in minutes. GetCiteFlow shows you exactly what AI systems see on your site and generates the fixes you need to get cited.
+          Three simple steps to understand and improve your site's AI visibility.
         </p>
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}
@@ -65,6 +60,13 @@ export function HowItWorks() {
               )}
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-slate-400 text-sm mb-4">Don't have time to implement the fixes yourself?</p>
+          <Link href="/pricing" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
+            Let Our Team Do It — Technical GEO <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </Link>
         </div>
       </div>
     </section>

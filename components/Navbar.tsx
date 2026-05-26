@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { WaitlistModal } from './WaitlistModal';
 
 const servicesLinks = [
   { name: 'AI Visibility Growth', href: '/services/ai-visibility-growth', description: 'Full-service brand presence for AI', badge: 'New' },
@@ -23,7 +22,6 @@ const guidesLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenWaitlist, setIsOpenWaitlist] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isGuidesOpen, setIsGuidesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -166,12 +164,12 @@ export function Navbar() {
         </nav>
         
         <div className="flex items-center gap-4">
-          <button 
-            onClick={() => setIsOpenWaitlist(true)}
+          <a 
+            href="/pricing"
             className="hidden md:flex w-32 h-10 border border-white/10 rounded-full items-center justify-center text-sm font-medium bg-white/5 hover:bg-white/10 transition-all cursor-pointer hover:border-primary/50"
           >
-            Login
-          </button>
+            Pricing
+          </a>
           
           {/* Mobile Toggle */}
           <button 
@@ -240,21 +238,18 @@ export function Navbar() {
               </div>
               
               <hr className="border-white/5 my-4" />
-              <button 
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsOpenWaitlist(true);
-                }}
-                className="w-full h-14 border border-white/10 rounded-2xl flex items-center justify-center text-lg font-bold bg-white/5 cursor-pointer"
+              <a 
+                href="/pricing"
+                onClick={() => setIsOpen(false)}
+                className="flex w-full h-14 border border-white/10 rounded-2xl items-center justify-center text-lg font-bold bg-white/5 cursor-pointer"
               >
-                Login
-              </button>
+                Pricing
+              </a>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <WaitlistModal isOpen={isOpenWaitlist} onClose={() => setIsOpenWaitlist(false)} />
     </>
   );
 }

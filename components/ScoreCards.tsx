@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+
 
 const exampleReports = [
   { project: "AI Visibility", score: 72, status: "good" },

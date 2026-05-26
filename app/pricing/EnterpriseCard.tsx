@@ -1,8 +1,4 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
 const techFeatures = [
   "Full site GEO scan & report",
@@ -23,43 +19,19 @@ const growthFeatures = [
 ];
 
 export function EnterpriseCard() {
-  const [tab, setTab] = useState<'tech' | 'growth'>('tech');
-
   return (
-    <div className="p-6 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
-      <div className="mb-4 text-center">
-        <h2 className="text-xl font-bold">Enterprise</h2>
-        <p className="text-sm text-muted-foreground mt-1">Choose your track</p>
-      </div>
-
-      <div className="flex bg-primary/10 rounded-lg p-0.5 mb-4">
-        <button
-          onClick={() => setTab('tech')}
-          className={cn(
-            "flex-1 py-2 rounded-md text-sm font-medium transition-all cursor-pointer",
-            tab === 'tech' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-white"
-          )}
-        >
-          Technical GEO
-        </button>
-        <button
-          onClick={() => setTab('growth')}
-          className={cn(
-            "flex-1 py-2 rounded-md text-sm font-medium transition-all cursor-pointer",
-            tab === 'growth' ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-white"
-          )}
-        >
-          AI Visibility Growth
-        </button>
-      </div>
-
-      {tab === 'tech' ? (
+    <>
+      <div className="p-6 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
+        <div className="mb-4 text-center">
+          <h2 className="text-xl font-bold">Technical GEO</h2>
+        </div>
         <div className="flex flex-col flex-1">
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-2xl font-black">$999</span>
+            <span className="text-sm text-muted-foreground font-medium">From</span>
+            <span className="text-3xl font-black">$999</span>
             <span className="text-sm text-muted-foreground">/one-time</span>
           </div>
-          <p className="text-sm text-muted-foreground mb-4">Full-site GEO optimization done by the GetCiteFlow team.</p>
+          <p className="text-sm text-muted-foreground mb-4">Full-site GEO optimization done by the GetCiteFlow team. Price varies based on site size and scope.</p>
           <ul className="space-y-1.5 mb-6 flex-1 text-sm">
             {techFeatures.map((f) => (
               <li key={f} className="flex items-start gap-3">
@@ -72,12 +44,17 @@ export function EnterpriseCard() {
             Contact via Telegram <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           </a>
         </div>
-      ) : (
+      </div>
+
+      <div className="p-6 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
+        <div className="mb-4 text-center">
+          <h2 className="text-xl font-bold">AI Visibility Growth</h2>
+        </div>
         <div className="flex flex-col flex-1">
           <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-semibold mb-2">New</span>
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-sm text-muted-foreground font-medium">From</span>
-            <span className="text-2xl font-black">$2,999</span>
+            <span className="text-3xl font-black">$2,999</span>
             <span className="text-sm text-muted-foreground">/month</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4">Custom-priced based on your product positioning and scope. <span className="text-primary">Contact us for a quote.</span></p>
@@ -96,7 +73,7 @@ export function EnterpriseCard() {
             Contact via Telegram <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           </a>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 }

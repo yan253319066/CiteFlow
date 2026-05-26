@@ -4,7 +4,7 @@
 <img width="1200" height="475" alt="GetCiteFlow Banner" src="https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75" />
 </div>
 
-GetCiteFlow helps websites get cited by AI search engines — ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. **Scan. Diagnose. Fix. Export.**
+GetCiteFlow helps websites get cited by AI search engines — ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. **Scan. Diagnose. Fix.**
 
 ## What is GEO?
 
@@ -14,8 +14,7 @@ GEO (Generative Engine Optimization) is the practice of optimizing your website 
 
 - **AI Visibility Score** — 0-100 score measuring how well your site is positioned for AI citations
 - **Missing Components Scan** — Detects missing FAQ Schema, llms.txt, robots.txt issues, weak entity clarity, and more — ranked by impact
-- **Fix Package Generator** — Generates deployable fixes (FAQ Schema JSON-LD, meta descriptions, llms.txt, robots.txt, head code)
-- **Multi-Format Export** — One-click copy or download as JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP
+- **Multi-Format Export** — Copy or download your report data in multiple formats
 
 ## Tech Stack
 
@@ -33,8 +32,7 @@ GEO (Generative Engine Optimization) is the practice of optimizing your website 
 | Plan | Price | What you get |
 |------|-------|------------|
 | Free | $0 | 5 reports per hour, AI Visibility Score, 8-dimension analysis, missing component detection |
-| Pro | $19/mo | Fix package generation + multi-format export (Coming Soon) |
-| Enterprise — Technical GEO | $999 | Full-site GEO optimization by the GetCiteFlow team |
+| Enterprise — Technical GEO | From $999 | Full-site GEO optimization by the GetCiteFlow team (price varies by scope) |
 | Enterprise — AI Visibility Growth | From $2,999/mo | Managed brand presence across AI ecosystems (industry platform strategy, brand entity building, citation-optimized content, etc.) |
 
 ## Getting Started

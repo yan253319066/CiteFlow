@@ -1,4 +1,4 @@
-import { ai } from "@/lib/gemini";
+import { getAiClient } from "@/lib/gemini";
 import { ANALYZE_PROMPT, getProvider } from "@/lib/ai-provider";
 import { Type } from "@google/genai";
 import { cacheGet, cacheSet } from "@/lib/cache";
@@ -48,7 +48,7 @@ async function getSiteData(url: string): Promise<Awaited<ReturnType<typeof scrap
 
 async function analyzeWithGemini(url: string) {
   const siteData = formatSiteData(url, await getSiteData(url));
-  const response = await ai.models.generateContent({
+  const response = await getAiClient().models.generateContent({
     model: "gemini-3-flash-preview",
     contents: ANALYZE_PROMPT(url, siteData),
     config: {

@@ -71,27 +71,15 @@
 
 输出：评分 + 各维度细分 + 缺失组件列表 + 改进建议
 
-### 付费版（$19/月）
+### 免费版
 
-解锁修复包：
-
-- **FAQ Schema** — 直接生成可复制 JSON-LD
-- **meta description** — AI 优化的描述文本
-- **llms.txt** — 生成完整文件
-- **robots.txt** — 优化 AI crawler 规则
-- **head 代码** — 注入结构化数据
-
-**导出方式：**
-
-- 一键复制
-- 下载 patch
-- 下载 JSON-LD / Markdown / HTML Snippet / React JSX / Next.js / Vue / Nuxt.js / WordPress PHP 版本
+全部功能免费使用，无需注册。修复建议在报告中直接展示。
 
 ### 人工服务
 
 | 服务 | 价格 | 模式 |
 |------|------|------|
-| Full GEO Optimization | $999 | 一次性 |
+| Full GEO Optimization | From $999 | 一次性（按站点规模定价） |
 | AI Visibility Growth | From $2,999/月 | 持续订阅，按需报价 |
 
 ---
@@ -113,10 +101,10 @@
 
 ### 首页 `/`
 
-- Hero: "Get Your Site Cited by AI" + "GEO Platform" + "Scan. Diagnose. Fix. Export."
+- Hero: "Get Your Site Cited by AI" + "GEO Platform" + "Scan. Diagnose. Fix."
 - 输入框：Enter website URL
 - CTA：Analyze Site
-- Features：AI Visibility Score / Missing Components Scan / Fix Package Generator / Multi-Format Export
+- Features：AI Visibility Score / Missing Components Scan / Actionable Recommendations / Multi-Format Export
 - HowItWorks：Scan → Diagnose → Fix → Export
 - FAQ Schema（7 Q&A）
 
@@ -138,8 +126,7 @@
 ### 定价页 `/pricing`
 
 - Free：$0（每小时 5 次报告）
-- Pro：$19/月（Fix Package + 8 格式导出，Coming Soon + Waitlist）
-- Enterprise Technical GEO：$999/次（人工全站优化）
+- Enterprise Technical GEO：From $999/次（人工全站优化，按站点规模定价）
 - Enterprise AI Visibility Growth：From $2,999/月（品牌 AI 可见性托管服务，按需报价）
 - FAQ Schema（6 Q&A）
 
@@ -218,5 +205,5 @@
 |------|------|------|
 | Phase 1 — MVP | ✅ 完成 | 首页 + 分析功能 + Report 页面 + Compare |
 | Phase 2 — 内容增长 | ✅ 完成 | 6 篇 Blog、2 个 Case Studies、4 个 Programmatic SEO 页、定价页 |
-| Phase 3 — 付费功能 | 🔄 计划中 | Fix Package 生成、导出功能、Login、支付（Stripe） |
-| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（$999）+ AI Visibility Growth（From $2,999/月） |
+| Phase 3 — 付费功能 | ❌ 已取消 | Pro 计划已移除 |
+| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（From $999）+ AI Visibility Growth（From $2,999/月） |

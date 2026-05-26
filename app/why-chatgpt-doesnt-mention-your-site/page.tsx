@@ -222,7 +222,7 @@ export default function Page() {
           <div className="mt-12 p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center">
             <h3 className="text-xl font-bold text-white mb-3">Scan Your Site for Free</h3>
             <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
-              GetCiteFlow checks your homepage and landing pages for the signals AI systems use to determine citations. See your score, diagnose issues, and get a fix package you can deploy.
+               GetCiteFlow checks your homepage and landing pages for the signals AI systems use to determine citations. See your score, diagnose issues, and get actionable recommendations.
             </p>
             <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
               Get Your Free GEO Report <ArrowRight className="w-4 h-4" />

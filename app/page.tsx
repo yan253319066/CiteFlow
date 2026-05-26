@@ -8,10 +8,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'GetCiteFlow | GEO Platform — Get Your Site Cited by AI',
-  description: 'Scan your website, diagnose GEO issues, and deploy fix packages to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report. Enterprise AI Visibility Growth service available.',
+  description: 'Scan your website and diagnose GEO issues to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report. Enterprise AI Visibility Growth service available.',
   keywords: ['GEO platform', 'Generative Engine Optimization', 'AI visibility checker', 'GEO tool', 'ChatGPT citations', 'get cited by AI', 'free GEO report', 'AI SEO tool', 'AI visibility service', 'AI citation service'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan. Diagnose. Fix. Export. Get your site cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.' },
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.' },
   openGraph: { title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — GEO Platform for AI Citations' }] }
 };
 
@@ -87,15 +87,15 @@ const faqSchema = {
       name: "What do you get in a GetCiteFlow report?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GetCiteFlow scans your homepage and core landing pages, checking title tags, H1 structure, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt. You get a GEO score (0-100) with prioritized issues and a fix package you can deploy — including FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, and robots.txt recommendations."
+        text: "GetCiteFlow scans your homepage and core landing pages, checking title tags, H1 structure, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt. You get a GEO score (0-100) with prioritized issues and actionable recommendations to improve your AI visibility."
       }
     },
     {
       "@type": "Question",
-      name: "What does Scan, Diagnose, Fix, Export mean?",
+      name: "How does GetCiteFlow work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Scan — GetCiteFlow crawls your homepage and landing pages to check GEO signals. Diagnose — It outputs a prioritized list of issues affecting your AI visibility. Fix — It generates ready-to-deploy content like FAQ Schema, meta descriptions, and llms.txt files. Export — You can copy, download patches, or export in JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP format."
+        text: "Scan — GetCiteFlow crawls your homepage and landing pages to check GEO signals. Diagnose — It scores your AI visibility across 6 dimensions and highlights what's missing. Improve — Follow the prioritized recommendations and re-scan to track your progress."
       }
     }
   ]

@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           <Section title="2. Information We Collect">
             <h3 className="text-white font-semibold mb-2">Personal Data</h3>
             <p className="mb-4">
-              We may collect personally identifiable information such as your name, email address, and company name when you sign up for our waitlist, create an account, or contact us.
+              We may collect personally identifiable information such as your name, email address, and company name when you create an account or contact us.
             </p>
 
             <h3 className="text-white font-semibold mb-2">Usage Data</h3>
@@ -78,7 +78,7 @@ export default function PrivacyPolicy() {
               <li>To provide, operate, and maintain our Service</li>
               <li>To improve, personalize, and expand our Service</li>
               <li>To communicate with you, including for customer support and product updates</li>
-              <li>To process your waitlist signup or account registration</li>
+              <li>To process your account registration</li>
               <li>To analyze usage patterns and optimize our platform</li>
               <li>To detect, prevent, and address technical issues and fraud</li>
               <li>To comply with legal obligations</li>

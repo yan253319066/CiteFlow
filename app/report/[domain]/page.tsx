@@ -64,7 +64,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     const data = await analyzeSite(domain);
     if (data.error && (data.errorType === 'TIMEOUT' || data.errorCode === 1001)) {
       fullTitle = `${domain} - Analysis Timed Out | GetCiteFlow`;
-      ogDesc = `Analysis for ${domain} timed out. Upgrade to Pro for longer timeouts and priority processing.`;
+      ogDesc = `Analysis for ${domain} timed out. Try again later or contact support for priority processing.`;
     } else {
       const report = parseReport(data);
       fullTitle = withDomain
@@ -171,8 +171,8 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
               <Clock className="w-16 h-16 text-orange-500 mx-auto mb-6" />
               <h1 className="text-3xl font-bold mb-4">Analysis Timed Out</h1>
               <p className="text-muted-foreground mb-2">The target website took too long to respond. This usually happens when the site is slow or has anti-bot protections.</p>
-              <p className="text-muted-foreground mb-4">Upgrading to <strong>Pro</strong> extends the timeout limit and gives priority processing for faster results.</p>
-              <Link href="/pricing" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block mb-4">View Pro Plans</Link>
+              <p className="text-muted-foreground mb-4">You can try again or analyze a different website.</p>
+              <Link href="/" className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold inline-block mb-4">Try Another Site</Link>
               <p className="text-muted-foreground text-sm">You can also try a different website in the meantime.</p>
             </>
           ) : (

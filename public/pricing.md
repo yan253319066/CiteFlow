@@ -5,13 +5,8 @@
 - Limits: 5 reports per hour per IP, 1 URL per analysis
 - Features: AI Visibility Score, breakdown analysis, missing components identification, AI suggestions, shareable report page
 
-## Pro (Coming Soon)
-- Price: TBD
-- Limits: Scheduled monitoring, unlimited URLs, team access
-- Features: Multi-platform citation tracking, brand mention alerts, competitive analysis, API access, PDF exports
-
 ## Enterprise — Technical GEO
-- Price: $999 one-time
+- Price: From $999 one-time (varies by site size and scope)
 - Includes: Full site GEO scan & report, FAQ Schema + llms.txt generation, Meta & entity optimization, Competitor citation analysis, Deployment support
 
 ## Enterprise — AI Visibility Growth

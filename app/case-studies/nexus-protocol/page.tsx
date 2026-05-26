@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { JsonLd } from "@/components/JsonLd";

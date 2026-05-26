@@ -25,7 +25,7 @@ export type RateLimitResult =
 export async function checkRateLimit(ip: string): Promise<RateLimitResult> {
   if (!ratelimit) {
     console.log(`[RateLimit] Redis unavailable, allowing request for IP: ${ip}`);
-    return { success: false, reason: 'redis_unavailable' };
+    return { success: true };
   }
   
   console.log(`[RateLimit] Checking for IP: ${ip}, limit: ${max}/hour`);

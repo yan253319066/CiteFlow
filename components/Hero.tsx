@@ -33,7 +33,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-8">
-          GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. <strong className="text-white">Scan. Diagnose. Fix. Export.</strong>
+          GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. <strong className="text-white">Scan. Diagnose. Fix.</strong>
         </motion.p>
 
         <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} onSubmit={handleAnalyze} className="relative max-w-xl mx-auto w-full">

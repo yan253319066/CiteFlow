@@ -12,7 +12,7 @@
 
 **"Get Your Site Cited by AI"**
 
-副标题：*GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. Scan. Diagnose. Fix. Export.*
+副标题：*GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. Scan. Diagnose. Fix.*
 
 ---
 
@@ -47,8 +47,7 @@
 | 方案 | 价格 | 功能 |
 |------|------|------|
 | Free | $0 | 每小时 5 次报告、GEO 评分、分析、建议、可分享报告页面 |
-| Pro | $19/月 | 修复包生成 + 导出（Coming Soon + Waitlist） |
-| Enterprise — Technical GEO | $999 | 人工全站 GEO 优化 — 一次性 |
+| Enterprise — Technical GEO | From $999 | 人工全站 GEO 优化 — 一次性（按站点规模定价） |
 | Enterprise — AI Visibility Growth | From $2,999/月 | 品牌 AI 可见性托管服务（行业平台策略、品牌实体建设、引用优化内容等，按需报价） |
 
 ---
@@ -81,7 +80,7 @@
 | 位置 | 文案 |
 |------|------|
 | H1 | Get Your Site **Cited by AI** |
-| 英雄区副标题 | GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. **Scan. Diagnose. Fix. Export.** |
+| 英雄区副标题 | GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. **Scan. Diagnose. Fix.** |
 | 英雄区 Badge | Generative Engine Optimization Platform |
 | 输入框占位符 | Enter website URL (e.g. acme.com) |
 | CTA 按钮 | Analyze Site |
@@ -94,14 +93,14 @@
 |----------|------|
 | AI Visibility Score | Comprehensive score measuring AI citation potential across major AI systems. |
 | Missing Components Scan | Identifies missing GEO signals — FAQ Schema, llms.txt, entity clarity, robots.txt — ranked by impact. |
-| Fix Package Generator | Generates deployable fix packages: FAQ Schema JSON-LD, meta descriptions, llms.txt, robots.txt, head code. |
+| Recommendations | Prioritized guidance on improving AI visibility: FAQ Schema, meta descriptions, llms.txt, robots.txt, entity clarity. |
 | Multi-Format Export | Export fixes as JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP. One-click copy or download. |
 
 ### 使用流程
 
 1. **Scan** — Enter any URL, analyze homepage + landing pages for 8 GEO dimensions
 2. **Diagnose** — Review prioritized list of missing GEO components
-3. **Fix** — Generate ready-to-deploy fix packages
+3. **Fix** — Get clear guidance on fixing GEO issues
 4. **Export** — Copy or download in your framework format
 
 ### 定价页面
@@ -109,8 +108,7 @@
 - **标题:** Start with a Free Report
 - **副标题:** No credit card required. Get your AI Visibility Score in seconds.
 - **Free:** $0/forever — 每小时 5 次报告
-- **Pro:** $19/月（Coming Soon，Waitlist）— 修复包 + 8 格式导出
-- **Enterprise — Technical GEO:** $999/次 — 人工全站 GEO 优化
+- **Enterprise — Technical GEO:** From $999/次 — 人工全站 GEO 优化（按站点规模定价）
 - **Enterprise — AI Visibility Growth:** From $2,999/月 — 品牌 AI 可见性托管服务（按需报价）
 - **FAQ Schema:** 6 个 Q&A（含 AI Visibility Growth 说明）
 
@@ -177,8 +175,8 @@
 |------|------|------|
 | Phase 1 — MVP | ✅ 完成 | 首页 + 分析功能 + Report 页面 + Compare |
 | Phase 2 — 内容增长 | ✅ 完成 | 6 篇 Blog、2 个 Case Studies、Programmatic SEO 页、定价页 |
-| Phase 3 — 付费功能 | 🔄 计划中 | Fix Package 生成、导出、Login、Stripe |
-| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（$999）+ AI Visibility Growth（From $2,999/月） |
+| Phase 3 — 付费功能 | ❌ 已取消 | Pro 计划已移除（目标用户非开发者，代码生成价值有限） |
+| Phase 4 — 人工服务 | 🔄 进行中 | Full GEO Optimization（From $999）+ AI Visibility Growth（From $2,999/月） |
 
 ---
 

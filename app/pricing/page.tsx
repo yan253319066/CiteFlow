@@ -1,18 +1,17 @@
 import { Navbar } from "@/components/Navbar";
 import { JsonLd } from "@/components/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import { WaitlistButton } from "./WaitlistButton";
 import { EnterpriseCard } from "./EnterpriseCard";
 import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pricing | GetCiteFlow — Free GEO Reports & Enterprise Services',
-  description: 'Start with free AI Visibility reports. Pro plan at $19/month. Enterprise Technical GEO ($999) and AI Visibility Growth service (from $2,999/month) for comprehensive brand presence.',
+  description: 'Start with free AI Visibility reports. Enterprise Technical GEO (from $999) and AI Visibility Growth service (from $2,999/month) for comprehensive brand presence.',
   keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free', 'AI visibility service pricing', 'enterprise GEO'],
   alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
-  openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Pro at $19/mo with fix package generation and export.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
-  twitter: { card: 'summary_large_image', title: 'Pricing | GetCiteFlow — Free GEO Reports', description: 'Start with free AI Visibility reports. No credit card required. Pro plan at $19/month unlocks fix package generation and multi-format export.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75'] },
+  openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Enterprise services for comprehensive GEO optimization.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
+  twitter: { card: 'summary_large_image', title: 'Pricing | GetCiteFlow — Free GEO Reports', description: 'Start with free AI Visibility reports. No credit card required. Enterprise GEO services for advanced needs.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75'] },
 };
 
 const faqSchema = {
@@ -24,7 +23,7 @@ const faqSchema = {
       name: "Is GetCiteFlow really free?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The Free plan gives you 5 GEO reports per hour, AI Visibility Scores, breakdown analysis across 8 dimensions, missing component identification, and shareable report pages — no credit card required."
+        text: "Yes. The Free plan gives you 5 GEO reports per hour, AI Visibility Scores, breakdown analysis across 6 dimensions, missing component identification, and shareable report pages — no credit card required."
       }
     },
     {
@@ -32,15 +31,7 @@ const faqSchema = {
       name: "What do you get in a free GEO report?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Every free report includes an AI Visibility Score (0-100), breakdown across 8 dimensions (FAQ coverage, entity clarity, llms.txt, robots.txt, schema, AI-readable markdown, and more), a list of missing components ranked by impact, prioritized suggestions, and a shareable report page."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "What will the Pro plan include?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        "text": "The Pro plan ($19/month) will unlock fix package generation — ready-to-deploy FAQ Schema JSON-LD, meta descriptions, llms.txt, robots.txt, and head code. Export as JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP. One-click copy or download."
+        text: "Every free report includes an AI Visibility Score (0-100), breakdown across 6 dimensions (AI visibility, FAQ coverage, entity clarity, authority, content structure, summary optimization), a list of missing components ranked by impact, prioritized suggestions, and a shareable report page."
       }
     },
     {
@@ -94,10 +85,10 @@ export default function PricingPage() {
                 <span className="text-3xl font-black">$0</span>
                 <span className="text-sm text-muted-foreground">/forever</span>
               </div>
-              <p className="text-sm text-muted-foreground">Scan your site across 8 GEO dimensions and see exactly what AI systems find — and what they miss.</p>
+              <p className="text-sm text-muted-foreground">Scan your site across 6 GEO dimensions and see exactly what AI systems find — and what they miss.</p>
             </div>
             <ul className="space-y-2 mb-6 flex-1 text-sm">
-              {["5 reports per hour", "AI Visibility Score (0-100)", "8-dimension breakdown (FAQ, llms.txt, schema, entity clarity, etc.)", "Missing components ranked by impact", "Shareable report page"].map((f) => (
+              {["5 reports per hour", "AI Visibility Score (0-100)", "6-dimension breakdown (AI visibility, FAQ coverage, entity clarity, authority, content structure, summary optimization)", "Missing components ranked by impact", "Shareable report page"].map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   <span>{f}</span>
@@ -107,9 +98,13 @@ export default function PricingPage() {
             <Link href="/" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer">
               Analyze Your Site <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
+            <div className="mt-4 p-3 rounded-xl bg-primary/5 border border-primary/10 text-center">
+              <p className="text-xs text-muted-foreground">
+                Don't want to fix it yourself?{' '}
+                <span className="text-primary font-semibold">Try Technical GEO →</span>
+              </p>
+            </div>
           </div>
-
-          <WaitlistButton />
 
           <EnterpriseCard />
         </div>

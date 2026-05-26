@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Card } from "@/components/ui/card";
-import { Search, FileText, Wrench, Download } from "lucide-react";
+import { Search, FileText, Download, Share2 } from "lucide-react";
 
 const features = [
   {
@@ -16,14 +16,14 @@ const features = [
     description: "Receive a prioritized issue list ranked by impact on AI citation probability. See exactly what your site is missing vs. what AI search engines look for.",
   },
   {
-    icon: Wrench,
-    title: "Fix Package Generator",
-    description: "Get ready-to-deploy code: FAQ Schema JSON-LD, optimized meta descriptions, llms.txt content, robots.txt rules, and structured data patches — no developer required.",
+    icon: Download,
+    title: "Actionable Recommendations",
+    description: "Get prioritized, clear guidance on exactly what to fix — from FAQ Schema and meta descriptions to llms.txt and entity clarity. No fluff, just what moves the needle.",
   },
   {
-    icon: Download,
-    title: "Multi-Format Export",
-    description: "Copy with one click, download patches, or export in JSON-LD, Markdown, HTML Snippet, React JSX, Next.js, Vue, Nuxt.js, or WordPress PHP format. Deploy what AI systems need to cite your brand.",
+    icon: Share2,
+    title: "Share & Compare",
+    description: "Share your report with a unique URL, compare your AI visibility against competitors, and re-scan to track your improvement over time.",
   },
 ];
 
@@ -32,11 +32,10 @@ export function Features() {
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Scan. Diagnose. Fix. Export.
+          Scan. Diagnose. Fix.
         </h2>
         <p className="text-slate-400 text-center max-w-2xl mx-auto mb-16">
-          GetCiteFlow doesn't just show you a score — it tells you exactly what to fix and generates the code to deploy. 
-          Everything AI systems need to cite your brand, packaged for your framework.
+          GetCiteFlow doesn't just show you a score — it tells you exactly what's missing and what to fix.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
