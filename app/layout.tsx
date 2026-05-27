@@ -35,6 +35,21 @@ const organizationSchema = {
   ],
 };
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'GetCiteFlow',
+  url: 'https://www.getciteflow.ai',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.getciteflow.ai/report/{domain}',
+    },
+    'query-input': 'required name=domain',
+  },
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)}>
@@ -42,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div className="flex-1">{children}</div>
         <Footer />
         <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <Analytics />
         <SpeedInsights />
       </body>

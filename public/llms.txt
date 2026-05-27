@@ -3,9 +3,9 @@
 GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websites get cited by AI search engines including ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Scan. Diagnose. Fix.
 
 ## Core Features
-- **AI Visibility Score** — 0-100 GEO score with breakdown across entity clarity, FAQ coverage, schema, and more
+- **AI Visibility Score** — 0-100 GEO score with breakdown across 6 dimensions
 - **Missing Components Scan** — Detects missing FAQ Schema, llms.txt, robots.txt issues, weak entity clarity, missing AI-readable markdown
-- **Multi-Format Export** — Copy or download your report data in multiple formats
+- **Actionable Recommendations** — Prioritized guidance on what to fix to improve AI visibility
 
 ## Services
 - AI Visibility Growth: https://www.getciteflow.ai/services/ai-visibility-growth
@@ -34,7 +34,7 @@ GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websit
 - Terms of Service: https://www.getciteflow.ai/terms-of-service
 
 ## Pricing
-Free: AI Visibility Score & GEO report for any URL — 8-dimension analysis, missing component detection
+Free: AI Visibility Score & GEO report for any URL — 6-dimension analysis, missing component detection
 Enterprise Technical GEO: From $999 one-time — Full GEO optimization (site-wide audit, deployment support). Price varies by site size and scope.
 Enterprise AI Visibility Growth: From $2,999/month — Managed service for brand presence across AI systems (industry-specific platform strategy, brand entity building, citation-optimized content, competitor citation gap analysis, cross-platform distribution, monthly monitoring & iteration). Custom-priced based on scope.
 
