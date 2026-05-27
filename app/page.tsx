@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: 'Scan your website and diagnose GEO issues to get cited by ChatGPT, Claude, Perplexity, and Gemini. Free AI Visibility report. Enterprise AI Visibility Growth service available.',
   keywords: ['GEO platform', 'Generative Engine Optimization', 'AI visibility checker', 'GEO tool', 'ChatGPT citations', 'get cited by AI', 'free GEO report', 'AI SEO tool', 'AI visibility service', 'AI citation service'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.' },
-  openGraph: { title: 'GetCiteFlow — GEO Platform for AI Citations', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — GEO Platform for AI Citations' }] }
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — AI Visibility Platform for the AI Search Era', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.' },
+  openGraph: { title: 'GetCiteFlow — AI Visibility Platform for the AI Search Era', description: 'Scan your website, diagnose GEO issues, and get cited by ChatGPT, Claude, and Perplexity. Enterprise AI Visibility Growth service available.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — AI Visibility Platform for the AI Search Era' }] }
 };
 
 const softwareSchema = {
