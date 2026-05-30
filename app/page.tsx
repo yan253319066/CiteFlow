@@ -101,12 +101,40 @@ const faqSchema = {
   ]
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Improve Your Site's AI Visibility",
+  description: "Three simple steps to understand and improve your site's AI visibility using GetCiteFlow.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Full Site Scan",
+      text: "Enter any URL and GetCiteFlow crawls your homepage and core landing pages — checking title tags, H1s, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt."
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "GEO Diagnosis & Score",
+      text: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find — and what they miss — ranked by impact."
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Track & Improve",
+      text: "Follow the prioritized recommendations to fix what's holding your site back. Re-scan anytime to track your progress and watch your score grow."
+    }
+  ]
+};
+
 export default function HomePage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={softwareSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={howToSchema} />
       <Navbar />
       <Hero />
       <ScoreCards />
