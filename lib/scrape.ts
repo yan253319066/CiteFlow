@@ -19,6 +19,9 @@ export interface ScrapeResult {
   avgParagraphLength: number;
   metaDescriptionLength: number;
   hasSummarySection: boolean;
+  contentFreshnessDays: number | null;
+  hasAuthorBylines: boolean;
+  hasOriginalData: boolean;
 }
 
 export enum ScrapeErrorCode {
@@ -142,6 +145,21 @@ function extractFromHtml(html: string) {
   const bodyLower = text.toLowerCase();
   const hasSummarySection = /\b(key takeaways?|executive summary|tldr|tl;dr|what we cover|quick summary|overview|in this (article|post|guide))\b/i.test(bodyLower);
 
+  const dateModifiedMatch = /"dateModified"\s*:\s*"([^"]+)"/i.exec(html);
+  const datePublishedMatch = /"datePublished"\s*:\s*"([^"]+)"/i.exec(html);
+  let contentFreshnessDays: number | null = null;
+  const dateStr = dateModifiedMatch?.[1] || datePublishedMatch?.[1];
+  if (dateStr) {
+    const parsed = new Date(dateStr);
+    if (!isNaN(parsed.getTime())) {
+      contentFreshnessDays = Math.floor((Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
+    }
+  }
+
+  const hasAuthorBylines = /"@type"\s*:\s*"Person"/i.test(html) || /author.*?["\w\s]+["]/.test(html);
+
+  const hasOriginalData = /\b(we found|our research|our data|our analysis|we tested|we surveyed|our study|proprietary|original)\b/i.test(bodyLower);
+
   return {
     title: extractedTitle,
     description,
@@ -159,6 +177,9 @@ function extractFromHtml(html: string) {
     avgParagraphLength,
     metaDescriptionLength: description.length,
     hasSummarySection,
+    contentFreshnessDays,
+    hasAuthorBylines,
+    hasOriginalData,
   };
 }
 
@@ -233,5 +254,8 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     avgParagraphLength: extracted.avgParagraphLength,
     metaDescriptionLength: extracted.metaDescriptionLength,
     hasSummarySection: extracted.hasSummarySection,
+    contentFreshnessDays: extracted.contentFreshnessDays,
+    hasAuthorBylines: extracted.hasAuthorBylines,
+    hasOriginalData: extracted.hasOriginalData,
   };
 }

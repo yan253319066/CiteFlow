@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     description: 'GEO is the practice of optimizing content so that AI search engines cite your brand. Here is how it works and why it matters.',
     type: 'article',
     publishedTime: '2025-10-08',
-    authors: ['GetCiteFlow Editorial'],
+    modifiedTime: '2026-05-31',
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/what-is-geo&score=75', width: 1200, height: 630, alt: 'What Is GEO? Generative Engine Optimization Guide' }],
   },
   twitter: {

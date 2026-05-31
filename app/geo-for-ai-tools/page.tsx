@@ -15,7 +15,7 @@ const articleSchema = {
   description: "Learn how to optimize your AI tool or AI product for citations in ChatGPT, Perplexity, Gemini, and other AI assistants. Special considerations for AI products.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
-  author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/geo-for-ai-tools&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/geo-for-ai-tools" },

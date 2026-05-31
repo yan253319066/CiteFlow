@@ -14,7 +14,7 @@ const articleSchema = {
   description: "A DeFi protocol that was invisible in ChatGPT despite strong SEO. How GEO fixed it in 3 weeks.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
-  author: { "@type": "Organization", name: "GetCiteFlow" },
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/nexus-protocol&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/nexus-protocol" },

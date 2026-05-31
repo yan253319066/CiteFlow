@@ -13,8 +13,8 @@ const articleSchema = {
   headline: "What Is GEO? A Complete Guide to Generative Engine Optimization",
   description: "GEO is the practice of optimizing content so AI search engines cite your brand. A definitive guide to how it works, how it differs from SEO, and how to implement it.",
   datePublished: "2025-10-08",
-  dateModified: "2025-10-08",
-  author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
+  dateModified: "2026-05-31",
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/what-is-geo&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/what-is-geo" },
@@ -47,7 +47,7 @@ const faqSchema = {
       name: "How is GEO different from SEO?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SEO optimizes for a link-based ranking system that uses backlinks, domain authority, keyword density, and user engagement signals. GEO optimizes for retrieval-augmented generation pipelines, where the ranking criteria favor entity clarity, structured data, factual consistency across sources, and unambiguous categorization. The two share almost no overlapping signals."
+        text: "SEO and GEO share the same foundation — Google's core Search ranking and quality systems power both traditional results and AI overviews via retrieval-augmented generation. However, GEO adds additional requirements: entity clarity, structured data, and content designed for direct extraction by LLMs. Strong SEO is the starting point; GEO builds on top of it."
       }
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       name: "Do I need to stop doing SEO to do GEO?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. SEO and GEO serve different functions. SEO captures demand from users who search on Google. GEO captures demand from users who ask AI assistants. The overlap is minimal — most content that performs well in one channel does not automatically perform well in the other. You need both strategies running in parallel."
+        text: "No. SEO and GEO are complementary. Google's AI features (AI Overviews, AI Mode) are rooted in the same core ranking systems as traditional search via RAG and query fan-out, so strong SEO provides the foundation. GEO adds specific optimizations for AI extractability — entity clarity, structured data, and citation-ready content blocks. You need SEO as the base and GEO as the overlay."
       }
     },
     {
@@ -106,8 +106,8 @@ export default function WhatIsGEO() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-secondary" />
               <div>
-                <p className="text-sm font-bold">GetCiteFlow Editorial</p>
-                <p className="text-xs text-muted-foreground">October 8, 2025 • 9 min read</p>
+                <p className="text-sm font-bold">Neil Yan</p>
+                <p className="text-xs text-muted-foreground">Updated May 31, 2026 • 9 min read</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -128,7 +128,7 @@ export default function WhatIsGEO() {
               Key Takeaways
             </h3>
             <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
-              <li><strong className="text-white">GEO targets AI citation, not Google rankings</strong> — the signals that matter for LLMs are different from SEO signals.</li>
+              <li><strong className="text-white">GEO builds on SEO, not replaces it</strong> — Google's AI features use the same core ranking systems as traditional search via RAG, so SEO fundamentals are the foundation for AI citations too.</li>
               <li><strong className="text-white">Entity clarity is the #1 factor</strong> — models need to unambiguously resolve what your brand is before they can cite it.</li>
               <li><strong className="text-white">Structured content gets cited 2x more</strong> — FAQ Schema, comparison tables, and definition lists provide extraction points that narrative text lacks.</li>
               <li><strong className="text-white">Consistency across sources compounds</strong> — the same entity-language used on your site, docs, and third-party reviews reinforces the model's association map.</li>
@@ -146,13 +146,13 @@ export default function WhatIsGEO() {
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">How GEO Differs from SEO</h2>
           <p className="leading-relaxed mb-6">
-            The most common mistake is treating GEO as "SEO but for ChatGPT." SEO is built on PageRank and its descendants — a graph-based authority system where links between pages function as votes. Google's algorithm processes hundreds of signals including backlink profiles, domain age, page speed, mobile usability, and user engagement metrics like bounce rate and dwell time. None of those signals exist in a generative engine's retrieval pipeline.
+            The most common mistake is treating GEO as "SEO but for ChatGPT." Google's own AI features — AI Overviews and AI Mode — are rooted in the same core Search ranking systems as traditional results. They use retrieval-augmented generation (RAG) and query fan-out, drawing from the same Search index that powers organic results. This means SEO fundamentals (crawlability, indexing, content quality, trust signals) are the foundation for both channels.
           </p>
           <p className="leading-relaxed mb-6">
-            When a model uses retrieval-augmented generation, the pipeline works like this: the user's query is embedded into a vector, the vector is matched against a corpus of indexed documents, the top results are ranked by relevance to the query, and the selected documents are fed into the LLM as context. The ranking step uses embedding similarity, not link authority. A brand new domain with no backlinks but with high topical alignment to the query can outrank an established domain with thousands of backlinks if the newer content uses more precise entity language.
+            However, the output format creates different optimization requirements. A traditional search result sends users to your site. An AI-generated answer keeps users in the chat window, with citations as the only pointer back. So while the retrieval layer is shared, the content that gets cited needs to be structured differently — self-contained answer blocks, clear entity definitions, FAQ Schema markup, and comparison tables that an LLM can extract without needing surrounding context.
           </p>
           <p className="leading-relaxed mb-6">
-            We tested this by comparing citation rates for 30 brands across two categories — project management software and CRM tools. Brands with strong SEO but weak entity clarity (vague category language, no structured data, generic value propositions) appeared as cited sources roughly 70 percent less often in ChatGPT outputs than brands with weak SEO but strong entity clarity. The correlation between Google ranking position and AI citation frequency was statistically insignificant across both categories.
+            Think of it as building on the same foundation with an additional floor. Strong SEO gets you into the index. GEO optimizes how your content is extracted and cited once it's there. We tested this by comparing citation rates for 30 brands across two categories — project management software and CRM tools. Brands with strong SEO but weak entity clarity (vague category language, no structured data, generic value propositions) appeared as cited sources roughly 70 percent less often in ChatGPT outputs than brands that combined good SEO fundamentals with strong GEO signals.
           </p>
 
           <div className="p-8 glass rounded-3xl my-12 border-primary/20">

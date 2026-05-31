@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'The correlation between Google rankings and ChatGPT citations is only 0.3. Here\'s why.',
     type: 'article',
     publishedTime: '2026-05-10',
-    authors: ['GetCiteFlow Intelligence'],
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/chatgpt-seo&score=75', width: 1200, height: 630, alt: 'Search Rankings Don\'t Translate to AI Citations' }],
   },
   twitter: {

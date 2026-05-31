@@ -25,7 +25,7 @@ const articleSchema = {
   description: 'Five reasons AI systems ignore your content even if you rank well on Google, with actionable fixes for each.',
   datePublished: '2026-05-24',
   dateModified: '2026-05-24',
-  author: { '@type': 'Organization', name: 'GetCiteFlow Editorial' },
+  author: { '@type': 'Person', name: 'Neil Yan', url: 'https://github.com/yan253319066' },
   publisher: { '@type': 'Organization', name: 'GetCiteFlow', url: 'https://www.getciteflow.ai' },
   image: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/why-chatgpt-doesnt-mention-your-site&score=75',
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/why-chatgpt-doesnt-mention-your-site' },
@@ -95,7 +95,7 @@ export default function Page() {
             Why ChatGPT Doesn&apos;t Mention Your Site
           </h1>
           <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span>GetCiteFlow Editorial</span>
+            <span>Neil Yan</span>
             <span>•</span>
             <span>May 24, 2026</span>
             <span>•</span>

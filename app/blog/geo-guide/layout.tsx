@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'A deep dive into how LLMs select sources and why traditional SEO doesn\'t prepare you for AI citations.',
     type: 'article',
     publishedTime: '2026-05-15',
-    authors: ['GetCiteFlow Editorial'],
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75', width: 1200, height: 630, alt: 'How Generative Engines Choose What to Cite' }],
   },
   twitter: {

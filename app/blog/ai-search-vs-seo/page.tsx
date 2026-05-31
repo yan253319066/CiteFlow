@@ -13,8 +13,8 @@ const articleSchema = {
   headline: "AI Search vs. SEO: Why Traditional Rankings No Longer Drive Traffic",
   description: "The signals Google uses to rank pages and the signals LLMs use to cite sources are fundamentally different. Here is what the divergence means for content strategy.",
   datePublished: "2025-10-22",
-  dateModified: "2025-10-22",
-  author: { "@type": "Organization", name: "GetCiteFlow Intelligence" },
+  dateModified: "2026-05-31",
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/ai-search-vs-seo&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/ai-search-vs-seo" },
@@ -47,7 +47,7 @@ const faqSchema = {
       name: "Do Google rankings affect AI citations?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Weakly at best. The retrieval systems used by LLMs do not process Google's PageRank or backlink data. A page can rank #1 on Google and never appear in a ChatGPT citation, while a page with no Google visibility can be cited consistently if it has strong entity clarity and structured formatting."
+        text: "The relationship is more nuanced than a simple yes or no. Google's AI features (AI Overviews, AI Mode) are built on the same core Search ranking systems via RAG — so strong SEO does provide a foundation. However, ranking alone doesn't guarantee citation. A page that ranks #1 but lacks entity clarity and structured formatting may still be invisible to LLMs in standalone AI platforms like ChatGPT, which use different retrieval pipelines than Google's own AI surfaces."
       }
     },
     {
@@ -106,8 +106,8 @@ export default function AISearchVsSEO() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#6E7BFF] to-[#8B5CF6]" />
               <div>
-                <p className="text-sm font-bold">GetCiteFlow Intelligence</p>
-                <p className="text-xs text-muted-foreground">October 22, 2025 • 7 min read</p>
+                <p className="text-sm font-bold">Neil Yan</p>
+                <p className="text-xs text-muted-foreground">Updated May 31, 2026 • 7 min read</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -128,7 +128,7 @@ export default function AISearchVsSEO() {
               Key Takeaways
             </h3>
             <ol className="text-sm text-slate-400 space-y-3 list-decimal list-inside">
-              <li><strong className="text-white">Google rankings and AI citations are weakly correlated</strong> — a page ranking #1 on Google can be invisible in ChatGPT, and vice versa.</li>
+              <li><strong className="text-white">Google rankings and AI citations share the same foundation but diverge in output</strong> — AI Overviews use Google's core ranking systems via RAG, but ChatGPT and other standalone AI platforms use independent retrieval pipelines.</li>
               <li><strong className="text-white">AI Overviews reduce organic CTR by 40-60%</strong> — your SEO dashboard shows rank but not the traffic you've lost to AI answers.</li>
               <li><strong className="text-white">Entity resolution, not backlinks, drives AI citations</strong> — LLMs prioritize pages that unambiguously define their category.</li>
               <li><strong className="text-white">Cross-source agreement amplifies authority</strong> — appearing on Wikipedia and industry reports matters more than niche blog links.</li>
@@ -186,7 +186,7 @@ export default function AISearchVsSEO() {
           </div>
 
           <p className="leading-relaxed mb-6">
-            The retrieval systems behind generative AI do not share Google's signal set. Here is what we know from observing citation patterns across ChatGPT, Perplexity, and Claude over the past year:
+            For Google's own AI surfaces (AI Overviews, AI Mode), the retrieval is rooted in core Search ranking systems via RAG — meaning SEO fundamentals directly carry over. For standalone platforms like ChatGPT, Perplexity, and Claude, the retrieval pipelines are independent and prioritize different signals. Here is what we know from observing citation patterns across all platforms over the past year:
           </p>
           <p className="leading-relaxed mb-4">
             <strong className="text-white">Entity resolution comes first.</strong> A source is only citable if the model can determine what entity it represents. Pages that define their subject in unambiguous terms — "we are a CRM for small businesses" not "we help teams grow" — are systematically preferred.

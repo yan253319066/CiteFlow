@@ -14,7 +14,7 @@ const articleSchema = {
   description: "Why Notion appears first in 92% of AI-generated productivity recommendations — and what every SaaS company can learn.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
-  author: { "@type": "Organization", name: "GetCiteFlow" },
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/case-studies/notion-strategy&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/case-studies/notion-strategy" },

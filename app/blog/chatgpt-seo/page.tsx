@@ -14,7 +14,7 @@ const articleSchema = {
   description: "High Google rankings don't guarantee AI citations. We compared 50 B2B SaaS companies and found a weak correlation.",
   datePublished: "2026-05-10",
   dateModified: "2026-05-10",
-  author: { "@type": "Organization", name: "GetCiteFlow Intelligence" },
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/chatgpt-seo&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/chatgpt-seo" },
@@ -39,7 +39,7 @@ const faqSchema = {
       "name": "Do Google rankings affect ChatGPT citations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The correlation is weak — around 0.3 in our study of 50 B2B SaaS companies. A page can rank #1 on Google and never appear in a ChatGPT citation, while a page with no Google visibility can be cited consistently if it has strong entity clarity."
+        "text": "The correlation between Google rankings and ChatGPT citations is weak — around 0.3 in our study of 50 B2B SaaS companies. This is because ChatGPT uses independent retrieval pipelines, not Google's core ranking. However, for Google's own AI surfaces (AI Overviews, AI Mode), the same core ranking systems apply via RAG — so SEO does matter for Google's AI features specifically."
       }
     },
     {
@@ -105,7 +105,7 @@ export default function ChatGPTSEO() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#6E7BFF] to-[#8B5CF6]" />
               <div>
-                <p className="text-sm font-bold">GetCiteFlow Intelligence</p>
+                <p className="text-sm font-bold">Neil Yan</p>
                 <p className="text-xs text-muted-foreground">May 10, 2026 • 6 min read</p>
               </div>
             </div>

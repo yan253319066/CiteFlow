@@ -8,9 +8,11 @@ export function getProvider(input?: string | null): AIProvider {
 export const ANALYZE_PROMPT = (url: string, siteData?: string) => `Analyze the AI visibility (GEO - Generative Engine Optimization) of the website: ${url}.
 
 ${siteData ? `Here are the actual signals detected from the website:\n${siteData}\n\nBase your analysis on these real signals rather than guessing.` : ''}
-Evaluate these two factors specifically using the signals above:
+Evaluate these factors specifically using the signals above:
 - contentStructure (0-100): How well the content is structured for AI parsing — uses lists, tables, short paragraphs, clear heading hierarchy.
 - summaryOptimization (0-100): How optimized the page is for AI summarization — strong meta description, opening paragraph that serves as a clear summary, and a dedicated summary/key takeaways section.
+- authority (0-100): Demonstrates first-hand experience, original analysis, proprietary data, named authors with credentials, and authoritative citations — not generic or commodity content.
+- entityClarity (0-100): How clearly the page defines what entity/category it belongs to — unambiguous category language, consistent terminology, explicit "X is a Y" statements.
 
 Return ONLY a JSON object with these exact keys:
 {

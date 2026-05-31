@@ -5,33 +5,33 @@ import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'How to Get Cited by ChatGPT | GetCiteFlow',
-  description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
-  keywords: ['chatgpt citations', 'geo', 'ai visibility'],
+  description: 'ChatGPT citations are not the same as Google rankings. Learn how to get your brand cited rather than just ranked.',
+  keywords: ['ChatGPT citations', 'GEO', 'AI visibility', 'ChatGPT SEO', 'AI search visibility', 'generative engine optimization'],
   alternates: { canonical: 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
   openGraph: {
     title: 'How to Get Cited by ChatGPT',
     description: 'A repeatable framework for increasing how often your brand gets mentioned by AI assistants.',
     type: 'article',
     publishedTime: '2026-05-18',
-    authors: ['GetCiteFlow Intelligence'],
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75', width: 1200, height: 630, alt: 'How to Get Cited by ChatGPT' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How to Get Cited by ChatGPT',
-    description: 'A framework for increasing your brand citation rate in AI.',
+    description: 'ChatGPT citations are not the same as Google rankings.',
     images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75'],
   },
 };
 
 const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'How to Get Cited by ChatGPT',
-  description: 'A framework for increasing your brand citation rate in ChatGPT, Perplexity, and Gemini.',
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to Get Cited by ChatGPT",
+  description: "ChatGPT citations run on a different retrieval system than Google rankings. Entity clarity, not backlinks, determines whether the model mentions your brand.",
   datePublished: '2026-05-18',
   dateModified: '2026-05-18',
-  author: { '@type': 'Organization', name: 'GetCiteFlow Intelligence' },
+  author: { '@type': 'Person', name: 'Neil Yan', url: 'https://github.com/yan253319066' },
   publisher: { '@type': 'Organization', name: 'GetCiteFlow', url: 'https://www.getciteflow.ai' },
   image: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/rank-in-chatgpt&score=75',
   mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
@@ -101,7 +101,7 @@ export default function Page() {
       Back to Articles
     </Link>
     <h1 className="text-4xl font-bold mb-4">How to Get Cited by ChatGPT</h1>
-    <p className="text-sm text-muted-foreground mb-8">GetCiteFlow Intelligence • May 18, 2026 • 7 min read</p>
+    <p className="text-sm text-muted-foreground mb-8">Neil Yan • May 18, 2026 • 7 min read</p>
     
     <div className="border border-primary/20 bg-gradient-to-br from-primary/5 to-transparent p-8 rounded-3xl my-10">
       <h3 className="text-lg font-bold text-white mb-4">Key Takeaways</h3>

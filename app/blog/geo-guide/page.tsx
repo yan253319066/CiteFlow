@@ -14,7 +14,7 @@ const articleSchema = {
   description: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy.",
   datePublished: "2026-05-15",
   dateModified: "2026-05-15",
-  author: { "@type": "Organization", name: "GetCiteFlow Editorial" },
+  author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
   publisher: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   image: "https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/geo-guide&score=75",
   mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.getciteflow.ai/blog/geo-guide" },
@@ -47,7 +47,7 @@ const faqSchema = {
       name: "What is the difference between SEO and GEO?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Traditional SEO uses backlinks, keywords, and page speed for Google rankings. GEO (Generative Engine Optimization) focuses on making content structure and entity clarity optimized for AI retrieval systems, where LLMs prefer pages with FAQ markup, comparison tables, and clear entity definitions."
+        text: "Traditional SEO uses backlinks, keywords, and page speed for Google rankings. GEO builds on the same foundation — Google's AI features use the same core ranking systems via RAG. GEO adds specific optimizations for AI extractability: entity clarity, FAQ Schema, comparison tables, and self-contained content blocks that LLMs can cite directly."
       }
     },
     {
@@ -106,7 +106,7 @@ export default function BlogPost() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-secondary" />
               <div>
-                <p className="text-sm font-bold">GetCiteFlow Editorial</p>
+                <p className="text-sm font-bold">Neil Yan</p>
                 <p className="text-xs text-muted-foreground">May 15, 2026 • 8 min read</p>
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function BlogPost() {
 
         <div className="prose prose-invert prose-primary max-w-none text-slate-400">
           <p className="text-xl text-white leading-relaxed mb-8">
-            There is a common misconception that optimizing for Google automatically prepares you for AI citations. It does not. The mechanism Google uses to rank pages and the mechanism an LLM uses to decide which source to cite share almost nothing in common besides the input text itself.
+            There is a common misconception that optimizing for Google automatically prepares you for AI citations. It does not — but not because Google's AI features use a completely separate system. In fact, AI Overviews and AI Mode are rooted in the same core Search ranking systems via retrieval-augmented generation. SEO fundamentals (crawlability, indexing, content quality) are the foundation. What GEO adds on top is content structured for direct extraction: entity clarity, FAQ Schema, comparison tables, and self-contained answer blocks that LLMs can cite without needing surrounding context.
           </p>
 
           <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">

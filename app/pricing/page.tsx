@@ -55,7 +55,7 @@ const faqSchema = {
       name: "How is GEO different from SEO?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SEO optimizes for Google rankings using backlinks and keywords. GEO optimizes for AI citations by improving entity clarity, structured data, FAQ markup, and machine-readable files like llms.txt. Most SEO tools don't check these signals — GetCiteFlow does."
+        text: "SEO and GEO are complementary. SEO optimizes for Google rankings using backlinks and keywords — this provides the foundation since Google's AI features (AI Overviews, AI Mode) use the same core ranking systems via RAG. GEO builds on that foundation with additional optimizations: entity clarity, structured data, FAQ markup, citation-ready content blocks, and machine-readable files like llms.txt. GetCiteFlow checks both layers."
       }
     }
   ]

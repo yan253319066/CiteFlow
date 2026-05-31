@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Why AI visibility is replacing CTR as the primary metric for content performance in the age of generative search.',
     type: 'article',
     publishedTime: '2026-05-05',
-    authors: ['GetCiteFlow Editorial'],
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/ai-visibility&score=75', width: 1200, height: 630, alt: 'AI Visibility Is a Better Metric Than CTR' }],
   },
   twitter: {

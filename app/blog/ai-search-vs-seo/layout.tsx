@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     description: 'The signals Google uses to rank pages and the signals LLMs use to cite sources are fundamentally different. Here is what the gap means for your content strategy.',
     type: 'article',
     publishedTime: '2025-10-22',
-    authors: ['GetCiteFlow Intelligence'],
+    modifiedTime: '2026-05-31',
+    authors: ['Neil Yan'],
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog/ai-search-vs-seo&score=75', width: 1200, height: 630, alt: 'AI Search vs SEO Comparison' }],
   },
   twitter: {
