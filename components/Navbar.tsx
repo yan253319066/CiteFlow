@@ -165,10 +165,12 @@ export function Navbar() {
         
         <div className="flex items-center gap-4">
           <a 
-            href="/pricing"
+            href="https://app.getciteflow.ai"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:flex w-32 h-10 border border-white/10 rounded-full items-center justify-center text-sm font-medium bg-white/5 hover:bg-white/10 transition-all cursor-pointer hover:border-primary/50"
           >
-            Pricing
+            App
           </a>
           
           {/* Mobile Toggle */}
@@ -239,11 +241,13 @@ export function Navbar() {
               
               <hr className="border-white/5 my-4" />
               <a 
-                href="/pricing"
+                href="https://app.getciteflow.ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="flex w-full h-14 border border-white/10 rounded-2xl items-center justify-center text-lg font-bold bg-white/5 cursor-pointer"
               >
-                Pricing
+                App
               </a>
             </nav>
           </motion.div>
