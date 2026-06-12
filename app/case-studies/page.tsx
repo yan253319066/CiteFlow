@@ -7,11 +7,11 @@ import Link from "next/link";
 
 const cases = [
   {
-    title: "How Nexus Protocol increased AI citations by 140% in 3 weeks",
-    company: "Nexus Protocol",
+    title: "How We Optimized GetCiteFlow's Own AI Visibility",
+    company: "GetCiteFlow",
     slug: "nexus-protocol",
-    result: "+140% Visibility",
-    description: "A DeFi protocol that was invisible in ChatGPT answers despite strong SEO and better yields than its competitors. The fix was simpler than they expected."
+    result: "75 → 92 Score",
+    description: "We ran our own GEO platform against ourselves — and found we were missing the very things we tell users to fix. Here's what we learned from eating our own dog food."
   },
   {
     title: "The Notion GEO Playbook: Dominating Productivity Answers",

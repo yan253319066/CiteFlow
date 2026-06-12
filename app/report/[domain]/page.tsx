@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { Card } from '@/components/ui/card';
-import { AlertTriangle, ArrowLeft, Clock, Lightbulb, ShieldAlert } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ArrowRight, Clock, Lightbulb, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
@@ -253,6 +253,28 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
             </div>
           </div>
           <Card className="bg-gradient-to-r from-[#6E7BFF]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mt-8 mb-8"><p className="text-sm text-slate-300 leading-relaxed">{report.summary}</p></Card>
+
+          {/* Enterprise CTA */}
+          <div className="bg-gradient-to-r from-[#6E7BFF]/10 via-[#8B5CF6]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mb-8 flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-white mb-2">Want us to fix these issues for you?</h3>
+              <p className="text-sm text-slate-400">Our team handles the technical GEO work — FAQ Schema, llms.txt, entity optimization — so you don't have to.</p>
+            </div>
+            <a href="mailto:support@getciteflow.ai" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl text-sm font-bold transition-colors shrink-0">
+              Contact Us <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Newsletter CTA */}
+          <div className="border border-white/10 rounded-3xl p-8 mb-8 text-center">
+            <h3 className="text-lg font-bold text-white mb-2">Get weekly GEO tips in your inbox</h3>
+            <p className="text-sm text-slate-400 mb-4">AI visibility strategies, case studies, and actionable tips — no spam.</p>
+            <a href="mailto:support@getciteflow.ai?subject=Subscribe%20to%20GEO%20Newsletter" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl text-sm font-bold transition-colors">
+              Subscribe via Email <ArrowRight className="w-4 h-4" />
+            </a>
+            <p className="text-xs text-slate-600 mt-3">No spam, unsubscribe anytime.</p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StatMini label="AI Visibility" value={report.breakdown.aiVisibility} />
             <StatMini label="FAQ Coverage" value={report.breakdown.faqCoverage} />

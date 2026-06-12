@@ -205,9 +205,7 @@ export default function Page() {
             transition={{ delay: 0.4 }}
           >
             <a
-              href="https://t.me/OS_Blockchain"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:support@getciteflow.ai"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-4 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity"
             >
               Get Started <ArrowRight className="w-4 h-4" />
@@ -321,12 +319,10 @@ export default function Page() {
               View Pricing <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://t.me/OS_Blockchain"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:support@getciteflow.ai"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-primary text-white hover:bg-primary/90 transition-all cursor-pointer mb-3"
             >
-              Contact via Telegram <ArrowRight className="w-4 h-4" />
+              Contact Us <ArrowRight className="w-4 h-4" />
             </a>
             <p className="text-xs text-slate-500 text-center">or email support@getciteflow.ai</p>
           </div>
