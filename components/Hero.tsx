@@ -32,9 +32,17 @@ export function Hero() {
           GetCiteFlow: Get Your Site <span className="gradient-text">Cited by AI</span>
         </motion.h1>
 
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-8">
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-6">
           GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. <strong className="text-white">Scan. Diagnose. Fix.</strong>
         </motion.p>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="flex items-center justify-center gap-3 mb-8 text-sm">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-xs">
+            ↑ Up to 40% visibility boost
+          </span>
+          <span className="text-slate-600">·</span>
+          <span className="text-slate-500 text-xs font-semibold">Based on KDD 2024 research</span>
+        </motion.div>
 
         <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} onSubmit={handleAnalyze} className="relative max-w-xl mx-auto w-full">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] rounded-2xl md:rounded-full blur opacity-20" />

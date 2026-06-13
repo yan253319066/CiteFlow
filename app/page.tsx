@@ -47,7 +47,7 @@ const faqSchema = {
       name: "What is GEO (Generative Engine Optimization)?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GEO (Generative Engine Optimization) is the practice of optimizing your website content to increase visibility and citation rates in AI-powered search results, including ChatGPT, Perplexity, Gemini, and Google AI Overviews. Unlike traditional SEO, GEO focuses on making content structure and entity clarity optimized for AI retrieval systems."
+        text: "GEO (Generative Engine Optimization) is a research-backed paradigm introduced at KDD 2024 (Aggarwal et al., Princeton) that optimizes website content to increase visibility and citation rates in AI-powered search results — ChatGPT, Perplexity, Gemini, and Google AI Overviews. The paper demonstrated up to 40% visibility improvement across 40+ query categories."
       }
     },
     {

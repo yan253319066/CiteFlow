@@ -70,7 +70,7 @@ export function Footer() {
       </div>
       
       <div className="max-w-6xl mx-auto border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-        <p>© 2026 GetCiteFlow AI. All rights reserved.</p>
+        <p>© 2026 GetCiteFlow AI. All rights reserved. <span className="text-slate-600">·</span> <span className="text-slate-500">GEO research by Aggarwal et al., KDD 2024</span></p>
         <div className="flex gap-6">
           <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
           <Link href="/terms-of-service" className="hover:text-primary">Terms of Service</Link>

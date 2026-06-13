@@ -15,7 +15,7 @@ const steps = [
     number: "02",
     icon: FileText,
     title: "GEO Diagnosis & Score",
-    description: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find — and what they miss — ranked by impact.",
+    description: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find — and what they miss — ranked by impact. Our engine is calibrated against the GEO-bench framework from KDD 2024 research.",
   },
   {
     number: "03",

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Card } from "@/components/ui/card";
-import { Search, FileText, Download, Share2 } from "lucide-react";
+import { Search, FileText, Download, Share2, BarChart3 } from "lucide-react";
 
 const features = [
   {
@@ -21,9 +21,9 @@ const features = [
     description: "Get prioritized, clear guidance on exactly what to fix — from FAQ Schema and meta descriptions to llms.txt and entity clarity. No fluff, just what moves the needle.",
   },
   {
-    icon: Share2,
-    title: "Share & Compare",
-    description: "Share your report with a unique URL, compare your AI visibility against competitors, and re-scan to track your improvement over time.",
+    icon: BarChart3,
+    title: "Domain-Specific GEO",
+    description: "GEO strategies vary by industry — what works for a SaaS company won't work for an e-commerce store. GetCiteFlow tailors its recommendations based on your specific domain, backed by the KDD 2024 GEO-bench evaluation across 40+ query categories.",
   },
 ];
 
