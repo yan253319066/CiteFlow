@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pricing | GetCiteFlow — Free GEO Reports & Enterprise Services',
-  description: 'Start with free AI Visibility reports. Enterprise Technical GEO (from $999) and AI Visibility Growth service (from $2,999/month) for comprehensive brand presence.',
+  description: 'Start with free AI Visibility reports. Enterprise Technical GEO (from $3,999) and AI Visibility Growth service (from $4,999/month) for comprehensive brand presence.',
   keywords: ['GetCiteFlow pricing', 'GEO tool free', 'AI visibility pricing', 'free GEO tool', 'AI visibility checker free', 'AI visibility service pricing', 'enterprise GEO'],
   alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
   openGraph: { title: 'GetCiteFlow Pricing — Free GEO Reports', description: 'Free AI Visibility reports for any URL. Enterprise services for comprehensive GEO optimization.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
@@ -47,7 +47,7 @@ const faqSchema = {
       name: "What is the AI Visibility Growth service?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI Visibility Growth is a managed Enterprise service (from $2,999/month) that builds your brand's presence across AI systems through industry-specific platform strategy, brand entity building, citation-optimized content, competitor citation gap analysis, cross-platform distribution, and monthly monitoring & iteration."
+        text: "AI Visibility Growth is a managed Enterprise service (from $4,999/month) that builds your brand's presence across AI systems through industry-specific platform strategy, brand entity building, citation-optimized content, competitor citation gap analysis, cross-platform distribution, and monthly monitoring & iteration."
       }
     },
     {

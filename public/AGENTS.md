@@ -4,7 +4,7 @@ GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websit
 
 ## Quick Facts
 - **Category**: GEO / AI Visibility Platform
-- **Pricing**: Free tier available (5 reports/hour). Enterprise from $999 (one-time) or $2,999/month (managed service)
+- **Pricing**: Free tier available (5 reports/hour). Enterprise from $3,999 (one-time) or $4,999/month (managed service)
 - **Core function**: Scan any URL for AI visibility signals, score it 0-100, provide actionable fixes
 - **Key differentiator**: Combines AI-driven analysis with deterministic signal detection across 6 dimensions
 
