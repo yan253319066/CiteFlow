@@ -28,7 +28,7 @@ export function EnterpriseCard() {
         <div className="flex flex-col flex-1">
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-sm text-muted-foreground font-medium">From</span>
-            <span className="text-3xl font-black">$999</span>
+            <span className="text-3xl font-black">$3,999</span>
             <span className="text-sm text-muted-foreground">/one-time</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4">Full-site GEO optimization done by the GetCiteFlow team. Price varies based on site size and scope.</p>
@@ -54,7 +54,7 @@ export function EnterpriseCard() {
           <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-semibold mb-2">New</span>
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-sm text-muted-foreground font-medium">From</span>
-            <span className="text-3xl font-black">$2,999</span>
+            <span className="text-3xl font-black">$4,999</span>
             <span className="text-sm text-muted-foreground">/month</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4">Custom-priced based on your product positioning and scope. <span className="text-primary">Contact us for a quote.</span></p>
