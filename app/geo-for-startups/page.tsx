@@ -109,7 +109,7 @@ export default function Page() {
             GEO for Startups
           </motion.h1>
           <p className="text-xl text-slate-400 max-w-2xl">
-            Build AI visibility from day one. How startups can get mentioned by ChatGPT, Gemini, Perplexity, and other AI assistants before competitors establish category leadership.
+            Build AI visibility from day one. How startups can get mentioned by ChatGPT, Gemini, Perplexity, DeepSeek, Doubao, and other AI assistants before competitors establish category leadership.
           </p>
 
           <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl mt-8">

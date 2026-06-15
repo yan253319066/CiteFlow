@@ -161,7 +161,7 @@ export default function Page() {
 
               <h3 className="text-lg font-semibold text-white mb-3">Priority Actions for SaaS Companies</h3>
               <ol className="list-decimal list-inside space-y-2 text-slate-400">
-                <li><strong className="text-white">Audit your AI visibility baseline.</strong> Run your top 10 category queries across ChatGPT and Perplexity. If you don't appear, you have an entity clarity problem.</li>
+                <li><strong className="text-white">Audit your AI visibility baseline.</strong> Run your top 10 category queries across ChatGPT, Perplexity, DeepSeek, and Doubao. If you don't appear, you have an entity clarity problem.</li>
                 <li><strong className="text-white">Add FAQ Schema to your pricing page.</strong> This is the highest-ROI change for most SaaS companies. Write 5-10 Q&A pairs using conversational query language.</li>
                 <li><strong className="text-white">Create comparison pages against 2-3 main competitors.</strong> Use consistent row labels across all comparisons so the model can extract and repeat the data.</li>
                 <li><strong className="text-white">Standardize your category language.</strong> Choose one label ("project management software" not sometimes "platform" and sometimes "suite") and use it everywhere.</li>
