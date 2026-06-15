@@ -30,7 +30,7 @@ function formatSiteData(url: string, data: Awaited<ReturnType<typeof scrapeWebsi
   lines.push(`Meta description length: ${data.metaDescriptionLength} chars`);
   lines.push(`Key takeaways / summary section: ${data.hasSummarySection ? "Found" : "Not found"}`);
   lines.push(`Content freshness: ${data.contentFreshnessDays !== null ? `${data.contentFreshnessDays} days since last update` : "No date metadata found"}`);
-  lines.push(`Author bylines (Person schema): ${data.hasAuthorBylines ? "Yes" : "No"}`);
+  lines.push(`Author bylines: ${data.hasAuthorBylines ? "Yes" : "No"}`);
   lines.push(`Original research / proprietary data: ${data.hasOriginalData ? "Yes" : "No"}`);
   return lines.join("\n");
 }

@@ -143,22 +143,49 @@ function extractFromHtml(html: string) {
   const avgParagraphLength = paraCount > 0 ? Math.round(totalWords / paraCount) : 0;
 
   const bodyLower = text.toLowerCase();
-  const hasSummarySection = /\b(key takeaways?|executive summary|tldr|tl;dr|what we cover|quick summary|overview|in this (article|post|guide))\b/i.test(bodyLower);
+  const hasSummarySection = /\b(key takeaways?|executive summary|tldr|tl;dr|what we cover|quick summary|summary|recap|key (points|findings)|in (this )?(article|post|guide|section)|in conclusion|bottom line)\b/i.test(bodyLower);
 
-  const dateModifiedMatch = /"dateModified"\s*:\s*"([^"]+)"/i.exec(html);
-  const datePublishedMatch = /"datePublished"\s*:\s*"([^"]+)"/i.exec(html);
   let contentFreshnessDays: number | null = null;
-  const dateStr = dateModifiedMatch?.[1] || datePublishedMatch?.[1];
-  if (dateStr) {
+  const dateCandidates: string[] = [];
+
+  // JSON-LD datePublished / dateModified
+  const jsonLdDate = /"date(?:Published|Modified)"\s*:\s*"([^"]+)"/i.exec(html);
+  if (jsonLdDate) dateCandidates.push(jsonLdDate[1]);
+
+  // Open Graph article:published_time / article:modified_time
+  const ogDateMatch = /<meta[^>]+(?:property|name)=["']article:(?:published|modified)_time["'][^>]+content=["']([^"']+)["']/i.exec(html);
+  if (ogDateMatch) dateCandidates.push(ogDateMatch[1]);
+
+  // <time datetime="...">
+  const timeTagRegex = /<time[^>]+datetime=["']([^"']+)["']/gi;
+  let timeMatch;
+  while ((timeMatch = timeTagRegex.exec(html)) !== null) {
+    dateCandidates.push(timeMatch[1]);
+  }
+
+  // <meta name="date" content="...">
+  const metaDateMatch = /<meta[^>]+name=["']date["'][^>]+content=["']([^"']+)["']/i.exec(html);
+  if (metaDateMatch) dateCandidates.push(metaDateMatch[1]);
+
+  // Visible date text: "Published on Jan 1, 2026" or "Updated: 2026-01-01"
+  const visibleDatePattern = /(?:published|updated|posted|modified|last updated)\s*:?\s*(?:on\s*)?(\w+\s+\d{1,2},?\s*\d{4})/i.exec(bodyLower);
+  if (visibleDatePattern) dateCandidates.push(visibleDatePattern[1]);
+
+  for (const dateStr of dateCandidates) {
     const parsed = new Date(dateStr);
     if (!isNaN(parsed.getTime())) {
       contentFreshnessDays = Math.floor((Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
+      break;
     }
   }
 
-  const hasAuthorBylines = /"@type"\s*:\s*"Person"/i.test(html) || /author.*?["\w\s]+["]/.test(html);
+  const hasPersonInJsonLd = /"@type"\s*:\s*"Person"/i.test(html);
+  const hasMetaAuthor = /<meta[^>]+name=["']author["'][^>]+content=["']([^"']+)["']/i.test(html);
+  const hasVisibleByline = /\b(?:written by|author[\s:]+)\w+\s+\w+/i.test(bodyLower);
+  const hasAuthorBylines = hasPersonInJsonLd || hasMetaAuthor || hasVisibleByline;
 
-  const hasOriginalData = /\b(we found|our research|our data|our analysis|we tested|we surveyed|our study|proprietary|original)\b/i.test(bodyLower);
+  const originalDataMatches = (bodyLower.match(/\b(we found|our research|our (data|analysis|study)|we tested|we surveyed|proprietary|original (research|data|analysis))\b/gi) || []);
+  const hasOriginalData = originalDataMatches.length >= 2;
 
   return {
     title: extractedTitle,
