@@ -33,7 +33,7 @@ export function Hero() {
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-6">
-          GetCiteFlow is an enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, and Gemini. Try our <strong className="text-white">free AI Visibility Scanner</strong> to see where your brand stands.
+          GetCiteFlow is an enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao. Try our <strong className="text-white">free AI Visibility Scanner</strong> to see where your brand stands.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="flex items-center justify-center gap-3 mb-8 text-sm">

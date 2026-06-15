@@ -15,7 +15,7 @@ export function Footer() {
             <span className="text-lg font-bold">GetCiteFlow</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            The enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Gemini, and Perplexity.
+            The enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao.
           </p>
         </div>
         

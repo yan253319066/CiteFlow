@@ -12,7 +12,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "GEO for AI Tools: How AI Products Get Cited by Other AI Systems",
-  description: "Learn how to optimize your AI tool or AI product for citations in ChatGPT, Perplexity, Gemini, and other AI assistants. Special considerations for AI products.",
+  description: "Learn how to optimize your AI tool or AI product for citations in ChatGPT, Perplexity, Gemini, DeepSeek, Doubao, and other AI assistants. Special considerations for AI products.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
   author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },

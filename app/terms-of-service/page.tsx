@@ -57,7 +57,7 @@ export default function TermsOfService() {
 
           <Section title="2. Description of Service">
             <p>
-              GetCiteFlow provides an enterprise AI brand visibility service that helps businesses get mentioned and recommended by AI systems like ChatGPT, Claude, Gemini, and Perplexity. Our free AI Visibility Scanner checks any URL for AI visibility signals and provides optimization recommendations.
+              GetCiteFlow provides an enterprise AI brand visibility service that helps businesses get mentioned and recommended by AI systems like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. Our free AI Visibility Scanner checks any URL for AI visibility signals and provides optimization recommendations.
             </p>
           </Section>
 

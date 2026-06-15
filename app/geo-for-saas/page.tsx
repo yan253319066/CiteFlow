@@ -12,7 +12,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "GEO for SaaS: How to Get Your Product Mentioned by AI",
-  description: "Learn specific strategies for SaaS companies to optimize their websites for AI citations in ChatGPT, Perplexity, Gemini, and other generative engines.",
+  description: "Learn specific strategies for SaaS companies to optimize their websites for AI citations in ChatGPT, Perplexity, Gemini, DeepSeek, Doubao, and other generative engines.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
   author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
@@ -109,7 +109,7 @@ export default function Page() {
             GEO for SaaS
           </motion.h1>
           <p className="text-xl text-slate-400 max-w-2xl">
-            How to get your software product mentioned by ChatGPT, Gemini, Perplexity, and other AI assistants. Specific strategies for SaaS companies.
+            How to get your software product mentioned by ChatGPT, Gemini, Perplexity, DeepSeek, Doubao, and other AI assistants. Specific strategies for SaaS companies.
           </p>
 
           <div className="p-6 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-3xl mt-8">

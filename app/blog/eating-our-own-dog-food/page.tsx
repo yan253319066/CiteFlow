@@ -62,7 +62,7 @@ export default function BlogPost() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mt-12 mb-6">The moment of truth</h2>
-            <p>We spent months building GetCiteFlow — a platform that scans websites and tells you exactly why AI search engines like ChatGPT, Claude, Gemini, and Perplexity aren't citing your content. We built landing pages targeting "AI visibility" and "how to get cited by ChatGPT." We wrote blog posts about GEO. We felt like experts.</p>
+            <p>We spent months building GetCiteFlow — a platform that scans websites and tells you exactly why AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao aren't citing your content. We built landing pages targeting "AI visibility" and "how to get cited by ChatGPT." We wrote blog posts about GEO. We felt like experts.</p>
             <p>Then one Friday afternoon, almost as a joke, someone on the team said: <em>"Have we actually run our own tool on our own site?"</em></p>
             <p>Silence.</p>
             <p>We typed <code className="bg-white/10 px-2 py-0.5 rounded text-sm">getciteflow.ai</code> into our own scanner and hit enter. Thirty seconds later, the result appeared:</p>

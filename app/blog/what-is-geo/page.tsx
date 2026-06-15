@@ -39,7 +39,7 @@ const faqSchema = {
       name: "What is GEO in simple terms?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GEO stands for Generative Engine Optimization. It is the practice of optimizing content so that AI-powered search engines and chatbots — ChatGPT, Perplexity, Gemini, Claude — cite your brand, product, or website in their answers. Unlike SEO, which targets Google's ranking algorithm, GEO targets how large language models select and surface sources."
+        text: "GEO stands for Generative Engine Optimization. It is the practice of optimizing content so that AI-powered search engines and chatbots — ChatGPT, Perplexity, Gemini, Claude, DeepSeek, and Doubao — cite your brand, product, or website in their answers. Unlike SEO, which targets Google's ranking algorithm, GEO targets how large language models select and surface sources."
       }
     },
     {

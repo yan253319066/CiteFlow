@@ -106,7 +106,7 @@ export default function AhrefsVsGetCiteFlow() {
               </li>
               <li className="flex items-start gap-2">
                 <X className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
-                No insight into how ChatGPT/Gemini cite your content
+                No insight into how ChatGPT, Gemini, DeepSeek, or Doubao cite your content
               </li>
             </ul>
           </div>

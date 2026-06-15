@@ -39,7 +39,7 @@ const faqSchema = {
       name: "Who is GetCiteFlow for?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GetCiteFlow's enterprise service is for brands and marketing teams who want to get mentioned and recommended by AI systems like ChatGPT, Claude, Perplexity, and Gemini. Our free scanner is for anyone who wants to check their current AI visibility."
+        text: "GetCiteFlow's enterprise service is for brands and marketing teams who want to get mentioned and recommended by AI systems like ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao. Our free scanner is for anyone who wants to check their current AI visibility."
       }
     },
     {

@@ -12,7 +12,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "GEO for Startups: Build AI Visibility from Day One",
-  description: "Learn how startups can establish AI citations early and build lasting visibility in ChatGPT, Perplexity, Gemini, and other AI search engines.",
+  description: "Learn how startups can establish AI citations early and build lasting visibility in ChatGPT, Perplexity, Gemini, DeepSeek, Doubao, and other AI search engines.",
   datePublished: "2026-05-20",
   dateModified: "2026-05-20",
   author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },

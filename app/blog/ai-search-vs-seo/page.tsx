@@ -244,7 +244,7 @@ export default function AISearchVsSEO() {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">Six Steps to Build Your GEO Track</h3>
           <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
-            <li><strong className="text-white">Audit your current AI visibility.</strong> Run your top 20 category queries across ChatGPT, Perplexity, and Gemini. Record whether you appear and in what context.</li>
+            <li><strong className="text-white">Audit your current AI visibility.</strong> Run your top 20 category queries across ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao. Record whether you appear and in what context.</li>
             <li><strong className="text-white">Identify entity gaps.</strong> For queries where competitors appear but you do not, analyze what entity language they use that you are missing.</li>
             <li><strong className="text-white">Create structured comparison pages.</strong> Build "Your Brand vs. Competitor" pages with real data and Schema.org markup.</li>
             <li><strong className="text-white">Add FAQ Schema to existing pages.</strong> Start with your highest-traffic pages. Write 5-10 Q&A pairs using conversational query language.</li>

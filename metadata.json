@@ -1,6 +1,6 @@
 {
   "name": "GetCiteFlow",
-  "description": "Enterprise AI brand service. Get your brand mentioned and recommended by ChatGPT, Gemini, Claude, and Perplexity. Free AI Visibility Scanner available.",
+  "description": "Enterprise AI brand service. Get your brand mentioned and recommended by ChatGPT, Gemini, Claude, Perplexity, DeepSeek, and Doubao. Free AI Visibility Scanner available.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

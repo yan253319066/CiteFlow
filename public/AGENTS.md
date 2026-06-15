@@ -1,6 +1,6 @@
 # GetCiteFlow — AI Agent Context
 
-GetCiteFlow is an enterprise brand visibility service that helps brands get mentioned and recommended by AI systems including ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.
+GetCiteFlow is an enterprise brand visibility service that helps brands get mentioned and recommended by AI systems including ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Google AI Overviews.
 
 ## Quick Facts
 - **Category**: Enterprise AI Brand Service

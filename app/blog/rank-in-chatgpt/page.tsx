@@ -188,12 +188,12 @@ export default function Page() {
     </div>
 
     <h2 id="monitor" className="text-2xl font-bold mt-12 mb-4">Monitor Your Citation Baseline</h2>
-    <p className="leading-relaxed mb-6">Before you invest heavily in GEO, establish your current baseline. Run your top 20 category queries across ChatGPT, Perplexity, and Gemini. Note whether you appear, and if so, in what context. Repeat monthly. Most teams see movement within 60-90 days if they consistently publish structured comparison and FAQ content. If you see no movement after three months, the issue is likely entity ambiguity or a training data gap, which requires a different approach — more external mentions on high-authority sites that the model trusts.</p>
+    <p className="leading-relaxed mb-6">Before you invest heavily in GEO, establish your current baseline. Run your top 20 category queries across ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao. Note whether you appear, and if so, in what context. Repeat monthly. Most teams see movement within 60-90 days if they consistently publish structured comparison and FAQ content. If you see no movement after three months, the issue is likely entity ambiguity or a training data gap, which requires a different approach — more external mentions on high-authority sites that the model trusts.</p>
 
     <h3 className="text-xl font-semibold text-white mt-8 mb-3">Monthly Monitoring Process</h3>
     <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
       <li><strong className="text-white">Prepare your query set.</strong> Maintain a fixed list of 20 category-defining questions that represent your most important citation opportunities.</li>
-      <li><strong className="text-white">Run across three platforms.</strong> Query ChatGPT (with search), Perplexity, and Gemini. Record results in a consistent format.</li>
+      <li><strong className="text-white">Run across multiple platforms.</strong> Query ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao. Record results in a consistent format.</li>
       <li><strong className="text-white">Score each mention.</strong> Note whether your brand appears, in what position (first, second, third+), and whether the sentiment is positive, neutral, or negative.</li>
       <li><strong className="text-white">Track competitor presence.</strong> Who appears where you do not? Their content structure reveals entity gaps in your own strategy.</li>
       <li><strong className="text-white">Pivot based on data.</strong> If citations are not moving after 90 days, focus on third-party mentions and external consensus signals before investing more in on-site content.</li>

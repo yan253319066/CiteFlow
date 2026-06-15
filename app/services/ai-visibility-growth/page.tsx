@@ -24,7 +24,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "AI Visibility Growth",
-  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, and Perplexity. We analyze the platforms and sources AI trusts in your specific industry — then build discoverable brand signals across them through custom content, entity optimization, and cross-platform distribution.",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. We analyze the platforms and sources AI trusts in your specific industry — then build discoverable brand signals across them through custom content, entity optimization, and cross-platform distribution.",
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },
@@ -41,7 +41,7 @@ const faqSchema = {
       name: "What is AI Visibility Growth?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI Visibility Growth is a managed service that builds your brand's presence across the platforms and sources that AI systems like ChatGPT, Claude, Gemini, and Perplexity use to generate answers. We analyze your industry's AI data sources, build brand signals across the right platforms, and continuously optimize for citation growth."
+        text: "AI Visibility Growth is a managed service that builds your brand's presence across the platforms and sources that AI systems like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao use to generate answers. We analyze your industry's AI data sources, build brand signals across the right platforms, and continuously optimize for citation growth."
       }
     },
     {
@@ -185,7 +185,7 @@ export default function Page() {
             transition={{ delay: 0.2 }}
             className="text-xl text-slate-400 max-w-3xl mx-auto mb-8"
           >
-            Help your brand appear more often across AI systems like ChatGPT, Claude, Gemini, and Perplexity. A managed service that builds your presence on the platforms AI trusts in your industry.
+            Help your brand appear more often across AI systems like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. A managed service that builds your presence on the platforms AI trusts in your industry.
           </motion.p>
 
           <motion.div

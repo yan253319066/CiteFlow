@@ -39,7 +39,7 @@ const faqSchema = {
       "name": "What is AI visibility?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI visibility is the frequency and sentiment with which a brand is cited in LLM outputs like ChatGPT, Perplexity, and Gemini. It has two components: citation frequency (how often you appear) and citation sentiment (whether mentions are positive, neutral, or negative)."
+        "text": "AI visibility is the frequency and sentiment with which a brand is cited in LLM outputs like ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao. It has two components: citation frequency (how often you appear) and citation sentiment (whether mentions are positive, neutral, or negative)."
       }
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       "name": "How do I track AI visibility?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Run a set of 10-20 category-defining queries across ChatGPT, Perplexity, and Gemini weekly. Record whether your brand appears, in what position, and with what sentiment. A simple spreadsheet is sufficient to start seeing trends within 60-90 days."
+        "text": "Run a set of 10-20 category-defining queries across ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao weekly. Record whether your brand appears, in what position, and with what sentiment. A simple spreadsheet is sufficient to start seeing trends within 60-90 days."
       }
     },
     {
@@ -113,7 +113,7 @@ export default function AIVisibility() {
               <li><strong className="text-white">AI visibility has two components</strong> — citation frequency (how often you're mentioned) and citation sentiment (whether it's positive or negative).</li>
               <li><strong className="text-white">Most analytics tools cannot track citations</strong> — they measure clicks, not whether your brand was surfaced in AI responses.</li>
               <li><strong className="text-white">Content optimized for AI visibility often generates near-zero clicks</strong> — and that is fine, because AI-referred users convert at higher rates.</li>
-              <li><strong className="text-white">Track citation frequency weekly across ChatGPT, Perplexity, and Gemini</strong> — a simple spreadsheet is enough to see which content investments actually move the needle.</li>
+              <li><strong className="text-white">Track citation frequency weekly across ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao</strong> — a simple spreadsheet is enough to see which content investments actually move the needle.</li>
             </ol>
           </div>
 
@@ -174,7 +174,7 @@ export default function AIVisibility() {
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">How to Track AI Visibility Weekly</h3>
           <ol className="list-decimal list-inside space-y-3 mb-6 text-slate-400">
             <li><strong className="text-white">Define your target queries.</strong> Pick 10-20 questions that matter most to your business — category-defining queries, comparison queries, and use-case questions.</li>
-            <li><strong className="text-white">Run each query across ChatGPT, Perplexity, and Gemini.</strong> Record whether your brand appears, in what position, and with what sentiment (positive, neutral, negative).</li>
+            <li><strong className="text-white">Run each query across ChatGPT, Perplexity, Gemini, DeepSeek, and Doubao.</strong> Record whether your brand appears, in what position, and with what sentiment (positive, neutral, negative).</li>
             <li><strong className="text-white">Log competitor appearances too.</strong> Knowing who gets cited where you do not reveals entity gaps and content opportunities.</li>
             <li><strong className="text-white">Track changes week over week.</strong> A simple spreadsheet with query × platform × date is enough to see trends within 60-90 days.</li>
             <li><strong className="text-white">Correlate content changes with citation changes.</strong> When you publish a new comparison page or FAQ section, watch whether citation frequency for related queries increases in subsequent weeks.</li>
