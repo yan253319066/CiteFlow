@@ -44,20 +44,20 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   const canonicalUrl = `https://www.getciteflow.ai/report/${domain}`;
   const ogImageBase = `https://www.getciteflow.ai/api/og?domain=${encodeURIComponent(domain)}`;
   const keywords = [
-    domain, 'AI Visibility', 'GEO', 'Generative Engine Optimization',
-    'ChatGPT SEO', 'AI search ranking', 'GEO score', 'AI readiness',
-    'LLM visibility', 'AI search optimization', 'GEO tool', 'AI visibility checker',
-    'free GEO report', 'AI citation checker',
-    ...(withDomain ? [withDomain as string, `${domain} vs ${withDomain}`, 'GEO comparison'] : []),
+    domain, 'AI Visibility', 'brand AI visibility',
+    'ChatGPT brand mentions', 'brand AI readiness',
+    'LLM brand visibility', 'brand visibility scan', 'AI visibility checker',
+    'free AI visibility scan', 'AI brand check',
+    ...(withDomain ? [withDomain as string, `${domain} vs ${withDomain}`, 'brand AI comparison'] : []),
   ];
 
-  let fullTitle = `${domain} AI Visibility Score & GEO Report | GetCiteFlow`;
-  let ogDesc = `GEO score report for ${domain}`;
+  let fullTitle = `${domain} AI Visibility Score & Brand Scan | GetCiteFlow`;
+  let ogDesc = `AI Visibility Scan for ${domain}`;
   let ogImage = ogImageBase;
 
   if (withDomain) {
     fullTitle = `${domain} vs ${withDomain}: AI Visibility Comparison | GetCiteFlow`;
-    ogDesc = `Compare the GEO scores of ${domain} and ${withDomain}. See who AI recommends and why.`;
+    ogDesc = `Compare the AI Visibility scores of ${domain} and ${withDomain}. See who AI recommends and why.`;
   }
 
   try {
@@ -68,8 +68,8 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
     } else {
       const report = parseReport(data);
       fullTitle = withDomain
-        ? `${domain} (${report.score}/100) vs ${withDomain}: GEO Comparison | GetCiteFlow`
-        : `${domain} AI Visibility Score: ${report.score}/100 | GetCiteFlow GEO Report`;
+        ? `${domain} (${report.score}/100) vs ${withDomain}: AI Visibility Comparison | GetCiteFlow`
+        : `${domain} AI Visibility Score: ${report.score}/100 | GetCiteFlow AI Visibility Scan`;
       ogDesc = withDomain
         ? `${domain} scores ${report.score}/100 on AI Visibility. Compare against ${withDomain} and see who AI recommends.`
         : `AI Visibility score for ${domain}: ${report.score}/100. ${report.summary}`;
@@ -199,7 +199,7 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
     about: {
       '@type': 'Thing',
       name: 'AI Visibility (GEO)',
-      description: 'Generative Engine Optimization score measuring how well a website performs in AI-powered search engines.',
+      description: 'AI Visibility score measuring how well a brand performs in AI-powered search results.',
     },
     mainEntity: {
       '@type': 'PropertyValue',
@@ -258,7 +258,7 @@ export default async function ReportPage({ params }: { params: Promise<{ domain:
           <div className="bg-gradient-to-r from-[#6E7BFF]/10 via-[#8B5CF6]/10 to-transparent border border-[#6E7BFF]/20 rounded-3xl p-8 mb-8 flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
               <h3 className="text-lg font-bold text-white mb-2">Want us to fix these issues for you?</h3>
-              <p className="text-sm text-slate-400">Our team handles the technical GEO work — FAQ Schema, llms.txt, entity optimization — so you don't have to.</p>
+              <p className="text-sm text-slate-400">Our team handles the brand visibility work — FAQ Schema, llms.txt, entity optimization — so you don't have to.</p>
             </div>
             <a href="mailto:support@getciteflow.ai" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl text-sm font-bold transition-colors shrink-0">
               Contact Us <ArrowRight className="w-4 h-4" />

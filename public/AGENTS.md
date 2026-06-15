@@ -1,15 +1,15 @@
 # GetCiteFlow — AI Agent Context
 
-GetCiteFlow is a Generative Engine Optimization (GEO) platform that helps websites get cited by AI search engines including ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.
+GetCiteFlow is an enterprise brand visibility service that helps brands get mentioned and recommended by AI systems including ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.
 
 ## Quick Facts
-- **Category**: GEO / AI Visibility Platform
+- **Category**: Enterprise AI Brand Service
 - **Pricing**: Free tier available (5 reports/hour). Enterprise from $3,999 (one-time) or $4,999/month (managed service)
-- **Core function**: Scan any URL for AI visibility signals, score it 0-100, provide actionable fixes
+- **Core function**: Enterprise service that builds brand presence across AI systems. Free scanner checks any URL for AI visibility signals and scores it 0-100.
 - **Key differentiator**: Combines AI-driven analysis with deterministic signal detection across 6 dimensions
 
 ## API
-- `POST /api/compare` — Analyze a URL and return GEO score (rate-limited via Upstash Redis)
+- `POST /api/compare` — Analyze a URL and return AI visibility score (rate-limited via Upstash Redis)
 
 ## Pages
 - Home: https://www.getciteflow.ai

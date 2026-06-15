@@ -13,9 +13,9 @@ const servicesLinks = [
 ];
 
 const guidesLinks = [
-  { name: 'GEO for SaaS', href: '/geo-for-saas', description: 'Software companies' },
-  { name: 'GEO for AI Tools', href: '/geo-for-ai-tools', description: 'AI product makers' },
-  { name: 'GEO for Startups', href: '/geo-for-startups', description: 'Early-stage companies' },
+  { name: 'AI Visibility for SaaS', href: '/geo-for-saas', description: 'Software companies' },
+  { name: 'AI Visibility for AI Tools', href: '/geo-for-ai-tools', description: 'AI product makers' },
+  { name: 'AI Visibility for Startups', href: '/geo-for-startups', description: 'Early-stage companies' },
   { name: 'Why ChatGPT Ignores You', href: '/why-chatgpt-doesnt-mention-your-site', description: 'Common visibility pitfalls' },
 ];
 
@@ -41,7 +41,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Platform', href: '/' },
+    { name: 'Scanner', href: '/' },
     { name: 'Compare', href: '/compare' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Blog', href: '/blog' },

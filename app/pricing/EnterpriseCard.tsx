@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const techFeatures = [
-  "Full site GEO scan & report",
+  "Full site scan & report",
   "FAQ Schema + llms.txt generation",
   "Meta & entity optimization",
   "Competitor citation analysis",
@@ -23,7 +23,7 @@ export function EnterpriseCard() {
     <>
       <div className="p-6 border border-primary/40 bg-primary/5 rounded-2xl flex flex-col">
         <div className="mb-4 text-center">
-          <h2 className="text-xl font-bold">Technical GEO</h2>
+          <h2 className="text-xl font-bold">Brand Visibility</h2>
         </div>
         <div className="flex flex-col flex-1">
           <div className="flex items-baseline gap-1 mb-1">
@@ -31,7 +31,7 @@ export function EnterpriseCard() {
             <span className="text-3xl font-black">$3,999</span>
             <span className="text-sm text-muted-foreground">/one-time</span>
           </div>
-          <p className="text-sm text-muted-foreground mb-4">Full-site GEO optimization done by the GetCiteFlow team. Price varies based on site size and scope.</p>
+          <p className="text-sm text-muted-foreground mb-4">Full-site brand visibility optimization done by the GetCiteFlow team. We fix your technical foundation so AI systems can find and recommend your brand. Price varies based on site size and scope.</p>
           <ul className="space-y-1.5 mb-6 flex-1 text-sm">
             {techFeatures.map((f) => (
               <li key={f} className="flex items-start gap-3">

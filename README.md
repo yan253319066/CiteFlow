@@ -1,14 +1,14 @@
-# GetCiteFlow — GEO Platform
+# GetCiteFlow — Enterprise AI Brand Service
 
 <div align="center">
 <img width="1200" height="475" alt="GetCiteFlow Banner" src="https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75" />
 </div>
 
-GetCiteFlow helps websites get cited by AI search engines — ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. **Scan. Diagnose. Fix.**
+GetCiteFlow helps enterprise brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Try our **free AI Visibility Scanner** to check where your brand stands.
 
-## What is GEO?
+## What We Do
 
-GEO (Generative Engine Optimization) is the practice of optimizing your website to increase citation rates in AI-powered search results. Unlike SEO (rankings, backlinks, keywords), GEO focuses on entity clarity, structured data, FAQ markup, and machine-readable files like `llms.txt`.
+GetCiteFlow is an enterprise service that makes your brand get mentioned and recommended by AI systems. We also offer a **free AI Visibility Scanner** that checks any website's AI visibility by analyzing entity clarity, structured data, FAQ markup, content structure, and machine-readable files like `llms.txt`.
 
 ## Features
 
@@ -32,8 +32,8 @@ GEO (Generative Engine Optimization) is the practice of optimizing your website 
 | Plan | Price | What you get |
 |------|-------|------------|
 | Free | $0 | 5 reports per hour, AI Visibility Score, 8-dimension analysis, missing component detection |
-| Enterprise — Technical GEO | From $3,999 | Full-site GEO optimization by the GetCiteFlow team (price varies by scope) |
-| Enterprise — AI Visibility Growth | From $4,999/mo | Managed brand presence across AI ecosystems (industry platform strategy, brand entity building, citation-optimized content, etc.) |
+| Enterprise — Brand Visibility | From $3,999 | Full-site brand visibility optimization by the GetCiteFlow team (price varies by scope) |
+| Enterprise — AI Visibility Growth | From $4,999/mo | Managed brand presence across AI systems (industry platform strategy, brand entity building, citation-optimized content, etc.) |
 
 ## Getting Started
 
@@ -91,9 +91,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 │   ├── blog/                  # 6 blog articles
 │   ├── case-studies/          # 2 case studies
 │   ├── compare/               # Compare tool + landing pages
-│   ├── geo-for-saas/          # GEO guide for SaaS
-│   ├── geo-for-ai-tools/      # GEO guide for AI tools
-│   ├── geo-for-startups/      # GEO guide for startups
+│   ├── geo-for-saas/          # AI visibility guide for SaaS
+│   ├── geo-for-ai-tools/      # AI visibility guide for AI tools
+│   ├── geo-for-startups/      # AI visibility guide for startups
 │   ├── pricing/               # Pricing page
 │   ├── report/[domain]/       # SSR report page
 │   ├── services/              # Service pages
@@ -109,7 +109,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 │   ├── Footer.tsx             # Site footer
 │   └── ...
 ├── lib/                       # Utilities and libraries
-│   ├── analyze.ts             # GEO analysis engine
+│   ├── analyze.ts             # AI visibility analysis engine
 │   ├── scrape.ts              # Site scraper
 │   ├── gemini.ts              # Gemini AI provider
 │   ├── cache.ts               # In-memory cache (1h TTL)

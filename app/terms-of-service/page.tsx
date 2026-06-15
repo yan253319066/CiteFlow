@@ -5,22 +5,22 @@ import { Scale } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | GetCiteFlow",
-  description: "Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform. Understand your rights and obligations.",
-  keywords: ['terms of service', 'GetCiteFlow legal', 'GEO platform terms'],
+  description: "Review the terms and conditions governing your use of the GetCiteFlow AI brand visibility service. Understand your rights and obligations.",
+  keywords: ['terms of service', 'GetCiteFlow legal', 'brand visibility service terms'],
   alternates: { canonical: "https://www.getciteflow.ai/terms-of-service" },
   openGraph: {
     title: "Terms of Service | GetCiteFlow",
-    description: "Review the terms and conditions governing your use of the GetCiteFlow platform.",
+    description: "Review the terms and conditions governing your use of the GetCiteFlow service.",
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Terms of Service OG Image' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Terms of Service | GetCiteFlow', description: 'Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform. Understand your rights and obligations.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75'] },
+  twitter: { card: 'summary_large_image', title: 'Terms of Service | GetCiteFlow', description: 'Review the terms and conditions governing your use of the GetCiteFlow AI brand visibility service. Understand your rights and obligations.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/terms-of-service&score=75'] },
 };
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Terms of Service | GetCiteFlow",
-  description: "Review the terms and conditions governing your use of the GetCiteFlow AI visibility platform.",
+  description: "Review the terms and conditions governing your use of the GetCiteFlow AI brand visibility service.",
   url: "https://www.getciteflow.ai/terms-of-service",
 };
 
@@ -48,7 +48,7 @@ export default function TermsOfService() {
         <div className="space-y-10 text-slate-300 leading-relaxed">
           <Section title="1. Acceptance of Terms">
             <p>
-              By accessing or using the GetCiteFlow AI platform (&ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to all the terms, you may not access or use the Service.
+              By accessing or using the GetCiteFlow brand visibility service (&ldquo;Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to all the terms, you may not access or use the Service.
             </p>
             <p>
               These Terms apply to all visitors, users, and others who access or use the Service. We reserve the right to update or modify these Terms at any time. Continued use of the Service after any changes constitutes acceptance of the new Terms.
@@ -57,7 +57,7 @@ export default function TermsOfService() {
 
           <Section title="2. Description of Service">
             <p>
-              GetCiteFlow provides an AI visibility analysis platform that helps businesses understand and optimize their presence in AI-generated search results, including ChatGPT, Gemini, and other large language models. Our Service includes domain analysis, visibility scoring, and actionable optimization recommendations.
+              GetCiteFlow provides an enterprise AI brand visibility service that helps businesses get mentioned and recommended by AI systems like ChatGPT, Claude, Gemini, and Perplexity. Our free AI Visibility Scanner checks any URL for AI visibility signals and provides optimization recommendations.
             </p>
           </Section>
 

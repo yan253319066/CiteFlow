@@ -10,7 +10,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: "How We Optimized GetCiteFlow's Own AI Visibility — Eating Our Own Dog Food",
-  description: "We built a GEO platform. Then we used it on ourselves. Here's what we found and how we fixed it.",
+  description: "We built an AI visibility scanner. Then we used it on ourselves. Here's what we found and how we fixed it.",
   datePublished: "2026-06-12",
   dateModified: "2026-06-12",
   author: { "@type": "Person", "name": "Neil Yan", "url": "https://github.com/yan253319066" },
@@ -43,7 +43,7 @@ export default function CaseStudyDetail() {
 
         <header className="mb-12">
           <div className="flex items-center gap-2 mb-4">
-            <Badge className="bg-primary/10 text-primary border-none">SaaS / GEO</Badge>
+            <Badge className="bg-primary/10 text-primary border-none">SaaS / AI Visibility</Badge>
             <span className="text-slate-500">&bull;</span>
             <span className="text-sm font-medium text-slate-400">6 min read</span>
           </div>
@@ -51,13 +51,13 @@ export default function CaseStudyDetail() {
             How We Optimized GetCiteFlow&apos;s<br />
             <span className="gradient-text">Own AI Visibility</span>
           </h1>
-          <p className="text-slate-400 text-lg">Eating our own dog food — we ran our GEO platform against ourselves and fixed what we found.</p>
+          <p className="text-slate-400 text-lg">Eating our own dog food — we ran our own AI visibility scanner against ourselves and fixed what we found.</p>
         </header>
 
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           <div className="bg-[#0A0F24]/60 p-8 rounded-3xl border border-white/10">
             <div className="text-xs font-bold text-slate-500 uppercase mb-3 tracking-widest">The Discovery</div>
-            <p className="text-sm leading-relaxed">We built a tool that tells other sites why AI doesn&apos;t cite them. Then we ran it on getciteflow.ai — and found we were missing the very things we tell our users to fix.</p>
+            <p className="text-sm leading-relaxed">We built a scanner that tells other sites why AI doesn&apos;t cite them. Then we ran it on getciteflow.ai — and found we were missing the very things we tell our users to fix.</p>
           </div>
           <div className="bg-[#0A0F24]/60 p-8 rounded-3xl border border-white/10">
             <div className="text-xs font-bold text-slate-500 uppercase mb-3 tracking-widest">What We Fixed</div>
@@ -116,7 +116,7 @@ export default function CaseStudyDetail() {
         </div>
 
         <div className="prose prose-invert max-w-none text-slate-400 space-y-8 leading-relaxed">
-          <h2 className="text-2xl font-bold text-white">The irony of building a GEO tool</h2>
+          <h2 className="text-2xl font-bold text-white">The irony of building a visibility scanner</h2>
           <p>We spent months building GetCiteFlow — a platform that analyzes websites and tells you exactly why AI search engines aren&apos;t citing you. We launched it. We started writing blog posts about GEO. We built landing pages targeting &quot;AI visibility&quot; and &quot;how to get cited by ChatGPT.&quot;</p>
           <p>Then one day, almost as a joke, we ran our own tool against getciteflow.ai. The result was humbling: <strong className="text-white">75 out of 100.</strong></p>
           <p>Here we were, telling other companies how to optimize for AI visibility, and our own site was missing the fundamentals. No FAQ Schema. No llms.txt. Weak entity definitions. The irony wasn&apos;t lost on us.</p>
@@ -135,7 +135,7 @@ export default function CaseStudyDetail() {
           <ol className="list-decimal list-inside space-y-4">
             <li><strong className="text-white">Built a comprehensive llms.txt.</strong> This was the quickest win. We listed every important page — blog posts, landing pages, comparison pages, case studies — with clear descriptions. Now when GPTBot or ClaudeBot crawls our site, it knows exactly what&apos;s there. <em>Time: 2 hours.</em></li>
             <li><strong className="text-white">Added FAQ Schema to the homepage.</strong> We converted our existing FAQ section into JSON-LD structured data. Seven questions covering &quot;What is GEO,&quot; &quot;How does GetCiteFlow work,&quot; and common user concerns. <em>Time: 1 hour.</em></li>
-            <li><strong className="text-white">Defined our entity clearly.</strong> We added Organization and SoftwareApplication JSON-LD schema to every page, consistently using the same brand name, description, and URL. This tells LLMs: &quot;GetCiteFlow is a GEO platform, not a generic SEO tool.&quot; <em>Time: 3 hours.</em></li>
+            <li><strong className="text-white">Defined our entity clearly.</strong> We added Organization and SoftwareApplication JSON-LD schema to every page, consistently using the same brand name, description, and URL. This tells LLMs: &quot;GetCiteFlow is an enterprise brand visibility service, not a generic SEO tool.&quot; <em>Time: 3 hours.</em></li>
             <li><strong className="text-white">Restructured blog content for AI readability.</strong> We went through our blog posts and made sure every article had: clear H2/H3 hierarchy, comparison tables where applicable, numbered lists for actionable advice, and a summary section that LLMs could extract as a snippet. <em>Time: 1 day.</em></li>
           </ol>
 
@@ -146,7 +146,7 @@ export default function CaseStudyDetail() {
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-3xl my-12">
             <h3 className="text-lg font-bold text-white mb-4">The lesson: build what you need, then use it yourself</h3>
-            <p>Every SaaS founder should run their own product against themselves. If you&apos;re building a GEO tool and your own site isn&apos;t optimized for AI visibility, something is wrong. Fixing our own site didn&apos;t just improve our score — it gave us firsthand experience with the exact process our customers go through. That empathy shapes every feature we build.</p>
+            <p>Every SaaS founder should run their own product against themselves. If you&apos;re building a visibility scanner and your own site isn&apos;t optimized for AI visibility, something is wrong. Fixing our own site didn&apos;t just improve our score — it gave us firsthand experience with the exact process our customers go through. That empathy shapes every feature we build.</p>
           </div>
 
           <h2 className="text-2xl font-bold text-white">Key Takeaways</h2>

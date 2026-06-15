@@ -9,12 +9,12 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Profound vs GetCiteFlow | GetCiteFlow',
-  description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which platform gives you better insights for free.',
-  keywords: ['GetCiteFlow vs Profound', 'GEO tool comparison', 'AI visibility checker'],
+  description: 'Compare Profound and GetCiteFlow head-to-head for AI visibility. See which scanner gives you better insights for free.',
+  keywords: ['GetCiteFlow vs Profound', 'AI visibility comparison', 'AI visibility checker'],
   alternates: { canonical: 'https://www.getciteflow.ai/compare/profound-vs-getciteflow' },
   openGraph: {
-    title: 'Profound vs GetCiteFlow — GEO Platform Comparison',
-    description: 'Two GEO platforms, one clear winner for free AI visibility analysis. Compare features side-by-side.',
+    title: 'Profound vs GetCiteFlow — AI Visibility Comparison',
+    description: 'Two AI visibility scanners compared. See which one gives you more for free.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75', width: 1200, height: 630, alt: 'Profound vs GetCiteFlow' }],
   },
   twitter: { card: 'summary_large_image', title: 'Profound vs GetCiteFlow | GetCiteFlow', description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which platform gives you better insights for free.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75'] },
@@ -50,7 +50,7 @@ export default function ProfoundVsGetCiteFlow() {
       <Navbar />
       <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-none">GEO Platform Comparison</Badge>
+          <Badge className="mb-4 bg-primary/10 text-primary border-none">AI Visibility Comparison</Badge>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
             Profound vs <span className="gradient-text">GetCiteFlow</span>
           </h1>
@@ -117,7 +117,7 @@ export default function ProfoundVsGetCiteFlow() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
-                Free GEO reports — no signup required
+                Free AI Visibility scans — no signup required
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
@@ -140,7 +140,7 @@ export default function ProfoundVsGetCiteFlow() {
         </div>
 
         <div className="p-8 md:p-12 bg-gradient-to-r from-primary/5 to-transparent border border-primary/20 rounded-3xl text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Try the free GEO platform</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Try the free AI Visibility Scanner</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             No signup. No credit card. Just paste your URL and get your AI Visibility Score in seconds.
           </p>

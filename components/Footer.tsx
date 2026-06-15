@@ -15,8 +15,7 @@ export function Footer() {
             <span className="text-lg font-bold">GetCiteFlow</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            The AI visibility infrastructure for the next generation of the web. 
-            Built for teams who want to stay relevant in the age of LLMs.
+            The enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Gemini, and Perplexity.
           </p>
         </div>
         
@@ -24,8 +23,8 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-white">Product</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/" className="hover:text-primary transition-colors">AI Analyzer</Link></li>
-              <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">GEO Score</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">AI Visibility Scanner</Link></li>
+              <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">AI Visibility Guide</Link></li>
               <li><Link href="/services/ai-visibility-growth" className="hover:text-primary transition-colors">AI Visibility Growth</Link></li>
               <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
               <li><Link href="/compare/ahrefs-vs-getciteflow" className="hover:text-primary transition-colors">Ahrefs vs GetCiteFlow</Link></li>
@@ -70,7 +69,7 @@ export function Footer() {
       </div>
       
       <div className="max-w-6xl mx-auto border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-        <p>© 2026 GetCiteFlow AI. All rights reserved. <span className="text-slate-600">·</span> <span className="text-slate-500">GEO research by Aggarwal et al., KDD 2024</span></p>
+        <p>© 2026 GetCiteFlow AI. All rights reserved. <span className="text-slate-600">·</span> <span className="text-slate-500">AI visibility research by Aggarwal et al., KDD 2024</span></p>
         <div className="flex gap-6">
           <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
           <Link href="/terms-of-service" className="hover:text-primary">Terms of Service</Link>

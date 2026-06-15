@@ -133,7 +133,7 @@ export async function GET(request: Request) {
                   display: 'flex',
                 }}
               >
-                Free GEO Report
+                Free AI Visibility Scan
               </span>
             </div>
           )}

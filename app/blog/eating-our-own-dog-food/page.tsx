@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "We Built a GEO Tool, Ran It on Ourselves, and Scored 75/100 — Here's What We Fixed",
+  headline: "We Built an AI Visibility Scanner, Ran It on Ourselves, and Scored 75/100 — Here's What We Fixed",
   description: "Eating our own dog food: we ran GetCiteFlow against getciteflow.ai, found we were missing FAQ Schema, llms.txt, and entity clarity. Fixed everything and went from 75 to 92.",
   datePublished: "2026-06-13",
   dateModified: "2026-06-13",
@@ -44,13 +44,13 @@ export default function BlogPost() {
 
         <header className="mb-12">
           <div className="flex items-center gap-2 mb-4">
-            <Badge className="bg-primary/10 text-primary border-none">GEO</Badge>
+            <Badge className="bg-primary/10 text-primary border-none">AI Visibility</Badge>
             <Badge className="bg-primary/10 text-primary border-none">Case Study</Badge>
             <span className="text-slate-500">&bull;</span>
             <span className="text-sm font-medium text-slate-400">7 min read</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            We Built a GEO Tool, Ran It on Ourselves,<br />
+            We Built an AI Visibility Scanner, Ran It on Ourselves,<br />
             <span className="gradient-text">and Scored 75/100</span>
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
@@ -88,7 +88,7 @@ export default function BlogPost() {
                 <strong className="text-white">Missing llms.txt.</strong> AI crawlers like GPTBot and ClaudeBot had no structured index of our site. They were guessing which pages mattered. We had blog posts, landing pages, comparison pages — but no map for machines.
               </li>
               <li>
-                <strong className="text-white">Weak entity clarity.</strong> Our brand wasn't consistently defined across pages. Some pages said "GetCiteFlow is a GEO platform," others just said "we help with AI visibility." Search engines and LLMs both rely on clear, consistent entity definitions to build a mental model of what a site is about.
+                <strong className="text-white">Weak entity clarity.</strong> Our brand wasn't consistently defined across pages. Some pages said "GetCiteFlow is a brand visibility service," others just said "we help with AI visibility." Search engines and LLMs both rely on clear, consistent entity definitions to build a mental model of what a site is about.
               </li>
               <li>
                 <strong className="text-white">Content not structured for AI extraction.</strong> Our blog posts were well-written for humans — but lacked the clear heading hierarchy, comparison tables, and numbered lists that LLMs use to extract and cite information. Beautiful prose doesn't help if an AI can't parse it.
@@ -107,7 +107,7 @@ export default function BlogPost() {
             <p>We converted our existing FAQ section into JSON-LD structured data — seven questions covering "What is GEO," "How does GetCiteFlow work," "Is GEO different from SEO," and common user concerns. FAQ Schema is one of the most commonly cited structured data types by LLMs because it directly answers questions. <strong className="text-white">Result: FAQ Coverage went from 0% to 85%.</strong></p>
 
             <h3 className="text-xl font-bold text-white mt-8 mb-4">3. Defined our entity clearly across all pages <span className="text-sm font-normal text-slate-500">— 3 hours</span></h3>
-            <p>We added Organization and SoftwareApplication JSON-LD schema to every page, consistently using the same brand name, description, and URL. This tells LLMs: "GetCiteFlow is a GEO platform, not a generic SEO tool." Entity clarity compounds — the more consistently you define yourself, the more confidently LLMs cite you. <strong className="text-white">Result: Entity Clarity score improved significantly.</strong></p>
+            <p>We added Organization and SoftwareApplication JSON-LD schema to every page, consistently using the same brand name, description, and URL. This tells LLMs: "GetCiteFlow is an enterprise brand visibility service, not a generic SEO tool." Entity clarity compounds — the more consistently you define yourself, the more confidently LLMs cite you. <strong className="text-white">Result: Entity Clarity score improved significantly.</strong></p>
 
             <h3 className="text-xl font-bold text-white mt-8 mb-4">4. Restructured blog content for AI readability <span className="text-sm font-normal text-slate-500">— 1 day</span></h3>
             <p>We audited every blog post and ensured: clear H2/H3 hierarchy, comparison tables where applicable, numbered lists for actionable advice, and a summary section that LLMs could extract as a direct snippet. We didn't change the content — we just made it machine-readable. <strong className="text-white">Result: Content Structure score improved.</strong></p>
@@ -163,7 +163,7 @@ export default function BlogPost() {
           <section>
             <div className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-3xl my-12">
               <h3 className="text-lg font-bold text-white mb-4">The meta-lesson: build what you need, then use it yourself</h3>
-              <p className="text-slate-300">Every SaaS founder should run their own product against themselves. If you're building a GEO tool and your own site isn't optimized for AI visibility, something is wrong. Fixing our own site didn't just improve our score — it gave us firsthand experience with the exact process our customers go through. That empathy shapes every feature we build.</p>
+              <p className="text-slate-300">Every SaaS founder should run their own product against themselves. If you're building a visibility scanner and your own site isn't optimized for AI visibility, something is wrong. Fixing our own site didn't just improve our score — it gave us firsthand experience with the exact process our customers go through. That empathy shapes every feature we build.</p>
               <p className="text-slate-300 mt-4">It also taught us that GEO isn't complicated. The fundamentals — FAQ Schema, llms.txt, entity clarity, structured content — are straightforward. Most sites are missing them not because they're hard, but because nobody has told them these things matter for AI search. That's exactly why we built GetCiteFlow.</p>
             </div>
           </section>

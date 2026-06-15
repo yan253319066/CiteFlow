@@ -12,8 +12,8 @@ const features = [
   },
   {
     icon: FileText,
-    title: "GEO Diagnosis",
-    description: "Receive a prioritized issue list ranked by impact on AI citation probability. See exactly what your site is missing vs. what AI search engines look for.",
+    title: "AI Visibility Diagnosis",
+    description: "Receive a prioritized issue list ranked by impact on AI citation probability. See exactly what your brand is missing vs. what AI systems look for when deciding who to recommend.",
   },
   {
     icon: Download,
@@ -22,8 +22,8 @@ const features = [
   },
   {
     icon: BarChart3,
-    title: "Domain-Specific GEO",
-    description: "GEO strategies vary by industry — what works for a SaaS company won't work for an e-commerce store. GetCiteFlow tailors its recommendations based on your specific domain, backed by the KDD 2024 GEO-bench evaluation across 40+ query categories.",
+    title: "Industry-Specific Analysis",
+    description: "AI citation patterns vary by industry — what works for a SaaS company won't work for an e-commerce brand. GetCiteFlow tailors its analysis based on your specific domain, backed by real AI response data across 40+ query categories.",
   },
 ];
 

@@ -5,9 +5,9 @@
 - Limits: 5 reports per hour per IP, 1 URL per analysis
 - Features: AI Visibility Score, breakdown analysis, missing components identification, AI suggestions, shareable report page
 
-## Enterprise — Technical GEO
+## Enterprise — Brand Visibility
 - Price: From $3,999 one-time (varies by site size and scope)
-- Includes: Full site GEO scan & report, FAQ Schema + llms.txt generation, Meta & entity optimization, Competitor citation analysis, Deployment support
+- Includes: Full site AI visibility scan & report, FAQ Schema + llms.txt generation, Meta & entity optimization, Competitor citation analysis, Deployment support
 
 ## Enterprise — AI Visibility Growth
 - Price: From $4,999/month (custom quote based on scope)

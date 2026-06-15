@@ -46,7 +46,7 @@ function ScoreCard({ domain, score, breakdown, competitorBreakdown, side }: {
       </div>
       <div className={`text-4xl font-black mb-5 ${score >= 70 ? 'text-green-400' : score >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
         {score}/100
-        <span className="text-xs text-slate-500 font-normal ml-2">GEO Score</span>
+        <span className="text-xs text-slate-500 font-normal ml-2">AI Visibility</span>
       </div>
       <div className="space-y-4">
         {Object.entries(breakdown).map(([key, val]) => {
@@ -244,12 +244,12 @@ export function ComparePanel({ currentDomain, currentScore, currentBreakdown }: 
                 name: `${currentDomain} vs ${competitor.trim()} AI Visibility Comparison`,
                 about: {
                   '@type': 'Thing',
-                  name: 'Generative Engine Optimization',
-                  description: 'Comparison of AI visibility scores between two websites.',
+                  name: 'AI Visibility',
+                  description: 'Comparison of AI visibility scores between two brands.',
                 },
                 mainEntity: [
-                  { '@type': 'StatisticalScore', name: `${currentDomain} GEO Score`, value: currentScore },
-                  { '@type': 'StatisticalScore', name: `${competitor.trim()} GEO Score`, value: compData.score },
+                  { '@type': 'StatisticalScore', name: `${currentDomain} AI Visibility Score`, value: currentScore },
+                  { '@type': 'StatisticalScore', name: `${competitor.trim()} AI Visibility Score`, value: compData.score },
                 ],
               }),
             }}

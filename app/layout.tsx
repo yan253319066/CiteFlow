@@ -11,13 +11,13 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.getciteflow.ai'),
-  title: "GetCiteFlow | Get Mentioned by AI",
-  description: "Identify and optimize your website's visibility in ChatGPT, Gemini, and AI Search results.",
-  keywords: ['AI Visibility', 'GEO', 'Get Mentioned by AI', 'GEO tool', 'AI visibility checker', 'Generative Engine Optimization'],
+  title: "GetCiteFlow | Get Your Brand Recommended by AI",
+  description: "Enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Gemini, and Perplexity. Free AI Visibility Scanner to check where your brand stands.",
+  keywords: ['AI brand visibility', 'get mentioned by AI', 'AI brand service', 'enterprise AI visibility', 'brand recommended by AI', 'AI citation service', 'ChatGPT brand mentions'],
   alternates: { canonical: '/' },
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
-  openGraph: { title: "GetCiteFlow | Get Mentioned by AI", description: "The AI Visibility Platform for GEO.", type: "website", siteName: "GetCiteFlow", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Mentioned by AI', description: 'AI Visibility Platform for GEO', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75'] },
+  openGraph: { title: "GetCiteFlow | Get Your Brand Recommended by AI", description: "Enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Gemini, and Perplexity.", type: "website", siteName: "GetCiteFlow", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] },
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Your Brand Recommended by AI', description: 'Enterprise service that gets your brand mentioned and recommended by AI systems.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75'] },
   other: { 'google-site-verification': 'placeholder' },
 };
 
@@ -27,7 +27,7 @@ const organizationSchema = {
   name: 'GetCiteFlow',
   url: 'https://www.getciteflow.ai',
   logo: 'https://www.getciteflow.ai/logo.png',
-  description: 'GEO Platform that helps websites get cited by AI search engines including ChatGPT, Claude, Perplexity, and Gemini.',
+  description: 'Enterprise AI brand service that helps brands get mentioned and recommended by ChatGPT, Claude, Perplexity, and Gemini.',
   email: 'support@getciteflow.ai',
   sameAs: [
     'https://x.com/getciteflow',

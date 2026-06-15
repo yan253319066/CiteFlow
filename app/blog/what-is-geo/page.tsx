@@ -257,7 +257,7 @@ export default function WhatIsGEO() {
                See how well your website is optimized for AI citations. GetCiteFlow scans your site, diagnoses GEO issues, and provides actionable recommendations to improve your AI visibility.
             </p>
             <Link href="/" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
-              Get Your Free GEO Report <ArrowRight className="w-4 h-4" />
+              Get Your Free AI Visibility Scan <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

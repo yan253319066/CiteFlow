@@ -7,25 +7,25 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'GEO Comparison Tool: Compare AI Visibility Scores | GetCiteFlow',
-  description: 'Compare your website\'s Generative Engine Optimization (GEO) score against competitors. See exactly who AI recommends and where you\'re winning or losing.',
-  keywords: ['GEO comparison', 'AI visibility compare', 'compare AI scores', 'GEO tool', 'competitor GEO analysis', 'AI citation comparison'],
+  title: 'AI Visibility Comparison: Compare Brand Scores | GetCiteFlow',
+  description: 'Compare your brand\'s AI visibility score against competitors. See exactly who AI recommends and where you\'re winning or losing.',
+  keywords: ['AI visibility comparison', 'brand AI visibility', 'compare AI scores', 'AI visibility scanner', 'competitor AI analysis', 'brand AI comparison'],
   alternates: { canonical: 'https://www.getciteflow.ai/compare' },
   openGraph: {
-    title: 'Compare AI Visibility Scores — Free GEO Comparison Tool',
-    description: 'See how your site stacks up against competitors in AI search. Free side-by-side GEO analysis.',
+    title: 'Compare AI Visibility Scores — Free Comparison Tool',
+    description: 'See how your brand stacks up against competitors in AI search. Free side-by-side analysis.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Compare OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Compare AI Visibility Scores — Free GEO Tool',
-    description: 'Side-by-side GEO analysis for your site vs competitors.',
+    title: 'Compare AI Visibility Scores — Free Comparison Tool',
+    description: 'Side-by-side AI visibility analysis for your brand vs competitors.',
     images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare&score=75'],
   },
 };
 
 const steps = [
-  { icon: Search, title: 'Get your GEO score', desc: 'Enter your URL on the homepage and get your AI Visibility Score in seconds.' },
+  { icon: Search, title: 'Get your AI Visibility Score', desc: 'Enter your URL on the homepage and get your AI Visibility Score in seconds.' },
   { icon: Crosshair, title: 'Enter a competitor', desc: 'At the bottom of your report, enter any competitor domain to compare.' },
   { icon: BarChart3, title: 'See side-by-side results', desc: 'AI Visibility, FAQ Coverage, Entity Clarity, and Authority — compared directly.' },
 ];
@@ -41,7 +41,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.getciteflow.ai' },
-    { '@type': 'ListItem', position: 2, name: 'GEO Comparison Tool', item: 'https://www.getciteflow.ai/compare' },
+    { '@type': 'ListItem', position: 2, name: 'AI Visibility Comparison', item: 'https://www.getciteflow.ai/compare' },
   ],
 };
 
@@ -57,10 +57,10 @@ export default function ComparePage() {
             Compare Your <span className="gradient-text">AI Visibility</span> Against Competitors
           </h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
-            Most GEO tools show you a score. GetCiteFlow lets you see exactly where you win and lose — side by side with any competitor. Find out who AI recommends, and why.
+            Most AI visibility scanners show you a score. GetCiteFlow lets you see exactly where you win and lose — side by side with any competitor. Find out who AI recommends, and why.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
-            Get Your Free Report <ArrowRight className="w-5 h-5" />
+            Get Your Free Scan <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
 
@@ -98,7 +98,7 @@ export default function ComparePage() {
               <TrendingUp className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold">Start with your free report</h2>
+              <h2 className="text-2xl font-bold">Start with your free scan</h2>
               <p className="text-slate-400 text-sm">Enter your URL, get your AI Visibility Score, then compare against any competitor.</p>
             </div>
           </div>

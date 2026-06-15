@@ -11,7 +11,7 @@ const cases = [
     company: "GetCiteFlow",
     slug: "nexus-protocol",
     result: "75 → 92 Score",
-    description: "We ran our own GEO platform against ourselves — and found we were missing the very things we tell users to fix. Here's what we learned from eating our own dog food."
+    description: "We ran our own AI visibility scanner against ourselves — and found we were missing the very things we tell users to fix. Here's what we learned from eating our own dog food."
   },
   {
     title: "The Notion GEO Playbook: Dominating Productivity Answers",
@@ -43,7 +43,7 @@ const breadcrumbSchema = {
             Case <span className="gradient-text">Studies</span>
           </h1>
           <p className="text-muted-foreground text-xl max-w-2xl">
-            Real-world evidence of how technical brands are mastering Generative Engine Optimization.
+            Real-world evidence of how technical brands are mastering AI visibility.
           </p>
         </div>
 

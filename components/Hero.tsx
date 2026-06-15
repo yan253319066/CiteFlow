@@ -25,15 +25,15 @@ export function Hero() {
       <div className="max-w-5xl mx-auto text-center z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8">
           <Sparkles className="w-3 h-3 text-primary" />
-          <span>Generative Engine Optimization Platform</span>
+          <span>Enterprise AI Brand Service</span>
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="hero-title mb-6">
-          GetCiteFlow: Get Your Site <span className="gradient-text">Cited by AI</span>
+          GetCiteFlow: Get Your Brand <span className="gradient-text">Recommended by AI</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-6">
-          GetCiteFlow is a GEO platform that helps websites appear in ChatGPT, Claude, Perplexity, and Gemini answers. <strong className="text-white">Scan. Diagnose. Fix.</strong>
+          GetCiteFlow is an enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, and Gemini. Try our <strong className="text-white">free AI Visibility Scanner</strong> to see where your brand stands.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="flex items-center justify-center gap-3 mb-8 text-sm">

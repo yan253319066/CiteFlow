@@ -46,10 +46,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How is this different from GEO tool reports?",
+      name: "How is this different from free AI visibility scanners?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GEO tool reports analyze your existing website and tell you what to fix. AI Visibility Growth is an ongoing service where we actively build your brand's presence across the platforms and sources AI trusts in your industry — so AI systems have more and better signals to cite."
+        text: "Free AI visibility scanners analyze your existing website and tell you what to fix. AI Visibility Growth is an ongoing enterprise service where we actively build your brand's presence across the platforms and sources AI trusts in your industry — so AI systems have more and better signals to mention and recommend your brand."
       }
     },
     {
@@ -70,10 +70,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can I combine this with technical GEO optimization?",
+      name: "Can I combine this with brand visibility optimization?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. Technical GEO (fixing your site's FAQ schema, llms.txt, entity clarity) and AI Visibility Growth (building external citations and brand presence) are complementary. Many Enterprise clients start with the technical foundation and add the visibility growth service."
+        text: "Absolutely. Brand Visibility (fixing your site's FAQ schema, llms.txt, entity clarity) and AI Visibility Growth (building external citations and brand presence) are complementary. Many Enterprise clients start with the technical foundation and add the visibility growth service."
       }
     }
   ]

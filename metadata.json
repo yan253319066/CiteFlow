@@ -1,6 +1,6 @@
 {
   "name": "GetCiteFlow",
-  "description": "Get Mentioned by AI. Analyze and optimize your website for ChatGPT, Gemini and AI Search (GEO).",
+  "description": "Enterprise AI brand service. Get your brand mentioned and recommended by ChatGPT, Gemini, Claude, and Perplexity. Free AI Visibility Scanner available.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

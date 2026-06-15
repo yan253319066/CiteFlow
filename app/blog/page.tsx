@@ -7,25 +7,25 @@ import { ArrowRight } from "lucide-react";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'GetCiteFlow Blog | AI Search & GEO Insights',
-  description: 'Guides about Generative Engine Optimization, AI Search, ChatGPT citations, and AI visibility growth strategies.',
-  keywords: ['GEO guide', 'ChatGPT SEO', 'AI visibility', 'generative engine optimization', 'GEO tool', 'AI visibility checker'],
+  title: 'GetCiteFlow Blog | AI Brand Visibility Insights',
+  description: 'Guides about AI brand visibility, getting mentioned by ChatGPT, and AI visibility growth strategies.',
+  keywords: ['AI brand visibility', 'brand AI mentions', 'AI visibility', 'brand visibility guide', 'AI visibility scanner', 'AI visibility checker'],
   alternates: { canonical: 'https://www.getciteflow.ai/blog' },
   openGraph: {
-    title: 'GetCiteFlow Blog — AI Search & GEO Insights',
-    description: 'Strategies for getting cited by AI. GEO guides, ChatGPT SEO, and AI visibility research.',
+    title: 'GetCiteFlow Blog — AI Brand Visibility Insights',
+    description: 'Strategies for getting your brand mentioned by AI. Guides on AI brand visibility and getting recommended by ChatGPT.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Blog OG Image' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GetCiteFlow Blog — AI Search & GEO Insights',
-    description: 'Strategies for getting cited by AI.',
+    title: 'GetCiteFlow Blog — AI Brand Visibility Insights',
+    description: 'Strategies for getting your brand mentioned by AI.',
     images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/blog&score=75'],
   },
 };
 
 const posts = [
-  { title: "We Built a GEO Tool, Ran It on Ourselves, and Scored 75/100", slug: "eating-our-own-dog-food", date: "Jun 13, 2026", category: "Case Study", excerpt: "The humbling moment we ran our own scanner on getciteflow.ai — and found we were missing FAQ Schema, llms.txt, and entity clarity. Here's how we went from 75 to 92." },
+  { title: "We Built an AI Visibility Scanner, Ran It on Ourselves, and Scored 75/100", slug: "eating-our-own-dog-food", date: "Jun 13, 2026", category: "Case Study", excerpt: "The humbling moment we ran our own scanner on getciteflow.ai — and found we were missing FAQ Schema, llms.txt, and entity clarity. Here's how we went from 75 to 92." },
   { title: "How Generative Engines Choose What to Cite", slug: "geo-guide", date: "May 15, 2026", category: "Technical Guide", excerpt: "LLMs don't crawl the web like Google does. Understanding how they select sources changes everything about content strategy." },
   { title: "Search Rankings Don't Translate to AI Citations", slug: "chatgpt-seo", date: "May 10, 2026", category: "Strategy", excerpt: "High search volume and AI mentions are two different games. Here is what causes the gap and how to bridge it." },
   { title: "AI Visibility Is a Better Metric Than CTR", slug: "ai-visibility", date: "May 5, 2026", category: "Trends", excerpt: "In a zero-click world, being cited by an LLM matters more than driving a click. Here is how to measure it." },
@@ -38,7 +38,7 @@ const blogSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "GetCiteFlow Blog — AI Search & GEO Insights",
-  description: "Guides about Generative Engine Optimization, AI Search, ChatGPT citations, and AI visibility growth strategies.",
+  description: "Guides about AI brand visibility, getting mentioned by ChatGPT, and AI visibility growth strategies.",
   url: "https://www.getciteflow.ai/blog",
 };
 

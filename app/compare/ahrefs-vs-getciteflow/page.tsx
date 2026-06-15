@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const comparisonRows = [
-  { feature: 'Focus Area', ahrefs: 'Google Search Rankings', getciteflow: 'AI Visibility & GEO Score' },
+  { feature: 'Focus Area', ahrefs: 'Google Search Rankings', getciteflow: 'AI Visibility Score' },
   { feature: 'Primary Metric', ahrefs: 'Domain Rating (DR)', getciteflow: 'AI Visibility Score (0-100)' },
   { feature: 'Backlink Analysis', ahrefs: <Check className="w-5 h-5 text-green-400" />, getciteflow: 'Indirect (authority signals)' },
   { feature: 'Keyword Research', ahrefs: <Check className="w-5 h-5 text-green-400" />, getciteflow: <X className="w-5 h-5 text-red-400" /> },
@@ -113,7 +113,7 @@ export default function AhrefsVsGetCiteFlow() {
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
             <Bot className="w-8 h-8 text-primary mb-4" />
-            <h3 className="text-xl font-bold mb-3">GetCiteFlow — AI Visibility Platform</h3>
+            <h3 className="text-xl font-bold mb-3">GetCiteFlow — AI Brand Visibility Service</h3>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
@@ -145,7 +145,7 @@ export default function AhrefsVsGetCiteFlow() {
             Ahrefs tells you how Google sees your site. GetCiteFlow tells you how AI sees it. In the age of LLMs, you need visibility everywhere.
           </p>
           <Link href="/" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
-            Get Your Free GEO Report <ArrowRight className="w-5 h-5" />
+            Get Your Free AI Visibility Scan <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>

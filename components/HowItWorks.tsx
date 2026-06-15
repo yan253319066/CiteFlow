@@ -14,8 +14,8 @@ const steps = [
   {
     number: "02",
     icon: FileText,
-    title: "GEO Diagnosis & Score",
-    description: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find — and what they miss — ranked by impact. Our engine is calibrated against the GEO-bench framework from KDD 2024 research.",
+    title: "AI Visibility Score",
+    description: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find about your brand — and what they miss — ranked by impact.",
   },
   {
     number: "03",
@@ -64,9 +64,9 @@ export function HowItWorks() {
         </ol>
 
         <div className="mt-16 text-center">
-          <p className="text-slate-400 text-sm mb-4">Don't have time to implement the fixes yourself?</p>
+          <p className="text-slate-400 text-sm mb-4">Want your brand mentioned and recommended by AI — without doing the work yourself?</p>
           <Link href="/pricing" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity">
-            Let Our Team Do It — Technical GEO <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            Let Our Team Build Your Brand Presence <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           </Link>
         </div>
       </div>
