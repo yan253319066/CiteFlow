@@ -12,11 +12,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.getciteflow.ai'),
   title: "GetCiteFlow | Get Your Brand Recommended by AI",
-  description: "Enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. Free AI Visibility Scanner to check where your brand stands.",
+  description: "Enterprise AI Brand Service. Free AI Visibility Scanner — check your brand's standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.",
   keywords: ['AI brand visibility', 'get mentioned by AI', 'AI brand service', 'enterprise AI visibility', 'brand recommended by AI', 'AI citation service', 'ChatGPT brand mentions'],
   alternates: { canonical: '/' },
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
-  openGraph: { title: "GetCiteFlow | Get Your Brand Recommended by AI", description: "Enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao.", type: "website", siteName: "GetCiteFlow", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] },
+  openGraph: { title: "GetCiteFlow | Get Your Brand Recommended by AI", description: "Enterprise AI Brand Service that gets your brand recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.", type: "website", siteName: "GetCiteFlow", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] },
   twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Your Brand Recommended by AI', description: 'Enterprise service that gets your brand mentioned and recommended by AI systems.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75'] },
   other: { 'google-site-verification': 'placeholder' },
 };
@@ -27,7 +27,7 @@ const organizationSchema = {
   name: 'GetCiteFlow',
   url: 'https://www.getciteflow.ai',
   logo: 'https://www.getciteflow.ai/logo.png',
-  description: 'Enterprise AI brand service that helps brands get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao.',
+  description: 'Enterprise AI Brand Service that helps brands get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.',
   email: 'support@getciteflow.ai',
   sameAs: [
     'https://x.com/getciteflow',

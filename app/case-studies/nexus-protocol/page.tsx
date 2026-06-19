@@ -66,7 +66,7 @@ export default function CaseStudyDetail() {
           <div className="bg-primary/5 p-8 rounded-3xl border border-primary/20">
             <div className="text-xs font-bold text-primary uppercase mb-3 tracking-widest">The Result</div>
             <p className="text-2xl font-black text-white">AI Visibility: 75 &rarr; 92</p>
-            <p className="text-[10px] text-slate-500 mt-2">Measured by our own platform, verified with real LLM queries</p>
+            <p className="text-[10px] text-slate-500 mt-2">Measured by our own scanner, verified with real LLM queries</p>
           </div>
         </div>
 
@@ -117,8 +117,8 @@ export default function CaseStudyDetail() {
 
         <div className="prose prose-invert max-w-none text-slate-400 space-y-8 leading-relaxed">
           <h2 className="text-2xl font-bold text-white">The irony of building a visibility scanner</h2>
-          <p>We spent months building GetCiteFlow — a platform that analyzes websites and tells you exactly why AI search engines aren&apos;t citing you. We launched it. We started writing blog posts about GEO. We built landing pages targeting &quot;AI visibility&quot; and &quot;how to get cited by ChatGPT.&quot;</p>
-          <p>Then one day, almost as a joke, we ran our own tool against getciteflow.ai. The result was humbling: <strong className="text-white">75 out of 100.</strong></p>
+          <p>We spent months building GetCiteFlow — an enterprise AI brand service with a free scanner that analyzes websites and tells you exactly why AI search engines aren&apos;t citing you. We launched it. We started writing blog posts about GEO. We built landing pages targeting &quot;AI visibility&quot; and &quot;how to get cited by ChatGPT.&quot;</p>
+          <p>Then one day, almost as a joke, we ran our own scanner against getciteflow.ai. The result was humbling: <strong className="text-white">75 out of 100.</strong></p>
           <p>Here we were, telling other companies how to optimize for AI visibility, and our own site was missing the fundamentals. No FAQ Schema. No llms.txt. Weak entity definitions. The irony wasn&apos;t lost on us.</p>
 
           <h2 className="text-2xl font-bold text-white">What our own scan revealed</h2>
@@ -142,7 +142,7 @@ export default function CaseStudyDetail() {
           <h2 className="text-2xl font-bold text-white">The results: from 75 to 92</h2>
           <p>After implementing these changes, we re-scanned our site. The AI Visibility Score jumped from 75 to 92.</p>
           <p>But the score is just a number. The real test was asking ChatGPT and Claude questions like &quot;what is GEO?&quot; and &quot;how do I get my site cited by AI?&quot; — and seeing GetCiteFlow appear in the answers. It did.</p>
-          <p>More importantly, we now had a <strong className="text-white">credible story to tell.</strong> When potential customers ask &quot;does this actually work?&quot; — we can show them our own before-and-after. Not a hypothetical. Not a fabricated case study. Our own site, our own tool, real results.</p>
+          <p>More importantly, we now had a <strong className="text-white">credible story to tell.</strong> When potential customers ask &quot;does this actually work?&quot; — we can show them our own before-and-after. Not a hypothetical. Not a fabricated case study. Our own site, our own service, real results.</p>
 
           <div className="p-8 bg-white/5 border border-white/10 rounded-3xl my-12">
             <h3 className="text-lg font-bold text-white mb-4">The lesson: build what you need, then use it yourself</h3>
@@ -151,7 +151,7 @@ export default function CaseStudyDetail() {
 
           <h2 className="text-2xl font-bold text-white">Key Takeaways</h2>
           <ol className="list-decimal list-inside space-y-4 text-slate-400">
-            <li><strong className="text-white">Run your own tool on yourself first.</strong> If you&apos;re selling GEO optimization and your own site scores poorly, fix that before pitching anyone else.</li>
+            <li><strong className="text-white">Run your own scanner on yourself first.</strong> If you&apos;re selling GEO optimization and your own site scores poorly, fix that before pitching anyone else.</li>
             <li><strong className="text-white">llms.txt is the highest-impact, lowest-effort change.</strong> It took 2 hours and immediately gave AI crawlers a structured map of our site.</li>
             <li><strong className="text-white">FAQ Schema matters more than you think.</strong> LLMs frequently cite FAQ content in responses. Without structured data, your Q&amp;A is invisible.</li>
             <li><strong className="text-white">Entity clarity compounds.</strong> Consistently defining your brand across all pages helps LLMs build a reliable mental model of what you do.</li>

@@ -4,7 +4,7 @@
 <img width="1200" height="475" alt="GetCiteFlow Banner" src="https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75" />
 </div>
 
-GetCiteFlow helps enterprise brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Google AI Overviews. Try our **free AI Visibility Scanner** to check where your brand stands.
+GetCiteFlow helps enterprise brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, Qwen, and Google AI Overviews. Try our **free AI Visibility Scanner** to check where your brand stands.
 
 ## What We Do
 

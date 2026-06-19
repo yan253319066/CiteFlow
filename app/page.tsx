@@ -3,34 +3,44 @@ import { Hero } from "@/components/Hero";
 import { ScoreCards } from "@/components/ScoreCards";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
+import { EnterpriseSection } from "@/components/EnterpriseSection";
 import { JsonLd } from "@/components/JsonLd";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'GetCiteFlow | Enterprise AI Brand Service — Get Recommended by AI',
-  description: 'Enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao. Free AI Visibility Scanner to check where your brand stands.',
-  keywords: ['AI brand visibility', 'get mentioned by AI', 'enterprise AI service', 'brand recommended by AI', 'AI visibility scanner', 'ChatGPT brand mentions', 'AI brand service'],
+  description: 'Enterprise AI Brand Service. Free AI Visibility Scanner — check your brand\'s AI visibility across ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.',
+  keywords: ['AI brand visibility', 'get mentioned by AI', 'enterprise AI service', 'brand recommended by AI', 'AI visibility scanner', 'ChatGPT brand mentions', 'AI brand service', 'Qwen brand mentions'],
   alternates: { canonical: 'https://www.getciteflow.ai/' },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao. Free AI Visibility Scanner included.' },
-  openGraph: { title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise service that makes your brand get mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, and Doubao. Free AI Visibility Scanner included.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — Get Your Brand Recommended by AI' }] }
-};
-
-const softwareSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "GetCiteFlow",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description: "Enterprise AI brand service. Get your brand mentioned and recommended by ChatGPT, Gemini, Claude, Perplexity, DeepSeek, and Doubao. Free AI Visibility Scanner available.",
-  url: "https://www.getciteflow.ai",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.' },
+  openGraph: { title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — Get Your Brand Recommended by AI' }] }
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  name: "GetCiteFlow",
+  description: "Enterprise AI Brand Service. Get your brand mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen. Free AI Visibility Scanner included.",
+  provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
+  areaServed: "Worldwide",
+  audience: { "@type": "Audience", audienceType: "Business" },
+  offers: { "@type": "AggregateOffer", lowPrice: "0", priceCurrency: "USD", offerCount: "1" },
+  url: "https://www.getciteflow.ai",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "GetCiteFlow Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Enterprise AI Brand Service" } },
+      { "@type": "Offer", itemOffered: { "@type": "SoftwareApplication", name: "Free AI Visibility Scanner" } }
+    ]
+  }
+};
+
+const aiVisibilityServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
   name: "AI Visibility Growth",
-  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. We analyze the platforms AI trusts in your specific industry and build discoverable brand signals across them — through custom content, entity optimization, and cross-platform distribution.",
+  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.",
   provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
   areaServed: "Worldwide",
   audience: { "@type": "Audience", audienceType: "Business" },
@@ -47,7 +57,7 @@ const faqSchema = {
       name: "What is GetCiteFlow?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GetCiteFlow is an enterprise service that helps brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Google AI Overviews. We also offer a free AI Visibility Scanner that checks your website's current AI visibility."
+        text: "GetCiteFlow is an enterprise service that helps brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, Qwen, and Google AI Overviews. We also offer a free AI Visibility Scanner that checks your website's current AI visibility."
       }
     },
     {
@@ -139,13 +149,14 @@ const howToSchema = {
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      <JsonLd data={softwareSchema} />
       <JsonLd data={serviceSchema} />
+      <JsonLd data={aiVisibilityServiceSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={howToSchema} />
       <Navbar />
       <Hero />
       <ScoreCards />
+      <EnterpriseSection />
       <HowItWorks />
       <Features />
     </main>
