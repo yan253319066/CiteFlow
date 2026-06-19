@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Two AI visibility scanners compared. See which one gives you more for free.',
     images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75', width: 1200, height: 630, alt: 'Profound vs GetCiteFlow' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Profound vs GetCiteFlow | GetCiteFlow', description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which platform gives you better insights for free.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75'] },
+  twitter: { card: 'summary_large_image', title: 'Profound vs GetCiteFlow | GetCiteFlow', description: 'Compare Profound and GetCiteFlow head-to-head for GEO and AI visibility. See which scanner gives you better insights for free.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/compare/profound-vs-getciteflow&score=75'] },
 };
 
 const comparisonRows = [

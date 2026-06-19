@@ -62,8 +62,8 @@ export default function BlogPost() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mt-12 mb-6">The moment of truth</h2>
-            <p>We spent months building GetCiteFlow — a platform that scans websites and tells you exactly why AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao aren't citing your content. We built landing pages targeting "AI visibility" and "how to get cited by ChatGPT." We wrote blog posts about GEO. We felt like experts.</p>
-            <p>Then one Friday afternoon, almost as a joke, someone on the team said: <em>"Have we actually run our own tool on our own site?"</em></p>
+            <p>We spent months building GetCiteFlow — an enterprise AI brand service with a free scanner that checks websites and tells you exactly why AI search engines like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao aren't citing your content. We built landing pages targeting "AI visibility" and "how to get cited by ChatGPT." We wrote blog posts about GEO. We felt like experts.</p>
+            <p>Then one Friday afternoon, almost as a joke, someone on the team said: <em>"Have we actually run our own scanner on our own site?"</em></p>
             <p>Silence.</p>
             <p>We typed <code className="bg-white/10 px-2 py-0.5 rounded text-sm">getciteflow.ai</code> into our own scanner and hit enter. Thirty seconds later, the result appeared:</p>
 
@@ -157,7 +157,7 @@ export default function BlogPost() {
             </div>
 
             <p>But the score is just a number. The real test was asking ChatGPT and Claude questions like <em>"what is GEO?"</em> and <em>"how do I get my site cited by AI?"</em> — and seeing GetCiteFlow appear in the answers.</p>
-            <p>More importantly, we now had a <strong className="text-white">credible story to tell.</strong> When potential customers ask "does this actually work?" — we can show them our own before-and-after. Not a hypothetical. Not a fabricated case study. Our own site, our own tool, real results.</p>
+            <p>More importantly, we now had a <strong className="text-white">credible story to tell.</strong> When potential customers ask "does this actually work?" — we can show them our own before-and-after. Not a hypothetical. Not a fabricated case study. Our own site, our own service, real results.</p>
           </section>
 
           <section>
@@ -171,7 +171,7 @@ export default function BlogPost() {
           <section>
             <h2 className="text-2xl font-bold text-white mt-12 mb-6">Key takeaways for your own site</h2>
             <ol className="list-decimal list-inside space-y-4 text-slate-300">
-              <li><strong className="text-white">Run your own tool on yourself first.</strong> If you're selling any kind of optimization and your own site scores poorly, fix that before pitching anyone else. Credibility is everything.</li>
+              <li><strong className="text-white">Run your own scanner on yourself first.</strong> If you're selling any kind of optimization and your own site scores poorly, fix that before pitching anyone else. Credibility is everything.</li>
               <li><strong className="text-white">llms.txt is the highest-impact, lowest-effort GEO change.</strong> It took 2 hours and immediately gave AI crawlers a structured map of our site. If you do nothing else, do this.</li>
               <li><strong className="text-white">FAQ Schema matters more than you think.</strong> LLMs frequently cite FAQ content in responses because it directly answers user questions. Without structured data, your Q&amp;A is invisible to AI.</li>
               <li><strong className="text-white">Entity clarity compounds over time.</strong> Consistently defining your brand across all pages helps LLMs build a reliable mental model of what you do. Inconsistency confuses both search engines and AI.</li>

@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         <div className="space-y-10 text-slate-300 leading-relaxed">
           <Section title="1. Introduction">
             <p>
-              GetCiteFlow AI (&ldquo;GetCiteFlow,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI visibility analysis platform.
+              GetCiteFlow AI (&ldquo;GetCiteFlow,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI visibility analysis service.
             </p>
             <p>
               By accessing or using our Service, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the Service.
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
               <li>To improve, personalize, and expand our Service</li>
               <li>To communicate with you, including for customer support and product updates</li>
               <li>To process your account registration</li>
-              <li>To analyze usage patterns and optimize our platform</li>
+              <li>To analyze usage patterns and optimize our service</li>
               <li>To detect, prevent, and address technical issues and fraud</li>
               <li>To comply with legal obligations</li>
             </ul>
