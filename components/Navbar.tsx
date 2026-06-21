@@ -6,34 +6,45 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 
-const servicesLinks = [
-  { name: 'AI Visibility Growth', href: '/services/ai-visibility-growth', description: 'Full-service brand presence for AI', badge: 'New' },
+const resourcesLinks = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Case Studies', href: '/case-studies' },
+  { type: 'group', name: 'GEO Guides' },
+  { name: 'AI Visibility for SaaS', href: '/geo-for-saas', indent: true },
+  { name: 'AI Visibility for AI Tools', href: '/geo-for-ai-tools', indent: true },
+  { name: 'AI Visibility for Startups', href: '/geo-for-startups', indent: true },
+  { type: 'divider' },
+  { name: 'Why ChatGPT Ignores You', href: '/why-chatgpt-doesnt-mention-your-site' },
+  { name: 'Compare Tool', href: '/compare' },
+  { type: 'divider' },
+  { name: 'App', href: 'https://app.getciteflow.ai', external: true },
 ];
 
-const guidesLinks = [
-  { name: 'AI Visibility for SaaS', href: '/geo-for-saas', description: 'Software companies' },
-  { name: 'AI Visibility for AI Tools', href: '/geo-for-ai-tools', description: 'AI product makers' },
-  { name: 'AI Visibility for Startups', href: '/geo-for-startups', description: 'Early-stage companies' },
-  { name: 'Why ChatGPT Ignores You', href: '/why-chatgpt-doesnt-mention-your-site', description: 'Common visibility pitfalls' },
-];
+function isResourceActive(pathname: string, href?: string): boolean {
+  if (!href) return false;
+  if (pathname === href) return true;
+  if (href === '/geo-for-saas' && pathname.startsWith('/geo-for-saas')) return true;
+  if (href === '/geo-for-ai-tools' && pathname.startsWith('/geo-for-ai-tools')) return true;
+  if (href === '/geo-for-startups' && pathname.startsWith('/geo-for-startups')) return true;
+  if (href === '/why-chatgpt-doesnt-mention-your-site' && pathname.startsWith('/why-chatgpt-doesnt-mention-your-site')) return true;
+  if (href === '/compare' && pathname.startsWith('/compare')) return true;
+  if (href === '/blog' && pathname.startsWith('/blog')) return true;
+  if (href === '/case-studies' && pathname.startsWith('/case-studies')) return true;
+  return false;
+}
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isGuidesOpen, setIsGuidesOpen] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const guidesRef = useRef<HTMLDivElement>(null);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
-        setIsServicesOpen(false);
-      }
-      if (guidesRef.current && !guidesRef.current.contains(event.target as Node)) {
-        setIsGuidesOpen(false);
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setIsResourcesOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -41,12 +52,14 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Scanner', href: '/' },
-    { name: 'Compare', href: '/compare' },
+    { name: 'Scan', href: '/' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Case Studies', href: '/case-studies' },
+    { name: 'Services', href: '/services/ai-visibility-growth' },
   ];
+
+  const resourcesActive = resourcesLinks.some(
+    (l) => 'href' in l && isResourceActive(pathname, l.href)
+  );
 
   return (
     <>
@@ -85,78 +98,72 @@ export function Navbar() {
             );
           })}
           
-          {/* Services Dropdown */}
-          <div ref={servicesRef} className="relative">
+          {/* Resources Dropdown */}
+          <div ref={resourcesRef} className="relative">
             <button
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              onClick={() => setIsResourcesOpen(!isResourcesOpen)}
               className={cn(
                 "flex items-center gap-1 transition-colors hover:text-white",
-                pathname.startsWith('/services') ? "text-white" : "text-slate-400"
+                resourcesActive ? "text-white" : "text-slate-400"
               )}
             >
-              Services
-              <ChevronDown className={cn("w-4 h-4 transition-transform", isServicesOpen && "rotate-180")} />
+              Resources
+              <ChevronDown className={cn("w-4 h-4 transition-transform", isResourcesOpen && "rotate-180")} />
             </button>
             <AnimatePresence>
-              {isServicesOpen && (
+              {isResourcesOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full right-0 mt-2 w-56 bg-[#0A0F24] border border-white/10 rounded-xl p-2 shadow-xl"
+                  className="absolute top-full right-0 mt-2 w-64 bg-[#0A0F24] border border-white/10 rounded-xl p-2 shadow-xl"
                 >
-                  {servicesLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsServicesOpen(false)}
-                      className="flex flex-col px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"
-                    >
-                      <span className="font-medium text-white flex items-center gap-2">
+                  {resourcesLinks.map((link, i) => {
+                    if (link.type === 'divider') {
+                      return <div key={`div-${i}`} className="my-1 border-t border-white/5" />;
+                    }
+                    if (link.type === 'group') {
+                      return (
+                        <p key={link.name} className="px-4 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                          {link.name}
+                        </p>
+                      );
+                    }
+                    const active = 'href' in link && isResourceActive(pathname, link.href);
+                    if (link.external) {
+                      return (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsResourcesOpen(false)}
+                          className={cn(
+                            "flex items-center justify-between px-4 py-2.5 rounded-lg hover:bg-white/5 transition-colors text-sm",
+                            active ? "text-white" : "text-slate-300"
+                          )}
+                        >
+                          {link.name}
+                          <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href!}
+                        onClick={() => setIsResourcesOpen(false)}
+                        className={cn(
+                          "flex items-center px-4 py-2.5 rounded-lg hover:bg-white/5 transition-colors text-sm",
+                          active ? "text-white" : "text-slate-300"
+                        )}
+                      >
+                        {link.indent && <span className="w-3 inline-block" />}
                         {link.name}
-                        {link.badge && <span className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">{link.badge}</span>}
-                      </span>
-                      <span className="text-xs text-slate-500">{link.description}</span>
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Guides Dropdown */}
-          <div ref={guidesRef} className="relative">
-            <button
-              onClick={() => setIsGuidesOpen(!isGuidesOpen)}
-              className={cn(
-                "flex items-center gap-1 transition-colors hover:text-white",
-                (pathname.startsWith('/geo-for') || pathname.startsWith('/why-chatgpt')) ? "text-white" : "text-slate-400"
-              )}
-            >
-              Guides
-              <ChevronDown className={cn("w-4 h-4 transition-transform", isGuidesOpen && "rotate-180")} />
-            </button>
-            <AnimatePresence>
-              {isGuidesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full right-0 mt-2 w-56 bg-[#0A0F24] border border-white/10 rounded-xl p-2 shadow-xl"
-                >
-                  {guidesLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsGuidesOpen(false)}
-                      className="flex flex-col px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"
-                    >
-                      <span className="font-medium text-white">{link.name}</span>
-                      <span className="text-xs text-slate-500">{link.description}</span>
-                    </Link>
-                  ))}
+                      </Link>
+                    );
+                  })}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -165,12 +172,10 @@ export function Navbar() {
         
         <div className="flex items-center gap-4">
           <a 
-            href="https://app.getciteflow.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex w-32 h-10 border border-white/10 rounded-full items-center justify-center text-sm font-medium bg-white/5 hover:bg-white/10 transition-all cursor-pointer hover:border-primary/50"
+            href="mailto:support@getciteflow.ai"
+            className="hidden md:flex h-10 px-5 border border-primary/30 rounded-full items-center justify-center text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-all"
           >
-            App
+            Talk to Our Team
           </a>
           
           {/* Mobile Toggle */}
@@ -190,9 +195,9 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6">
+            <nav className="flex flex-col gap-6 pb-12">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -208,46 +213,51 @@ export function Navbar() {
               ))}
               
               <div>
-                <p className="text-lg font-bold text-slate-400 mb-3">Services</p>
+                <p className="text-lg font-bold text-slate-400 mb-3">Resources</p>
                 <div className="pl-4 flex flex-col gap-4">
-                  {servicesLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg text-slate-300 transition-colors hover:text-white"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-lg font-bold text-slate-400 mb-3">Guides</p>
-                <div className="pl-4 flex flex-col gap-4">
-                  {guidesLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg text-slate-300 transition-colors hover:text-white"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {resourcesLinks.map((link, i) => {
+                    if (link.type === 'divider') return <hr key={`div-${i}`} className="border-white/5 my-1" />;
+                    if (link.type === 'group') return (
+                      <p key={link.name} className="text-sm font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                        {link.name}
+                      </p>
+                    );
+                    if (link.external) {
+                      return (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-2 text-lg text-slate-300 hover:text-white transition-colors"
+                        >
+                          {link.name}
+                          <ExternalLink className="w-4 h-4 text-slate-500" />
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href!}
+                        onClick={() => setIsOpen(false)}
+                        className="text-lg text-slate-300 transition-colors hover:text-white"
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
               
               <hr className="border-white/5 my-4" />
               <a 
-                href="https://app.getciteflow.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:support@getciteflow.ai"
                 onClick={() => setIsOpen(false)}
-                className="flex w-full h-14 border border-white/10 rounded-2xl items-center justify-center text-lg font-bold bg-white/5 cursor-pointer"
+                className="flex w-full h-14 border border-primary/30 rounded-2xl items-center justify-center text-lg font-bold bg-primary/10 text-primary"
               >
-                App
+                Talk to Our Team
               </a>
             </nav>
           </motion.div>

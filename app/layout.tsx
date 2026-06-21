@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
   openGraph: { title: "GetCiteFlow | Get Your Brand Recommended by AI", description: "Enterprise AI Brand Service that gets your brand recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.", type: "website", siteName: "GetCiteFlow", images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow OG Image' }] },
   twitter: { card: 'summary_large_image', title: 'GetCiteFlow | Get Your Brand Recommended by AI', description: 'Enterprise service that gets your brand mentioned and recommended by AI systems.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75'] },
-  other: { 'google-site-verification': 'placeholder' },
+  other: { 'google-site-verification': 'BoNURFBgBxzB3hvyclbuiET1LgD1QAc8sWbOqG3lnh' },
 };
 
 const organizationSchema = {
