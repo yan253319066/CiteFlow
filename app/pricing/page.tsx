@@ -88,7 +88,7 @@ export default function PricingPage() {
               <p className="text-sm text-muted-foreground">Scan your site across 6 dimensions and see exactly what AI systems find about your brand — and what they miss.</p>
             </div>
             <ul className="space-y-2 mb-6 flex-1 text-sm">
-              {["5 scans per hour", "AI Visibility Score (0-100)", "6-dimension breakdown (AI visibility, FAQ coverage, entity clarity, authority, content structure, summary optimization)", "Missing components ranked by impact", "Shareable scan report"].map((f) => (
+              {["5 scans per hour", "AI Visibility Score (0-100)", "6-dimension breakdown (AI visibility, FAQ coverage, entity clarity, authority, content structure, summary optimization)", "Missing components ranked by impact", "Side-by-side competitor comparison", "Shareable scan report"].map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   <span>{f}</span>
