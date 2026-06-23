@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Pricing | GetCiteFlow — Free AI Visibility Scanner & Enterprise Services',
   description: 'Start with a free AI Visibility Scan. Enterprise Brand Service (from $3,999) and AI Visibility Growth (from $4,999/month) to get your brand mentioned and recommended by AI.',
   keywords: ['GetCiteFlow pricing', 'free AI visibility scanner', 'AI brand service pricing', 'enterprise AI visibility', 'free AI brand scan', 'AI visibility service pricing', 'brand recommended by AI'],
-  alternates: { canonical: 'https://www.getciteflow.ai/pricing' },
+  alternates: { canonical: 'https://www.getciteflow.ai/pricing', languages: { en: 'https://www.getciteflow.ai/pricing', zh: 'https://www.getciteflow.ai/zh/pricing', 'x-default': 'https://www.getciteflow.ai/pricing' } },
   openGraph: { title: 'GetCiteFlow Pricing — Free AI Visibility Scanner', description: 'Free AI Visibility Scan for any URL. Enterprise services to get your brand mentioned and recommended by AI.', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75', width: 1200, height: 630, alt: 'GetCiteFlow Pricing OG Image' }] },
   twitter: { card: 'summary_large_image', title: 'Pricing | GetCiteFlow — Free AI Visibility Scanner', description: 'Start with a free AI Visibility Scan. No credit card required. Enterprise brand services for getting recommended by AI.', images: ['https://www.getciteflow.ai/api/og?domain=getciteflow.ai/pricing&score=75'] },
 };

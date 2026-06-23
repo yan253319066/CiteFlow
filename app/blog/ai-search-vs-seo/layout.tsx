@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'AI Search vs. SEO: Why Rankings No Longer Drive Traffic | GetCiteFlow',
   description: 'Google rankings do not guarantee AI citations. Analyzing the divergence between traditional SEO and AI-driven search visibility, with data and implications for content teams.',
   keywords: ['AI search vs SEO', 'AI citations', 'SEO diminishing returns', 'AI search impact', 'generative search traffic'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/ai-search-vs-seo' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/ai-search-vs-seo',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/ai-search-vs-seo' },
+  },
   openGraph: {
     title: 'AI Search vs. SEO: Why Traditional Rankings No Longer Drive Traffic',
     description: 'The signals Google uses to rank pages and the signals LLMs use to cite sources are fundamentally different. Here is what the gap means for your content strategy.',

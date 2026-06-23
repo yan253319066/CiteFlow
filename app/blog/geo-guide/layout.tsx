@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'How Generative Engines Choose What to Cite | GetCiteFlow GEO Guide',
   description: 'LLMs don\'t crawl the web like Google does. Understanding how AI selects sources changes everything about your content strategy. A deep dive into RAG pipelines and citation priority.',
   keywords: ['GEO guide', 'generative engine optimization', 'AI citations', 'LLM source selection', 'RAG pipeline'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/geo-guide' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/geo-guide',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/geo-guide' },
+  },
   openGraph: {
     title: 'How Generative Engines Choose What to Cite — GEO Guide',
     description: 'A deep dive into how LLMs select sources and why traditional SEO doesn\'t prepare you for AI citations.',

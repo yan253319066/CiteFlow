@@ -1,8 +1,15 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Mail, Twitter, Github } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isZh = pathname.startsWith('/zh');
+  const prefix = isZh ? '/zh' : '';
+
   return (
     <footer className="border-t border-white/5 bg-[#050816] py-20 px-6 relative overflow-hidden">
       {/* Subtle Glow */}
@@ -15,33 +22,35 @@ export function Footer() {
             <span className="text-lg font-bold">GetCiteFlow</span>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            The enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.
+            {isZh
+              ? '企业级 AI 品牌服务，让您的品牌被 ChatGPT、Claude、Perplexity、Gemini、DeepSeek、豆包、通义千问等 AI 主动推荐。'
+              : 'The enterprise AI brand service that gets your brand mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.'}
           </p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-white">Product</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">{isZh ? '产品' : 'Product'}</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/" className="hover:text-primary transition-colors">AI Visibility Scanner</Link></li>
-              <li><Link href="/blog/geo-guide" className="hover:text-primary transition-colors">AI Visibility Guide</Link></li>
-              <li><Link href="/services/ai-visibility-growth" className="hover:text-primary transition-colors">AI Visibility Growth</Link></li>
-              <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
-              <li><Link href="/compare/ahrefs-vs-getciteflow" className="hover:text-primary transition-colors">Ahrefs vs GetCiteFlow</Link></li>
-              <li><Link href="/compare/profound-vs-getciteflow" className="hover:text-primary transition-colors">Profound vs GetCiteFlow</Link></li>
+              <li><Link href={prefix || '/'} className="hover:text-primary transition-colors">{isZh ? 'AI 可见度检测' : 'AI Visibility Scanner'}</Link></li>
+              <li><Link href={`${prefix}/blog/geo-guide`} className="hover:text-primary transition-colors">{isZh ? 'AI 可见度指南' : 'AI Visibility Guide'}</Link></li>
+              <li><Link href={`${prefix}/services/ai-visibility-growth`} className="hover:text-primary transition-colors">{isZh ? 'AI 可见度增长服务' : 'AI Visibility Growth'}</Link></li>
+              <li><Link href={`${prefix}/case-studies`} className="hover:text-primary transition-colors">{isZh ? '案例研究' : 'Case Studies'}</Link></li>
+              <li><Link href={`${prefix}/compare/ahrefs-vs-getciteflow`} className="hover:text-primary transition-colors">Ahrefs vs GetCiteFlow</Link></li>
+              <li><Link href={`${prefix}/compare/profound-vs-getciteflow`} className="hover:text-primary transition-colors">Profound vs GetCiteFlow</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-white">Resources</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">{isZh ? '资源' : 'Resources'}</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/blog/ai-visibility" className="hover:text-primary transition-colors">AI Visibility Guide</Link></li>
-              <li><Link href="/blog/chatgpt-seo" className="hover:text-primary transition-colors">ChatGPT SEO</Link></li>
-              <li><Link href="/why-chatgpt-doesnt-mention-your-site" className="hover:text-primary transition-colors">Why ChatGPT Ignores You</Link></li>
+              <li><Link href={`${prefix}/blog`} className="hover:text-primary transition-colors">{isZh ? '博客' : 'Blog'}</Link></li>
+              <li><Link href={`${prefix}/blog/ai-visibility`} className="hover:text-primary transition-colors">{isZh ? 'AI 可见度指南' : 'AI Visibility Guide'}</Link></li>
+              <li><Link href={`${prefix}/blog/chatgpt-seo`} className="hover:text-primary transition-colors">ChatGPT SEO</Link></li>
+              <li><Link href={`${prefix}/why-chatgpt-doesnt-mention-your-site`} className="hover:text-primary transition-colors">{isZh ? '为什么 ChatGPT 忽略你的品牌' : 'Why ChatGPT Ignores You'}</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-white">Ecosystem</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">{isZh ? '生态' : 'Ecosystem'}</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="https://platform.openai.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">OpenAI Platform</Link></li>
               <li><Link href="https://ai.google" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Google AI</Link></li>
@@ -49,7 +58,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-white">Connect</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">{isZh ? '联系' : 'Connect'}</h4>
             <div className="flex gap-4">
               <Link href="https://x.com/getciteflow" target="_blank" className="text-slate-400 hover:text-primary transition-colors">
                 <Twitter className="w-5 h-5" />
@@ -69,10 +78,10 @@ export function Footer() {
       </div>
       
       <div className="max-w-6xl mx-auto border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-        <p>© 2026 GetCiteFlow AI. All rights reserved. <span className="text-slate-600">·</span> <span className="text-slate-500">AI visibility research by Aggarwal et al., KDD 2024</span></p>
+        <p>{isZh ? '© 2026 GetCiteFlow AI。保留所有权利。' : '© 2026 GetCiteFlow AI. All rights reserved.'} <span className="text-slate-600">·</span> <span className="text-slate-500">{isZh ? 'AI 可见性研究：Aggarwal et al., KDD 2024' : 'AI visibility research by Aggarwal et al., KDD 2024'}</span></p>
         <div className="flex gap-6">
-          <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
-          <Link href="/terms-of-service" className="hover:text-primary">Terms of Service</Link>
+          <Link href={`${prefix}/privacy-policy`} className="hover:text-primary">{isZh ? '隐私政策' : 'Privacy Policy'}</Link>
+          <Link href={`${prefix}/terms-of-service`} className="hover:text-primary">{isZh ? '服务条款' : 'Terms of Service'}</Link>
         </div>
       </div>
     </footer>

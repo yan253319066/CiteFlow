@@ -7,7 +7,10 @@ export const metadata: Metadata = {
   title: 'How to Get Cited by ChatGPT | GetCiteFlow',
   description: 'ChatGPT citations are not the same as Google rankings. Learn how to get your brand cited rather than just ranked.',
   keywords: ['ChatGPT citations', 'GEO', 'AI visibility', 'ChatGPT SEO', 'AI search visibility', 'generative engine optimization'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/rank-in-chatgpt',
+    languages: { en: 'https://www.getciteflow.ai/blog/rank-in-chatgpt', zh: 'https://www.getciteflow.ai/zh/blog/rank-in-chatgpt', 'x-default': 'https://www.getciteflow.ai/blog/rank-in-chatgpt' },
+  },
   openGraph: {
     title: 'How to Get Cited by ChatGPT',
     description: 'A repeatable framework for increasing how often your brand gets mentioned by AI assistants.',

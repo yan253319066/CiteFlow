@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'AI Crawlers Now Outpace Human Browsers — Cloudflare 2026 Data Breakdown | GetCiteFlow',
   description: 'Cloudflare\'s 2026 Radar data shows AI crawlers account for 26.7% of verified bot traffic. GPTBot alone grew 305% since 2024. Enterprise implications for the generative web.',
   keywords: ['AI crawler traffic', 'Cloudflare radar 2026', 'GPTBot traffic', 'bad bot report', 'AI agent traffic'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/ai-traffic-2026' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/ai-traffic-2026',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/ai-traffic-2026' },
+  },
   openGraph: {
     title: 'AI Crawlers Now Outpace Human Browsers',
     description: '57.5% of HTTP requests are now bots. AI crawlers alone account for 26.7% of verified bot traffic — and that number is accelerating.',

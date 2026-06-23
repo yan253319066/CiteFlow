@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'The Entity Gap: Why Most Brands Are Invisible to AI | GetCiteFlow',
   description: '73–92% of brands cannot be identified as entities by LLMs. Named Entity Recognition failure, polysemy, and the hidden tax on AI brand visibility.',
   keywords: ['entity gap', 'named entity recognition', 'brand AI visibility', 'LLM entity disambiguation', 'polysemy brand problem', 'why brands invisible to ChatGPT'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/entity-gap' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/entity-gap',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/entity-gap' },
+  },
   openGraph: {
     title: 'The Entity Gap: Why Most Brands Are Invisible to AI',
     description: 'NER failure, polysemy, and the five types of entity gap that prevent 73–92% of brands from being cited by generative AI.',

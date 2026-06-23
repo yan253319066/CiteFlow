@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'The Content Structure That Gets Cited by Every Major LLM | GetCiteFlow',
   description: 'Reverse-engineered from 1,200+ cited pages: the universal four-layer architecture (Entity Definition → Relationship Map → Proof Layer → Structured Data) that predicts citation success across ChatGPT, Perplexity, Claude, Gemini, and Copilot.',
   keywords: ['content structure LLM citations', 'entity definition', 'relationship map', 'structured data citations', 'content cited by ChatGPT'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/content-structure-llm-citations' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/content-structure-llm-citations',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/content-structure-llm-citations' },
+  },
   openGraph: {
     title: 'The Content Structure That Gets Cited by Every Major LLM',
     description: 'Content cited by ChatGPT, Perplexity, Claude, Gemini, and Copilot shares a universal four-layer architecture. Build every page to satisfy all four layers and 4x your citation rate.',

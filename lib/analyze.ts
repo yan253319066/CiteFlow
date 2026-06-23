@@ -222,19 +222,13 @@ export async function analyzeSite(url: string): Promise<Record<string, unknown>>
     } catch (err) {
       const msg = (err as Error).message || '';
       if (err instanceof ScrapeError) {
-        if (err.code === ScrapeErrorCode.TIMEOUT) {
-          return {
-            error: true,
-            errorCode: err.code,
-            errorType: 'TIMEOUT',
-            errorMessage: err.message,
-            provider: null,
-          };
-        }
+        const errorType = err.code === ScrapeErrorCode.TIMEOUT ? 'TIMEOUT'
+          : err.code === ScrapeErrorCode.BLOCKED_HOST ? 'INVALID_DOMAIN'
+          : ScrapeErrorCode[err.code];
         return {
           error: true,
           errorCode: err.code,
-          errorType: ScrapeErrorCode[err.code],
+          errorType,
           errorMessage: err.message,
           provider: null,
         };

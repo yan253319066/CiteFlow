@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'How to Build Entity Associations LLMs Recognize | GetCiteFlow',
   description: 'Wikidata strategy, cross-source category consistency, and the Acquisition-Reinforcement-Consolidation lifecycle for building durable entity associations that LLMs trust.',
   keywords: ['entity associations LLM', 'Wikidata entity strategy', 'cross-source brand consistency', 'entity resolution maintenance', 'brand entity building'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/build-entity-associations' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/build-entity-associations',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/build-entity-associations' },
+  },
   openGraph: {
     title: 'How to Build Entity Associations LLMs Recognize',
     description: 'From Wikidata to cross-source consistency: the Acquisition-Reinforcement-Consolidation lifecycle for building entity associations that persist across model updates.',

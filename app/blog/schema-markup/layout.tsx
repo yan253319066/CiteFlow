@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'Schema Markup That Directly Improves AI Citation Rates | GetCiteFlow',
   description: 'FAQ, Organization, and Product schema show 2-3x citation uplift. A ranked implementation guide for schema types that correlate with LLM citation frequency.',
   keywords: ['schema markup AI citations', 'FAQ schema LLM', 'Organization schema entity resolution', 'structured data generative engine optimization', 'AI citation schema types'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/schema-markup' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/schema-markup',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/schema-markup' },
+  },
   openGraph: {
     title: 'Schema Markup That Directly Improves AI Citation Rates',
     description: 'FAQ schema gets cited 2x more. Organization schema enables entity resolution. A ranked guide to schema types that improve LLM citation frequency.',

@@ -1,44 +1,16 @@
 # GetCiteFlow — Enterprise AI Brand Service
+> Optimize your brand's presence in AI search results.
 
-GetCiteFlow is an enterprise brand visibility service that helps brands get mentioned and recommended by AI systems including ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Google AI Overviews.
+## English (primary)
+https://www.getciteflow.ai/
+https://www.getciteflow.ai/blog/
+https://www.getciteflow.ai/pricing
+https://www.getciteflow.ai/services/ai-visibility-growth
+https://www.getciteflow.ai/compare
 
-## Core Features
-- **AI Visibility Score** — 0-100 score with breakdown across 6 dimensions
-- **Missing Components Scan** — Detects missing FAQ Schema, llms.txt, robots.txt issues, weak entity clarity, missing AI-readable markdown
-- **Actionable Recommendations** — Prioritized guidance on what to fix to improve AI visibility
-
-## Services
-- AI Visibility Growth: https://www.getciteflow.ai/services/ai-visibility-growth
-
-## Pages
-- Home: https://www.getciteflow.ai
-- Blog: https://www.getciteflow.ai/blog
-- What Is GEO: https://www.getciteflow.ai/blog/what-is-geo
-- GEO Guide: https://www.getciteflow.ai/blog/geo-guide
-- ChatGPT SEO: https://www.getciteflow.ai/blog/chatgpt-seo
-- AI Visibility Metric: https://www.getciteflow.ai/blog/ai-visibility
-- How to Get Cited by ChatGPT: https://www.getciteflow.ai/blog/rank-in-chatgpt
-- AI Search vs SEO: https://www.getciteflow.ai/blog/ai-search-vs-seo
-- GEO for SaaS: https://www.getciteflow.ai/geo-for-saas
-- GEO for AI Tools: https://www.getciteflow.ai/geo-for-ai-tools
-- GEO for Startups: https://www.getciteflow.ai/geo-for-startups
-- Why ChatGPT Ignores Your Site: https://www.getciteflow.ai/why-chatgpt-doesnt-mention-your-site
-- Case Studies: https://www.getciteflow.ai/case-studies
-- Nexus Protocol Case Study: https://www.getciteflow.ai/case-studies/nexus-protocol
-- Notion GEO Playbook: https://www.getciteflow.ai/case-studies/notion-strategy
-- Compare AI Visibility: https://www.getciteflow.ai/compare
-- Ahrefs vs GetCiteFlow: https://www.getciteflow.ai/compare/ahrefs-vs-getciteflow
-- Profound vs GetCiteFlow: https://www.getciteflow.ai/compare/profound-vs-getciteflow
-- Pricing: https://www.getciteflow.ai/pricing
-- Privacy Policy: https://www.getciteflow.ai/privacy-policy
-- Terms of Service: https://www.getciteflow.ai/terms-of-service
-
-## Pricing
-Free: AI Visibility Score for any URL — 6-dimension analysis, missing component detection
-Enterprise Brand Visibility: From $3,999 one-time — Full visibility optimization (site-wide audit, deployment support). Price varies by site size and scope.
-
-Enterprise AI Visibility Growth: From $4,999/month — Managed service for brand presence across AI systems (industry-specific platform strategy, brand entity building, citation-optimized content, competitor citation gap analysis, cross-platform distribution, monthly monitoring & iteration). Custom-priced based on scope.
-## Contact
-- Telegram: @OS_Blockchain
-- Support: support@getciteflow.ai
-- X: @getciteflow
+## 中文
+https://www.getciteflow.ai/zh/
+https://www.getciteflow.ai/zh/blog/
+https://www.getciteflow.ai/zh/pricing
+https://www.getciteflow.ai/zh/services/ai-visibility-growth
+https://www.getciteflow.ai/zh/compare

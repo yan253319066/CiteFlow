@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'GEO vs SEO: Three Critical Differences | GetCiteFlow',
   description: 'SEO optimizes for rankability and backlinks; GEO optimizes for extractability and entity consensus. Three mechanism-level differences that change how you build content.',
   keywords: ['GEO vs SEO', 'Generative Engine Optimization', 'AI citation optimization', 'entity consensus', 'extractability vs rankability'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/geo-vs-seo' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/geo-vs-seo',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/geo-vs-seo' },
+  },
   openGraph: {
     title: 'GEO vs SEO: Three Critical Differences',
     description: 'Extractability vs. rankability, entity consensus vs. backlinks, entity triples vs. keywords — how GEO diverges from SEO at the mechanism level.',

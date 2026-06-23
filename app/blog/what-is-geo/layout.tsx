@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'What Is GEO? Generative Engine Optimization Guide | GetCiteFlow',
   description: 'GEO means optimizing content so AI search engines cite your brand. Here is how it works, how it differs from SEO, and why you need both.',
   keywords: ['GEO definition', 'generative engine optimization explained', 'what is GEO', 'AI search optimization', 'GEO vs SEO'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/what-is-geo' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/what-is-geo',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/what-is-geo' },
+  },
   openGraph: {
     title: 'What Is GEO? A Complete Guide to Generative Engine Optimization',
     description: 'GEO is the practice of optimizing content so that AI search engines cite your brand. Here is how it works and why it matters.',

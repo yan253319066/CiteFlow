@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'GetCiteFlow Blog | AI Brand Visibility Insights',
   description: 'Guides about AI brand visibility, getting mentioned by ChatGPT, and AI visibility growth strategies.',
   keywords: ['AI brand visibility', 'brand AI mentions', 'AI visibility', 'brand visibility guide', 'AI visibility scanner', 'AI visibility checker'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog' },
+  alternates: { canonical: 'https://www.getciteflow.ai/blog', languages: { en: 'https://www.getciteflow.ai/blog', zh: 'https://www.getciteflow.ai/zh/blog', 'x-default': 'https://www.getciteflow.ai/blog' } },
   openGraph: {
     title: 'GetCiteFlow Blog — AI Brand Visibility Insights',
     description: 'Strategies for getting your brand mentioned by AI. Guides on AI brand visibility and getting recommended by ChatGPT.',

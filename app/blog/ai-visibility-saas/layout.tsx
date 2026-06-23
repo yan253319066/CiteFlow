@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'AI Visibility for B2B SaaS Companies | GetCiteFlow',
   description: 'SaaS brands with dictionary-word names face unique entity disambiguation challenges. Comparison pages, pricing schema, and integration entity graphs drive AI citations for B2B SaaS.',
   keywords: ['AI visibility SaaS', 'SaaS brand AI citations', 'B2B SaaS entity resolution', 'LLM citations SaaS', 'SaaS comparison pages AI'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/ai-visibility-saas' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/ai-visibility-saas',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/ai-visibility-saas' },
+  },
   openGraph: {
     title: 'AI Visibility for B2B SaaS Companies',
     description: 'Comparison pages, transparent pricing schema, and integration entity graphs drive AI citations for B2B SaaS brands. How to solve the common noun entity problem.',

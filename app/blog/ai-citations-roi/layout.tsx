@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'The ROI of AI Citations: Converting Visibility into Revenue | GetCiteFlow',
   description: 'AI citations drive three forms of value: direct referral traffic, brand awareness, and entity reinforcement. How to measure and attribute revenue from generative engine citations.',
   keywords: ['ROI AI citations', 'AI visibility revenue', 'citation attribution', 'GEO ROI', 'AI citations value'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/ai-citations-roi' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/ai-citations-roi',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/ai-citations-roi' },
+  },
   openGraph: {
     title: 'The ROI of AI Citations: Converting Visibility into Revenue',
     description: 'AI citations drive three forms of value: direct referral traffic, brand awareness, and entity reinforcement. How to measure and attribute revenue from generative engine citations.',

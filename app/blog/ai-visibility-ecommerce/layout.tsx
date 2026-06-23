@@ -4,7 +4,10 @@ export const metadata: Metadata = {
   title: 'AI Visibility for E-Commerce Brands | GetCiteFlow',
   description: 'Product schema markup is the highest-impact signal for e-commerce AI citations. Review schema, category hierarchies, and inventory data for LLM purchase recommendations.',
   keywords: ['AI visibility ecommerce', 'product schema AI', 'ecommerce LLM citations', 'review schema citations', 'AI agent ecommerce'],
-  alternates: { canonical: 'https://www.getciteflow.ai/blog/ai-visibility-ecommerce' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/blog/ai-visibility-ecommerce',
+    languages: { zh: 'https://www.getciteflow.ai/zh/blog/ai-visibility-ecommerce' },
+  },
   openGraph: {
     title: 'AI Visibility for E-Commerce Brands',
     description: 'Product schema, review data, category hierarchy, and inventory signals — how to make your e-commerce products citeable and agent-ready.',

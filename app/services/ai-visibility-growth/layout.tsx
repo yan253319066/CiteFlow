@@ -3,7 +3,10 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'AI Visibility Growth Service | GetCiteFlow',
   description: 'A managed service that builds your brand\'s presence across AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, Qwen. Industry-specific platform strategy, brand entity building, citation-optimized content, and more. From $4,999/month.',
-  alternates: { canonical: 'https://www.getciteflow.ai/services/ai-visibility-growth' },
+  alternates: {
+    canonical: 'https://www.getciteflow.ai/services/ai-visibility-growth',
+    languages: { zh: 'https://www.getciteflow.ai/zh/services/ai-visibility-growth' },
+  },
   keywords: ['AI visibility service', 'brand AI visibility', 'AI discoverability service', 'industry brand visibility', 'brand presence in AI', 'AI content strategy service', 'brand visibility service', 'AI brand service', 'ChatGPT brand presence', 'GetCiteFlow enterprise'],
   openGraph: {
     title: 'AI Visibility Growth Service | GetCiteFlow',

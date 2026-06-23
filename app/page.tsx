@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'GetCiteFlow | Enterprise AI Brand Service — Get Recommended by AI',
   description: 'Enterprise AI Brand Service. Free AI Visibility Scanner — check your brand\'s AI visibility across ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.',
   keywords: ['AI brand visibility', 'get mentioned by AI', 'enterprise AI service', 'brand recommended by AI', 'AI visibility scanner', 'ChatGPT brand mentions', 'AI brand service', 'Qwen brand mentions'],
-  alternates: { canonical: 'https://www.getciteflow.ai/' },
+  alternates: { canonical: 'https://www.getciteflow.ai/', languages: { en: 'https://www.getciteflow.ai/', zh: 'https://www.getciteflow.ai/zh', 'x-default': 'https://www.getciteflow.ai/' } },
   twitter: { card: 'summary_large_image', title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.' },
   openGraph: { title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — Get Your Brand Recommended by AI' }] }
 };

@@ -30,6 +30,7 @@ export enum ScrapeErrorCode {
   HTTP_ERROR = 1003,
   INVALID_URL = 1004,
   BROWSER_ERROR = 1005,
+  BLOCKED_HOST = 1006,
 }
 
 export class ScrapeError extends Error {
@@ -210,11 +211,75 @@ function extractFromHtml(html: string) {
   };
 }
 
+/* ================================================================
+   SSRF 防护 — 域名校验，阻止对内部地址的请求
+   ================================================================ */
+
+const BLOCKED_HOSTS = new Set([
+  'localhost',
+  '127.0.0.1', '::1',
+  '0.0.0.0',
+  '[::]',
+  'metadata.google.internal', // GCP metadata
+  '169.254.169.254',          // AWS / cloud metadata
+]);
+
+const PRIVATE_IP_PATTERNS = [
+  /^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/,          // 10.0.0.0/8
+  /^172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}$/, // 172.16.0.0/12
+  /^192\.168\.\d{1,3}\.\d{1,3}$/,               // 192.168.0.0/16
+  /^169\.254\.\d{1,3}\.\d{1,3}$/,               // 169.254.0.0/16 (link-local)
+  /^127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/,           // 127.0.0.0/8
+  /^0\.0\.0\.0$/,                                 // broadcast
+  /^fc00:/i, /^fd00:/i,                           // IPv6 unique local
+  /^fe80:/i,                                        // IPv6 link-local
+  /^::1$/i,                                         // IPv6 loopback
+];
+
+function isPrivateHost(hostname: string): boolean {
+  const lowered = hostname.toLowerCase();
+  if (BLOCKED_HOSTS.has(lowered)) return true;
+  for (const pattern of PRIVATE_IP_PATTERNS) {
+    if (pattern.test(lowered)) return true;
+  }
+  return false;
+}
+
+function validateHostname(urlObj: URL): void {
+  const { hostname, protocol } = urlObj;
+
+  // 仅允许 HTTP/HTTPS
+  if (protocol !== 'http:' && protocol !== 'https:') {
+    throw new ScrapeError(ScrapeErrorCode.BLOCKED_HOST, `Blocked protocol: ${protocol}`);
+  }
+
+  // 阻止直接 IP 访问
+  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(hostname) || hostname.startsWith('[')) {
+    throw new ScrapeError(ScrapeErrorCode.BLOCKED_HOST, `IP-based requests are not allowed: ${hostname}`);
+  }
+
+  // 阻止私有地址
+  if (isPrivateHost(hostname)) {
+    throw new ScrapeError(ScrapeErrorCode.BLOCKED_HOST, `Private/internal host not allowed: ${hostname}`);
+  }
+
+  // 域名至少包含一个点（排除裸主机名如 "localhost"）
+  if (!hostname.includes('.')) {
+    throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `Invalid hostname: ${hostname}`);
+  }
+
+  // 阻止非标准端口
+  if (urlObj.port && urlObj.port !== '80' && urlObj.port !== '443') {
+    throw new ScrapeError(ScrapeErrorCode.BLOCKED_HOST, `Non-standard ports are not allowed: ${urlObj.port}`);
+  }
+}
+
 export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
   let baseUrl: string;
+  let urlObj: URL;
   try {
     baseUrl = url.startsWith("http") ? url : `https://${url}`;
-    const urlObj = new URL(baseUrl);
+    urlObj = new URL(baseUrl);
     if (!urlObj.hostname) {
       throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `Invalid URL: ${url}`);
     }
@@ -222,6 +287,9 @@ export async function scrapeWebsite(url: string): Promise<ScrapeResult> {
     if (err instanceof ScrapeError) throw err;
     throw new ScrapeError(ScrapeErrorCode.INVALID_URL, `Invalid URL: ${url}`);
   }
+
+  // SSRF 防护：阻止内部/私有地址、裸 IP、非标准端口
+  validateHostname(urlObj);
 
   const resolvedOrigin = await resolveOrigin(baseUrl);
 

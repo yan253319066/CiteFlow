@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'AI Visibility Comparison: Compare Brand Scores | GetCiteFlow',
   description: 'Compare your brand\'s AI visibility score against competitors. See exactly who AI recommends and where you\'re winning or losing.',
   keywords: ['AI visibility comparison', 'brand AI visibility', 'compare AI scores', 'AI visibility scanner', 'competitor AI analysis', 'brand AI comparison'],
-  alternates: { canonical: 'https://www.getciteflow.ai/compare' },
+  alternates: { canonical: 'https://www.getciteflow.ai/compare', languages: { en: 'https://www.getciteflow.ai/compare', zh: 'https://www.getciteflow.ai/zh/compare', 'x-default': 'https://www.getciteflow.ai/compare' } },
   openGraph: {
     title: 'Compare AI Visibility Scores — Free Comparison Tool',
     description: 'See how your brand stacks up against competitors in AI search. Free side-by-side analysis.',
