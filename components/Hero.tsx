@@ -61,7 +61,7 @@ export function Hero() {
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-xs">
             {t?.visibilityBoost || '\u2191 Up to 40% visibility boost'}
           </span>
-          <span className="text-slate-600">\u00B7</span>
+          <span className="text-slate-600">·</span>
           <span className="text-slate-500 text-xs font-semibold">{t?.researchBased || 'Based on KDD 2024 research'}</span>
         </motion.div>
       </div>
