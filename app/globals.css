@@ -72,6 +72,17 @@
   to   { opacity: 1; }
 }
 
+/* Google WRS / reduced-motion: skip opacity animations so content is always visible */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ===== Animation utility classes ===== */
 
 .animate-in-up {
