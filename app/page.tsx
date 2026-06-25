@@ -1,164 +1,32 @@
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { ScoreCards } from "@/components/ScoreCards";
-import { Features } from "@/components/Features";
-import { HowItWorks } from "@/components/HowItWorks";
-import { EnterpriseSection } from "@/components/EnterpriseSection";
-import { JsonLd } from "@/components/JsonLd";
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'GetCiteFlow | Enterprise AI Brand Service — Get Recommended by AI',
-  description: 'Enterprise AI Brand Service. Free AI Visibility Scanner — check your brand\'s AI visibility across ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.',
-  keywords: ['AI brand visibility', 'get mentioned by AI', 'enterprise AI service', 'brand recommended by AI', 'AI visibility scanner', 'ChatGPT brand mentions', 'AI brand service', 'Qwen brand mentions'],
-  alternates: { canonical: 'https://www.getciteflow.ai/', languages: { en: 'https://www.getciteflow.ai/', zh: 'https://www.getciteflow.ai/zh', 'x-default': 'https://www.getciteflow.ai/' } },
-  twitter: { card: 'summary_large_image', title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.' },
-  openGraph: { title: 'GetCiteFlow — Get Your Brand Recommended by AI', description: 'Enterprise AI Brand Service. Free AI Visibility Scanner included — check your brand\'s standing with ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.', url: 'https://www.getciteflow.ai/', images: [{ url: 'https://www.getciteflow.ai/api/og?domain=getciteflow.ai&score=75', width: 1200, height: 630, alt: 'GetCiteFlow — Get Your Brand Recommended by AI' }] }
-};
-
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "GetCiteFlow",
-  description: "Enterprise AI Brand Service. Get your brand mentioned and recommended by ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen. Free AI Visibility Scanner included.",
-  provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
-  areaServed: "Worldwide",
-  audience: { "@type": "Audience", audienceType: "Business" },
-  offers: { "@type": "AggregateOffer", lowPrice: "0", priceCurrency: "USD", offerCount: "1" },
-  url: "https://www.getciteflow.ai",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "GetCiteFlow Services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Enterprise AI Brand Service" } },
-      { "@type": "Offer", itemOffered: { "@type": "SoftwareApplication", name: "Free AI Visibility Scanner" } }
-    ]
-  }
-};
-
-const aiVisibilityServiceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AI Visibility Growth",
-  description: "A managed service that builds your brand's presence across AI systems including ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, and Qwen.",
-  provider: { "@type": "Organization", name: "GetCiteFlow", url: "https://www.getciteflow.ai" },
-  areaServed: "Worldwide",
-  audience: { "@type": "Audience", audienceType: "Business" },
-  offers: { "@type": "AggregateOffer", lowPrice: "4999", priceCurrency: "USD", offerCount: "1" },
-  url: "https://www.getciteflow.ai/services/ai-visibility-growth",
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is GetCiteFlow?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GetCiteFlow is an enterprise service that helps brands get mentioned and recommended by AI systems — ChatGPT, Claude, Perplexity, Gemini, DeepSeek, Doubao, Qwen, and Google AI Overviews. We also offer a free AI Visibility Scanner that checks your website's current AI visibility."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "How does GetCiteFlow help my brand get recommended by AI?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GetCiteFlow analyzes the platforms and sources that AI systems trust in your specific industry, then builds discoverable brand signals across them — through custom content, entity optimization, and cross-platform distribution. Our enterprise service actively builds your brand's presence so AI systems mention and recommend you."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "Is GetCiteFlow a GEO tool?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No — GetCiteFlow is an enterprise brand service. We offer a free AI Visibility Scanner that checks GEO (Generative Engine Optimization) signals, but the scanner is just a diagnostic tool. Our core business is helping enterprise brands get mentioned and recommended by AI systems."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "What is the free AI Visibility Scanner?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The free AI Visibility Scanner checks your website's content structure, entity clarity, FAQ coverage, and other factors that AI systems use to determine who to mention. You get an AI Visibility Score (0-100) with recommendations — a free diagnostic to see where your brand stands."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "How can I get my brand mentioned by ChatGPT?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "To increase your chances of being mentioned by ChatGPT, focus on: (1) Clear entity definitions with category-specific language, (2) Comparison content with competitors, (3) FAQ pages with Schema.org markup, and (4) Getting mentioned on high-authority sources that AI systems trust. Our enterprise service handles all of this for you."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "Is the AI Visibility Scanner free?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, the AI Visibility Scanner is completely free — no credit card required. Enter any URL and get an AI Visibility Score with basic recommendations. It's a free diagnostic to show you where your brand stands with AI."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "What do you get in a free AI Visibility Scan?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GetCiteFlow scans your homepage and core landing pages, checking title tags, H1 structure, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt. You get an AI Visibility Score (0-100) with prioritized issues and actionable recommendations."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "How does the free scanner work?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Scan — GetCiteFlow crawls your homepage and landing pages. Diagnose — It scores your AI visibility across 6 dimensions and highlights what's missing. Improve — Follow the recommendations or let our enterprise team build your brand presence."
-      }
-    }
-  ]
-};
-
-const howToSchema = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Check Your Brand's AI Visibility",
-  description: "Three simple steps to check your brand's AI visibility using GetCiteFlow's free scanner.",
-  step: [
-    {
-      "@type": "HowToStep",
-      position: 1,
-      name: "Full Site Scan",
-      text: "Enter any URL and GetCiteFlow crawls your homepage and core landing pages — checking title tags, H1s, FAQ coverage, Schema markup, meta descriptions, robots.txt, and llms.txt."
-    },
-    {
-      "@type": "HowToStep",
-      position: 2,
-    name: "AI Visibility Score",
-    text: "Get an AI Visibility Score (0-100) with a detailed breakdown across 6 dimensions. See exactly what AI systems find about your brand — and what they miss — ranked by impact."
-    },
-    {
-      "@type": "HowToStep",
-      position: 3,
-      name: "Track & Improve",
-      text: "Follow the prioritized recommendations to fix what's holding your site back. Re-scan anytime to track your progress and watch your score grow."
-    }
-  ]
-};
-
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
-      <JsonLd data={serviceSchema} />
-      <JsonLd data={aiVisibilityServiceSchema} />
-      <JsonLd data={faqSchema} />
-      <JsonLd data={howToSchema} />
-      <Navbar />
-      <Hero />
-      <ScoreCards />
-      <EnterpriseSection />
-      <HowItWorks />
-      <Features />
+    <main style={{ minHeight: '100vh', paddingTop: '80px', background: '#050816', color: '#ffffff', fontFamily: 'system-ui, sans-serif' }}>
+      <header style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 24px', background: '#050816', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <span style={{ fontWeight: 'bold', fontSize: '20px' }}>GetCiteFlow</span>
+        <nav style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#94a3b8' }}>
+          <span>Scan</span>
+          <span>Pricing</span>
+          <span>Services</span>
+        </nav>
+      </header>
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '16px' }}>WRS Test Page</h1>
+        <p style={{ fontSize: '18px', color: '#94a3b8', marginBottom: '32px' }}>
+          This is a minimal test page. H1 text. H2 text below. Paragraph below.
+        </p>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '12px', marginTop: '48px' }}>Section One</h2>
+        <p style={{ fontSize: '16px', color: '#94a3b8' }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '12px', marginTop: '48px' }}>Section Two</h2>
+        <p style={{ fontSize: '16px', color: '#94a3b8' }}>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '12px', marginTop: '48px' }}>Section Three</h2>
+        <p style={{ fontSize: '16px', color: '#94a3b8' }}>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
     </main>
   );
 }
