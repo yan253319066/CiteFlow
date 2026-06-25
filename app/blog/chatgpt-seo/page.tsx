@@ -93,7 +93,7 @@ export default function ChatGPTSEO() {
         <header className="mb-12">
           <Badge className="mb-6 bg-primary/10 text-primary border-none">Strategy</Badge>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold leading-tight mb-8"
           >

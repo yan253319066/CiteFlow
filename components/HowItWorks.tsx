@@ -37,7 +37,7 @@ export function HowItWorks() {
             return (
               <li key={idx}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.15 }}
                   viewport={{ once: true }}

@@ -32,7 +32,7 @@ export function EnterpriseSection() {
   return (
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+        <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-6">
             <Radar className="w-3 h-3 text-primary" />
             <span>Enterprise AI Brand Service</span>
@@ -49,7 +49,7 @@ export function EnterpriseSection() {
           {offerings.map((item, idx) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
@@ -63,7 +63,7 @@ export function EnterpriseSection() {
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
+        <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
           <p className="text-slate-400 text-sm mb-6">
             From $4,999/month. Every engagement starts with an industry-specific analysis.
           </p>

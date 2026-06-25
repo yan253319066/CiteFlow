@@ -19,7 +19,7 @@ export function ScoreCards() {
           {exampleReports.map((item, idx) => (
             <motion.div
               key={item.project}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}

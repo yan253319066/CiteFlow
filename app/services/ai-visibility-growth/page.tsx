@@ -162,7 +162,7 @@ export default function Page() {
 
         <header className="text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8"
           >
@@ -171,7 +171,7 @@ export default function Page() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold leading-tight mb-6"
@@ -180,7 +180,7 @@ export default function Page() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-xl text-slate-400 max-w-3xl mx-auto mb-8"
@@ -189,7 +189,7 @@ export default function Page() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 mb-14"
@@ -200,7 +200,7 @@ export default function Page() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
@@ -228,7 +228,7 @@ export default function Page() {
           {offerings.map((offering, idx) => (
             <motion.div
               key={offering.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               viewport={{ once: true }}
@@ -257,7 +257,7 @@ export default function Page() {
           {steps.map((step, idx) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
@@ -294,7 +294,7 @@ export default function Page() {
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   viewport={{ once: true }}

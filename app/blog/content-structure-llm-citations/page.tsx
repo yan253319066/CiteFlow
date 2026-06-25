@@ -77,7 +77,7 @@ export default function ContentStructure() {
 
         <header className="mb-12">
           <Badge className="mb-6 bg-primary/10 text-primary border-none">Research Report</Badge>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold leading-tight mb-8">
+          <motion.h1 initial={false} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold leading-tight mb-8">
             The Content Structure That Gets Cited by <span className="gradient-text">Every Major LLM</span>
           </motion.h1>
           <div className="flex items-center justify-between border-y border-white/5 py-6">

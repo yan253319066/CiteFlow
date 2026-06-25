@@ -102,7 +102,7 @@ export default function Page() {
         <header className="mb-16">
           <Badge className="mb-6 bg-primary/10 text-primary border-none">Vertical Guide</Badge>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold leading-tight mb-6"
           >
@@ -131,7 +131,7 @@ export default function Page() {
           {strategies.map((strategy, idx) => (
             <motion.div
               key={strategy.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
@@ -176,7 +176,7 @@ export default function Page() {
               {checklist.map((item, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   viewport={{ once: true }}
