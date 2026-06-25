@@ -35,7 +35,7 @@ export function Hero() {
   };
 
   const anim = (delay: number) =>
-    mounted ? `animate-fade-in-up stagger-delay-${delay}` : '';
+    mounted ? `animate-in-up stagger-delay-${delay}` : '';
 
   return (
     <section className="relative pt-32 pb-20 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
