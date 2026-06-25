@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { ScoreCards } from "@/components/ScoreCards";
 import { JsonLd } from "@/components/JsonLd";
 
 const serviceSchema = {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <JsonLd data={serviceSchema} />
       <Navbar />
       <Hero />
+      <ScoreCards />
     </main>
   );
 }
