@@ -5,7 +5,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { useInView } from '@/hooks/useInView';
 import { Bot, Layers, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 const articleSchema = {
@@ -87,6 +87,29 @@ const checklist = [
   "Add structured data to highlight pricing, features, and use cases",
 ];
 
+function StrategyCard({ strategy, idx }: { strategy: { icon: React.ComponentType<{ className?: string }>; title: string; description: string }; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  return (
+    <div ref={ref} className={isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}>
+      <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors">
+        <strategy.icon className="w-10 h-10 text-primary mb-6" />
+        <h3 className="text-xl font-bold mb-3">{strategy.title}</h3>
+        <p className="text-slate-400 leading-relaxed">{strategy.description}</p>
+      </Card>
+    </div>
+  );
+}
+
+function ChecklistItem({ item, idx }: { item: string; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  return (
+    <div ref={ref} className={`flex items-start gap-3 ${isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}`}>
+      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+      <span className="text-slate-300">{item}</span>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <main className="min-h-screen pb-20">
@@ -101,13 +124,9 @@ export default function Page() {
 
         <header className="mb-16">
           <Badge className="mb-6 bg-primary/10 text-primary border-none">Vertical Guide</Badge>
-          <motion.h1 
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold leading-tight mb-6"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
             GEO for AI Tools
-          </motion.h1>
+          </h1>
           <p className="text-xl text-slate-400 max-w-2xl">
             How to get your AI product mentioned by ChatGPT, Gemini, Perplexity, DeepSeek, Doubao, and other AI assistants. Unique strategies for the AI tools market.
           </p>
@@ -129,19 +148,7 @@ export default function Page() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           {strategies.map((strategy, idx) => (
-            <motion.div
-              key={strategy.title}
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors">
-                <strategy.icon className="w-10 h-10 text-primary mb-6" />
-                <h3 className="text-xl font-bold mb-3">{strategy.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{strategy.description}</p>
-              </Card>
-            </motion.div>
+            <StrategyCard key={strategy.title} strategy={strategy} idx={idx} />
           ))}
         </div>
 
@@ -174,17 +181,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold mb-6">Your GEO Checklist</h2>
             <div className="space-y-4">
               {checklist.map((item, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={false}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-300">{item}</span>
-                </motion.div>
+                <ChecklistItem key={idx} item={item} idx={idx} />
               ))}
             </div>
           </section>

@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from "motion/react";
 import { Card } from "@/components/ui/card";
 import { Search, FileText, Download, Share2, BarChart3 } from "lucide-react";
 import { useDictionary } from '@/i18n/useDictionary';
+import { useInView } from '@/hooks/useInView';
 
 const featureIcons = [Search, FileText, Download, Share2, BarChart3] as const;
 
@@ -47,24 +47,23 @@ export function Features() {
         <div className="grid md:grid-cols-2 gap-6">
           {items.map((feature: any, idx: number) => {
             const Icon = featureIcons[idx] ?? featureIcons[0];
-            return (
-              <motion.div
-                key={feature.title}
-                initial={false}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors">
-                  <Icon className="w-10 h-10 text-primary mb-6" />
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
-                </Card>
-              </motion.div>
-            );
+            return <FeatureCard key={feature.title} feature={feature} Icon={Icon} idx={idx} />;
           })}
         </div>
       </div>
     </section>
+  );
+}
+
+function FeatureCard({ feature, Icon, idx }: { feature: any; Icon: React.ComponentType<{ className?: string }>; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  return (
+    <div ref={ref} className={isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}>
+      <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors">
+        <Icon className="w-10 h-10 text-primary mb-6" />
+        <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+        <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
+      </Card>
+    </div>
   );
 }

@@ -5,7 +5,8 @@ import { JsonLd } from '@/components/JsonLd';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
+import { useInView } from '@/hooks/useInView';
 import {
   MessageCircle,
   AtSign,
@@ -145,6 +146,15 @@ const steps = [
 ];
 
 export default function Page() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setMounted(true);
+      });
+    });
+  }, []);
+
   return (
     <main className="min-h-screen pb-20">
       <JsonLd data={serviceSchema} />
@@ -161,56 +171,33 @@ export default function Page() {
         </Link>
 
         <header className="text-center">
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8"
-          >
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8 ${mounted ? 'animate-fade-in-up' : ''}`}>
             <Rocket className="w-3 h-3 text-primary" />
             <span>Enterprise Service</span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold leading-tight mb-6"
-          >
+          <h1 className={`text-4xl md:text-6xl font-bold leading-tight mb-6 ${mounted ? 'animate-fade-in-up stagger-delay-1' : ''}`}>
             AI Visibility <span className="gradient-text">Growth</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-slate-400 max-w-3xl mx-auto mb-8"
-          >
+          <p className={`text-xl text-slate-400 max-w-3xl mx-auto mb-8 ${mounted ? 'animate-fade-in-up stagger-delay-2' : ''}`}>
             Help your brand appear more often across AI systems like ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Doubao. A managed service that builds your presence on the platforms AI trusts in your industry.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 mb-14"
-          >
+          <div className={`flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-slate-500 mb-14 ${mounted ? 'animate-fade-in-up stagger-delay-3' : ''}`}>
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Monthly engagement</span>
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> From $4,999/month</span>
             <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Industry-specific strategy</span>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
+          <div className={mounted ? 'animate-fade-in-up stagger-delay-4' : ''}>
             <a
               href="mailto:support@getciteflow.ai"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6E7BFF] to-[#8B5CF6] px-8 py-4 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity"
             >
               Get Started <ArrowRight className="w-4 h-4" />
             </a>
-          </motion.div>
+          </div>
         </header>
       </article>
 
@@ -226,19 +213,7 @@ export default function Page() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {offerings.map((offering, idx) => (
-            <motion.div
-              key={offering.title}
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors group">
-                <offering.icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold mb-3">{offering.title}</h3>
-                <p className="text-slate-400 leading-relaxed text-sm">{offering.description}</p>
-              </Card>
-            </motion.div>
+            <OfferingCard key={offering.title} offering={offering} idx={idx} />
           ))}
         </div>
       </section>
@@ -255,21 +230,7 @@ export default function Page() {
 
         <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
-            <motion.div
-              key={step.title}
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                <step.icon className="w-7 h-7 text-primary" />
-              </div>
-              <span className="text-xs font-bold text-primary tracking-widest">{step.step}</span>
-              <h3 className="text-lg font-bold mt-1 mb-2">{step.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{step.description}</p>
-            </motion.div>
+            <StepCard key={step.title} step={step} idx={idx} />
           ))}
         </div>
       </section>
@@ -292,17 +253,7 @@ export default function Page() {
                 "Monthly strategy call with your team",
                 "Quarterly strategy review & roadmap update",
               ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={false}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-300 text-sm">{item}</span>
-                </motion.div>
+                <ChecklistItem key={idx} item={item} idx={idx} />
               ))}
             </div>
           </div>
@@ -342,5 +293,44 @@ export default function Page() {
         </div>
       </section>
     </main>
+  );
+}
+
+function OfferingCard({ offering, idx }: { offering: typeof offerings[0]; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  const Icon = offering.icon;
+  return (
+    <div ref={ref} className={isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}>
+      <Card className="p-8 bg-[#0A0F24]/40 border-white/10 rounded-2xl h-full hover:border-white/20 transition-colors group">
+        <Icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-xl font-bold mb-3">{offering.title}</h3>
+        <p className="text-slate-400 leading-relaxed text-sm">{offering.description}</p>
+      </Card>
+    </div>
+  );
+}
+
+function StepCard({ step, idx }: { step: typeof steps[0]; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  const Icon = step.icon;
+  return (
+    <div ref={ref} className={`text-center ${isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}`}>
+      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
+        <Icon className="w-7 h-7 text-primary" />
+      </div>
+      <span className="text-xs font-bold text-primary tracking-widest">{step.step}</span>
+      <h3 className="text-lg font-bold mt-1 mb-2">{step.title}</h3>
+      <p className="text-sm text-slate-400 leading-relaxed">{step.description}</p>
+    </div>
+  );
+}
+
+function ChecklistItem({ item, idx }: { item: string; idx: number }) {
+  const { ref, isInView } = useInView(0.15);
+  return (
+    <div ref={ref} className={`flex items-start gap-3 ${isInView ? `animate-fade-in-up stagger-delay-${idx}` : ''}`}>
+      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+      <span className="text-slate-300 text-sm">{item}</span>
+    </div>
   );
 }
