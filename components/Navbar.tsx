@@ -86,10 +86,8 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header 
-        initial={false}
-        animate={{ y: 0, opacity: 1 }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-6 bg-background/5 backdrop-blur-md border-b border-white/5"
+      <header
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-6 bg-background/5 border-b border-white/5"
       >
         <Link href={prefix || '/'} className="flex items-center gap-2 group">
           <Image src="/logo.png" alt="GetCiteFlow" width={32} height={32} className="rounded-lg group-hover:scale-110 transition-transform" />
@@ -220,7 +218,7 @@ export function Navbar() {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
