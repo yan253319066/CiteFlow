@@ -75,9 +75,9 @@ const websiteSchema = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode;}>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)}>
-      <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
+      <body className="bg-background text-foreground antialiased">
         <LocaleScript />
-        <div className="flex-1">{children}</div>
+        {children}
         <Footer />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
