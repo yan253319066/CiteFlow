@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 
 const serviceSchema = {
@@ -15,10 +16,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       <JsonLd data={serviceSchema} />
       <Navbar />
-      <div className="pt-32 pb-20 px-6 flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-4xl font-bold mb-4">WRS Test Page</h1>
-        <p className="text-lg text-slate-400">Navbar + JsonLd only — no motion sections</p>
-      </div>
+      <Hero />
     </main>
   );
 }
