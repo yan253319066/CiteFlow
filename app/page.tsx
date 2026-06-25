@@ -23,7 +23,6 @@ export default function HomePage() {
       <Hero />
       <ScoreCards />
       <Features />
-      <HowItWorks />
       <EnterpriseSection />
     </main>
   );
