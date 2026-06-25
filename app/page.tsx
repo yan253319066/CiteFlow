@@ -23,7 +23,8 @@ export default function HomePage() {
       <Hero />
       <ScoreCards />
       <Features />
-      <HowItWorks />
+      <div style={{height: '600px', background: 'transparent'}} />
+      <div style={{height: '600px', background: 'transparent'}} />
     </main>
   );
 }
