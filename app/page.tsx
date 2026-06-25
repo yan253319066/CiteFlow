@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ScoreCards } from "@/components/ScoreCards";
+import { Features } from "@/components/Features";
 import { JsonLd } from "@/components/JsonLd";
 
 const serviceSchema = {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ScoreCards />
+      <Features />
     </main>
   );
 }
