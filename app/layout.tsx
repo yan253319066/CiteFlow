@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { ChatwootWidget } from "@/components/ChatwootWidget";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Footer />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
+        <ChatwootWidget />
         <Analytics />
         <SpeedInsights />
         {process.env.NEXT_PUBLIC_GA_ID && (

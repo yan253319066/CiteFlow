@@ -203,12 +203,15 @@ export function Navbar() {
             {isZh ? 'English' : '中文'}
           </button>
 
-          <a 
+          {/* 联系团队按钮暂时注释，Chatwoot 已接管客服功能 */}
+          {/*
+          <a
             href="mailto:support@getciteflow.ai"
             className="hidden md:flex h-10 px-5 border border-primary/30 rounded-full items-center justify-center text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-all"
           >
             {dict?.nav?.talkToTeam || 'Talk to Our Team'}
           </a>
+          */}
           
           {/* Mobile Toggle */}
           <button 
@@ -291,14 +294,17 @@ export function Navbar() {
                 {isZh ? 'Switch to English' : '切换到中文'}
               </button>
               
+              {/* 联系团队按钮暂时注释，Chatwoot 已接管客服功能 */}
+              {/*
               <hr className="border-white/5 my-4" />
-              <a 
+              <a
                 href="mailto:support@getciteflow.ai"
                 onClick={() => setIsOpen(false)}
                 className="flex w-full h-14 border border-primary/30 rounded-2xl items-center justify-center text-lg font-bold bg-primary/10 text-primary"
               >
                 {dict?.nav?.talkToTeam || 'Talk to Our Team'}
               </a>
+              */}
             </nav>
           </motion.div>
         )}
