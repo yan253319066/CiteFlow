@@ -10,5 +10,4 @@ coverage/
 .vercel
 .env*.local
 
-/AGENTS.md
 *.tsbuildinfo
